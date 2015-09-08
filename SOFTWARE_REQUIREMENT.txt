@@ -1,0 +1,12 @@
+UTeM Sticker Management System
+--------------------
+
+Current System:-
+UTeM is one of public university that use sticker as an authorization pass for any vehicle to go into the university. Each active students and staffs in UTeM are compulsory to purchase this sticker. Even foreign contractor need to purchase this sticker before using their vehicle in UTeM.
+
+Future Solution:-
+Your team as a developer team need to develop a system, so that each active students, staffs, and contractors can purchase this sticker in online system from anywhere and anytime (as long they has an internet connection).
+
+This system has 3 kinds of user; Administrator, Users, and Security Officer. Administrator can do anything in the system, including managing the forms, stickers, users, and reporting. Users can only do 2 things; purchasing the sticker via online form, and view their own application's history records. Security Officer can do 3 things; viewing all applications, approving or rejecting application, and view some reporting.
+
+.. to be continue ..
