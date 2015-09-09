@@ -1,25 +1,31 @@
 <?php
   class M_conndb extends CI_Model {
 	  
-	  function getAll($table) {
+	  function getAll($table) 
+	  {
 		  $this->db->select('*');
 		  $this->db->from($table);
 		  $q = $this->db->get();
-		  if($q->num_rows() > 0) {
-			  foreach($q->result() as $r) {
+		  if($q->num_rows() > 0) 
+		  {
+			  foreach($q->result() as $r) 
+			  {
 				  $d[] = $r;
 			  }
 			  return $d;
 		  }
 	  }
 	  
-	  function get($table, $pri, $id) {
+	  function get($table, $pri, $id) 
+	  {
 		  $this->db->select('*');
 		  $this->db->from($table);
 		  $this->db->where($pri, $id);
 		  $q = $this->db->get();
-		  if($q->num_rows() > 0) {
-			  foreach($q->result() as $r) {
+		  if($q->num_rows() > 0) 
+		  {
+			  foreach($q->result() as $r) 
+			  {
 				  $d[] = $r;
 			  }
 			  return $d;
