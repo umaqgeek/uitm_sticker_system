@@ -16,11 +16,19 @@ class Login extends CI_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-
         public function index()
-	{
+        {
             $this->viewpage();
-	}
+
+        }
+
+        public function signup ()
+        {
+            $this->load->view('signup');
+
+        }
+
+
         
         function checklogin()
         {
@@ -41,4 +49,9 @@ class Login extends CI_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('login'));
         }
+
+
+
 }
+
+
