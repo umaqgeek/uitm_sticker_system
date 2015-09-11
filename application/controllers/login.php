@@ -24,7 +24,7 @@ class Login extends CI_Controller
 
         public function signup ()
         {
-            $this->load->view('signup');
+            $this->load->view('login/signup');
 
         }
 
