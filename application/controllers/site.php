@@ -1,15 +1,12 @@
-<?php
+<?php 
+class Site extends MY_Controller 
+{
+      
+        public function index()
+	{
+           $this->load->model('m_users');
+           $data['records'] = $this->m_users->getAll();
 
-class Site extends CI_Controller {
-	
-	function index() {
-	 $data['myValue'] = "Some string";
-	 $data['anotherValue'] = 'Another string';	
-     $this->load->view('home', $data);
-}
-	function about() {
-		$this->load->view('about');
-	}
-
-}
-
+           $this->load->view('home', $data);
+       }
+      } 
