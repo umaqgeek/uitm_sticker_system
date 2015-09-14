@@ -109,7 +109,8 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('m_conndb');
+//$autoload['model'] = array('m_conndb');
+$autoload['model'] = array();
 
 
 /* End of file autoload.php */
