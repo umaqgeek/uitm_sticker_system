@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "login";
-$route['404_override'] = '';
+$route['scaffolding_trigger'] = '';
 
 
 /* End of file routes.php */
