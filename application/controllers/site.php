@@ -19,6 +19,7 @@ class Site extends MY_Controller
 
         public function index()
 	{
+            $this->load->model('m_signup');
             $data['signup'] = $this->m_signup->getAll();
             $data['haha'] = "tata";
             $this->viewpage('v_signup', $data);
