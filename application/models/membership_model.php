@@ -1,5 +1,6 @@
 <?php
 
+
 class Membership_model extends CI_Model{
 
 	function validate() {
@@ -8,9 +9,11 @@ class Membership_model extends CI_Model{
 		$query = &this->db->get('users');
 
 		if ($query->num_rows == 1) {
+
 			return true;
 		}
 	}
+
 
 	function create_member() {
 
@@ -23,9 +26,11 @@ class Membership_model extends CI_Model{
 			'u_password' => md5($this->input->post('u_password'))
 		);
 
+
 		$insert = $this->db->insert('users', $new_member_insert_data);
 		return $insert;
 	}
+
 
 	function check_if_username_exists($username) {
 

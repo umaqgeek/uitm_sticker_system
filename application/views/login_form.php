@@ -1,4 +1,5 @@
 <div id="login_form">
+
     <h1>Login, please.</h1>
     <?php
     echo form_open('login/validate_credentials');
@@ -8,3 +9,4 @@
     echo anchor('login/signup', 'Create Account');
     ?>
 </div><!--end login_form-->
+

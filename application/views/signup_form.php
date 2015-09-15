@@ -1,4 +1,4 @@
-		<h1>Create an Account!</h1>
+<h1>Create an Account!</h1>
 
 		<fieldset>
 			<legend>Personal Information</legend>

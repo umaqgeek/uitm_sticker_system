@@ -1,6 +1,6 @@
 <?php
 
-class Site extends CI_Controller{
+/*class Site extends CI_Controller{
 
 	function __construct()
 	{
@@ -34,4 +34,6 @@ class Site extends CI_Controller{
 	function about(){
 		$this->load->view('about');
 	}
+
 } */
+
