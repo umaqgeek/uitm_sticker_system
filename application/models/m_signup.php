@@ -1,39 +1,33 @@
 <?php
-  class M_conndb extends CI_Model {
+  class M_signup extends CI_Model {
 	  
-	  function getAll($table) 
-	  {
+	  function getAll() {
 		  $this->db->select('*');
-		  $this->db->from($table);
+		  $this->db->from('signup');
 		  $q = $this->db->get();
-		  if($q->num_rows() > 0) 
-		  {
-			  foreach($q->result() as $r) 
-			  {
+		  if($q->num_rows() > 0) {
+			  foreach($q->result() as $r) {
 				  $d[] = $r;
 			  }
 			  return $d;
 		  }
 	  }
 	  
-	  function get($table, $pri, $id) 
-	  {
+	  function get($table, $pri, $id) {
 		  $this->db->select('*');
 		  $this->db->from($table);
 		  $this->db->where($pri, $id);
 		  $q = $this->db->get();
-		  if($q->num_rows() > 0) 
-		  {
-			  foreach($q->result() as $r) 
-			  {
+		  if($q->num_rows() > 0) {
+			  foreach($q->result() as $r) {
 				  $d[] = $r;
 			  }
 			  return $d;
 		  }
 	  }
 	  
-	  function add($table, $data) {
-		  if($this->db->insert($table, $data)) {
+	  function add($data) {
+		  if($this->db->insert('signup', $data)) {
 			  return $this->db->insert_id();
 		  } else {
 			  return 0;

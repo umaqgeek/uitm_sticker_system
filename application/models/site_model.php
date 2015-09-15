@@ -12,5 +12,10 @@ class Site_model extends CI_Model {
 		}
 
 		return $data;
+
+class Site_model extends Model{
+
+	function getAll(){
+		$q = $this->db
 	}
 }
