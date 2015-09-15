@@ -1,6 +1,6 @@
 <?php
 
-class Site extends CI_Controller{
+/*class Site extends CI_Controller{
 
 	function index(){
 		$data['myValue'] = "Some string";
@@ -12,4 +12,13 @@ class Site extends CI_Controller{
 	function about(){
 		$this->load->view('about');
 	}
+} */
+
+class Site extends CI_Controller {
+
+function members_area()
+{
+	$this->load->view('members_area');
+}
+
 }
