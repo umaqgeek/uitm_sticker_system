@@ -4,13 +4,14 @@
 <style>
 body{
     background-color: #e0ffff;
-    background-image: url("hai.jpg");
+    
 }
 </style><br><br>
 <h1><center>Sticker Registration</h1>
 
 </head>
 <body>
+    
 
 </body>
 </html>
