@@ -139,7 +139,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hantar</button></div>
             <div class="col"></div>
-            <div class="col-md-2"><button type="submit" class="btn btn-primary" href="https://www.google.com" >Logout</button></div>
+            <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Logout</button></div>
         </div>
 
 
@@ -155,6 +155,23 @@
         </div>
         <div class="modal-body">
           <p>Terima kasih kerana mendaftar.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>   
+        </div>
+        <div class="modal-body">
+          <p>Terima Kasih Datang Lagi.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

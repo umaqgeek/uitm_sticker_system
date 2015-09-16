@@ -3,19 +3,15 @@
 <head>
 <style>
 body{
-    background-color: #e0ffff;
     
 }
-</style><br><br>
-<h1><center>Sticker Registration</h1>
+</style>
+
 
 </head>
 <body>
-    
-
-</body>
-</html>
-
+    <div class="jumbotron">
+  <h2><center>Sticker Registration</h2>
 
 <form method="post" action="<?=site_url('login/checklogin'); ?>">
 <div class="row" style="margin-top: 5%;">
@@ -38,7 +34,12 @@ body{
         
     </div>
 </div>
-</form>
+</form> 
+</div>
+</body>
+</html>
+
+
 
 
 

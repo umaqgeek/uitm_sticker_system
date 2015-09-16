@@ -1,17 +1,17 @@
 
 <html >
 <head>
-   <h1>  <br> <br><center>Sign Up Form</h1>
+   
 <style>
 body{
-    background-color: #e0ffff;
+   
 }
 </style>
 </head>
 
 <body >
-  
-  
+  <h2>  <br> <br><center>Sign Up Form</h2>
+  <div class="jumbotron">
 <form method"post" action="<?=site_url('login/signup');?>">
 <div class="row" style="margin-top:10%;">
     <div class="col-md-4 col-md-offset-3">
@@ -61,7 +61,7 @@ body{
       </div>
   </div>
 </form>
-
+</div>
 
                     
 
