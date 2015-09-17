@@ -7,22 +7,23 @@ class Site extends MY_Controller
 	{
             parent::__construct(); 
 	}
-        
-        private function viewpage($page='v_mainpage', $data=array())
-        {
-            echo $this->load->view('v_header', $data, true);
-            echo $this->load->view($this->parent_page.'/v_menu', $data, true);
-            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
-            echo $this->load->view('v_footer', $data, true);
-        }
 
+    private function viewpage($page='v_mainpage', $data=array())
+        {
+            echo $this->load->view('users/v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/users/v_menu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('users/v_footer', $data, true);
+        }
+        
+        
 
         public function index()
 	{
             $this->load->model('m_signup');
             $data['signup'] = $this->m_signup->getAll();
             $data['haha'] = "tata";
-            $this->viewpage('v_signup', $data);
+            $this->load->view('login/v_signup', $data);
         }
         
         public function terimaForm()
@@ -31,7 +32,6 @@ class Site extends MY_Controller
             unset($input['ic_no']);
             
             $array_temp = array(
-                'bu_plat' => $input['bu_plat'],
                 'name' => $input['name'],
                 'username' => $input['username'],
                 'password' => $input['password'],
@@ -39,7 +39,9 @@ class Site extends MY_Controller
                 'email' => $input['email'],
                 
             );
-            
+             $this->load->model('m_signup');
+            $data['signup'] = $this->m_signup->add($array_temp);
+        
             
             redirect(site_url('site'));
         }
@@ -48,7 +50,7 @@ class Site extends MY_Controller
         {
             $input = $this->input->post();
             $data['input'] = $input;
-            $this->viewpage('v_formConfirm', $data);
+            $this->load->view('login/v_formConfirm', $data);
         }
         
        
