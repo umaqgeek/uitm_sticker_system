@@ -2,12 +2,21 @@
 
 <head>
 <title>BORANG PERMOHONAN STIKER</title>
+<style>
+   form.three {
+    border-style: solid;
+    border-width: medium;}
 
+    div.two {
+    border-style: solid;
+    border-width: medium;}
+</style>
 </head>
-<body>
+<body> 
 <div class="jumbotron">
-  <center><br><br><h2>BORANG PERMOHONAN STIKER</h2></center>
-<form method="post"  action="<?=site_url('login/registration'); ?>">
+    <div class="two"> 
+<center><h2>BORANG PERMOHONAN STIKER</h2></center></div><br>
+<form method="post" class="three" action="<?=site_url('login/registration'); ?>">
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-4 col-md-offset-4">
         <div class="row">
@@ -135,12 +144,12 @@
             <div class="col-md-2">No waris Terdekat:</div>
             <div class="col-md-10"><input type="text" class="form-control" name="waris" placeholder="No Waris"></div>
        </div><br>
-       <div class="row" style="margin-top: 1%;">
+       <div class="row" style="margin-top: 3%;">
             <div class="col-md-3"></div>
             <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hantar</button></div>
             <div class="col"></div>
             <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Logout</button></div>
-        </div>
+        </div><br>
 
 
 
