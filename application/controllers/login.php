@@ -4,12 +4,22 @@
 class Login extends CI_Controller
 
 {
+<<<<<<< HEAD
 	function index()
+=======
+        var $parent_page = "login";
+        var $parent_page1 = "signup";
+
+
+
+	function __construct()
+>>>>>>> ac02516e079a451b579e72319e8765c365ff4a37
 	{
 		$data['main_content'] = 'login_form';
 		$this->load->view('includes/template', $data);
 	}
 
+<<<<<<< HEAD
 	function validate_credentials()
 	{
 		$this->load->model('membership_model');
@@ -87,6 +97,53 @@ class Login extends CI_Controller{
         $query = $this->membership_model->validate();
 
         if($query) //if the user's credentials validated...
+=======
+        private function viewpage1($page='signup', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view('v_menu', $data, true);
+            echo $this->load->view($this->parent_page1.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
+
+        public function index()
+        {
+            $this->viewpage();
+
+
+        }
+
+        public function signup ()
+        {
+             
+            $input = $this->input->post();
+            $data['input'] = $input;
+            $this->viewpage('signup', $data);
+           
+        }
+
+        public function registration ()
+        {
+
+            $input = $this->input->post();
+            $data['input'] = $input;
+            $this->viewpage('registration', $data);
+
+        }
+
+        function checksignup()
+        {
+
+
+
+
+        }
+
+
+        
+        function checklogin()
+>>>>>>> ac02516e079a451b579e72319e8765c365ff4a37
         {
             $data = array(
                 'u_username' => $this->input->post('u_username'),
@@ -138,5 +195,13 @@ class Login extends CI_Controller{
                 $this->load->view('signup_form');
             }
         }
+<<<<<<< HEAD
     }
+=======
+
+
+
+>>>>>>> ac02516e079a451b579e72319e8765c365ff4a37
 }
+
+
