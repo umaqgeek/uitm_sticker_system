@@ -50,7 +50,7 @@ class Site extends MY_Controller
         {
             $input = $this->input->post();
             $data['input'] = $input;
-            $this->load->view('login/v_formConfirm', $data);
+            $this->load->view('login/v_login', $data);
         }
         
        
