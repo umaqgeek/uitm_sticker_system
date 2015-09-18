@@ -45,6 +45,15 @@ class Login extends CI_Controller
            
         }
 
+        public function registration ()
+        {
+
+            $input = $this->input->post();
+            $data['input'] = $input;
+            $this->viewpage('registration', $data);
+
+        }
+
         function checksignup()
         {
 
