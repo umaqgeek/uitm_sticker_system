@@ -7,7 +7,7 @@
 <body>
 <div class="jumbotron">
   <center><br><br><h2>BORANG PERMOHONAN STIKER</h2></center>
-<form method="post"  action="<?=site_url('login/registration'); ?>">
+<form method="post"  action="<?=site_url('login/v_login'); ?>">
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-4 col-md-offset-4">
         <div class="row">

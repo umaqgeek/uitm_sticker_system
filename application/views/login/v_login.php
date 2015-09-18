@@ -3,17 +3,20 @@
 <head>
 <style>
 body{
+    background-color: #e0ffff;
     
 }
-</style>
+</style><br><br>
+<h1><center>Sticker Registration System</h1>
+ 
+ </head>
+ <body>   
+ 
+ </body>
+ </html>
 
 
-</head>
-<body>
-    <div class="jumbotron">
-  <h2><center>Sticker Registration</h2>
-
-<!--<form method="post" action="<?=site_url('login/checklogin'); ?>">
+<form method="post" action="<?=site_url('login/registration'); ?>">
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-6 col-md-offset-3">
         
@@ -34,16 +37,7 @@ body{
         
     </div>
 </div>
-<<<<<<< HEAD
-</form> -->
-=======
 </form> 
-</div>
-</body>
-</html>
 
 
-
-
->>>>>>> ac02516e079a451b579e72319e8765c365ff4a37
 

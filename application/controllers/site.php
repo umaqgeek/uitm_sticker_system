@@ -1,6 +1,6 @@
 <?php
 
-/*class Site extends CI_Controller{
+class Site extends CI_Controller{
 
 	function __construct()
 	{
@@ -10,7 +10,7 @@
 
 	function members_area()
 	{
-		$this->load->view('members_area');
+		$this->load->view('login/registration');
 	}
 
 	function is_logged_in()
