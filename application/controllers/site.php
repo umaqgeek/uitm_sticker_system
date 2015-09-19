@@ -8,6 +8,7 @@ class Site extends MY_Controller
             parent::__construct(); 
 	}
 
+
     private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
@@ -17,6 +18,7 @@ class Site extends MY_Controller
         }
         
         
+
 
         public function index()
 	{
@@ -55,3 +57,4 @@ class Site extends MY_Controller
        
         
 }
+

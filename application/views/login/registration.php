@@ -18,12 +18,19 @@
         background-color:#e0ffff;}
 </style>
 </head>
+
 <body> 
 
 <!-- <div class="jumbotron">
     <div class="two"> 
 <center><h2>BORANG PERMOHONAN STIKER</h2></center></div><br>
 <form method="post" class="three" action="<?=site_url('registration/checkregistration'); ?>">
+=======
+<body>
+<div class="jumbotron">
+  <center><br><br><h2>BORANG PERMOHONAN STIKER</h2></center>
+<form method="post"  action="<?=site_url('login/v_login'); ?>">
+>>>>>>> 6e5664e7c64974bf3747720139e7da11c6e3a981
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-4 col-md-offset-4">
         <div class="row">

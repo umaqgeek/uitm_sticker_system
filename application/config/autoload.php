@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session', 'xmlrpc', 'SimpleLoginSecu
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'file');
+$autoload['helper'] = array('url', 'form');
 
 
 /*
@@ -109,7 +109,12 @@ $autoload['language'] = array();
 |
 */
 
+<<<<<<< HEAD
 $autoload['model'] = array('m_signup');
+=======
+//$autoload['model'] = array('m_conndb');
+$autoload['model'] = array();
+>>>>>>> 6e5664e7c64974bf3747720139e7da11c6e3a981
 
 
 /* End of file autoload.php */

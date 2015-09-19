@@ -28,6 +28,13 @@
 <div class="row" style="margin-top:3%;">
     <div class="col-md-4 col-md-offset-4">
 
+ <!--  <h2>  <br> <br><center>Sign Up Form</h2>
+  <div class="jumbotron">
+<form method"post" action="<?=site_url('login');?>">
+<div class="row" style="margin-top:10%;">
+    <div class="col-md-4 col-md-offset-3"> -->
+
+
       <center> 
                 <div class="row">
                     <div class="col-sm-2">
@@ -144,5 +151,6 @@
 
 </body>
 </html>
+
 
 
