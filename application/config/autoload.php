@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('m_conndb');
+$autoload['model'] = array('m_signup');
 
 
 /* End of file autoload.php */

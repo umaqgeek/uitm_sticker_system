@@ -23,7 +23,7 @@
 <body>
   <div class="jumbotron"> 
     <div class="two"><h2><center>Sticker Registration</h2></div><br>
-    <form method="post" class="three" action="<?=site_url('login/checklogin'); ?>">
+    <form method="post" class="three" action="<?=site_url('login/registration'); ?>">
         <div class="row" style="margin-top: 5%;">
             <div class="col-md-6 col-md-offset-4">
                 <center><div class="row">
@@ -38,7 +38,7 @@
                                 <div class="col-md-3"></div>
                                 <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
                                 <div class="col"></div>
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary" href="https://www.google.com" >Sign Up</button></div>
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <form action="http://localhost/uitm_sticker_system/index.php/site" method="post"></form>Sign Up</button></div>
                         </div><br>
             </div>
         </div>

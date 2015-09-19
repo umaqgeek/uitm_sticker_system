@@ -1,47 +1,30 @@
 <?php
   class M_signup extends CI_Model {
 	  
-	  function getAll() {
-		  $this->db->select('*');
-		  $this->db->from('signup');
-		  $q = $this->db->get();
-		  if($q->num_rows() > 0) {
-			  foreach($q->result() as $r) {
-				  $d[] = $r;
-			  }
-			  return $d;
-		  }
+	  function get() 
+	  {
+		 $query = $this->db->get('signup');
+		 return $query->result();
+
+		} 
+	  
+	  
+	  function add($data)
+	   {
+		  $this->db->insert('signup', $data);
+			  return; 
 	  }
 	  
-	  function get($table, $pri, $id) {
-		  $this->db->select('*');
-		  $this->db->from($table);
-		  $this->db->where($pri, $id);
-		  $q = $this->db->get();
-		  if($q->num_rows() > 0) {
-			  foreach($q->result() as $r) {
-				  $d[] = $r;
-			  }
-			  return $d;
-		  }
+	  function edit($data)
+	   {
+		  $this->db->where('ic_no', 123456);
+		  $this->db->update('signup', $data);
 	  }
 	  
-	  function add($data) {
-		  if($this->db->insert('signup', $data)) {
-			  return $this->db->insert_id();
-		  } else {
-			  return 0;
-		  }
-	  }
-	  
-	  function edit($table, $pri, $id, $data) {
-		  $this->db->where($pri, $id);
-		  return $this->db->update($table, $data);
-	  }
-	  
-	  function delete($table, $pri, $id) {
-		  $this->db->where($pri, $id);
-		  return $this->db->delete($table);
+	  function delete()
+	   {
+		  $this->db->where('ic_no', $this->url->segment(3));
+		  $this->db->delete('signup');
 	  }
 	
   }

@@ -16,7 +16,7 @@
 <div class="jumbotron">
     <div class="two"> 
 <center><h2>BORANG PERMOHONAN STIKER</h2></center></div><br>
-<form method="post" class="three" action="<?=site_url('login/registration'); ?>">
+<form method="post" class="three" action="<?=site_url('registration/checkregistration'); ?>">
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-4 col-md-offset-4">
         <div class="row">
@@ -83,7 +83,7 @@
             <div class="col-md-10"><input type="text" class="form-control" name="chasis" placeholder="No Chasis"></div>
         </div><br>
         <div class="row">
-            <div class="col-md-2">Nana Pemilik:</div>
+            <div class="col-md-2">Nama Pemilik:</div>
             <div class="col-md-10"><input type="text" class="form-control" name="nama" placeholder="Nana Pemilik"></div>
         </div><br>
         <div class="row">
