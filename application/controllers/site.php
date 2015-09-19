@@ -1,7 +1,7 @@
 <?php
 
 class Site extends CI_Controller{
-
+/*
 	function __construct()
 	{
 		parents::CI_Controller();
@@ -23,8 +23,8 @@ class Site extends CI_Controller{
 			die();
 		}
 	}
-}
-/*	function index(){
+} */
+	function index(){
 		$data['myValue'] = "Some string";
 		$data['anotherValue'] = "another string";
 
@@ -35,5 +35,5 @@ class Site extends CI_Controller{
 		$this->load->view('about');
 	}
 
-} */
+}
 

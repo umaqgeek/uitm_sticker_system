@@ -5,7 +5,6 @@ class Login extends CI_Controller
        var $parent_page = "login";
        var $parent_page1 = "signup";
 
-
     function __construct()
     {
            parent::__construct(); 
@@ -26,7 +25,6 @@ class Login extends CI_Controller
            echo $this->load->view($this->parent_page1.'/'.$page, $data, true);
            echo $this->load->view('v_footer', $data, true);
        }
-
 
        public function index()
        {
@@ -52,14 +50,12 @@ class Login extends CI_Controller
 
        function checksignup()
        {
-
-
-
+          $input = $this->input->post();
+          $data['input'] = 'signup';
+          $this->viewpage1('signup', $data);
        }
-
-
        
-       function checklogin()
+       function checklogin()  //same with validate credential
        {
            $username = $this->input->post('username');
            $password = $this->input->post('password');
