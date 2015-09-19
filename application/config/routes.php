@@ -38,13 +38,9 @@
 |
 */
 
-<<<<<<< HEAD
+
 $route['default_controller'] = "site";
 $route['404_override'] = '';
-=======
-$route['default_controller'] = "login";
-$route['scaffolding_trigger'] = '';
->>>>>>> 6e5664e7c64974bf3747720139e7da11c6e3a981
 
 
 /* End of file routes.php */
