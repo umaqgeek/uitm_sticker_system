@@ -28,26 +28,29 @@
 </style>
 </head>
 <body>
-<div class="col-md-12 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1">
     <br><br><br>
     <div class="two"><h2><center>Sticker Registration</h2></div><br>
-    <form method="post" class="three" action="<?=site_url('login/registration'); ?>">
+    <form method="post" class="three" action="<?=site_url('site/registration/add'); ?>">
         <div class="row" style="margin-top: 5%;">
-            <div class="col-md-6 col-md-offset-4">
+            <div class="col-md-6 col-md-offset-3">
                 <center><div class="row">
                                 <div class="col-md-2">Username:</div>
-                                <div class="col-md-8"><input type="text" class="form-control" name="username" placeholder="username" /></div>
+                                <div class="col-md-8"><input type="text" class="form-control" name="u_username" placeholder="username" /></div>
                         </div><span class="text-danger"><?php echo form_error('username'); ?></span><br>
                         <div class="row">
                                 <div class="col-md-2">Password:</div>
-                                <div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="password" /></div>
+                                <div class="col-md-8"><input type="password" class="form-control" name="u_password" placeholder="password" /></div>
                         </div>
                         <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
                                 <div class="col"></div>
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <form action="http://localhost/uitm_sticker_system/index.php/site" method="post"></form>Sign Up</button></div>
+                                 <form method="post" class="three" action="<?=site_url('site/signup1/add'); ?>">
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+                            </form>
                         </div><br>
+
             </div>
         </div>
     </form>
