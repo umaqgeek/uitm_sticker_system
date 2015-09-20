@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -19,12 +19,6 @@
         background-color:#e0ffff;
     }
 
-  /*  form.three {
-    border:1px solid green;
-    outline-style:solid;    
-    outline-color:red;      
-    outline-width:medium;
-}*/
 </style>
 </head>
 <body>
@@ -53,46 +47,58 @@
     </form>
 </div>
 </body>
-</html>
+</html> -->
 
+<?php if(!defined('BASEPATH')) exit('Hacking Attempt : Keluar dari sistem..!!');
 
-<!-- body{
-    background-color: #e0ffff;
+class V_login extends CI_Model
+{
+  public function __construct()
+  {
+    parent::__construct();
+  }
+  
+  
+  public function guess($username, $password)
+  {
+    $this->db->select('*');
+    $this->db->from('user');
+    $this->db->where('username', $username);
+    $this->db->where('password', $password);
+
+    $query = $this->db->get();
     
-}
-</style><br><br>
-<h1><center>Sticker Registration System</h1>
- 
- </head>
- <body>   
- 
- </body>
- </html>
+    return $query->num_rows();
+  }
+  
+  
+  public function pengguna($username)
+  {
+   $this->db->select('username');
+   $this->db->select('full_name');
+   $this->db->where('username', $username);
+   $query = $this->db->get('user');
+   
+   return $query->row();
+  }
+  
+  // public function add_user()
+  // {
+  //    $data=array(
+  //                'ic_no'=>$this->input->post('ic_no'),
+  //                'full_name'=>$this->input->post('full_name'),
+  //                'race'=>$this->input->post('race'),
+  //                'gender'=>$this->input->post('gender'),
+  //                'address'=>$this->input->post('address'),
+  //                'religion'=>$this->input->post('religion'),
+  //                'contact_no'=>$this->input->post('contact_num'),
+  //                'username'=>$this->input->post('user_name'),
+  //                'email'=>$this->input->post('email_address'),
+  //                'password'=>md5($this->input->post('password'))
+  //                );
+  //    $this->db->insert('user',$data);
+  //    return true;
+  // }
+}  
 
-
-<form method="post" action="<?=site_url('login/registration'); ?>">
-<div class="row" style="margin-top: 5%;">
-    <div class="col-md-6 col-md-offset-3">
-        
-        <center><div class="row">
-            <div class="col-md-2">Username :</div>
-            <div class="col-md-6"><input type="text" class="form-control" name="username" placeholder="username" /></div>
-        </div><br>
-        <div class="row">
-            <div class="col-md-2">Password :</div>
-            <div class="col-md-6"><input type="password" class="form-control" name="password" placeholder="password" /></div>
-        </div>
-        <div class="row" style="margin-top: 1%;">
-            <div class="col-md-3"></div>
-            <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
-            <div class="col"></div>
-            <div class="col-md-2"><button type="submit" class="btn btn-primary" href="https://www.google.com" >Sign Up</button></div>
-        </div>
-        
-    </div>
-</div>
-</form>  -->
-
-
-
-
+?>
