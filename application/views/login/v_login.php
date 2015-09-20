@@ -27,7 +27,7 @@
 }*/
 </style>
 </head>
-<body>
+<body><center>
 <div class="col-md-12 col-md-offset-1">
     <br><br><br>
     <div class="two"><h2><center>Sticker Registration</h2></div><br>
