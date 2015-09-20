@@ -29,14 +29,15 @@ class Site extends MY_Controller
                 $crud->set_theme('sayapunyer');
                 $crud->set_table('registration');
                 $crud->required_fields('plat', 'kenderaan');
-                $crud->columns('plat', 'kenderaan');
-                $crud->add_fields('plat','kenderaan');
-                $crud->edit_fields('kenderaan');
-                $crud->unset_add();
-                $crud->unset_delete();
-                $crud->unset_edit();
+                // $crud->columns('plat', 'kenderaan');
+                // $crud->add_fields('plat','kenderaan');
+                // $crud->edit_fields('kenderaan');
+                // $crud->unset_add();
+                // $crud->unset_delete();
+                // $crud->unset_edit();
 
                 $output = $crud->render();
+
 
                 $this->viewpage('v_crud', $output);
 
@@ -45,8 +46,7 @@ class Site extends MY_Controller
             }
         }
         
-        
-
+    
 
         public function index()
     {
@@ -81,8 +81,6 @@ class Site extends MY_Controller
             $data['input'] = $input;
             $this->load->view('login/v_login', $data);
         }
-        
-       
         
 }
 

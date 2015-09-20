@@ -19,12 +19,6 @@
         background-color:#e0ffff;
     }
 
-  /*  form.three {
-    border:1px solid green;
-    outline-style:solid;    
-    outline-color:red;      
-    outline-width:medium;
-}*/
 </style>
 </head>
 <body><center>
@@ -55,7 +49,43 @@
 </body>
 </html>
 
+<!-- // <?php 
 
+<<<<<<< HEAD
 <
+=======
+// class V_login extends CI_Model
+// {
+//   public function __construct()
+//   {
+//     parent::__construct();
+//   }
+  
+  
+//   public function guess($username, $password)
+//   {
+//     $this->db->select('*');
+//     $this->db->from('users');
+//     $this->db->where('username', $username);
+//     $this->db->where('password', $password);
+>>>>>>> eab54d0ba81ccd48303d3e29af4a63f140e46c30
 
+//     $query = $this->db->get();
+    
+//     return $query->num_rows();
+//   }
+  
+  
+//   public function pengguna($username)
+//   {
+//    $this->db->select('username');
+//    $this->db->select('full_name');
+//    $this->db->where('username', $username);
+//    $query = $this->db->get('users');
+   
+//    return $query->row();
+//   }
+  
+// }  
 
+// ?> -->
