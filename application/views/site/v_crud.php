@@ -1,6 +1,10 @@
 
 <div class="row" style="margin-top: 5%;">
-    <div class="col-md-12 col-md-offset-0">
+
+    <!-- <div class="col-md-12 col-md-offset-0"> -->
+
+    <div class="col-md-10 col-md-offset-1">
+
         
         
 <?php 

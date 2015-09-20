@@ -23,7 +23,7 @@ class Site extends MY_Controller
                 $crud = new grocery_CRUD();
 
                 $crud->set_theme('sayapunyer');
-                $crud->set_table('registration');
+
                 $crud->display_as('plat','No Plat');
                 $crud->display_as('ic','No Kad Pengenalan');
                 $crud->display_as('telefon','Telefon Number');
@@ -57,7 +57,16 @@ class Site extends MY_Controller
                 $crud->unset_delete();
                
 
+                // $crud->required_fields('plat', 'kenderaan');
+                // // $crud->columns('plat', 'kenderaan');
+                // // $crud->add_fields('plat','kenderaan');
+                // // $crud->edit_fields('kenderaan');
+                // // $crud->unset_add();
+                // // $crud->unset_delete();
+ 
+
                 $output = $crud->render();
+
 
                 $this->viewpage('v_crud', $output);
 
@@ -69,8 +78,7 @@ class Site extends MY_Controller
                 }
             
         
-        
-
+    
 
         public function index()
         {
@@ -103,8 +111,6 @@ class Site extends MY_Controller
             $data['input'] = $input;
             $this->load->view('login/v_login', $data);
         }
-        
-       
         
 }
 

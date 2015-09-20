@@ -5,8 +5,6 @@
 
 </head>
 
-
-
     <form method="post" action="<?=site_url('site/antaForm'); ?>">
             <div class="row">
                 <div class="col-md-2">
