@@ -1,7 +1,15 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
 
    form.three {
     background-color:white;
@@ -21,71 +29,97 @@
 
 </style>
 </head>
-<body><center>
-<div class="col-md-12 col-md-offset-1">
-    <br><br><br>
-    <div class="two"><h2><center>Sticker Registration</h2></div><br>
-    <form method="post" class="three" action="<?=site_url('login/registration'); ?>">
-        <div class="row" style="margin-top: 5%;">
-            <div class="col-md-6 col-md-offset-4">
-                <center><div class="row">
-                                <div class="col-md-2">Username:</div>
-                                <div class="col-md-8"><input type="text" class="form-control" name="username" placeholder="username" /></div>
-                        </div><span class="text-danger"><?php echo form_error('username'); ?></span><br>
-                        <div class="row">
-                                <div class="col-md-2">Password:</div>
-                                <div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="password" /></div>
-                        </div>
-                        <div class="row" style="margin-top: 3%;">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
-                                <div class="col"></div>
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary" hree="http://www.google.com">Sign Up</button></div>
-                        </div><br>
-            </div>
-        </div>
-    </form>
+<body>
+<br><br><br>
+<div class="container">
+  <div class="two">
+    <h2>Stiker Registration</h2>
+</div><br>
+  <form class="three" action="<?=site_url('login/register');?>">
+    <div class="row" style="margin-top:3%;">
+    <div class="col-md-10 col-md-offset-1">
+    <div class="form-group">
+      <label class="control-label col-md-2">Username:</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" >Password:</label>
+      <div class="col-md-10">          
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-md-offset-4 col-md-6">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+      </div>
+    
 </div>
+</div><br>
+  </form>
+</div>
+
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- // <?php 
 
-<<<<<<< HEAD
-<
-=======
-// class V_login extends CI_Model
-// {
-//   public function __construct()
-//   {
-//     parent::__construct();
-//   }
+// <<<<<<< HEAD
+// <
+// =======
+// // class V_login extends CI_Model
+// // {
+// //   public function __construct()
+// //   {
+// //     parent::__construct();
+// //   }
   
   
-//   public function guess($username, $password)
-//   {
-//     $this->db->select('*');
-//     $this->db->from('users');
-//     $this->db->where('username', $username);
-//     $this->db->where('password', $password);
->>>>>>> eab54d0ba81ccd48303d3e29af4a63f140e46c30
+// //   public function guess($username, $password)
+// //   {
+// //     $this->db->select('*');
+// //     $this->db->from('users');
+// //     $this->db->where('username', $username);
+// //     $this->db->where('password', $password);
+// >>>>>>> eab54d0ba81ccd48303d3e29af4a63f140e46c30
 
-//     $query = $this->db->get();
+// //     $query = $this->db->get();
     
-//     return $query->num_rows();
-//   }
+// //     return $query->num_rows();
+// //   }
   
   
-//   public function pengguna($username)
-//   {
-//    $this->db->select('username');
-//    $this->db->select('full_name');
-//    $this->db->where('username', $username);
-//    $query = $this->db->get('users');
+// //   public function pengguna($username)
+// //   {
+// //    $this->db->select('username');
+// //    $this->db->select('full_name');
+// //    $this->db->where('username', $username);
+// //    $query = $this->db->get('users');
    
-//    return $query->row();
-//   }
+// //    return $query->row();
+// //   }
   
-// }  
+// // }  
 
-// ?> -->
+// // ?> -->
