@@ -25,7 +25,7 @@
 <div class="col-md-12 col-md-offset-1">
     <br><br><br>
     <div class="two"><h2><center>Sticker Registration</h2></div><br>
-    <form method="post" class="three" action="<?=site_url('login/registration'); ?>">
+    <form method="post" class="three" action="<?php echo base_url('login/signup'); ?>">
         <div class="row" style="margin-top: 5%;">
             <div class="col-md-6 col-md-offset-4">
                 <center><div class="row">
@@ -40,7 +40,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
                                 <div class="col"></div>
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <form action="http://localhost/uitm_sticker_system/index.php/site" method="post"></form>Sign Up</button></div>
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <?php echo anchor('login/signup', 'Sign Up');?></button></div>
                         </div><br>
             </div>
         </div>
