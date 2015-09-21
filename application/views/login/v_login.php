@@ -37,14 +37,12 @@
 </div><br>
   <form class="three" action="<?=site_url('login/register');?>">
     <div class="row" style="margin-top:3%;">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-6 col-md-offset-2">
     <div class="form-group">
       <label class="control-label col-md-2">Username:</label>
       <div class="col-md-10">
         <input type="text" class="form-control" name="username" placeholder="Enter username">
-      </div>
-    </div>
-    <div class="form-group">
+      </div>    
       <label class="control-label col-md-2" >Password:</label>
       <div class="col-md-10">          
         <input type="password" class="form-control" name="password" placeholder="Enter password">
