@@ -17,7 +17,11 @@ class Site extends MY_Controller
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
             echo $this->load->view('v_footer', $data, true);
         }
+
        
+
+
+        
 
 
         public function registration()
@@ -84,10 +88,15 @@ class Site extends MY_Controller
     
 
         public function index()
-        {
-                $this->load->view('site/signup');
-}
-        
+
+        {        $this->viewpage();
+                $this->load->view('login/v_login');
+        }
+        public function signup()
+        {       $this->viewpage();
+                $this->load->view('login/signup');
+        }
+
         public function terimaForm()
         {
            $data = array(

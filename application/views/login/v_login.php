@@ -31,7 +31,38 @@
 </head>
 <body>
 
- <!-- <div class="col-md-10 col-md-offset-1">
+<!-- 
+ <div class="col-md-10 col-md-offset-1">
+<div class="container">
+  <div style="margin-top:5%;">
+  <div class="two">
+    <center><h2>Stiker Registration</h2>
+</div></div><br>
+  <form class="three" action="">
+    <div class="row" style="margin-top:3%;">
+    <div class="col-md-6 col-md-offset-2">
+    <div class="form-group">
+      <label class="control-label col-md-2">Username:</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+      </div>    
+      <label class="control-label col-md-2" >Password:</label>
+      <div class="col-md-10">          
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-md-offset-4 col-md-6"><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+      
+    </div>
+      </div> -->
+
+    
+
+<!-- <div class="col-md-10 col-md-offset-1">
+>>>>>>> 030f8d9c8c358575e32aec05d3ab3b995f731ddc
     <br><br><br>
     <div class="two"><h2><center>Sticker Registration</h2></div><br>
 
@@ -54,7 +85,7 @@
                                 <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
                                 <div class="col"></div>
 
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <?php echo anchor('login/signup', 'Sign Up');?></button></div> -->
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <?php echo anchor('login/signup', 'Sign Up');?></button></div>
 
                                  <!-- <form method="post" class="three" action="<?=site_url('site/signup1/add'); ?>">
                                 <div class="col-md-2"><button type="submit" class="btn btn-primary">Sign Up</button></div>
@@ -63,6 +94,7 @@
 
             </div>
         </div>
+<<<<<<< HEAD
     </form>  -->
 <br><br><br>
 <div class="container">
@@ -82,16 +114,16 @@
         <input type="password" class="form-control" name="password" placeholder="Enter password">
       </div>
     </div>
-    <div class="form-group">        
+    <div class="form-group"><br>        
       <div class="col-md-offset-4 col-md-6">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-    </div>
+        <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+    <br></div>
       </div>
- 
-</div>
+ </div>
 </div><br>
-  </form>
+    </form>
+
 </div>
 
 </body>
