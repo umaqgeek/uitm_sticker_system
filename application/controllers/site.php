@@ -3,6 +3,7 @@
 class Site extends MY_Controller 
 {
         var $parent_page = "site";
+        
     function __construct()
     {
             parent::__construct(); 
@@ -16,10 +17,12 @@ class Site extends MY_Controller
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
             echo $this->load->view('v_footer', $data, true);
         }
+       
+
 
         public function registration()
         {
-           
+      
                 $crud = new grocery_CRUD();
 
                 $crud->set_theme('sayapunyer');
@@ -82,7 +85,7 @@ class Site extends MY_Controller
 
         public function index()
         {
-                $this->load->view('login/v_login');
+                $this->load->view('site/signup');
 }
         
         public function terimaForm()
