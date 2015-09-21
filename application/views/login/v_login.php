@@ -30,12 +30,13 @@
 </style>
 </head>
 <body>
-<br><br><br>
+
 <div class="container">
+  <div style="margin-top:5%;">
   <div class="two">
-    <h2>Stiker Registration</h2>
-</div><br>
-  <form class="three" action="<?=site_url('login/register');?>">
+    <center><h2>Stiker Registration</h2>
+</div></div><br>
+  <form class="three" action="">
     <div class="row" style="margin-top:3%;">
     <div class="col-md-6 col-md-offset-2">
     <div class="form-group">
@@ -49,12 +50,42 @@
       </div>
     </div>
     <div class="form-group">        
-      <div class="col-md-offset-4 col-md-6">
+      <div class="col-md-offset-4 col-md-6"><br>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+      
     </div>
       </div>
+
     
+
+<!-- <div class="col-md-10 col-md-offset-1">
+    <br><br><br>
+    <div class="two"><h2><center>Sticker Registration</h2></div><br>
+    <form method="post" class="three" action="<?=site_url('site/registration/add'); ?>">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-6 col-md-offset-3">
+                <center><div class="row">
+                                <div class="col-md-2">Username:</div>
+                                <div class="col-md-8"><input type="text" class="form-control" name="u_username" placeholder="username" /></div>
+                        </div><span class="text-danger"><?php echo form_error('username'); ?></span><br>
+                        <div class="row">
+                                <div class="col-md-2">Password:</div>
+                                <div class="col-md-8"><input type="password" class="form-control" name="u_password" placeholder="password" /></div>
+                        </div>
+                        <div class="row" style="margin-top: 3%;">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary">Login</button></div>
+                                <div class="col"></div>
+                                 <form method="post" class="three" action="<?=site_url('site/signup1/add'); ?>">
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+                            </form>
+                        </div><br>
+
+            </div>
+        </div>
+    </form>
+ -->
 </div>
 </div><br>
   </form>
@@ -120,4 +151,4 @@
   
 // // }  
 
-// // ?> -->
+

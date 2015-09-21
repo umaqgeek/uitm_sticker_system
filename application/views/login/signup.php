@@ -26,11 +26,12 @@ body{
 <body>
 
 <div class="container">
+  <div style="margin-top:5%;">
   <div class="two">
     <center><h2>Sign Up Form</h2>
-  </div><br>
+  </div></div><br>
   <form class="three" action="<?=site_url('site/terimaForm');?>">
-    <div class="row" style="margin-top:3%;">
+    <div class="row" style="margin-top:5%;">
     <div class="col-md-8 col-md-offset-2">
 
 <div class="form-group">

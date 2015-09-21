@@ -92,6 +92,8 @@ class Login extends CI_Controller
   $this->load->view('login/registration');
  }
 
+
+
  public function signup1()
         {
             try{
