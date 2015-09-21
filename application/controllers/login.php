@@ -8,16 +8,6 @@ class Login extends CI_Controller
     public function __construct()
     {
            parent::__construct(); 
-
-           // $this->load->view('v_login');
-
-           // $this->load->library(array('form_validation', 'session'));
-
-           // $this->load->database();
-
-           // $this->load->helper('url');
-
-           // $this->load->library('grocery_CRUD');
     }
        
        private function viewpage($page='v_login', $data=array())
@@ -39,53 +29,7 @@ class Login extends CI_Controller
        public function index()
        {
            $this->viewpage();
-
-  //       $session = $this->session->userdata('isLogin');
-
-  //       if($session == FALSE)
-  //       {
-  //         redirect('login/login_form');
-  //       }
-  //       else
-  //       {
-  //         redirect('site');
-  //       }
-  //      }
-
-  //      public function login_form()
-  //      {
-  //       $this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean');
-  //       $this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
-  //       $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
-    
-  //       if($this->form_validation->run()==FALSE)
-  //       {
-  //         $this->load->view('form_login');
-  //       }
-  //       else
-  //       {
-  //         $username = $this->input->post('username');
-  //         $password = $this->input->post('password');
-       
-  //         $check = $this->v_login->guess($username, $password);
-  //       }
-
-  //       if($check <> 0)
-  //       {
-  //         $this->session->set_userdata('isLogin', TRUE);
-  //         $this->session->set_userdata('username',$username);
-         
-  //        redirect('site');
-  //       }
-  //       else
-  //       {
-  //        echo " <script>
-  //               alert('Failed to Login: Please Check your username and password');
-  //               history.go(-1);
-  //             </script>";        
-  //       }
-  //     }  
-      }
+       }
 
   public function register()
  {
@@ -122,18 +66,3 @@ public function signup()
             }
         } 
       }?>
- 
-  <!-- // public function logout()
-  // {
-  //  $this->session->sess_destroy();
-   
-  //  redirect('login/login_form');
-  // }  
-
-  //  public function user()
-  //  {
-  //       $this->grocery_crud->set_table('users');
-  //       $output = $this->grocery_crud->render();        
-
-  //       $this->_example_output($output);   
-  //  }   -->
