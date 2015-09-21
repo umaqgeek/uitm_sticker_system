@@ -24,7 +24,7 @@
 <body>
 <div class="col-md-10 col-md-offset-1">
     <br><br><br>
-    <div class="two"><h2><center>Sticker Registration</h2></div><br>
+    <div class="two"><h2><center>Stickers Registration</h2></div><br>
 
    <!--  <form method="post" class="three" action="<?php echo base_url('login/signup'); ?>"> -->
 
@@ -47,8 +47,8 @@
 
                                <!--  <div class="col-md-2"><button type="submit" class="btn btn-primary" <?php echo anchor('login/signup', 'Sign Up');?></button></div> -->
 
-                                 <form method="post" class="three" action="<?=site_url('site/signup1/add'); ?>">
-                                <div class="col-md-2"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+                                 
+                                <div class="col-md-2"><button type="submit" class="btn btn-primary" <?php echo anchor('site/signup1', 'Sign Up');?></button></div>
                             </form>
                         </div><br>
 
