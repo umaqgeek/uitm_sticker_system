@@ -1,7 +1,15 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
 
    form.three {
     background-color:white;
@@ -22,6 +30,7 @@
 </style>
 </head>
 <body>
+
 <div class="col-md-10 col-md-offset-1">
     <br><br><br>
     <div class="two"><h2><center>Stickers Registration</h2></div><br>
@@ -55,6 +64,36 @@
             </div>
         </div>
     </form>
+
+<br><br><br>
+<div class="container">
+  <div class="two">
+    <h2>Stiker Registration</h2>
+</div><br>
+  <form class="three" action="<?=site_url('login/register');?>">
+    <div class="row" style="margin-top:3%;">
+    <div class="col-md-6 col-md-offset-2">
+    <div class="form-group">
+      <label class="control-label col-md-2">Username:</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+      </div>    
+      <label class="control-label col-md-2" >Password:</label>
+      <div class="col-md-10">          
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-md-offset-4 col-md-6">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+      </div>
+    
 </div>
+</div><br>
+  </form>
+</div>
+
 </body>
 </html>

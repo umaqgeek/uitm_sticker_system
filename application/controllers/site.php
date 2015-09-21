@@ -3,6 +3,7 @@
 class Site extends MY_Controller 
 {
         var $parent_page = "site";
+        
     function __construct()
     {
             parent::__construct(); 
@@ -17,7 +18,10 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-        public function registration()
+        public function registration()       
+
+        public function signup1()
+
         {
            
                 $crud = new grocery_CRUD();

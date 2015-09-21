@@ -1,53 +1,60 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>BORANG PERMOHONAN STIKER</title>
-<style>
-   form.three {
-    background-color:white;
-    border-style: solid;
-    width:1000px;
-    border-radius: 0px;}
-
-    div.two {
-    background-color:white;
-    border-style: solid;
-    width:1000px;
-    border-radius: 0px;}
-     body{
-        background-color:#e0ffff;}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  form.three{
+ background-color:white;
+ border-style:solid;
+ width:1000px; 
+}
+div.two{
+  background-color:white;
+  border-style:solid;
+  width:1000px;
+}
+body{
+        background-color:#e0ffff;
+  }
+  </style>
 </head>
+<body>
 
-<body> 
+<div class="container">
+  <div class="two">
+    <center><h2>BORANG PERMOHONAN STIKER</h2>
+  </div><br>
+  <form class="three" action="<?=site_url('login/registration');?>">
+    <div class="row" style="margin-top:3%;">
+    <div class="col-md-12 col-md-offset-0">
 
-
-        <br><br><br>
-        <div class="col-md-12 col-md-offset-1">
-            <div class="two"> 
-                <center><h2>BORANG PERMOHONAN STIKER</h2></center></div><br>
-                    <form method="post" class="three" action="<?=site_url('login/registration'); ?>">
-                        <div class="row" style="margin-top: 5%;">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="row">
-                                    <div class="col-md-2">No Plat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat" placeholder="No Plat"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Kenderaan:</div>
-                                    <div class="col-md-10">
-                                    <select name="kenderaan" id="select1" class="form-control" >
-                                         <option value="">Sila Pilih</option>
-                                         <option value="KT">KERETA </option>
-                                         <option value="MTH">MOTORSIKAL MELEBIHI 125CC </option>
-                                         <option value="MT">MOTOSIKAL </option>
-                                         <option value="VN">VAN </option>
-                                      </select></div>
-                                </div><br>
-                                <div class="row">
-                                      <div class="col-md-2">Jenis Kenderaan:</div>
-                                      <div class="col-md-10">
-                                      <select name="model" id="select2"class="form-control">
+    <div class="form-group">
+    <label class="control-label col-md-2">No Plat:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="plat" placeholder="Enter No Plat">
+    </div>
+    </div>
+    <div class="form-group">
+    <label class="control-label col-md-2" >Kenderaan:</label>
+    <div class="col-md-10">
+      <select name="kenderaan" id="select1" class="form-control" >
+            <option value="">Sila Pilih</option>
+            <option value="KT">KERETA </option>
+            <option value="MTH">MOTORSIKAL MELEBIHI 125CC </option>
+            <option value="MT">MOTOSIKAL </option>
+            <option value="VN">VAN </option>
+      </select>
+    </div>
+    </div>
+    <div class="form-group">
+    <label class="control-label col-md-2">Jenis Kenderaan:</label>
+    <div class="col-md-10">
+    <select name="model" id="select2"class="form-control">
                                          <option value="">Sila Pilih</option>
                                          <option value="ALF" >ALFA ROMEO</option>
                                          <option value="APR" >APRIALLIA</option>
@@ -79,36 +86,49 @@
                                          <option value="SYM" >SYM</option>
                                          <option value="DEM" >DEMAK</option>
                                          <option value="DLL" >LAIN-LAIN</option>
-                                      </select></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Engin:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Chasis:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis" placeholder="No Chasis"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama" placeholder="Nana Pemilik"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Warna:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna" placeholder="Warna"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic" placeholder="No IC"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna" placeholder="Warna"></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Hubungan:</div>
-                                    <div class="col-md-10">
-                                   <select name="hubungan" id="select3" class="form-control" >
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">No Engin:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="engin" placeholder="Enter No Engin">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">No Chasis:</label>
+    <div class="col-md-10"> 
+      <input type="text" class="form-control" name="chasis" placeholder="Enter No Chasis">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">Nama Pemilik:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="nama" placeholder="Enter Pemilik">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">Warna:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="warna" placeholder="Enter Warna">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">IC Pemilik:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="ic" placeholder="Enter IC Pemilik">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">No Tel Pemilik:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="phone" placeholder="Enter No Phone">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">Hubungan:</label>
+    <div class="col-md-10">
+      <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>
                                         <option value="DN" >DATUK/NENEK</option>
                                         <option value="IB" >IBU/BAPA</option>
@@ -119,16 +139,19 @@
                                         <option value="SD" >SENDIRI</option>
                                         <option value="SU" >SUAMI/ISTERI</option>
                                         <option value="SY" >SYARIKAT</option>
-                                    </select></div>
-                                  </div><br>
-                                  <div class="row">
-                                    <div class="col-md-2">No Lesen:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen" placeholder="No Lesen"></div>
-                                  </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Kelas Lesen:</div>
-                                    <div class="col-md-10">
-                                    <select name="kelas" id="select4" class="form-control">
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">No Lesen:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="lesen" placeholder="Enter No Lesen">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">Kelas Lesen:</label>
+    <div class="col-md-10">
+      <select name="kelas" id="select4" class="form-control">
                                         <option value="-">Sila Pilih</option>
                                         <option value="A"  >A - Kenderaan orang cacat</option>
                                         <option value="B"  >B - Motosikal melebihi 500sp</option>
@@ -141,26 +164,29 @@
                                         <option value="E1"  >E1 - Motokar  BTM tidak melebihi 7500 kg</option>
                                         <option value="E2"  >E2 - Motokar  BTM tidak melebihi 5000 kg</option>
                                         <option value="M"  >M - Hukuman mahkamah</option>
-                                    </select></div>
-                               </div><br>
-                               <div class="row">
-                                    <div class="col-md-2">No Cukai Jalan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai" placeholder="No Cukai Jalan"></div>
-                               </div><br>
-                               <div class="row">
-                                    <div class="col-md-2">No waris Terdekat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="waris" placeholder="No Waris"></div>
-                               </div><br>
-                               <div class="row" style="margin-top: 3%;">
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-4"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hantar</button></div>
-                                    <div class="col"></div>
-                                    <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Logout</button></div>
-                                </div><br>
- 
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">No Cukai Jalan:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="cukai" placeholder="Enter Cukai">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="label-control col-md-2">No Tel Waris:</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="waris" placeholder="Enter Tel Waris">
+    </div>
+  </div>
+  <div class="row" style="margin-top: 10%;">
+      <div class="col-md-3"></div>
+      <div class="col-md-4"><br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hantar</button></div>
+      <div class="col"></div>
+      <div class="col-md-2"><br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Logout</button></div>
+      </div><br>
 
-       
-                                  <div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
                                       <div class="modal-content">
                                         <div class="modal-header">
@@ -194,9 +220,12 @@
                                   </div>
                                 </div>
 
-                            </div>
-                        </div>
-                    </form>
-            </div>    
-    </body>
+
+
+</form>
+</div></div></div>
+
+</body>
 </html>
+
+
