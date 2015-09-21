@@ -3,7 +3,7 @@
 class M_users extends CI_Model
 {
 	function getAll() {
-		$q = $this->db->get('test');
+		$q = $this->db->get('users');
 
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row)
