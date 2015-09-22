@@ -26,7 +26,7 @@ class Site extends MY_Controller
                 $crud = new grocery_CRUD();
 
                 $crud->set_theme('sayapunyer');
-
+                $crud->set_table('registration');
                 $crud->display_as('plat','No Plat');
                 $crud->display_as('ic','No Kad Pengenalan');
                 $crud->display_as('telefon','Telefon Number');
@@ -71,7 +71,7 @@ class Site extends MY_Controller
                 $output = $crud->render();
 
 
-                $this->viewpage('v_crud', $output);
+                $this->viewpage1('v_crud', $output);
 
             }
 
@@ -89,8 +89,9 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
         }
         public function signup()
-        {       $this->viewpage();
+        {       $this->viewpage1();
                 $this->load->view('login/signup');
+
         }
 
         public function terimaForm()

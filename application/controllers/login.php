@@ -10,7 +10,7 @@ class Login extends CI_Controller
            parent::__construct(); 
     }
        
-       private function viewpage($page='v_login', $data=array())
+       private function viewpage($page='login', $data=array())
        {
            echo $this->load->view('v_header', $data, true);
            echo $this->load->view('v_menu', $data, true);
@@ -19,7 +19,7 @@ class Login extends CI_Controller
        }
 
        private function viewpage1($page='signup', $data=array())
-       
+       {
            echo $this->load->view('v_header', $data, true);
            echo $this->load->view('v_menu', $data, true);
            echo $this->load->view($this->parent_page1.'/'.$page, $data, true);
