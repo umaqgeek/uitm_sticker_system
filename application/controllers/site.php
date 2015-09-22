@@ -18,12 +18,11 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+
         public function registration()       
 
-        public function signup1()
-
         {
-           
+      
                 $crud = new grocery_CRUD();
 
                 $crud->set_theme('sayapunyer');
@@ -85,10 +84,15 @@ class Site extends MY_Controller
     
 
         public function index()
-        {
+
+        {        $this->viewpage();
                 $this->load->view('login/v_login');
-}
-        
+        }
+        public function signup()
+        {       $this->viewpage();
+                $this->load->view('login/signup');
+        }
+
         public function terimaForm()
         {
            $data = array(

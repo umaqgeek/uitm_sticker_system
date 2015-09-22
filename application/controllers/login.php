@@ -36,10 +36,12 @@ class Login extends CI_Controller
   $this->load->view('login/registration');
  }
 
+
 public function signup()
  {
   $this->load->view('login/v_signup');
  }
+
 
  public function signup1()
         {
