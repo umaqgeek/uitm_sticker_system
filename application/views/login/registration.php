@@ -26,10 +26,11 @@ body{
 <body>
 
 <div class="container">
-  <div class="two">
+  <div class="two" style="margin-top:5%;">
     <center><h2>BORANG PERMOHONAN STIKER</h2>
   </div><br>
-  <form class="three" action="<?=site_url('login/registration');?>">
+
+  <form class="three" action="<?=site_url('login/register');?>">
     <div class="row" style="margin-top:3%;">
     <div class="col-md-12 col-md-offset-0">
 

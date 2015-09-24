@@ -84,6 +84,7 @@ class Site extends MY_Controller
     
 
         public function index()
+         
         {        $this->viewpage();
                 $this->load->view('login/v_login');
         }

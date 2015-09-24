@@ -36,7 +36,7 @@
   <div class="two">
     <center><h2>Stiker Registration</h2>
 </div></div><br>
-  <form class="three" action="">
+  <form class="three" action="<?=site_url('login/register');?>">
     <div class="row" style="margin-top:3%;">
     <div class="col-md-6 col-md-offset-2">
     <div class="form-group">

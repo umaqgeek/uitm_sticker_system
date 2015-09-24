@@ -20,7 +20,7 @@ class Login extends CI_Controller
            // $this->load->library('grocery_CRUD');
     }
        
-       private function viewpage($page='v_login', $data=array())
+       private function viewpage($page='v_menu', $data=array())
        {
            echo $this->load->view('v_header', $data, true);
            echo $this->load->view('v_menu', $data, true);
@@ -90,6 +90,7 @@ class Login extends CI_Controller
   public function register()
  {
   $this->load->view('login/registration');
+  $this->viewpage();
  }
 
 
