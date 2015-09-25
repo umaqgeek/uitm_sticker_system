@@ -18,11 +18,10 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-
+       
         public function registration()
-
         {
-           
+      
                 $crud = new grocery_CRUD();
 
                 $crud->set_theme('sayapunyer');
@@ -84,9 +83,22 @@ class Site extends MY_Controller
     
 
         public function index()
-         
-        {        $this->viewpage();
-                $this->load->view('login/v_login');
+
+        {       
+                $this->load->library('form_validation');
+                $this->form_validation->set_rules('name','Name','trim!required');
+                $this->form_validation->set_rules('password','Password','trim!required');
+                if($this->form_validation->run()==FALSE)
+                {
+                    $this->load->view('login/v_login');
+                }
+                else
+                {
+                    $this->load->view('login/registration');
+                }
+
+                $this->viewpage();
+               
         }
         public function signup()
         {       $this->viewpage();
@@ -95,9 +107,12 @@ class Site extends MY_Controller
 
         public function terimaForm()
         {
+            
+
            $data = array(
+            'status' => $this->input->post('status'),
             'ic_no' => $this->input->post('ic_no'),
-            'name' => $this->input->post('name'),
+            'nama' => $this->input->post('nama'),
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
             'phone_no' => $this->input->post('phone_no'),
