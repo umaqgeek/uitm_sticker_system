@@ -71,7 +71,7 @@ class Site extends MY_Controller
                 $output = $crud->render();
 
 
-                $this->viewpage1('v_crud', $output);
+                $this->viewpage('v_crud', $output);
 
             }
 
