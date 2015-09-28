@@ -31,6 +31,86 @@
 </head>
 <body>
 
+<br><br><br>
+<?php echo validation_errors();?>
+<div class="container">
+  <div class="two">
+    <center><h2>Stiker Registration</h2>
+</div><br>
+<form method="post" class="three">
+<div class="row" style="margin-top: 5%;">
+    <div class="col-md-8 col-md-offset-2">
+        
+        <div class="row">
+            <div class="col-md-2">Username :</div>
+            <div class="col-md-8"><input type="text" class="form-control" name="username" placeholder="username" /></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Password :</div>
+            <div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="password" /></div>
+        </div>
+        <div class="row" style="margin-top: 1%;">
+            <div class="col-md-2 col-md-offset-2"></div>
+            <div class="col-md-6">
+               <input type="button" class="btn btn-primary" value="Submit" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
+              <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+            </div>
+        </div>
+        
+    </div>
+</div><br>
+</form>
+</div>
+</body>
+</html>
+
+<!-- 
+ 
+  
+  
+//  public function guess()
+//   {
+//     $this->db->select('m_users');
+//     if (('Username', $username) && ('Password', $password)){
+
+
+//      return  $this->load->view('login/registration');
+
+//    }
+
+//     elseif () {
+       
+//        return  $this->load->view('login/v_login');
+// }
+//      } 
+
+     -->
+   
+  
+  <!-- <form class="three">
+    <div class="row" style="margin-top:3%;">
+    <div class="col-md-6 col-md-offset-2">
+    <div class="form-group">
+      <label class="control-label col-md-2">Username:</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
+      </div>    
+      <label class="control-label col-md-2" >Password:</label>
+      <div class="col-md-10">          
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-md-offset-4 col-md-6"><br>
+        <input type="submit" class="btn btn-primary" value="Submit" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
+        <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+    <br></div>
+      </div>
+ </div>
+</div><br>
+    </form> -->
+
+
 <!-- 
  <div class="col-md-10 col-md-offset-1">
 <div class="container">
@@ -96,59 +176,3 @@
         </div>
 <<<<<<< HEAD
     </form>  -->
-<br><br><br>
-<?php echo validation_errors();?>
-<div class="container">
-  <div class="two">
-    <center><h2>Stiker Registration</h2>
-</div><br>
-  <form class="three" action="<?=site_url('login/register');?>">
-    <div class="row" style="margin-top:3%;">
-    <div class="col-md-6 col-md-offset-2">
-    <div class="form-group">
-      <label class="control-label col-md-2">Username:</label>
-      <div class="col-md-10">
-        <input type="text" class="form-control" name="username" placeholder="Enter username">
-      </div>    
-      <label class="control-label col-md-2" >Password:</label>
-      <div class="col-md-10">          
-        <input type="password" class="form-control" name="password" placeholder="Enter password">
-      </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-md-offset-4 col-md-6"><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
-    <br></div>
-      </div>
- </div>
-</div><br>
-    </form>
-</div>
-
-</body>
-</html>
-
-<!-- 
- 
-  
-  
-//  public function guess()
-//   {
-//     $this->db->select('m_users');
-//     if (('Username', $username) && ('Password', $password)){
-
-
-//      return  $this->load->view('login/registration');
-
-//    }
-
-//     elseif () {
-       
-//        return  $this->load->view('login/v_login');
-// }
-//      } 
-
-     -->
-   
-  

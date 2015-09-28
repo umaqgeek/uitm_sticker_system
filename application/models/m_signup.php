@@ -1,5 +1,5 @@
 <?php
-  class M_signup extends CI_Model {
+  class m_signup extends CI_Model {
 	  
 	  function get() 
 	  {
@@ -12,8 +12,10 @@
 	  function add($data)
 	   {
 		  $this->db->insert('signup', $data);
-			  return; 
+			  return $this->load->view('login/v_login'); 
 	  }
+
+	  
 	  
 	  function edit($data)
 	   {

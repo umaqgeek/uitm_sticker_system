@@ -85,18 +85,19 @@ class Site extends MY_Controller
         public function index()
 
         {       
-                $this->load->library('form_validation');
-                $this->form_validation->set_rules('name','Name','trim!required');
-                $this->form_validation->set_rules('password','Password','trim!required');
-                if($this->form_validation->run()==FALSE)
-                {
-                    $this->load->view('login/v_login');
-                }
-                else
-                {
-                    $this->load->view('login/registration');
-                }
+                // $this->load->library('form_validation');
+                // $this->form_validation->set_rules('name','Name','trim!required');
+                // $this->form_validation->set_rules('password','Password','trim!required');
+                // if($this->form_validation->run()==FALSE)
+                // {
+                //     $this->load->view('login/v_login');
+                // }
+                // else
+                // {
+                //     $this->load->view('login/registration');
+                // }
 
+                $this->load->view('login/v_login');
                 $this->viewpage();
                
         }
@@ -108,7 +109,6 @@ class Site extends MY_Controller
         public function terimaForm()
         {
             
-
            $data = array(
             'status' => $this->input->post('status'),
             'ic_no' => $this->input->post('ic_no'),
@@ -116,14 +116,37 @@ class Site extends MY_Controller
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
             'phone_no' => $this->input->post('phone_no'),
-            'email' => $this->input->post('email'),
+            'email' => $this->input->post('email')
 
             );
 
             $this->m_signup->add($data);
-            $this->load->view('login/v_login', $data);
+          
 
-          } 
+          }
+
+        public function regisForm()
+        {
+            $data = array(
+             'plat' => $this->input->post('plat'),
+             'kenderaan' => $this->input->post('kenderaan'),
+             'model' => $this->input->post('model'),
+             'engin' => $this->input->post('engin'),
+             'chasis' => $this->input->post('chasis'),
+             'nama' => $this->input->post('nama'),
+             'warna' => $this->input->post('warna'),
+             'ic' => $this->input->post('ic'),
+             'phone' => $this->input->post('phone'),
+             'hubungan' => $this->input->post('hubungan'),
+             'lesen' => $this->input->post('lesen'),
+             'kelas' => $this->input->post('kelas'),
+             'cukai' => $this->input->post('cukai'),
+             'waris' => $this->input->post('waris')
+
+                );
+            $this->m_registration->add($data);
+
+        } 
             
         
         public function antaForm()
@@ -134,6 +157,28 @@ class Site extends MY_Controller
             $data['input'] = $input;
             $this->load->view('login/v_login', $data);
         }
+
+         public function register()
+ {
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
+
+            if ($result->num_rows() > 0)
+            {
+                return $this->load->view('login/registration');
+            }
+            else
+            {
+                return $this->load->view('login/v_login');
+            }
+        }
+
         
 }
 

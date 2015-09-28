@@ -110,7 +110,7 @@ $autoload['language'] = array();
 */
 
 
-$autoload['model'] = array('m_signup');
+$autoload['model'] = array('m_signup','m_registration');
 
 
 /* End of file autoload.php */

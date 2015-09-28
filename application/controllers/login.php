@@ -34,22 +34,42 @@ class Login extends CI_Controller
   public function register()
  {
 
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
 
-  $this->load->helper(array('form', 'url'));
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
 
-    $this->load->library('form_validation');
-    $this->form_validation->set_rules('username', 'Username', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
+            if ($result->num_rows() > 0)
+            {
+                return $this->load->view('login/registration');
+            }
+            else
+            {
+                return $this->load->view('login/v_login');
+            }
 
-    if ($this->form_validation->run() == FALSE)
-    {
-      $this->load->view('login/v_login');
-    }
-    else
-    {
-      $this->load->view('login/registration');
-    }
-$this->viewpage();
+
+
+
+
+  // $this->load->helper(array('form', 'url'));
+
+  //   $this->load->library('form_validation');
+  //   $this->form_validation->set_rules('username', 'Username', 'required');
+  //   $this->form_validation->set_rules('password', 'Password', 'required');
+
+  //   if ($this->form_validation->run() == FALSE)
+  //   {
+  //     $this->load->view('login/v_login');
+  //   }
+  //   else
+  //   {
+  //     $this->load->view('login/registration');
+  //   }
+    $this->viewpage();
 
  }
 
