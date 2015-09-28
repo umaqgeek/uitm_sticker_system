@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session', 'xmlrpc', 'SimpleLoginSecu
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'form');
+$autoload['helper'] = array('url', 'file', 'form');
 
 
 /*
@@ -110,7 +110,7 @@ $autoload['language'] = array();
 */
 
 
-$autoload['model'] = array('m_signup');
+$autoload['model'] = array();
 
 
 /* End of file autoload.php */

@@ -15,7 +15,7 @@
         <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="<?= base_url(); ?>assets/css/landing-page.css" rel="stylesheet">
+        <link href="<?= base_url(); ?>assets/css/fontello.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="<?= base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
         <![endif]-->
         
         <!-- jQuery -->
-        <script src="<?= base_url(); ?>assets/js/jquery.js"></script>
+        <script src="<?= base_url(); ?>assets/js/vendor/jquery-1.10.2.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>

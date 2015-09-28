@@ -39,7 +39,7 @@
 */
 
 
-$route['default_controller'] = "site";
+$route['default_controller'] = "signin";
 $route['404_override'] = '';
 
 

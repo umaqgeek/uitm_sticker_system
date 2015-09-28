@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = "http://localhost/uitm_sticker_system";
+$config['base_url'] = "http://localhost/uitm";
 
 /*
 |--------------------------------------------------------------------------
