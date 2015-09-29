@@ -18,6 +18,15 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+        private function viewpage1($page='v_menu', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/v_menu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
+
        
         public function registration()
         {
@@ -106,6 +115,19 @@ class Site extends MY_Controller
                 $this->load->view('login/signup');
         }
 
+
+        public function registration1()
+        {   
+ 
+            
+            $this->load->view('site/registration');
+            $this->viewpage1(); 
+
+        
+             
+        }
+
+
         public function terimaForm()
         {
             
@@ -146,6 +168,7 @@ class Site extends MY_Controller
                 );
             $this->m_registration->add($data);
 
+
         } 
             
         
@@ -159,7 +182,7 @@ class Site extends MY_Controller
         }
 
          public function register()
- {
+        {      
 
             $username = $this->input->post('username');
             $password = $this->input->post('password');
@@ -171,12 +194,21 @@ class Site extends MY_Controller
 
             if ($result->num_rows() > 0)
             {
-                return $this->load->view('login/registration');
+                $this->viewpage1();
+                return $this->load->view('site/registration');
+                
             }
             else
             {
                 return $this->load->view('login/v_login');
             }
+
+        }
+
+        function logout()
+        {
+            $this->simpleloginsecure->logout();
+            redirect(site_url('site'));
         }
 
         

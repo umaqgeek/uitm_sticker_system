@@ -11,8 +11,10 @@
 	  
 	  function add($data)
 	   {
+	   	  
 		  $this->db->insert('registration', $data);
-			  return $this->load->view('login/v_login'); 
+		  return $this->load->view('site/registration');
+		  return $this->load->view('site/v_menu');
 	  }
 
 	  
