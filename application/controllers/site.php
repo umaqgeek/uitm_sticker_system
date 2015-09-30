@@ -29,9 +29,42 @@ class Site extends CI_Controller
 
         }
 
+        private function viewpage1($page='v_menu', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/v_menu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
+
+       
+        public function registration()
+        {
+      
+                $crud = new grocery_CRUD();
+
+                $crud->set_theme('sayapunyer');
+
+                $crud->display_as('plat','No Plat');
+                $crud->display_as('ic','No Kad Pengenalan');
+                $crud->display_as('telefon','Telefon Number');
+                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','telefon','hubungan','lesen','kelas','cukai','waris');
+               $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
+               $crud->unset_edit();
+               $crud->unset_delete();
+               
+
+                $output = $crud->render();
+
+                $this->viewpage('v_crud', $output);
+
+        }
+
   public function index()
   {
     $this->viewpage();
+
 
     // if($this->session->userdata('isLogin') == FALSE)
     // {
@@ -50,21 +83,103 @@ class Site extends CI_Controller
   } 
 
   public function terimaForm()
+{
+                $output = $crud->render();
+
+
+                $this->viewpage('v_crud', $output);
+
+            }
+
+                function add_field_callback_2()
+                {
+                    return '+01 <input type="text" maxlength="50" value="" name="phone_no" style="width:462px">';
+                }
+            
+        
+    
+
+        public function index()
+
+        {       
+                // $this->load->library('form_validation');
+                // $this->form_validation->set_rules('name','Name','trim!required');
+                // $this->form_validation->set_rules('password','Password','trim!required');
+                // if($this->form_validation->run()==FALSE)
+                // {
+                //     $this->load->view('login/v_login');
+                // }
+                // else
+                // {
+                //     $this->load->view('login/registration');
+                // }
+
+                $this->load->view('login/v_login');
+                $this->viewpage();
+               
+        }
+        public function signup()
+        {       $this->viewpage();
+                $this->load->view('login/signup');
+        }
+
+
+        public function registration1()
+        { 
+        
+               $this->load->view('site/registration',$data);
+               $this->viewpage1($data);  
+             
+        }
+
+
+        public function terimaForm()
         {
+            
            $data = array(
+            'status' => $this->input->post('status'),
             'ic_no' => $this->input->post('ic_no'),
-            'name' => $this->input->post('name'),
+            'nama' => $this->input->post('nama'),
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
             'phone_no' => $this->input->post('phone_no'),
-            'email' => $this->input->post('email'),
+            'email' => $this->input->post('email')
 
             );
 
-            $this->m_login->newUser($data);
-            $this->load->view('signin/formLogin', $data);
 
-          } 
+            // $this->m_login->newUser($data);
+            // $this->load->view('signin/formLogin', $data);
+
+            $this->m_signup->add($data);
+            
+          }
+
+        public function regisForm()
+        {
+            $data = array(
+             'plat' => $this->input->post('plat'),
+             'kenderaan' => $this->input->post('kenderaan'),
+             'model' => $this->input->post('model'),
+             'engin' => $this->input->post('engin'),
+             'chasis' => $this->input->post('chasis'),
+             'nama' => $this->input->post('nama'),
+             'warna' => $this->input->post('warna'),
+             'ic' => $this->input->post('ic'),
+             'phone' => $this->input->post('phone'),
+             'hubungan' => $this->input->post('hubungan'),
+             'lesen' => $this->input->post('lesen'),
+             'kelas' => $this->input->post('kelas'),
+             'cukai' => $this->input->post('cukai'),
+             'waris' => $this->input->post('waris')
+
+                );
+            $this->m_registration->add($data);
+            $this->load->view('site/registration');
+            $this->viewpage1();
+
+
+        } 
             
         
         public function antaForm()
@@ -73,7 +188,36 @@ class Site extends CI_Controller
             $data['input'] = $input;
             $this->load->view('signin/formLogin', $data);
         }
-  
+
+         public function register()
+        {      
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
+
+            if ($result->num_rows() > 0)
+            {
+                $this->viewpage1();
+                return $this->load->view('site/registration');
+                
+            }
+            else
+            {
+                return $this->load->view('login/v_login');
+            }
+
+        }
+
+        function logout()
+        {
+            $this->simpleloginsecure->logout();
+            redirect(site_url('site'));
+        }
 }
 ?>
  
