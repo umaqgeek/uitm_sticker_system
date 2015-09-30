@@ -37,9 +37,9 @@ class Site extends MY_Controller
 
                 $crud->display_as('plat','No Plat');
                 $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('telefon','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','telefon','hubungan','lesen','kelas','cukai','waris');
-               $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
+                $crud->display_as('phone','Telefon Number');
+                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
+               $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
                $crud->unset_edit();
                $crud->unset_delete();
                
@@ -51,7 +51,7 @@ class Site extends MY_Controller
 
                 function add_field_callback_1()
                 {
-                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
+                    return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
                 }
             
           public function signup1()
