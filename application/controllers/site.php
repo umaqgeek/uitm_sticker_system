@@ -117,13 +117,10 @@ class Site extends MY_Controller
 
 
         public function registration1()
-        {   
- 
-            
-            $this->load->view('site/registration');
-            $this->viewpage1(); 
-
+        { 
         
+               $this->load->view('site/registration',$data);
+               $this->viewpage1($data);  
              
         }
 
@@ -143,6 +140,7 @@ class Site extends MY_Controller
             );
 
             $this->m_signup->add($data);
+            
           
 
           }
@@ -167,6 +165,8 @@ class Site extends MY_Controller
 
                 );
             $this->m_registration->add($data);
+            $this->load->view('site/registration');
+            $this->viewpage1();
 
 
         } 
