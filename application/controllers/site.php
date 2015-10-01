@@ -1,32 +1,21 @@
-<?php 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Site extends CI_Controller
+class Site extends MY_Controller 
 {
+        var $parent_page = "site";
+        
+    function __construct()
+    {
+            parent::__construct(); 
+    }
 
-  var $parent_page = "site";
 
-  public function __construct()
-  {
-    parent::__construct();
-    
-     $this->load->library(array('session'));
-     
-     $this->load->helper('url');
-     
-     $this->load->model('m_login');
-    
-     $this->load->database();
-     
-     
-  }
-  
-      private function viewpage($page='view_mainpage', $data=array())
+    private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
             echo $this->load->view($this->parent_page.'/v_menu', $data, true);
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
             echo $this->load->view('v_footer', $data, true);
-
         }
 
         private function viewpage1($page='v_menu', $data=array())
@@ -58,32 +47,35 @@ class Site extends CI_Controller
                 $output = $crud->render();
 
                 $this->viewpage('v_crud', $output);
-
         }
 
-  public function index()
-  {
-    $this->viewpage();
+                function add_field_callback_1()
+                {
+                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
+                }
+            
+          public function signup1()
+        {
+                $crud = new grocery_CRUD();
 
+                $crud->set_theme('sayapunyer');
+                $crud->set_table('signup');
+                $crud->display_as('ic_no','No Kad Pengenalan');
+                $crud->display_as('phone_no','Telefon Number');
+                $crud->required_fields('ic_no','name','username','password','phone_no','email');
+                $crud->callback_add_field('phone_no',array($this,'add_field_callback_2'));
+                $crud->unset_edit();
+                $crud->unset_delete();
+               
 
-    // if($this->session->userdata('isLogin') == FALSE)
-    // {
-    //   redirect('signin/loginForm');
-    // }else
-    // {   
-    //   $this->load->model('m_login');
-      
-    //   $user = $this->session->userdata('username');
-      
-    //   $data['userType'] = $this->session->userdata('userType');        
-    //   $data['users'] = $this->m_login->dataUser($user);
-      
-    $this->load->view('v_home', $data);
-    // }
-  } 
+                // $crud->required_fields('plat', 'kenderaan');
+                // // $crud->columns('plat', 'kenderaan');
+                // // $crud->add_fields('plat','kenderaan');
+                // // $crud->edit_fields('kenderaan');
+                // // $crud->unset_add();
+                // // $crud->unset_delete();
+ 
 
-  public function terimaForm()
-{
                 $output = $crud->render();
 
 
@@ -120,7 +112,7 @@ class Site extends CI_Controller
         }
         public function signup()
         {       $this->viewpage();
-                $this->load->view('login/signup');
+                $this->load->view('site/signup');
         }
 
 
@@ -147,12 +139,10 @@ class Site extends CI_Controller
 
             );
 
-
-            // $this->m_login->newUser($data);
-            // $this->load->view('signin/formLogin', $data);
-
             $this->m_signup->add($data);
             
+          
+
           }
 
         public function regisForm()
@@ -184,9 +174,11 @@ class Site extends CI_Controller
         
         public function antaForm()
         {
+
+
             $input = $this->input->post();
             $data['input'] = $input;
-            $this->load->view('signin/formLogin', $data);
+            $this->load->view('login/v_login', $data);
         }
 
          public function register()
@@ -217,7 +209,5 @@ class Site extends CI_Controller
         {
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
-        }
+        }       
 }
-?>
- 
