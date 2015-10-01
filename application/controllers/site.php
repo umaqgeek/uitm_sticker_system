@@ -147,8 +147,21 @@ class Site extends MY_Controller
 
         public function regisForm()
         {
+            $this->load->view('site/registration');
+            $up_errors = array();
+
+            $this->('site/registration')->set_rules('plat', 'plat', 'required');
+            $this->registration->set_rules('engin', 'engin', 'required');
+            $this->registration->set_rules('chasis', 'chasis', 'required');
+            $this->registration->set_rules('nama', 'nama', 'required');
+            $this->registration->set_rules('warna', 'warna', 'required');
+            $this->registration->set_rules('ic', 'ic', 'required');
+            $this->registration->set_rules('cukai', 'cukai', 'required');
+            $this->registration->set_rules('waris', 'waris', 'required');
+
+            
             $data = array(
-             'plat' => $this->input->post('plat'),
+            'plat' => $this->input->post('plat'),
              'kenderaan' => $this->input->post('kenderaan'),
              'model' => $this->input->post('model'),
              'engin' => $this->input->post('engin'),
@@ -162,8 +175,10 @@ class Site extends MY_Controller
              'kelas' => $this->input->post('kelas'),
              'cukai' => $this->input->post('cukai'),
              'waris' => $this->input->post('waris')
+              );
 
-                );
+            
+
             $this->m_registration->add($data);
             $this->load->view('site/registration');
             $this->viewpage1();

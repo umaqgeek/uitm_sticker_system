@@ -25,94 +25,20 @@ body{
 </head>
 <body>
 
- <?php
-// define variables and set to empty values
-$platErr = $enginErr =$chasisErr = $namaErr =$warnaErr = $icErr =$phoneErr = $lesenErr = $cukaiErr = $warisErr = "";
-$plat = $engin = $chasis =$nama = $warna = $ic = $phone = $lesen = $cukai = $waris = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if (empty($_POST["plat"])) {
-     $platErr = "Plat is required";
-   } else {
-     $plat = test_input($_POST["plat"]);
-   }
-   
-   
-   if (empty($_POST["engin"])) {
-     $enginErr = "Engin is required";
-   } else {
-     $engin = test_input($_POST["engin"]);
-   }
-
-    if (empty($_POST["chasis"])) {
-     $chasisErr = "Chasis is required";
-   } else {
-     $chasis = test_input($_POST["chasis"]);
-   }
-   
-   if (empty($_POST["nama"])) {
-     $namaErr = "Nama is required";
-   } else {
-     $nama = test_input($_POST["nama"]);
-   }
-     
-      if (empty($_POST["warna"])) {
-     $warnaErr = "Warna is required";
-   } else {
-     $warna = test_input($_POST["warna"]);
-   }
-   
-   if (empty($_POST["ic"])) {
-     $icErr = "Ic Number is required";
-   } else {
-     $ic = test_input($_POST["ic"]);
-   }
-
-   if (empty($_POST["phone"])) {
-     $phoneErr = "Phone is required";
-   } else {
-     $phone = test_input($_POST["phone"]);
-   }
-   
-    if (empty($_POST["lesen"])) {
-     $lesenErr = "Lesen is required";
-   } else {
-     $lesen = test_input($_POST["lesen"]);
-   }
-     
-      if (empty($_POST["cukai"])) {
-     $cukaiErr = "Cukai is required";
-   } else {
-     $cukai = test_input($_POST["cukai"]);
-   }
-   
-   if (empty($_POST["waris"])) {
-     $warisErr = "Waris Number is required";
-   } else {
-     $waris = test_input($_POST["waris"]);
-   }
-}
-
-function test_input($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
-?> 
+ 
 
 <div class="container">
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG PERMOHONAN STIKER</h2>
   </div><br>
 
-  <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>">
+  <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat" value="<?php echo $plat;?>" placeholder="No Plat"></div>
-                                    <span class="error">* <?php echo $platErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
+                                  
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kenderaan:</div>
@@ -164,33 +90,33 @@ function test_input($data) {
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Engin:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" value="<?php echo $engin;?>" placeholder="No Engin"></div>
-                                    <span class="error">* <?php echo $enginErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
+                                 
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Chasis:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis"value="<?php echo $chasis;?>"  placeholder="No Chasis"></div>
-                                    <span class="error">* <?php echo $chasisErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis"  placeholder="No Chasis"></div>
+                                    
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama" value="<?php echo $nama;?>" placeholder="Nama Pemilik"></div>
-                                    <span class="error">* <?php echo $namaErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                   
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Warna Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna" value="<?php echo $warna;?>" placeholder="Warna"></div>
-                                    <span class="error">* <?php echo $warnaErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="warna"  placeholder="Warna"></div>
+                                    
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic" value="<?php echo $ic;?>" placeholder="No IC"></div>
-                                    <span class="error">* <?php echo $icErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
+                                   
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone" value="<?php echo $phone;?>" placeholder="No Tel"></div>
-                                    <span class="error">* <?php echo $phoneErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  placeholder="No Tel"></div>
+                                   
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Hubungan:</div>
@@ -210,8 +136,8 @@ function test_input($data) {
                                   </div><br>
                                   <div class="row">
                                     <div class="col-md-2">No Lesen:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen" value="<?php echo $lesen;?>" placeholder="No Lesen"></div>
-                                    <span class="error">* <?php echo $lesenErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  placeholder="No Lesen"></div>
+                                    
                                   </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kelas Lesen:</div>
@@ -233,13 +159,13 @@ function test_input($data) {
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No Cukai Jalan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai" value="<?php echo $cukai;?>" placeholder="No Cukai Jalan"></div>
-                                    <span class="error">* <?php echo $cukaiErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  placeholder="No Cukai Jalan"></div>
+                                   
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="waris" value="<?php echo $waris;?>" placeholder="No Waris"></div>
-                                    <span class="error">* <?php echo $warisErr;?></span>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                    
                                </div><br>
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
@@ -292,28 +218,6 @@ function test_input($data) {
 
   
 </div>
-
-<?php
-echo $plat;
-echo "<br>";
-echo $engin;
-echo "<br>";
-echo $chasis;
-echo "<br>";
-echo $nama;
-echo "<br>";
-echo $warna;
-echo "<br>";
-echo $ic;
-echo "<br>";
-echo $phone;
-echo "<br>";
-echo $lesen;
-echo "<br>";
-echo $cukai;
-echo "<br>";
-echo $waris;
-?>           
 
 </body>
 </html>
