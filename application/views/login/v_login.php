@@ -52,7 +52,7 @@
         <div class="row" style="margin-top: 1%;">
             <div class="col-md-2 col-md-offset-2"></div>
             <div class="col-md-6">
-               <input type="button" class="btn btn-primary" value="Submit" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
+               <input type="button" class="btn btn-primary" name-'login' value="Submit" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
               <input type="button" class="btn btn-primary" value="Sign up" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
             </div>
         </div>

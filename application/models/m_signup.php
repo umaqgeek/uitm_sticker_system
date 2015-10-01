@@ -12,7 +12,7 @@
 	  function add($data)
 	   {
 		  $this->db->insert('signup', $data);
-			  return $this->load->view('login/v_login'); 
+			  return ; 
 	  }
 
 	  

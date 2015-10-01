@@ -140,6 +140,9 @@ class Site extends MY_Controller
             );
 
             $this->m_signup->add($data);
+            $this->load->view('login/v_login');
+            $this->viewpage();
+
             
           
 
@@ -191,15 +194,17 @@ class Site extends MY_Controller
             $this->db->where('username',$username);
             $this->db->where('password',$password);
             $result=$this->db->get('signup');
+            $admin=$this->db->where('admin',$username);;
 
-            if ($result->num_rows() > 0)
+            if ($result->num_rows() > 0 )
             {
-                $this->viewpage1();
-                return $this->load->view('site/registration');
-                
+                   $this->viewpage1();
+                   $this->load->view('site/registration'); 
+                   
             }
             else
             {
+                $this->viewpage();
                 return $this->load->view('login/v_login');
             }
 
