@@ -138,6 +138,8 @@ class Site extends MY_Controller
             'email' => $this->input->post('email')
 
             );
+           $CI->session->set_userdata('admin', $data);
+
 
             $this->m_signup->add($data);
             $this->load->view('login/v_login');
@@ -194,20 +196,62 @@ class Site extends MY_Controller
             $this->db->where('username',$username);
             $this->db->where('password',$password);
             $result=$this->db->get('signup');
-            $admin=$this->db->where('admin',$username);;
+            
+            
 
             if ($result->num_rows() > 0 )
             {
+                $username1 = $this->session->userdata('admin','username');
+                if($username1=$result)
+                {
+                    $this->load->view('login/signup');
+                }
+                else
+                {
+                    die;
+                }
+
                    $this->viewpage1();
                    $this->load->view('site/registration'); 
                    
-            }
+
             else
             {
                 $this->viewpage();
                 return $this->load->view('login/v_login');
             }
 
+
+        }
+
+        // public function admin()
+        // {
+        //     $username = $this->input->post('username');
+        //     $password = $this->input->post('password');
+        //     $this->db->where('username',$username);
+        //     $this->db->where('password',$password);
+        //     $usr_result = $this->db->get('signup');
+        //     $username1 = $this->session->userdata('admin','username');
+        //     $password1 = $this->session->userdata('12345','password');
+            
+        //     if($usr_result->num_rows()>0 && $username1=1)
+        //     {
+        //         // if($username1=1)
+        //        $this->load->view('login/signup');
+        //    }
+        //    else
+        //    {
+        //     $this->load->view('login/v_login');
+
+        //     }
+            
+
+               
+        // }
+
+        public function admin1()
+        {
+            $this->registration();
         }
 
         function logout()
