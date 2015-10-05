@@ -125,21 +125,43 @@ class Site extends MY_Controller
         }
 
 
-        public function terimaForm()
+        public function signForm()
         {
+
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('ic_no', 'IC_No', 'trim|required');
+            $this->form_validation->set_rules('name', 'Name', 'trim|required');
+            $this->form_validation->set_rules('username', 'username', 'trim|required');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required');
+            $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+
+               $this->load->view('login/signup');
+                $this->viewpage();
+         
+            }
+
+            else
+            {
+                $this->load->model('m_signup');
+            }
             
-           $data = array(
-            'status' => $this->input->post('status'),
-            'ic_no' => $this->input->post('ic_no'),
-            'nama' => $this->input->post('nama'),
-            'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
-            'phone_no' => $this->input->post('phone_no'),
-            'email' => $this->input->post('email')
+           // $data = array(
+           //  'status' => $this->input->post('status'),
+           //  'ic_no' => $this->input->post('ic_no'),
+           //  'nama' => $this->input->post('nama'),
+           //  'username' => $this->input->post('username'),
+           //  'password' => $this->input->post('password'),
+           //  'phone_no' => $this->input->post('phone_no'),
+           //  'email' => $this->input->post('email')
 
-            );
+           //  );
 
-            $this->m_signup->add($data);
+           //  $this->m_signup->add($data);
             
           
 
@@ -147,41 +169,52 @@ class Site extends MY_Controller
 
         public function regisForm()
         {
-            $this->load->view('site/registration');
-            $up_errors = array();
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required');
+            $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
+            $this->form_validation->set_rules('chasis', 'No Chasis', 'trim|required');
+            $this->form_validation->set_rules('warna', 'Warna Kenderaan', 'trim|required');
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required');
+            $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
+            $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required');
 
-            $this->('site/registration')->set_rules('plat', 'plat', 'required');
-            $this->registration->set_rules('engin', 'engin', 'required');
-            $this->registration->set_rules('chasis', 'chasis', 'required');
-            $this->registration->set_rules('nama', 'nama', 'required');
-            $this->registration->set_rules('warna', 'warna', 'required');
-            $this->registration->set_rules('ic', 'ic', 'required');
-            $this->registration->set_rules('cukai', 'cukai', 'required');
-            $this->registration->set_rules('waris', 'waris', 'required');
+            if ($this->form_validation->run() == FALSE)
+            {
+
+               $this->load->view('site/registration');
+                $this->viewpage1();
+         
+            }
+
+            else
+            {
+                $this->load->model('m_registration');
+            }
+
+            //  $data = array(
+            //  'plat'=>$this->form_validation->post('plat'),
+            //  'kenderaan'=>$this->form_validation->post('kenderaan'),
+            //  'model'=>$this->form_validation->post('model'),
+            //  'engin'=>$this->form_validation->post('engin'),
+            // 'chasis'=>$this->form_validation->post('chasis'),
+            //   'nama'=>$this->form_validationt->post('nama'),
+            //   'warna'=>$this->form_validationt->post('warna'),
+            //   'ic'=>$this->form_validation->post('ic'),
+            //  'phone'=>$this->form_validation->post('phone'),
+            //   'hubungan'=>$this->form_validationt->post('hubungan'),
+            //   'lesen'=>$this->form_validationt->post('lesen'),
+            //   'kelas'=>$this->form_validationt->post('kelas'),
+            //   'cukai'=>$this->form_validation->post('cukai'),
+            //  'waris'=>$this->form_validation->post('waris'),
+
+            //  );
 
             
-            $data = array(
-            'plat' => $this->input->post('plat'),
-             'kenderaan' => $this->input->post('kenderaan'),
-             'model' => $this->input->post('model'),
-             'engin' => $this->input->post('engin'),
-             'chasis' => $this->input->post('chasis'),
-             'nama' => $this->input->post('nama'),
-             'warna' => $this->input->post('warna'),
-             'ic' => $this->input->post('ic'),
-             'phone' => $this->input->post('phone'),
-             'hubungan' => $this->input->post('hubungan'),
-             'lesen' => $this->input->post('lesen'),
-             'kelas' => $this->input->post('kelas'),
-             'cukai' => $this->input->post('cukai'),
-             'waris' => $this->input->post('waris')
-              );
 
-            
-
-            $this->m_registration->add($data);
-            $this->load->view('site/registration');
-            $this->viewpage1();
+            //  $this->m_registration->add($data);
+            // $this->load->view('site/registration');
+            // $this->viewpage1();
 
 
         } 

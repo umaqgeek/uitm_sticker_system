@@ -202,6 +202,7 @@ body{
                                         </div>
                                         <div class="modal-footer">
                                           <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          <?php echo validation_errors('<p class="error">');?>
                                         </div>
                                       </div>
                                     </div>

@@ -1,34 +1,25 @@
 <?php
   class m_signup extends CI_Model {
 	  
-	  function get() 
+	  function signup() 
 	  {
-		 $query = $this->db->get('signup');
-		 return $query->result();
+		 
+	   
+           $data = array(
+            'status' => $this->input->post('status'),
+            'ic_no' => $this->input->post('ic_no'),
+            'nama' => $this->input->post('nama'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'phone_no' => $this->input->post('phone_no'),
+            'email' => $this->input->post('email')
 
-		} 
-	  
-	  
-	  function add($data)
-	   {
-		  $this->db->insert('signup', $data);
-			  return $this->load->view('login/v_login'); 
-	  }
+            );
 
-	  
-	  
-	  function edit($data)
-	   {
-		  $this->db->where('ic_no', 123456);
-		  $this->db->update('signup', $data);
-	  }
-	  
-	  function delete()
-	   {
-		  $this->db->where('ic_no', $this->url->segment(3));
-		  $this->db->delete('signup');
-	  }
-	
+           $insert = $this->db->insert('signup', $data);
+            return $insert;
+            
   }
+}
 
 ?>

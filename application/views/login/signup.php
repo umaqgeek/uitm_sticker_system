@@ -25,7 +25,7 @@ body{
   <div class="two">
     <center><h2>Sign Up Form</h2>
   </div></div><br>
-  <form method="post" class="three" action="<?=site_url('site/terimaForm'); ?>">
+  <form method="post" class="three" action="<?=site_url('site/signForm'); ?>">
 <div class="row" style="margin-top: 5%;">
 <div class="col-md-8 col-md-offset-2">
 
@@ -80,6 +80,7 @@ body{
 <div class="row" style="margin-top: 2%;">
 <div class="col-md-2"></div>           
 <div class="col-md-8"><br><button type="submit" class="btn btn-primary">Submit</button></div>
+ <?php echo validation_errors('<p class="error">');?>
 </div>     
 </div>
 </div><br>
