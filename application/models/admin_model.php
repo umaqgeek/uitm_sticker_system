@@ -1,5 +1,5 @@
 <?php
-class Admin_model extends CI_Controller
+class Admin_model extends CI_Model
 {
 	function search($limit, $offset)
 	{
@@ -8,13 +8,13 @@ class Admin_model extends CI_Controller
 		     ->from('registration')
 		     ->limit($limit, $offset);
 
-		$ret['rows'] = $q->get()->results();
+		$ret['rows'] = $q->get()->result();
 
 		//count query
-		$q->this->db->select('COUNT(*) as count', FALSE)
+		$q->$this->db->select('COUNT(*) as count', FALSE)
 		  ->from('registration');
 
-		$tmp = $q->get()->results();
+		$tmp = $q->get()->result();
 
 		$ret['num_rows'] = $tmp[0]->count;
 		return $ret;
