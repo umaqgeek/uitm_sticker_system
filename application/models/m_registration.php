@@ -1,8 +1,10 @@
 <?php
   class m_registration extends CI_Model {
 
-function registration () {
-	  $data = array(
+function create_register () {
+
+
+	     $new_member_insert_data = array(
         'plat'=>$this->input->post('plat'),
         'kenderaan'=>$this->input->post('kenderaan'),
          'model'=>$this->input->post('model'),
@@ -20,7 +22,7 @@ function registration () {
 
             );
 
-            $insert = $this->db->insert('registration', $data);
+            $insert = $this->db->insert('registration', $new_member_insert_data);
             return $insert;
 
 

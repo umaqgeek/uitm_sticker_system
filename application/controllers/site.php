@@ -93,18 +93,7 @@ class Site extends MY_Controller
 
         public function index()
 
-        {       
-                // $this->load->library('form_validation');
-                // $this->form_validation->set_rules('name','Name','trim!required');
-                // $this->form_validation->set_rules('password','Password','trim!required');
-                // if($this->form_validation->run()==FALSE)
-                // {
-                //     $this->load->view('login/v_login');
-                // }
-                // else
-                // {
-                //     $this->load->view('login/registration');
-                // }
+        {      
 
                 $this->load->view('login/v_login');
                 $this->viewpage();
@@ -130,12 +119,11 @@ class Site extends MY_Controller
 
             $this->load->library('form_validation');
            
-            $this->form_validation->set_rules('ic_no', 'IC_No', 'trim|required');
-            $this->form_validation->set_rules('name', 'Name', 'trim|required');
+            $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
             $this->form_validation->set_rules('username', 'username', 'trim|required');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
-            $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required');
+            $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -145,23 +133,13 @@ class Site extends MY_Controller
          
             }
 
-            else
+            else  if ($query=$this->m_signup->create_member())
             {
                 $this->load->model('m_signup');
+                $this->load->view('login/v_login');
+                $this->viewpage();
             }
-            
-           // $data = array(
-           //  'status' => $this->input->post('status'),
-           //  'ic_no' => $this->input->post('ic_no'),
-           //  'nama' => $this->input->post('nama'),
-           //  'username' => $this->input->post('username'),
-           //  'password' => $this->input->post('password'),
-           //  'phone_no' => $this->input->post('phone_no'),
-           //  'email' => $this->input->post('email')
 
-           //  );
-
-           //  $this->m_signup->add($data);
             
           
 
@@ -171,13 +149,13 @@ class Site extends MY_Controller
         {
             $this->load->library('form_validation');
            
-            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required');
+            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
             $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
             $this->form_validation->set_rules('chasis', 'No Chasis', 'trim|required');
             $this->form_validation->set_rules('warna', 'Warna Kenderaan', 'trim|required');
-            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required');
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
-            $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required');
+            $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -187,11 +165,12 @@ class Site extends MY_Controller
          
             }
 
-            else
+            else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
+                $this->load->view('login/v_login');
+                $this->viewpage();
             }
-
             //  $data = array(
             //  'plat'=>$this->form_validation->post('plat'),
             //  'kenderaan'=>$this->form_validation->post('kenderaan'),
@@ -248,7 +227,10 @@ class Site extends MY_Controller
             }
             else
             {
+                $this->viewpage();
                 return $this->load->view('login/v_login');
+
+
             }
 
         }

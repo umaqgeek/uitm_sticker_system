@@ -42,7 +42,7 @@ body{
 </div> 
 
 <div class="row">          
-<div class="col-md-2">IC_No :</div>  
+<div class="col-md-2">No Kad Pengenalan :</div>  
   <div class="col-md-8">
   <input type="text" class="form-control" name="ic_no" placeholder="Enter No IC" /></div>
 </div> 
@@ -77,10 +77,10 @@ body{
         <input type="text" class="form-control" name="email" placeholder="Enter Email" /></div>
 </div>
 
+<?php echo validation_errors('<p class="error">');?>
 <div class="row" style="margin-top: 2%;">
 <div class="col-md-2"></div>           
 <div class="col-md-8"><br><button type="submit" class="btn btn-primary">Submit</button></div>
- <?php echo validation_errors('<p class="error">');?>
 </div>     
 </div>
 </div><br>
@@ -89,5 +89,4 @@ body{
 </div>
 </body>
 </html>
-
 

@@ -165,8 +165,11 @@ body{
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+
+
                                     
                                </div><br>
+                                <?php echo validation_errors('<p class="error">');?>
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
@@ -190,7 +193,6 @@ body{
                                     </div>
                                   </div>
                                 </div>
-
                                 <div class="modal fade" id="myModal1" role="dialog">
                                     <div class="modal-dialog modal-sm">
                                       <div class="modal-content">
@@ -202,7 +204,6 @@ body{
                                         </div>
                                         <div class="modal-footer">
                                           <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
-                                          <?php echo validation_errors('<p class="error">');?>
                                         </div>
                                       </div>
                                     </div>
@@ -222,5 +223,8 @@ body{
 
 </body>
 </html>
+
+
+
 
 
