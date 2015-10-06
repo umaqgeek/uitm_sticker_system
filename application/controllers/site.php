@@ -9,19 +9,6 @@ class Site extends MY_Controller
             parent::__construct(); 
     }
       
-    // function index()
-    // {
-    //     $config['base_url'] = 'http://localhost/uitm/index.php/site/index';
-    //     $config['total_rows'] = $this->db->get('registration')->num_rows();
-    //     $config['per_page'] = 10;
-    //     $config['num_links'] = 20;
-
-    //     $this->pagination->initialize($config);
-    //     $data['records'] = $this->db->get('registration', $config['per_page'], $this->url->segment(3));
-
-    //     $this->load->view('v_site', $data);
-               
-    // }
     private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
