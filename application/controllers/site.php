@@ -174,8 +174,6 @@ class Site extends MY_Controller
         
         public function antaForm()
         {
-
-
             $input = $this->input->post();
             $data['input'] = $input;
             $this->load->view('login/v_login', $data);

@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('m_signup','m_registration');
+$autoload['model'] = array('m_signup','m_registration','admin_model');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

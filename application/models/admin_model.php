@@ -5,14 +5,14 @@ class Admin_model extends CI_Model
 	{
 		//result query
 		$q = $this->db->select('register_id, Fullname, plat, kenderaan, model, engin, chasis, nama, warna, ic, telefon, hubungan, lesen, kelas, cukai, waris')
-		     ->from('registration')
+		     ->from('daftar')
 		     ->limit($limit, $offset);
 
 		$ret['rows'] = $q->get()->result();
 
 		//count query
 		$q->$this->db->select('COUNT(*) as count', FALSE)
-		  ->from('registration');
+		  ->from('daftar');
 
 		$tmp = $q->get()->result();
 
