@@ -8,8 +8,20 @@ class Site extends MY_Controller
     {
             parent::__construct(); 
     }
+      
+    // function index()
+    // {
+    //     $config['base_url'] = 'http://localhost/uitm/index.php/site/index';
+    //     $config['total_rows'] = $this->db->get('registration')->num_rows();
+    //     $config['per_page'] = 10;
+    //     $config['num_links'] = 20;
 
+    //     $this->pagination->initialize($config);
+    //     $data['records'] = $this->db->get('registration', $config['per_page'], $this->url->segment(3));
 
+    //     $this->load->view('v_site', $data);
+               
+    // }
     private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
@@ -94,22 +106,12 @@ class Site extends MY_Controller
         public function index()
 
         {       
-                // $this->load->library('form_validation');
-                // $this->form_validation->set_rules('name','Name','trim!required');
-                // $this->form_validation->set_rules('password','Password','trim!required');
-                // if($this->form_validation->run()==FALSE)
-                // {
-                //     $this->load->view('login/v_login');
-                // }
-                // else
-                // {
-                //     $this->load->view('login/registration');
-                // }
-
                 $this->load->view('login/v_login');
                 $this->viewpage();
-               
+
+                $this->load->library('page');
         }
+
         public function signup()
         {       $this->viewpage();
                 $this->load->view('site/signup');
@@ -143,10 +145,7 @@ class Site extends MY_Controller
 
             $this->m_signup->add($data);
             $this->load->view('login/v_login');
-            $this->viewpage();
-
-            
-          
+            $this->viewpage();       
 
           }
 
@@ -169,6 +168,7 @@ class Site extends MY_Controller
              'waris' => $this->input->post('waris')
 
                 );
+
             $this->m_registration->add($data);
             $this->load->view('site/registration');
             $this->viewpage1();
@@ -231,10 +231,7 @@ class Site extends MY_Controller
            {
             $this->load->view('login/v_login');
 
-            }
-            
-
-               
+            }               
         }
 
         public function admin1()

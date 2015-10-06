@@ -34,7 +34,6 @@
 			<?php foreach ($admin as $ad); ?>
 			<tr> 
 				<td><?php echo $ad->register_id; ?></td>
-				<td><?php echo $ad->Fullname; ?></td>
 				<td><?php echo $ad->plat; ?></td>
 				<td><?php echo $ad->kenderaan; ?></td>
 				<td><?php echo $ad->model; ?></td>
@@ -52,7 +51,7 @@
 				
 				
 			</tr>
-		    <?php endforeach; ?>
+
 	    </tbody>
     </table>
 
