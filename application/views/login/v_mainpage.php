@@ -31,6 +31,9 @@
                     <li>
                         <a href="#contact">Contact</a>
                     </li>
+                    <li>
+                        <a href="signup.php">Signup</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
