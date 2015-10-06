@@ -112,7 +112,7 @@ class Site extends MY_Controller
         }
         public function signup()
         {       $this->viewpage();
-                $this->load->view('login/signup');
+                $this->load->view('site/signup');
         }
 
 
@@ -199,7 +199,7 @@ class Site extends MY_Controller
             
             
 
-            if ($result->num_rows() > 0 )
+            if ($result->num_rows() >0 )
             {
                    $this->viewpage1();
                    $this->load->view('site/registration'); 
@@ -214,35 +214,6 @@ class Site extends MY_Controller
 
         }
 
-        public function admin()
-        {
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $usr_result = $this->db->get('signup');
-            $username1 = $this->session->userdata('admin','username');
-            $password1 = $this->session->userdata('12345','password');
-            
-            if($usr_result->num_rows()>0 && $username1=1)
-            {
-                // if($username1=1)
-               $this->load->view('login/signup');
-           }
-           else
-           {
-            $this->load->view('login/v_login');
-
-            }
-            
-
-               
-        }
-
-        public function admin1()
-        {
-            $this->registration();
-        }
 
         function logout()
         {
