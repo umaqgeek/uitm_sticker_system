@@ -1,36 +1,31 @@
 <?php
   class m_registration extends CI_Model {
-	  
-	  function get() 
-	  {
-		 $query = $this->db->get('registration');
-		 return $query->result();
 
-		} 
-	  
-	  
-	  function add($data)
-	   {
-	   	  
-		  $query=$this->db->insert('registration', $data);
-		  return ;
-		    
-	  }
+function create_register () {
 
-	  
-	  
-	  function edit($data)
-	   {
-		  $this->db->where('ic', 123456);
-		  $this->db->update('registration', $data);
-	  }
-	  
-	  function delete()
-	   {
-		  $this->db->where('ic', $this->url->segment(3));
-		  $this->db->delete('registration');
-	  }
-	
-  }
 
-?>
+	     $new_member_insert_data = array(
+        'plat'=>$this->input->post('plat'),
+        'kenderaan'=>$this->input->post('kenderaan'),
+         'model'=>$this->input->post('model'),
+         'engin'=>$this->input->post('engin'),
+         'chasis'=>$this->input->post('chasis'),
+         'nama'=>$this->input->post('nama'),
+         'warna'=>$this->input->post('warna'),
+         'ic'=>$this->input->post('ic'),
+         'phone'=>$this->input->post('phone'),
+         'hubungan'=>$this->input->post('hubungan'),
+         'lesen'=>$this->input->post('lesen'),
+         'kelas'=>$this->input->post('kelas'),
+         'cukai'=>$this->input->post('cukai'),
+          'waris'=>$this->input->post('waris'),
+
+            );
+
+            $insert = $this->db->insert('registration', $new_member_insert_data);
+            return $insert;
+
+
+}
+
+}

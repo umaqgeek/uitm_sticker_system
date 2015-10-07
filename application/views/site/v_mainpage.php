@@ -32,7 +32,7 @@
                         <a href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a href="site/signup">Signup</a>
+                        <a href="http://localhost/uitm/index.php/site/signup">Signup</a>
                     </li>
                 </ul>
             </div>

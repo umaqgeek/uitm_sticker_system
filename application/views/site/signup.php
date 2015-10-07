@@ -25,12 +25,12 @@ body{
   <div class="two">
     <center><h2>Sign Up Form</h2>
   </div></div><br>
-  <form method="post" class="three" action="<?=site_url('site/terimaForm'); ?>">
+  <form method="post" class="three" action="<?=site_url('site/signForm'); ?>">
 <div class="row" style="margin-top: 5%;">
 <div class="col-md-8 col-md-offset-2">
 
  <div class="row">          
-<div class="col-md-2">Status :</div>  
+<div class="col-md-3">Status :</div>  
   <div class="col-md-8">
       <select name="status" id="status" class="form-control" >
             <option value="">Sila Pilih</option>
@@ -42,43 +42,44 @@ body{
 </div> 
 
 <div class="row">          
-<div class="col-md-2">IC_No :</div>  
+<div class="col-md-3">No Kad Pengenalan :</div>  
   <div class="col-md-8">
   <input type="text" class="form-control" name="ic_no" placeholder="Enter No IC" /></div>
 </div> 
 
 <div class="row">
-<div class="col-md-2">Name :</div>
+<div class="col-md-3">Name :</div>
         <div class="col-md-8">
         <input type="text" class="form-control" name="nama" placeholder="Enter Name" /></div>
 </div>
 
 <div class="row">
-<div class="col-md-2">Username :</div>
+<div class="col-md-3">Username :</div>
         <div class="col-md-8">
         <input type="text" class="form-control" name="username" placeholder="Enter Username" /></div>
 </div>
 
 <div class="row">
-<div class="col-md-2">Password :</div>
+<div class="col-md-3">Password :</div>
         <div class="col-md-8">
         <input type="password" class="form-control" name="password" placeholder="Enter Password" /></div>
 </div>
 
 <div class="row">
-<div class="col-md-2">No Phone :</div>
+<div class="col-md-3">No Phone :</div>
         <div class="col-md-8">
         <input type="text" class="form-control" name="phone_no" placeholder="Enter No Phone" /></div>
 </div>
 
 <div class="row">
-<div class="col-md-2">Email :</div>
+<div class="col-md-3">Email :</div>
         <div class="col-md-8">
         <input type="text" class="form-control" name="email" placeholder="Enter Email" /></div>
 </div>
 
+<?php echo validation_errors('<p class="error">');?>
 <div class="row" style="margin-top: 2%;">
-<div class="col-md-2"></div>           
+<div class="col-md-4"></div>           
 <div class="col-md-8"><br><button type="submit" class="btn btn-primary">Submit</button></div>
 </div>     
 </div>
@@ -88,5 +89,3 @@ body{
 </div>
 </body>
 </html>
-
-

@@ -37,9 +37,9 @@ class Site extends MY_Controller
 
                 $crud->display_as('plat','No Plat');
                 $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('telefon','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','telefon','hubungan','lesen','kelas','cukai','waris');
-               $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
+                $crud->display_as('phone','Telefon Number');
+                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
+               $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
                $crud->unset_edit();
                $crud->unset_delete();
                
@@ -51,7 +51,7 @@ class Site extends MY_Controller
 
                 function add_field_callback_1()
                 {
-                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
+                    return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
                 }
             
           public function signup1()
@@ -93,18 +93,7 @@ class Site extends MY_Controller
 
         public function index()
 
-        {       
-                // $this->load->library('form_validation');
-                // $this->form_validation->set_rules('name','Name','trim!required');
-                // $this->form_validation->set_rules('password','Password','trim!required');
-                // if($this->form_validation->run()==FALSE)
-                // {
-                //     $this->load->view('login/v_login');
-                // }
-                // else
-                // {
-                //     $this->load->view('login/registration');
-                // }
+        {      
 
                 $this->load->view('login/v_login');
                 $this->viewpage();
@@ -125,55 +114,61 @@ class Site extends MY_Controller
         }
 
 
-        public function terimaForm()
+        public function signForm()
         {
-            
-           $data = array(
-            'status' => $this->input->post('status'),
-            'ic_no' => $this->input->post('ic_no'),
-            'nama' => $this->input->post('nama'),
-            'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
-            'phone_no' => $this->input->post('phone_no'),
-            'email' => $this->input->post('email')
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
+            $this->form_validation->set_rules('username', 'username', 'trim|required');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required');
+            $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
-            );
-           $CI->session->set_userdata('admin', $data);
+            if ($this->form_validation->run() == FALSE)
+            {
 
+               $this->load->view('site/signup');
+                $this->viewpage();
+         
+            }
 
-            $this->m_signup->add($data);
-            $this->load->view('login/v_login');
-            $this->viewpage();
-
-            
+            else  if ($query=$this->m_signup->create_member())
+            {
+                $this->load->model('m_signup');
+                $this->load->view('login/v_login');
+                $this->viewpage();
+            }            
           
 
           }
 
         public function regisForm()
         {
-            $data = array(
-             'plat' => $this->input->post('plat'),
-             'kenderaan' => $this->input->post('kenderaan'),
-             'model' => $this->input->post('model'),
-             'engin' => $this->input->post('engin'),
-             'chasis' => $this->input->post('chasis'),
-             'nama' => $this->input->post('nama'),
-             'warna' => $this->input->post('warna'),
-             'ic' => $this->input->post('ic'),
-             'phone' => $this->input->post('phone'),
-             'hubungan' => $this->input->post('hubungan'),
-             'lesen' => $this->input->post('lesen'),
-             'kelas' => $this->input->post('kelas'),
-             'cukai' => $this->input->post('cukai'),
-             'waris' => $this->input->post('waris')
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
+            $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
+            $this->form_validation->set_rules('chasis', 'No Chasis', 'trim|required');
+            $this->form_validation->set_rules('warna', 'Warna Kenderaan', 'trim|required');
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
+            $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
+            $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
 
-                );
-            $this->m_registration->add($data);
-            $this->load->view('site/registration');
-            $this->viewpage1();
+            if ($this->form_validation->run() == FALSE)
+            {
 
+               $this->load->view('site/registration');
+                $this->viewpage1();
+         
+            }
 
+            else  if ($query=$this->m_registration->create_register())
+            {
+                $this->load->model('m_registration');
+                $this->load->view('login/v_login');
+                $this->viewpage();
+            }
+            
         } 
             
         
@@ -209,6 +204,8 @@ class Site extends MY_Controller
             {
                 $this->viewpage();
                 return $this->load->view('login/v_login');
+
+
             }
 
 
