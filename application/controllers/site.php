@@ -6,13 +6,17 @@ class Site extends MY_Controller
         
     function __construct()
     {
-            parent::__construct(); 
+            parent::__construct();
+
     }
 
+        
 
-    private function viewpage($page='v_mainpage', $data=array())
+
+
+        private function viewpage($page='v_mainpage', $data=array())
         {
-            echo $this->load->view('v_header', $data, true);
+            
             echo $this->load->view($this->parent_page.'/v_menu', $data, true);
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
             echo $this->load->view('v_footer', $data, true);
@@ -26,33 +30,6 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-
-       
-        public function registration()
-        {
-      
-                $crud = new grocery_CRUD();
-
-                $crud->set_theme('sayapunyer');
-
-                $crud->display_as('plat','No Plat');
-                $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('telefon','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','telefon','hubungan','lesen','kelas','cukai','waris');
-               $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
-               $crud->unset_edit();
-               $crud->unset_delete();
-               
-
-                $output = $crud->render();
-
-                $this->viewpage('v_crud', $output);
-        }
-
-                function add_field_callback_1()
-                {
-                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
-                }
             
           public function signup1()
         {
@@ -93,18 +70,7 @@ class Site extends MY_Controller
 
         public function index()
 
-        {       
-                // $this->load->library('form_validation');
-                // $this->form_validation->set_rules('name','Name','trim!required');
-                // $this->form_validation->set_rules('password','Password','trim!required');
-                // if($this->form_validation->run()==FALSE)
-                // {
-                //     $this->load->view('login/v_login');
-                // }
-                // else
-                // {
-                //     $this->load->view('login/registration');
-                // }
+        {      
 
                 $this->load->view('login/v_login');
                 $this->viewpage();
@@ -125,25 +91,32 @@ class Site extends MY_Controller
         }
 
 
-        public function terimaForm()
+        public function signForm()
         {
+
             
-           $data = array(
-            'status' => $this->input->post('status'),
-            'ic_no' => $this->input->post('ic_no'),
-            'nama' => $this->input->post('nama'),
-            'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
-            'phone_no' => $this->input->post('phone_no'),
-            'email' => $this->input->post('email')
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
+            $this->form_validation->set_rules('username', 'username', 'trim|required');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required');
+            $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
-            );
-           $CI->session->set_userdata('admin', $data);
+            if ($this->form_validation->run() == FALSE)
+            {
 
+               $this->load->view('site/signup');
+                $this->viewpage();
+         
+            }
 
-            $this->m_signup->add($data);
-            $this->load->view('login/v_login');
-            $this->viewpage();
+            else  if ($query=$this->m_signup->create_member())
+            {
+                $this->load->model('m_signup');
+                $this->load->view('login/v_login');
+                $this->viewpage();
+            }
 
             
           
@@ -152,27 +125,31 @@ class Site extends MY_Controller
 
         public function regisForm()
         {
-            $data = array(
-             'plat' => $this->input->post('plat'),
-             'kenderaan' => $this->input->post('kenderaan'),
-             'model' => $this->input->post('model'),
-             'engin' => $this->input->post('engin'),
-             'chasis' => $this->input->post('chasis'),
-             'nama' => $this->input->post('nama'),
-             'warna' => $this->input->post('warna'),
-             'ic' => $this->input->post('ic'),
-             'phone' => $this->input->post('phone'),
-             'hubungan' => $this->input->post('hubungan'),
-             'lesen' => $this->input->post('lesen'),
-             'kelas' => $this->input->post('kelas'),
-             'cukai' => $this->input->post('cukai'),
-             'waris' => $this->input->post('waris')
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
+            $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
+            $this->form_validation->set_rules('chasis', 'No Chasis', 'trim|required');
+            $this->form_validation->set_rules('warna', 'Warna Kenderaan', 'trim|required');
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
+            $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
+            $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
 
-                );
-            $this->m_registration->add($data);
-            $this->load->view('site/registration');
-            $this->viewpage1();
+            if ($this->form_validation->run() == FALSE)
+            {
 
+               $this->load->view('site/registration');
+                $this->viewpage1();
+         
+            }
+
+            else  if ($query=$this->m_registration->create_register())
+            {
+                $this->load->model('m_registration');
+                $this->load->view('login/v_login');
+                $this->viewpage();
+            }
+          
 
         } 
             
@@ -189,27 +166,70 @@ class Site extends MY_Controller
          public function register()
         {      
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
+            // $username = $this->input->post('username');
+            // $password = $this->input->post('password');
             
 
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $result=$this->db->get('signup');
+            // $this->db->where('username',$username);
+            // $this->db->where('password',$password);
+            // $result=$this->db->get('signup');
             
             
 
-            if ($result->num_rows() >0 )
-            {
-                   $this->viewpage1();
-                   $this->load->view('site/registration'); 
+            // if ($result->num_rows() >0 )
+            // {
+            //        $this->viewpage1();
+            //        $this->load->view('site/registration'); 
                    
+            // }
+            // else
+            // {
+            //     $this->viewpage();
+            //     return $this->load->view('login/v_login');
+
+
+            // }
+
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+            if(isset($this->session->userdata['logged_in'])){
+            $this->load->view('site/registration');
+            }else{
+            $this->load->view('login/v_login');
+            $this->viewpage();
             }
-            else
-            {
-                $this->viewpage();
-                return $this->load->view('login/v_login');
+            } else {
+            $data = array(
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password')
+            );
+            $result = $this->m_signup->login($data);
+            if ($result == TRUE) {
+
+            $username = $this->input->post('username');
+            $result = $this->m_signup->read_user_information($username);
+            if ($result != false) {
+            $session_data = array(
+            'username' => $result[0]->username,
+            'password' => $result[0]->password,
+            );
+            // Add user data in session
+            $this->session->set_userdata('logged_in', $session_data);
+            $this->viewpage1();
+                   $this->load->view('site/registration'); 
             }
+            } else {
+            $data = array(
+            'error_message' => 'Invalid Username or Password'
+            );
+
+            $this->load->view('login/v_login', $data);
+
+            }
+            }
+
 
 
         }
