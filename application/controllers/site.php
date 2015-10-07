@@ -184,7 +184,7 @@ class Site extends MY_Controller
             
             
 
-            if ($result->num_rows() > 0 )
+            if ($result->num_rows() >0 )
             {
                    $this->viewpage1();
                    $this->load->view('site/registration'); 
@@ -198,6 +198,7 @@ class Site extends MY_Controller
 
 
         }
+
 
         public function admin()
         {
@@ -225,6 +226,7 @@ class Site extends MY_Controller
         {
             $this->registration();
         }
+
 
         function logout()
         {

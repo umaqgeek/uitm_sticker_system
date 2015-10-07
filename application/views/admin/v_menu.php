@@ -1,5 +1,6 @@
 
 
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
@@ -11,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Home Page</a>
+                <a class="navbar-brand topnav" href="<?=site_url('users'); ?>">Home Page</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,19 +21,7 @@
                         <a href="#about">About</a>
                     </li>-->
                     <li>
-                        <a href="#background">Background</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#product">Products</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <a href="site/signup">Signup</a>
+                        <a href="<?=site_url('admin/logout'); ?>">Logout</a>
                     </li>
                 </ul>
             </div>
