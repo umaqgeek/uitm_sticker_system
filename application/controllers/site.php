@@ -8,7 +8,8 @@ class Site extends MY_Controller
     {
             parent::__construct(); 
     }
-      
+
+
     private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
@@ -93,12 +94,22 @@ class Site extends MY_Controller
         public function index()
 
         {       
+                // $this->load->library('form_validation');
+                // $this->form_validation->set_rules('name','Name','trim!required');
+                // $this->form_validation->set_rules('password','Password','trim!required');
+                // if($this->form_validation->run()==FALSE)
+                // {
+                //     $this->load->view('login/v_login');
+                // }
+                // else
+                // {
+                //     $this->load->view('login/registration');
+                // }
+
                 $this->load->view('login/v_login');
                 $this->viewpage();
-
-                $this->load->library('page');
+               
         }
-
         public function signup()
         {       $this->viewpage();
                 $this->load->view('site/signup');
@@ -132,7 +143,10 @@ class Site extends MY_Controller
 
             $this->m_signup->add($data);
             $this->load->view('login/v_login');
-            $this->viewpage();       
+            $this->viewpage();
+
+            
+          
 
           }
 
@@ -155,7 +169,6 @@ class Site extends MY_Controller
              'waris' => $this->input->post('waris')
 
                 );
-
             $this->m_registration->add($data);
             $this->load->view('site/registration');
             $this->viewpage1();
@@ -166,6 +179,8 @@ class Site extends MY_Controller
         
         public function antaForm()
         {
+
+
             $input = $this->input->post();
             $data['input'] = $input;
             $this->load->view('login/v_login', $data);
@@ -200,37 +215,12 @@ class Site extends MY_Controller
         }
 
 
-        public function admin()
-        {
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $usr_result = $this->db->get('signup');
-            $username1 = $this->session->userdata('admin','username');
-            $password1 = $this->session->userdata('12345','password');
-            
-            if($usr_result->num_rows()>0 && $username1=1)
-            {
-                // if($username1=1)
-               $this->load->view('login/signup');
-           }
-           else
-           {
-            $this->load->view('login/v_login');
-
-            }               
-        }
-
-        public function admin1()
-        {
-            $this->registration();
-        }
-
-
         function logout()
         {
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
-        }       
+        }
+
+        
 }
+
