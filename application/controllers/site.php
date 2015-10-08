@@ -1,4 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
+session_start();
+
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Site extends MY_Controller 
 {
@@ -16,7 +19,7 @@ class Site extends MY_Controller
 
         private function viewpage($page='v_mainpage', $data=array())
         {
-            
+            echo $this->load->view('v_header', $data, true);
             echo $this->load->view($this->parent_page.'/v_menu', $data, true);
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
             echo $this->load->view('v_footer', $data, true);
@@ -193,41 +196,53 @@ class Site extends MY_Controller
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-            if ($this->form_validation->run() == FALSE) {
-            if(isset($this->session->userdata['logged_in'])){
-            $this->load->view('site/registration');
-            }else{
-            $this->load->view('login/v_login');
-            $this->viewpage();
-            }
-            } else {
-            $data = array(
-            'username' => $this->input->post('username'),
-            'password' => $this->input->post('password')
-            );
-            $result = $this->m_signup->login($data);
-            if ($result == TRUE) {
+            if ($this->form_validation->run() == FALSE) 
+            {
 
-            $username = $this->input->post('username');
-            $result = $this->m_signup->read_user_information($username);
-            if ($result != false) {
-            $session_data = array(
-            'username' => $result[0]->username,
-            'password' => $result[0]->password,
-            );
+                if(isset($this->session->userdata['logged_in']))
+                {
+                    $this->viewpage1('registration');
+                }
+                else
+                {
+                    $this->load->view('login/v_login');
+                    $this->viewpage();
+                }
+            }
+             else 
+             {
+                $data = array(
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password')
+                );
+                $result = $this->m_signup->login($data);
+                if ($result == TRUE) 
+                {
+
+                    $username = $this->input->post('username');
+                    $result = $this->m_signup->read_user_information($username);
+                    if ($result != false)
+                     {
+                        $session_data = array(
+                        'username' => $result[0]->username,
+                        'password' => $result[0]->password,
+                            );
             // Add user data in session
-            $this->session->set_userdata('logged_in', $session_data);
-            $this->viewpage1();
-                   $this->load->view('site/registration'); 
-            }
-            } else {
-            $data = array(
-            'error_message' => 'Invalid Username or Password'
-            );
+                        $this->session->set_userdata('logged_in', $session_data);
+                        $this->viewpage1();
+                        $this->load->view('site/registration'); 
+                    }
+                }
+                else 
+                {
+                    $data = array(
+                    'error_message' => 'Invalid Username or Password'
+                        );
 
-            $this->load->view('login/v_login', $data);
+                    $this->load->view('login/v_login', $data);
+                    $this->viewpage();
 
-            }
+                }
             }
 
 
