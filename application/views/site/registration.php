@@ -99,9 +99,10 @@ body{
                                     
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
-                                   
+                                    <div class="col-md-2">Nama Pemilik:</div>
+                                    <div class="col-md-10">
+                                    <input type="text" class="form-control" name="nama"  placeholder="Nama Penuh" value="<?php echo $pengguna->nama; ?>" />
+                                  </div>
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Warna Kenderaan:</div>
@@ -110,16 +111,18 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
-                                   
+                                    <div class="col-md-10">
+                                     <input type="text" class="form-control" name="ic"  placeholder="No IC" value="<?php echo $pengguna->ic_no; ?>" />
+                                   </div>
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  placeholder="No Tel"></div>
-                                   
+                                    <div class="col-md-10">
+                                    <input type="text" class="form-control" name="phone"  placeholder="No Tel" value="<?php echo $pengguna->phone_no; ?>" />
+                                  </div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Hubungan:</div>
+                                    <div class="col-md-2">Pemilik asal:</div>
                                     <div class="col-md-10">
                                    <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>

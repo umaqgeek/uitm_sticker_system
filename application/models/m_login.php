@@ -6,7 +6,7 @@
   		parent::__construct();
   	}
 	
-	public function newUser($ic_no, $name, $username, $password, $phone_no, $email)
+	public function newUser($ic_no, $nama, $username, $password, $phone_no, $email)
 	{
 		$this -> db -> select('*');
 		$this -> db -> from('users');

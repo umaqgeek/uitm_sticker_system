@@ -28,7 +28,10 @@ class Login extends CI_Controller
 
        public function index()
        {
-           $this->viewpage();
+           
+                $this->viewpage();
+
+           
        }
 
   public function register()

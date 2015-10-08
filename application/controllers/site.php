@@ -94,7 +94,20 @@ class Site extends MY_Controller
         public function index()
 
         {      
+                // if($this->session->userdata('isLogin') == FALSE)
+                // {
+                //     redirect('login/v_login');
+                //     $this->viewpage();
+                // }else
+                // {
+                //     $this->load->model('m_signup');
 
+                //     $user = $this->session->userdata('username');
+
+                //     $data['status'] = $this->session->userdata('status');
+                //     $data['pengguna'] = $this->m_signup->dataPengguna($signup);
+
+                // }
                 $this->load->view('login/v_login');
                 $this->viewpage();
                
