@@ -9,7 +9,6 @@ function create_register () {
         'kenderaan'=>$this->input->post('kenderaan'),
          'model'=>$this->input->post('model'),
          'engin'=>$this->input->post('engin'),
-         'chasis'=>$this->input->post('chasis'),
          'nama'=>$this->input->post('nama'),
          'warna'=>$this->input->post('warna'),
          'ic'=>$this->input->post('ic'),

@@ -14,6 +14,7 @@
             'phone_no' => $this->input->post('phone_no'),
             'email' => $this->input->post('email'),
 
+
             );
 
            $insert = $this->db->insert('signup', $new_member_insert_data);

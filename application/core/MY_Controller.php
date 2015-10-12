@@ -16,6 +16,8 @@ class MY_Controller extends CI_Controller
 				}*/
 
 				//$this->output->cache(5);
+				$user_id = $this->session->userdata('username','admin');
+         		
     }
 
 }

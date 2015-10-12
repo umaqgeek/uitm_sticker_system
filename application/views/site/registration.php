@@ -93,11 +93,7 @@ body{
                                     <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
                                  
                                 </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Chasis:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis"  placeholder="No Chasis"></div>
-                                    
-                                </div><br>
+                                
                                 <div class="row">
                                     <div class="col-md-2">Nana Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
@@ -119,7 +115,7 @@ body{
                                    
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Hubungan:</div>
+                                    <div class="col-md-2">Pemilik:</div>
                                     <div class="col-md-10">
                                    <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>
@@ -172,10 +168,8 @@ body{
                                 <?php echo validation_errors('<p class="error">');?>
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
-                                    <div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                    <div class="col"></div>
-                                    <div class="col-md-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Logout</button></div>
-                                </div><br>
+                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                    <br>
 
                                 <div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
@@ -193,6 +187,7 @@ body{
                                     </div>
                                   </div>
                                 </div>
+
                                 <div class="modal fade" id="myModal1" role="dialog">
                                     <div class="modal-dialog modal-sm">
                                       <div class="modal-content">
@@ -210,6 +205,10 @@ body{
                                   </div>
                                 </div>
  
+
+
+                                
+
 
        
                                   
