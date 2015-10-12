@@ -201,7 +201,7 @@ class Site extends MY_Controller
 
                 if(isset($this->session->userdata['logged_in']))
                 {
-                    $this->viewpage1('registration');
+                    redirect('site');
                 }
                 else
                 {

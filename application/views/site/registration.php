@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-if (isset($this->session->userdata['logged_in'])) {
-header("location: http://localhost/uitm_sticker_system/index.php/");
-}
-?>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>

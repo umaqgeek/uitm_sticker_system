@@ -32,7 +32,7 @@
                         <a href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a href="site/signup">Signup</a>
+                        <a href="<?=site_url('site/signup'); ?>">Signup</a>
                     </li>
                 </ul>
             </div>
