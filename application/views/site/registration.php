@@ -37,7 +37,7 @@ body{
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="plat" placeholder="No Plat"></div>
                                   
                                 </div><br>
                                 <div class="row">
@@ -165,10 +165,13 @@ body{
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                </div><br>
 
-
-                                    
+                                    <div class="row">
+                                    <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
+
+
                                 <?php echo validation_errors('<p class="error">');?>
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
@@ -204,6 +207,9 @@ body{
 
   
 </div>
+<?php
+echo $plat;
+?>
 
 </body>
 </html>

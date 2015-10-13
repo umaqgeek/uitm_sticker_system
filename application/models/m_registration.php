@@ -19,6 +19,7 @@ function create_register () {
          'kelas'=>$this->input->post('kelas'),
          'cukai'=>$this->input->post('cukai'),
           'waris'=>$this->input->post('waris'),
+          'status'=>$this->input->post('status'),
 
             );
 

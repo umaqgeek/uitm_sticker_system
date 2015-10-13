@@ -137,6 +137,7 @@ class Site extends MY_Controller
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
+            
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -149,7 +150,7 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                $this->load->view('login/v_login');
+                $this->load->view('site/registration');
                 $this->viewpage();
             }
           
@@ -169,29 +170,7 @@ class Site extends MY_Controller
          public function register()
         {      
 
-            // $username = $this->input->post('username');
-            // $password = $this->input->post('password');
-            
-
-            // $this->db->where('username',$username);
-            // $this->db->where('password',$password);
-            // $result=$this->db->get('signup');
-            
-            
-
-            // if ($result->num_rows() >0 )
-            // {
-            //        $this->viewpage1();
-            //        $this->load->view('site/registration'); 
-                   
-            // }
-            // else
-            // {
-            //     $this->viewpage();
-            //     return $this->load->view('login/v_login');
-
-
-            // }
+           
 
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
