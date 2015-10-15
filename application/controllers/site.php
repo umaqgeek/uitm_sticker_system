@@ -10,6 +10,7 @@ class Site extends MY_Controller
     function __construct()
     {
             parent::__construct();
+            $this->load->model('m_signup');
 
     }
 
@@ -73,9 +74,13 @@ class Site extends MY_Controller
 
         public function index()
 
-        {      
+        {
+            $username = $this->session->userdata('username');
 
-                $this->load->view('login/v_login');
+            //Pass it in an array to your view like
+            $data['username']=$username;   
+
+                $this->load->view('login/v_login',$data);
                 $this->viewpage();
                
         }
@@ -88,8 +93,8 @@ class Site extends MY_Controller
         public function registration1()
         { 
         
-               $this->load->view('site/registration',$data);
-               $this->viewpage1($data);  
+               $this->load->view('site/registration');
+               $this->viewpage1();  
              
         }
 
@@ -168,65 +173,110 @@ class Site extends MY_Controller
         }
 
          public function register()
-        {      
+        // {      
 
            
+
+        //     $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+        //     $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
+        //     if ($this->form_validation->run() == FALSE) 
+        //     {
+
+        //         if(isset($this->session->userdata['logged_in']))
+        //         {
+        //             redirect('site');
+        //         }
+        //         else
+        //         {
+        //             $this->load->view('login/v_login');
+        //             $this->viewpage();
+        //         }
+        //     }
+        //      else 
+        //      {
+        //         $data = array(
+        //         'username' => $this->input->post('username'),
+        //         'password' => $this->input->post('password')
+        //         );
+        //         $result = $this->m_signup->login($data);
+        //         if ($result == TRUE) 
+        //         {
+
+        //             $username = $this->input->post('username');
+        //             $result = $this->m_signup->read_user_information($username);
+        //             if ($result != false)
+        //              {
+        //                 $session_data = array(
+        //                 'username' => $result[0]->username,
+        //                 'password' => $result[0]->password,
+        //                     );
+        //     // Add user data in session
+        //                 $this->session->set_userdata('logged_in', $session_data);
+        //                 $this->viewpage1();
+        //                 $this->load->view('site/registration'); 
+        //             }
+        //         }
+        //         else 
+        //         {
+        //             $data = array(
+        //             'error_message' => 'Invalid Username or Password'
+        //                 );
+
+        //             $this->load->view('login/v_login', $data);
+        //             $this->viewpage();
+
+        //         }
+        //     }
+
+
+
+        // }
+
+         {
 
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-            if ($this->form_validation->run() == FALSE) 
-            {
 
-                if(isset($this->session->userdata['logged_in']))
-                {
-                    redirect('site');
-                }
-                else
-                {
+                    if ($this->form_validation->run() == FALSE) {
                     $this->load->view('login/v_login');
                     $this->viewpage();
-                }
-            }
-             else 
-             {
-                $data = array(
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password')
-                );
-                $result = $this->m_signup->login($data);
-                if ($result == TRUE) 
-                {
+                    } else {
+                    $data = array(
+                    'username' => $this->input->post('username'),
+                    'password' => $this->input->post('password')
+                    );
+                    $result = $this->m_signup->login($data);
+                    if($result == TRUE){
+                    $sess_array = array(
+                    'username' => $this->input->post('username')
+                    );
 
-                    $username = $this->input->post('username');
-                    $result = $this->m_signup->read_user_information($username);
-                    if ($result != false)
-                     {
-                        $session_data = array(
-                        'username' => $result[0]->username,
-                        'password' => $result[0]->password,
-                            );
-            // Add user data in session
-                        $this->session->set_userdata('logged_in', $session_data);
+                    // Add user data in session
+                    $this->session->set_userdata('logged_in', $sess_array);
+                    $result = $this->m_signup->read_user_information($sess_array);
+                    if($result != false){
+                    $data = array(
+                    // 'name' =>$result[0]->name,
+                    'username' =>$result[0]->username,
+                    'password' =>$result[0]->password
+                    );
+
+                        $this->load->view('site/registration',$data);
                         $this->viewpage1();
-                        $this->load->view('site/registration'); 
                     }
-                }
-                else 
-                {
+                    }else{
                     $data = array(
                     'error_message' => 'Invalid Username or Password'
-                        );
-
+                    );
                     $this->load->view('login/v_login', $data);
                     $this->viewpage();
+                    }
+                    }
 
-                }
-            }
-
-
-
-        }
+                    
+}
 
 
         function logout()

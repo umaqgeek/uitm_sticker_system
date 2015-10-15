@@ -35,6 +35,11 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
+                              <div class="row"><div class="col-md-3"></div>
+                                    <center><div class="col-md-8"><span class="form-control" ><center><?php echo "Selamat Datang  "?><td><?php echo $username;?></span></div>
+                                  
+                                </div><br>
+                           
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="plat" placeholder="No Plat"></div>
@@ -207,13 +212,12 @@ body{
 
   
 </div>
-<?php
-echo $plat;
-?>
+<div>
+
+</div>
 
 </body>
 </html>
-
 
 
 
