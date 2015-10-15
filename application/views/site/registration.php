@@ -87,22 +87,12 @@ body{
                                          <option value="DEM" >DEMAK</option>
                                          <option value="DLL" >LAIN-LAIN</option>
                                       </select></div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Engin:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
-                                 
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Chasis:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis"  placeholder="No Chasis"></div>
-                                    
+                               
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Nama Pemilik:</div>
-                                    <div class="col-md-10">
-                                    <input type="text" class="form-control" name="nama"  placeholder="Nama Penuh" value="<?php echo $pengguna->nama; ?>" />
-                                  </div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama"></div>
+                                                                        
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Warna Kenderaan:</div>
@@ -111,15 +101,13 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10">
-                                     <input type="text" class="form-control" name="ic"  placeholder="No IC" value="<?php echo $pengguna->ic_no; ?>" />
-                                   </div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
+                                    
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10">
-                                    <input type="text" class="form-control" name="phone"  placeholder="No Tel" value="<?php echo $pengguna->phone_no; ?>" />
-                                  </div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="No Tel"  placeholder="No Telefon"></div>
+                                    
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Pemilik asal:</div>

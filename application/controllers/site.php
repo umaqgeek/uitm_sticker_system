@@ -109,6 +109,9 @@ class Site extends MY_Controller
 
                 // }
                 $this->load->view('login/v_login');
+
+
+                // $data['pengguna'] = $this->m_signup->create_member($signup1);
                 $this->viewpage();
                
         }
