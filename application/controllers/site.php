@@ -136,6 +136,8 @@ class Site extends MY_Controller
 
           }
 
+         
+
         public function regisForm()
         {
             $this->load->library('form_validation');
@@ -156,13 +158,14 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                $this->load->view('login/v_login');
+                $this->load->view('site/result');
                 $this->viewpage();
             }
             
         } 
-            
-        
+
+
+    
         public function antaForm()
         {
 
