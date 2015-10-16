@@ -36,8 +36,7 @@ body{
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                               <div class="row"><div class="col-md-3"></div>
-                                    <center><div class="col-md-8"><span class="form-control" ><center><?php echo "Selamat Datang  "?><td><?php echo $username;?></span></div>
-                                  
+                                    <center><div class="col-md-8"><span class="form-control" ><center><?php echo "Selamat Datang  "?><td><?php echo $username;?></span></div>  
                                 </div><br>
                            
                                 <div class="row">
@@ -93,26 +92,12 @@ body{
                                          <option value="DLL" >LAIN-LAIN</option>
                                       </select></div>
                                 </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Engin:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
-                                 
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Chasis:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="chasis"  placeholder="No Chasis"></div>
-                                    
-                                </div><br>
+                                
                                 <div class="row">
                                     <div class="col-md-2">Nana Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                 </div><br>
                                    
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Warna Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna"  placeholder="Warna"></div>
-                                    
-                                </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
@@ -124,7 +109,7 @@ body{
                                    
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Hubungan:</div>
+                                    <div class="col-md-2">Pertalian:</div>
                                     <div class="col-md-10">
                                    <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>
@@ -175,6 +160,18 @@ body{
                                     <div class="row">
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
+
+
+                               <?php 
+                               foreach ($student as $student): ?>
+                              <li><a href="<?php echo base_url() . "index.php/site/show_student_id/" . $student->signup_id; ?>">
+                                <?php echo $student->username; ?></a></li>
+                                <?php endforeach; ?>
+
+
+
+
+
 
 
                                 <?php echo validation_errors('<p class="error">');?>

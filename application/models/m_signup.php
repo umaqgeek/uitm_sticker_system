@@ -66,6 +66,25 @@
 		}
 
 		
+		function show_students(){
+$query = $this->db->get('signup');
+$query_result = $query->result();
+return $query_result;
+}
+// Function To Fetch Selected Student Record
+function show_student_id($data){
+$this->db->select('*');
+$this->db->from('signup');
+$this->db->where('signup_id', $data);
+$query = $this->db->get();
+$result = $query->result();
+return $result;
+}
+
+
+
+
+
 }
 
 ?>

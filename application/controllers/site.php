@@ -75,6 +75,7 @@ class Site extends MY_Controller
         public function index()
 
         {
+        
             $username = $this->session->userdata('username');
 
             //Pass it in an array to your view like
@@ -136,9 +137,6 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
-            $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
-            $this->form_validation->set_rules('chasis', 'No Chasis', 'trim|required');
-            $this->form_validation->set_rules('warna', 'Warna Kenderaan', 'trim|required');
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
@@ -284,6 +282,14 @@ class Site extends MY_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
         }
+
+
+        function show_student_id() {
+$signup_id = $this->uri->segment(3);
+// $data['students'] = $this->m_signup->show_students();
+$data['student'] = $this->m_signup->show_student_id($signup_id);
+$this->load->view('site/registration',$data);
+}
 
         
 }
