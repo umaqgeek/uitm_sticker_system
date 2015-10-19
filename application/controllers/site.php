@@ -120,7 +120,12 @@ class Site extends MY_Controller
                 $this->load->view('site/signup');
         }
 
-
+        public function contact()
+        {
+                $this->viewpage();
+                $this->load->view('contact');
+        }
+        
         public function registration1()
         { 
         
