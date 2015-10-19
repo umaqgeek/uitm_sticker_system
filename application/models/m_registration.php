@@ -26,5 +26,11 @@ function create_register () {
 
 
 }
+function getPosts(){
+  $this->db->select("register_id,nama");
+  $this->db->from('registration');
+  $query = $this->db->get();
+  return $query->result();
+}
 
 }

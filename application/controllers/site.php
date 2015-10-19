@@ -7,6 +7,8 @@ class Site extends MY_Controller
     function __construct()
     {
             parent::__construct(); 
+            $this->load->database();
+            $this->load->model('m_registration');
     }
 
 
@@ -91,6 +93,15 @@ class Site extends MY_Controller
                 $this->viewpage();
                
         }
+
+         public function result()
+
+        {      
+                $this->data['registration'] = $this->m_registration->getPosts();
+                $this->load->view('site/result', $this->data);
+                $this->viewpage();
+               
+        }
         public function signup()
         {       $this->viewpage();
                 $this->load->view('site/signup');
@@ -158,7 +169,7 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                $this->load->view('site/result');
+                $this->load->view('login/v_login');
                 $this->viewpage();
             }
             
