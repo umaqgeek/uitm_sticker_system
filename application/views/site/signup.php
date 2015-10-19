@@ -29,18 +29,6 @@ body{
 <div class="row" style="margin-top: 5%;">
 <div class="col-md-8 col-md-offset-2">
 
- <div class="row">          
-<div class="col-md-3">Status :</div>  
-  <div class="col-md-8">
-      <select name="status" id="status" class="form-control" >
-            <option value="">Sila Pilih</option>
-            <option value="PL">Pelajar </option>
-            <option value="ST">Staff</option>
-            <option value="KT">Kontraktor </option>
-      </select>
-    </div>
-</div> 
-
 <div class="row">          
 <div class="col-md-3">No Kad Pengenalan :</div>  
   <div class="col-md-8">

@@ -38,6 +38,19 @@ body{
                               <div class="row"><div class="col-md-3"></div>
                                     <center><div class="col-md-8"><span class="form-control" ><center><?php echo "Selamat Datang  "?><td><?php echo $username;?></span></div>  
                                 </div><br>
+
+                                <div class="row">          
+                                    <div class="col-md-2">Status :</div>  
+                                      <div class="col-md-10">
+                                          <select name="jenis" id="status" class="form-control" >
+                                                <option value="">Sila Pilih</option>
+                                                <option value="PL">Pelajar </option>
+                                                <option value="ST">Staff</option>
+                                                <option value="KT">Kontraktor </option>
+                                          </select>
+                                        </div>
+                                    </div><br> 
+
                            
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
@@ -160,17 +173,6 @@ body{
                                     <div class="row">
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
-
-
-                               <?php 
-                               foreach ($student as $student): ?>
-                              <li><a href="<?php echo base_url() . "index.php/site/show_student_id/" . $student->signup_id; ?>">
-                                <?php echo $student->username; ?></a></li>
-                                <?php endforeach; ?>
-
-
-
-
 
 
 

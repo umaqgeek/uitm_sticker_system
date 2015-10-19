@@ -6,7 +6,7 @@
 		 
 	   
            $new_member_insert_data = array(
-            'status' => $this->input->post('status'),
+            
             'ic_no' => $this->input->post('ic_no'),
             'nama' => $this->input->post('nama'),
             'username' => $this->input->post('username'),

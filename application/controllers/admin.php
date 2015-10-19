@@ -21,7 +21,7 @@ class Admin extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               $this->load->view('admin/admin');
+               redirect('admin/registration');
            }
            else
            {
@@ -35,8 +35,7 @@ class Admin extends MY_Controller
 
          public function index()
 
-        {  
-
+        {
                 $this->load->view('login/v_login');
                 $this->viewpage();
                
@@ -50,10 +49,11 @@ class Admin extends MY_Controller
 
                 $crud->set_theme('sayapunyer');
 
+                $crud->display_as('jenis','Status');
                 $crud->display_as('plat','No Plat');
                 $crud->display_as('ic','No Kad Pengenalan');
                 $crud->display_as('telefon','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','telefon','hubungan','lesen','kelas','cukai','waris','status');
+                $crud->required_fields('jenis','plat','kenderaan','model','nama','ic','telefon','hubungan','lesen','kelas','cukai','waris','status');
                 $crud->add_action('More', '', 'demo/action_more','ui-icon-plus');
                 $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
                // $crud->unset_edit();

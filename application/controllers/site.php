@@ -153,8 +153,7 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                $this->load->view('site/registration');
-                $this->viewpage();
+                redirect('site');
             }
           
 
@@ -283,13 +282,6 @@ class Site extends MY_Controller
             redirect(site_url('site'));
         }
 
-
-        function show_student_id() {
-$signup_id = $this->uri->segment(3);
-// $data['students'] = $this->m_signup->show_students();
-$data['student'] = $this->m_signup->show_student_id($signup_id);
-$this->load->view('site/registration',$data);
-}
 
         
 }
