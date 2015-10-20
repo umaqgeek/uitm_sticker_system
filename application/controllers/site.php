@@ -169,8 +169,8 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                $this->load->view('login/v_login');
-                $this->viewpage();
+                $this->load->view('site/succesfulpage');
+                $this->viewpage1();
             }
             
         } 
