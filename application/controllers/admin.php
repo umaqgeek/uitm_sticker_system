@@ -7,7 +7,7 @@ class Admin extends MY_Controller
         function __construct()
     {
             parent::__construct();
-            $this->load->model('m_registration'); 
+            $this->load->model('m_admin'); 
     }
 
         public function admin1()
@@ -21,7 +21,7 @@ class Admin extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               redirect('admin/registration');
+               $this->load->view('admin/admin');
            }
            else
            {
@@ -87,25 +87,25 @@ class Admin extends MY_Controller
 
 
 
-        function show_student_id() {
+        function show_register_id() {
             $data = array();
-        $id = $this->uri->segment(3);
-        $data['students'] = $this->m_registration->show_students();
-        $data['single_student'] = $this->m_registration->show_student_id($id);
+        $register_id = $this->uri->segment(3);
+        $data['register'] = $this->m_admin->show_register();
+        $data['single_register'] = $this->m_admin->show_register_id($register_id);
         $this->load->view('admin/admin', $data);
        
     }
 
-function update_student_id1() {
-       $id= $this->input->post('did');
+function update_register_id1() {
+       $register_id= $this->input->post('register_id');
        $data = array(
-           'nama' => $this->input->post('dname'),
+           'nama' => $this->input->post('nama'),
             // 'Student_Email' => $this->input->post('demail'),
             // 'Student_Mobile' => $this->input->post('dmobile'),
             // 'Student_Address' => $this->input->post('daddress')
         );
-       $this->m_registration->update_student_id1($id,$data);
-       $this->show_student_id();
+       $this->m_admin->update_register_id1($id,$data);
+       $this->show_register_id();
     }
 
        

@@ -28,6 +28,29 @@
 		  $this->db->where('ic_no', $this->url->segment(3));
 		  $this->db->delete('admin');
 	  }
+
+	  function show_register()
+{
+    $data=array();      
+    $query = $this->db->get('registration');
+    // $query_result = $query->result();
+    return $query;
+}
+
+function show_register_id($data){
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where('register_id', $data);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;  
+    }
+
+function update_register_id1($id,$data){
+     $this->db->where('register_id', $id);
+     $this->db->update('registration', $data);  
+    }
+
 	
   }
 

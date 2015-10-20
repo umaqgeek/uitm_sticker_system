@@ -12,22 +12,23 @@
                 <div id="menu">
                     <p>Click On Menu</p>
                     <!--Fetching Names Of All Students From Database-->
-					<ol>
-                        <?php foreach ($students as $student): ?>
-                            <li><a href="<?php echo base_url() . "index.php/admin/show_student_id/" . $student->register_id; ?>"><?php echo $student->nama; ?></a></li>
-                        <?php endforeach; ?>
+					<ol><?php if (isset($register)){?>
+                        <?php foreach ($register as $row): ?>
+                            <li><a href="<?php echo base_url() . "index.php/admin/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
+                        <?php endforeach; }?>
                     </ol>
                 </div>
                 <div id="detail">
 					<!--Fetching All Details of Selected Student From Database And Showing In a Form-->
-                    <?php foreach ($single_student as $student): ?>
+                    <?php if(isset($single_register)){?>
+                    <?php foreach ($single_register as $row): ?>
                         <p>Edit Detail & Click Update Button</p>
-                        <form method="post" action="<?php echo base_url() . "index.php/admin/update_student_id1"?>">
+                        <form method="post" action="<?php echo base_url() . "index.php/admin/update_register_id1"?>">
                             <label id="hide">Id :</label><br/> 
-                            <input type="text" id="hide" name="did" value="<?php echo $student->register_id; ?>"><br/>      
+                            <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 
                             <label>Name :</label><br/> 
-                            <input type="text" name="dname" value="<?php echo $student->nama; ?>"><br/>    
+                            <input type="text" name="nama" value="<?php echo $student->nama; ?>"><br/>    
 <!-- 
                             <label>Email :</label><br/> 
                             <input type="text" name="demail" value="<?php echo $student->student_email; ?>"><br/>
@@ -41,7 +42,7 @@
                             <input type="submit" id="submit" name="dsubmit" value="Update">
                         </form>
 
-                    <?php endforeach; ?>
+                    <?php endforeach; }?>
                 </div> 
             </div> 
         </div>
