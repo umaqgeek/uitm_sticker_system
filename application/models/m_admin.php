@@ -1,5 +1,8 @@
 <?php
   class m_admin extends CI_Model {
+  	public function __construct()	{
+  
+}
 	  
 	  function get() 
 	  {
@@ -31,7 +34,7 @@
 
 	  function show_register()
 {
-    $data=array();      
+         
     $query = $this->db->get('registration');
     // $query_result = $query->result();
     return $query;
@@ -50,7 +53,6 @@ function update_register_id1($id,$data){
      $this->db->where('register_id', $id);
      $this->db->update('registration', $data);  
     }
-
 	
   }
 

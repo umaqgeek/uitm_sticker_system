@@ -12,14 +12,14 @@
                 <div id="menu">
                     <p>Click On Menu</p>
                     <!--Fetching Names Of All Students From Database-->
-					<ol><?php if (isset($register)){?>
+                         <ol><?php if (isset($register)){?>
                         <?php foreach ($register as $row): ?>
                             <li><a href="<?php echo base_url() . "index.php/admin/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
                         <?php endforeach; }?>
                     </ol>
                 </div>
                 <div id="detail">
-					<!--Fetching All Details of Selected Student From Database And Showing In a Form-->
+                         <!--Fetching All Details of Selected Student From Database And Showing In a Form-->
                     <?php if(isset($single_register)){?>
                     <?php foreach ($single_register as $row): ?>
                         <p>Edit Detail & Click Update Button</p>

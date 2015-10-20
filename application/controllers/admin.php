@@ -7,6 +7,7 @@ class Admin extends MY_Controller
         function __construct()
     {
             parent::__construct();
+
             $this->load->model('m_admin'); 
     }
 
@@ -85,18 +86,17 @@ class Admin extends MY_Controller
         }
 
 
-
-
-        function show_register_id() {
+        function show_register_id($register_id) {
             $data = array();
         $register_id = $this->uri->segment(3);
+        $data=$this->m_admin->show_register();
         $data['register'] = $this->m_admin->show_register();
         $data['single_register'] = $this->m_admin->show_register_id($register_id);
         $this->load->view('admin/admin', $data);
        
     }
 
-function update_register_id1() {
+    function update_register_id1() {
        $register_id= $this->input->post('register_id');
        $data = array(
            'nama' => $this->input->post('nama'),
@@ -108,14 +108,7 @@ function update_register_id1() {
        $this->show_register_id();
     }
 
-       
-
-
-
-
-
-
-
+ 
 
  }
 ?>
