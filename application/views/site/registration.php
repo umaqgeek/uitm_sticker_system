@@ -49,7 +49,12 @@ body{
                                                 <option value="KT">Kontraktor </option>
                                           </select>
                                         </div>
-                                    </div><br> 
+                                    </div><br>
+
+                                    <div class="row">
+                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                 </div><br> 
 
                            
                                 <div class="row">
@@ -106,10 +111,6 @@ body{
                                       </select></div>
                                 </div><br>
                                 
-                                <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
-                                 </div><br>
                                    
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
@@ -122,7 +123,7 @@ body{
                                    
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Pertalian:</div>
+                                    <div class="col-md-2">Pemilik:</div>
                                     <div class="col-md-10">
                                    <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>
@@ -199,14 +200,11 @@ body{
                                   </div>
                                 </div>
 
+     
 
-       
-                                  
-
-                            </div>
-                          </div>
-                        
-                    <br></form>
+         
+                        </div>
+                    </form>         
 
 
   

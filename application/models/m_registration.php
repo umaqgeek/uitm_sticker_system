@@ -26,8 +26,26 @@ function create_register () {
 
 
 }
+function getPosts(){
+  $this->db->select("register_id,nama");
+  $this->db->from('registration');
+  $query = $this->db->get();
+  return $query->result();
+}
 
+function show_register_id($data){
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where('register_id', $data);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;  
+    }
 
+function update_register_id1($register_id,$data){
+     $this->db->where('register_id', $register_id);
+     $this->db->update('registration', $data);  
+    }
 
 }
 

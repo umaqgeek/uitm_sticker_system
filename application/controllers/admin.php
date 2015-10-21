@@ -22,7 +22,7 @@ class Admin extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               $this->load->view('admin/admin');
+               redirect('admin/show_register_id');
            }
            else
            {
@@ -33,6 +33,15 @@ class Admin extends MY_Controller
 
                
         }
+
+        // public function result()
+
+        // {      
+        //         $this->data['registration'] = $this->m_registration->getPosts();
+        //         $this->load->view('site/result', $this->data);
+        //         $this->viewpage();
+               
+        // }
 
          public function index()
 
@@ -79,6 +88,7 @@ class Admin extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+
         function logout()
         {
             $this->simpleloginsecure->logout();
@@ -86,13 +96,15 @@ class Admin extends MY_Controller
         }
 
 
-        function show_register_id($register_id) {
-            $data = array();
+        function show_register_id() {
+        //     $data = array();
         $register_id = $this->uri->segment(3);
-        $data=$this->m_admin->show_register();
-        $data['register'] = $this->m_admin->show_register();
-        $data['single_register'] = $this->m_admin->show_register_id($register_id);
+        $data=$this->m_registration->getPosts();
+        $data['register'] = $this->m_registration->getPosts();
+        $data['single_register'] = $this->m_registration->show_register_id($register_id);
         $this->load->view('admin/admin', $data);
+        $this->viewpage('v_menu');
+
        
     }
 
@@ -100,11 +112,11 @@ class Admin extends MY_Controller
        $register_id= $this->input->post('register_id');
        $data = array(
            'nama' => $this->input->post('nama'),
-            // 'Student_Email' => $this->input->post('demail'),
-            // 'Student_Mobile' => $this->input->post('dmobile'),
-            // 'Student_Address' => $this->input->post('daddress')
+            'jenis' => $this->input->post('jenis'),
+            'status' => $this->input->post('status'),
+            'kenderaan' => $this->input->post('kenderaan')
         );
-       $this->m_admin->update_register_id1($id,$data);
+       $this->m_registration->update_register_id1($register_id,$data);
        $this->show_register_id();
     }
 

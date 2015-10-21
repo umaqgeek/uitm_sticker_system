@@ -9,9 +9,10 @@ class Site extends MY_Controller
         
     function __construct()
     {
-            parent::__construct();
-            $this->load->model('m_signup');
 
+            parent::__construct(); 
+            $this->load->database();
+            $this->load->model('m_registration');
     }
 
         
@@ -49,14 +50,6 @@ class Site extends MY_Controller
                 $crud->unset_delete();
                
 
-                // $crud->required_fields('plat', 'kenderaan');
-                // // $crud->columns('plat', 'kenderaan');
-                // // $crud->add_fields('plat','kenderaan');
-                // // $crud->edit_fields('kenderaan');
-                // // $crud->unset_add();
-                // // $crud->unset_delete();
- 
-
                 $output = $crud->render();
 
 
@@ -85,6 +78,8 @@ class Site extends MY_Controller
                 $this->viewpage();
                
         }
+
+         
         public function signup()
         {       $this->viewpage();
                 $this->load->view('site/signup');
@@ -127,17 +122,20 @@ class Site extends MY_Controller
                 $this->viewpage();
             }
 
-            
           
 
           }
+
+         
 
         public function regisForm()
         {
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
+
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
+
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
             
@@ -155,11 +153,13 @@ class Site extends MY_Controller
                 $this->load->model('m_registration');
                 redirect('site');
             }
-          
 
-        } 
             
-        
+        } 
+
+
+
+    
         public function antaForm()
         {
 
@@ -170,67 +170,8 @@ class Site extends MY_Controller
         }
 
          public function register()
-        // {      
 
-           
-
-        //     $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-        //     $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-
-        //     if ($this->form_validation->run() == FALSE) 
-        //     {
-
-        //         if(isset($this->session->userdata['logged_in']))
-        //         {
-        //             redirect('site');
-        //         }
-        //         else
-        //         {
-        //             $this->load->view('login/v_login');
-        //             $this->viewpage();
-        //         }
-        //     }
-        //      else 
-        //      {
-        //         $data = array(
-        //         'username' => $this->input->post('username'),
-        //         'password' => $this->input->post('password')
-        //         );
-        //         $result = $this->m_signup->login($data);
-        //         if ($result == TRUE) 
-        //         {
-
-        //             $username = $this->input->post('username');
-        //             $result = $this->m_signup->read_user_information($username);
-        //             if ($result != false)
-        //              {
-        //                 $session_data = array(
-        //                 'username' => $result[0]->username,
-        //                 'password' => $result[0]->password,
-        //                     );
-        //     // Add user data in session
-        //                 $this->session->set_userdata('logged_in', $session_data);
-        //                 $this->viewpage1();
-        //                 $this->load->view('site/registration'); 
-        //             }
-        //         }
-        //         else 
-        //         {
-        //             $data = array(
-        //             'error_message' => 'Invalid Username or Password'
-        //                 );
-
-        //             $this->load->view('login/v_login', $data);
-        //             $this->viewpage();
-
-        //         }
-        //     }
-
-
-
-        // }
-
-         {
+        {     
 
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -273,7 +214,7 @@ class Site extends MY_Controller
                     }
 
                     
-}
+            }
 
 
         function logout()
