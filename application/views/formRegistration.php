@@ -5,7 +5,7 @@
  <form>
  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/css/style.css">
  <?php echo form_open("singin/register"); ?>
- 
+
 <div id="login" style="margin:0 auto;">
     <div class="container">
   <div class="two">
