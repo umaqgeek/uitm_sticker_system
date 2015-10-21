@@ -35,9 +35,31 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
+                              <div class="row"><div class="col-md-3"></div>
+                                    <center><div class="col-md-8"><span class="form-control" ><center><?php echo "Selamat Datang  "?><td><?php echo $username;?></span></div>  
+                                </div><br>
+
+                                <div class="row">          
+                                    <div class="col-md-2">Status :</div>  
+                                      <div class="col-md-10">
+                                          <select name="jenis" id="status" class="form-control" >
+                                                <option value="">Sila Pilih</option>
+                                                <option value="PL">Pelajar </option>
+                                                <option value="ST">Staff</option>
+                                                <option value="KT">Kontraktor </option>
+                                          </select>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="row">
+                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                 </div><br> 
+
+                           
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="plat" placeholder="No Plat"></div>
                                   
                                 </div><br>
                                 <div class="row">
@@ -88,22 +110,8 @@ body{
                                          <option value="DLL" >LAIN-LAIN</option>
                                       </select></div>
                                 </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">No Engin:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="engin" placeholder="No Engin"></div>
-                                 
-                                </div><br>
                                 
-                                <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
                                    
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Warna Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna"  placeholder="Warna"></div>
-                                    
-                                </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
@@ -161,10 +169,14 @@ body{
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                </div><br>
 
-
-                                    
+                                    <div class="row">
+                                    <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
+
+
+
                                 <?php echo validation_errors('<p class="error">');?>
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
@@ -188,41 +200,21 @@ body{
                                   </div>
                                 </div>
 
-                                <div class="modal fade" id="myModal1" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>   
-                                        </div>
-                                        <div class="modal-body">
-                                          <p>Terima Kasih Datang Lagi.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
- 
+     
 
-
-                                
-
-
-       
-                                  
-
-                            </div>
+         
                         </div>
                     </form>         
 
+
   
+</div>
+<div>
+
 </div>
 
 </body>
 </html>
-
 
 
 

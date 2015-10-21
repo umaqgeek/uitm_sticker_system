@@ -7,7 +7,7 @@
                 <td>Nama Pemilik</td>
                 <td>Result</td>
             </tr>
-            <?php 
+            <?php if(isset($registration))
                 foreach ($registration as $reg) {
             ?>
             <tr>

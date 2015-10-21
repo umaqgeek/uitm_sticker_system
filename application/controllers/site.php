@@ -1,4 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
+session_start();
+
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Site extends MY_Controller 
 {
@@ -6,13 +9,17 @@ class Site extends MY_Controller
         
     function __construct()
     {
+
             parent::__construct(); 
             $this->load->database();
             $this->load->model('m_registration');
     }
 
+        
 
-    private function viewpage($page='v_mainpage', $data=array())
+
+
+        private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
             echo $this->load->view($this->parent_page.'/v_menu', $data, true);
@@ -28,33 +35,6 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-
-       
-        public function registration()
-        {
-      
-                $crud = new grocery_CRUD();
-
-                $crud->set_theme('sayapunyer');
-
-                $crud->display_as('plat','No Plat');
-                $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('phone','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
-               $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
-               $crud->unset_edit();
-               $crud->unset_delete();
-               
-
-                $output = $crud->render();
-
-                $this->viewpage('v_crud', $output);
-        }
-
-                function add_field_callback_1()
-                {
-                    return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
-                }
             
           public function signup1()
         {
@@ -87,21 +67,19 @@ class Site extends MY_Controller
 
         public function index()
 
-        {      
+        {
+        
+            $username = $this->session->userdata('username');
 
-                $this->load->view('login/v_login');
+            //Pass it in an array to your view like
+            $data['username']=$username;   
+
+                $this->load->view('login/v_login',$data);
                 $this->viewpage();
                
         }
 
-         public function result()
-
-        {      
-                $this->data['registration'] = $this->m_registration->getPosts();
-                $this->load->view('site/result', $this->data);
-                $this->viewpage();
-               
-        }
+         
         public function signup()
         {       $this->viewpage();
                 $this->load->view('site/signup');
@@ -111,8 +89,8 @@ class Site extends MY_Controller
         public function registration1()
         { 
         
-               $this->load->view('site/registration',$data);
-               $this->viewpage1($data);  
+               $this->load->view('site/registration');
+               $this->viewpage1();  
              
         }
 
@@ -120,6 +98,7 @@ class Site extends MY_Controller
         public function signForm()
         {
 
+            
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
@@ -154,9 +133,12 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
-            $this->form_validation->set_rules('engin', 'No Engin', 'trim|required');
+
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
+
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
+            
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -169,11 +151,17 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
+<<<<<<< HEAD
                 $this->load->view('site/succesfulpage');
                 $this->viewpage1();
+=======
+                redirect('site');
+>>>>>>> 934193dcb2bb9cdab87ca5eb89069d8680abfbc7
             }
+
             
         } 
+
 
 
     
@@ -187,34 +175,51 @@ class Site extends MY_Controller
         }
 
          public function register()
+
         {     
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $result=$this->db->get('signup');
-            
-            
 
-            if ($result->num_rows() >0 )
-            {
-                   $this->viewpage1();
-                   $this->load->view('site/registration'); 
-                   
+                    if ($this->form_validation->run() == FALSE) {
+                    $this->load->view('login/v_login');
+                    $this->viewpage();
+                    } else {
+                    $data = array(
+                    'username' => $this->input->post('username'),
+                    'password' => $this->input->post('password')
+                    );
+                    $result = $this->m_signup->login($data);
+                    if($result == TRUE){
+                    $sess_array = array(
+                    'username' => $this->input->post('username')
+                    );
+
+                    // Add user data in session
+                    $this->session->set_userdata('logged_in', $sess_array);
+                    $result = $this->m_signup->read_user_information($sess_array);
+                    if($result != false){
+                    $data = array(
+                    // 'name' =>$result[0]->name,
+                    'username' =>$result[0]->username,
+                    'password' =>$result[0]->password
+                    );
+
+                        $this->load->view('site/registration',$data);
+                        $this->viewpage1();
+                    }
+                    }else{
+                    $data = array(
+                    'error_message' => 'Invalid Username or Password'
+                    );
+                    $this->load->view('login/v_login', $data);
+                    $this->viewpage();
+                    }
+                    }
+
+                    
             }
-            else
-            {
-                $this->viewpage();
-                return $this->load->view('login/v_login');
-
-
-            }
-
-
-        }
 
 
         function logout()
@@ -222,6 +227,7 @@ class Site extends MY_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
         }
+
 
         
 }

@@ -1,5 +1,8 @@
 <?php
   class m_admin extends CI_Model {
+  	public function __construct()	{
+  
+}
 	  
 	  function get() 
 	  {
@@ -28,6 +31,7 @@
 		  $this->db->where('ic_no', $this->url->segment(3));
 		  $this->db->delete('admin');
 	  }
+
 	
   }
 
