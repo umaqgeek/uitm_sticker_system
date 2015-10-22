@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tuffah Informatics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  form.three{
+ background-color:white;
+ border-style:solid;
+ width:1000px; 
+}
+div.two{
+  background-color:white;
+  border-style:solid;
+  width:1000px;
+}
+body{
+        background-color:#FFC0CB;
+  }
+  </style>
+</head>
+<body>
+
+
+
+
+
+
 <div class="container">
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG PERMOHONAN STIKER</h2>
@@ -132,10 +164,22 @@
                                     
                                </div><br>
                                 <?php echo validation_errors('<p class="error">');?>
-                               <div class="row" style="margin-top: 3%;">
+                                <div class="row" style="margin-top: 3%;">
+                                <div class="col-md-3"></div>
+                                <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1">
+                                <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+              
+
+
+                               <!-- <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
                                     <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
                                     <br>
+
+                                <div class="row" style="margin-top: 3%;">
+                                    <div class="col-md-3"></div>
+                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Batal</button></div>
+                                    <br> -->
 
                                 <div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
