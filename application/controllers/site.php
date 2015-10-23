@@ -151,7 +151,7 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                redirect('site');
+                redirect('site/profile');
             }
 
             
@@ -215,6 +215,16 @@ class Site extends MY_Controller
 
                     
             }
+
+            public function profile()
+{
+         // in data array key name should be same which you will pass to view
+         $nama = $this->uri->segment(3);    
+         $data['row'] = $this->m_registration->my_data($nama);
+
+        $this->load->view('site/view_register', $data);
+        $this->viewpage1();
+}
 
 
         function logout()

@@ -181,6 +181,7 @@ body{
                                <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-3"></div>
                                     <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                            <input type="button" class="btn btn-primary" value="view" onClick="this.form.action='<?=site_url('site/profile');?>';this.form.submit()">
                                     <br>
 
                                 <div class="modal fade" id="myModal" role="dialog">
