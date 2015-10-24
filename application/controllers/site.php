@@ -151,7 +151,24 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-                redirect('site/profile');
+
+                $data = array(
+        'jenis' => $this->input->post('jenis'),
+        'plat'=>$this->input->post('plat'),
+        'kenderaan'=>$this->input->post('kenderaan'),
+         'model'=>$this->input->post('model'),
+         'nama'=>$this->input->post('nama'),
+         'ic'=>$this->input->post('ic'),
+         'phone'=>$this->input->post('phone'),
+         'hubungan'=>$this->input->post('hubungan'),
+         'lesen'=>$this->input->post('lesen'),
+         'kelas'=>$this->input->post('kelas'),
+         'cukai'=>$this->input->post('cukai'),
+          'waris'=>$this->input->post('waris'),
+          'status'=>$this->input->post('status'),
+
+            );
+                $this->load->view('site/view_register',$data);
             }
 
             
@@ -216,15 +233,15 @@ class Site extends MY_Controller
                     
             }
 
-            public function profile()
-{
-         // in data array key name should be same which you will pass to view
-         $nama = $this->uri->segment(3);    
-         $data['row'] = $this->m_registration->my_data($nama);
+//             public function profile()
+// {
+//          // in data array key name should be same which you will pass to view
+//          $nama = $this->uri->segment(3);    
+//          $data['row'] = $this->m_registration->my_data($nama);
 
-        $this->load->view('site/view_register', $data);
-        $this->viewpage1();
-}
+//         $this->load->view('site/view_register', $data);
+//         $this->viewpage1();
+// }
 
 
         function logout()

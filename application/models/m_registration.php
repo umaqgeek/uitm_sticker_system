@@ -47,21 +47,21 @@ function update_register_id1($register_id,$data){
      $this->db->update('registration', $data);  
     }
 
-    public function my_data($nama)
-{
-  $nama = $this->session->userdata('nama');
+//     public function my_data($nama)
+// {
+//   $nama = $this->session->userdata('nama');
 
-  $data = array();
-  $this->db->select('*');
-  $this->db->from('registration');
-  $this->db->where('nama', $nama);
-  $query = $this->db->get();
+//   $data = array();
+//   $this->db->select('*');
+//   $this->db->from('registration');
+//   $this->db->where('nama', $nama);
+//   $query = $this->db->get();
 
-  //this will return multiple rows or object of arrays
-  //return $query->result();
-  // you need to send only single row
-    return $query->row();
-  }
+//   //this will return multiple rows or object of arrays
+//   //return $query->result();
+//   // you need to send only single row
+//     return $query->row();
+//   }
 
 }
 
