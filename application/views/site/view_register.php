@@ -6,7 +6,9 @@
 </head>
 <body>
 
-<?php if(isset($jenis) && isset($plat)&& isset($kenderaan)&& isset($model)&& isset($nama)&& isset($ic)&& isset($phone)&& isset($hubungan)&& isset($lesen)&& isset($kelas)&& isset($cukai)&& isset($waris)&& isset($status))
+<?php
+
+ if(isset($jenis) && isset($plat)&& isset($kenderaan)&& isset($model)&& isset($nama)&& isset($ic)&& isset($phone)&& isset($hubungan)&& isset($lesen)&& isset($kelas)&& isset($cukai)&& isset($waris)&& isset($status))
 {
 echo "<center>";
 

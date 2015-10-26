@@ -28,10 +28,13 @@ class Login extends CI_Controller
 
        public function index()
        {
-           $this->viewpage();
+           
+                $this->viewpage();
+
+           
        }
 
-  public function register()
+  public function userhome()
  {
 
             $username = $this->input->post('username');
@@ -44,7 +47,7 @@ class Login extends CI_Controller
 
             if ($result->num_rows() > 0)
             {
-                return $this->load->view('login/registration');
+                return $this->load->view('login/userhome');
             }
             else
             {

@@ -27,7 +27,8 @@ body{
 
  
 
-<div class="container">
+
+<!-- <div class="container">
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG PERMOHONAN STIKER</h2>
   </div><br>
@@ -215,6 +216,39 @@ body{
 <div>
 
 </div>
+ -->
+      <div id="content">
+        <h1>UiTM STICKER SYSTEM</h1>
+        <div id="blog_container">
+          <div class="blog"><h2>WELCOME!</h2><h3>Thank You For Using Our System</h3></div>
+          </div>
+        <p></p>
+      </div>
+    </div>
+
+
+    <legend>
+      <ul> :: <a href="index.html">Form Registration</a>  </ul>
+      <ul> :: <a href="about.html">Update Form</a>        </ul>
+      <ul> :: <a href="portfolio.html">Status</a>         </ul>
+      <ul> :: <a href="contact.php">Contact Us!</a>       </ul>
+    </legend>
+
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+  <script type="text/javascript" src="js/image_fade.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+
 
 </body>
 </html>

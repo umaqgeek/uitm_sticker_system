@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Home Page</a>
+                <a class="navbar-brand topnav" href="http://localhost/uitm_sticker_system">Home Page</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,10 +29,14 @@
                         <a href="#product">Products</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="contact">Contact</a>
                     </li>
                     <li>
+
                         <a href="<?=site_url('site/signup'); ?>">Signup</a>
+
+                        <!-- <a href="http://localhost/uitm_sticker_system/index.php/site/signup">Signup</a> -->
+
                     </li>
                 </ul>
             </div>
