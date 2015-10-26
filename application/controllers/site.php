@@ -312,6 +312,9 @@ class Site extends MY_Controller
             }
         }
 
+        
+
+
         public function daftar()
         {
             $this->viewpage1();
