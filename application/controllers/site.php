@@ -230,6 +230,38 @@ class Site extends MY_Controller
 
         }
 
+        public function adminhome()
+        {      
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
+            
+            
+
+            if ($result->num_rows() >0 )
+            {
+                   $this->viewpage1();
+                   $this->load->admin('admin/adminhome'); 
+                   
+            }
+            else
+            {
+                $this->viewpage();
+                return $this->load->view('login/v_login');
+
+
+            }
+
+
+        }
+
+
+
         public function daftar()
         {
             $this->viewpage1();

@@ -51,7 +51,7 @@
             <div class="col-md-2 col-md-offset-2"></div>
             <div class="col-md-6">
                <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
+              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('site/adminhome');?>';this.form.submit()">
               <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
             </div>
         </div>
