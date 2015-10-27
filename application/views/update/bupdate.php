@@ -52,6 +52,7 @@
               <!-- <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()"> -->
 
                <input type="button" class="btn btn-primary" value="Submit" onClick="this.form.action='<?=site_url('site/updatestatus');?>';this.form.submit()">
+               <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
             </div>
         </div>
         

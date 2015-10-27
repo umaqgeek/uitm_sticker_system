@@ -27,8 +27,8 @@ body{
 
 <?php if(isset($update)){?>
                     <?php foreach ($update as $row): ?>
-                        <p>Edit Detail & Click Update Button</p>
-                        <form method="post" class="three" action="<?php echo base_url() . "index.php/site/update_register"?>"><center>
+                        <center><p>Edit Detail & Click Update Button</p>
+                        <center><form method="post" class="three" action="<?php echo base_url() . "index.php/site/update_register"?>">
                             <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                               
@@ -179,6 +179,7 @@ body{
                                 </div><br>
 
                             <input type="submit" id="submit" name="dsubmit" value="Update">
+                            
                         </div>
                     </div>
 

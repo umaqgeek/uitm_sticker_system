@@ -409,7 +409,7 @@ class Site extends MY_Controller
                         
         );
        $this->m_registration->update_register_id1($register_id,$data);
-       $this->update();
+       $this->userhome();
     }
 
 
