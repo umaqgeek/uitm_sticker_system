@@ -42,7 +42,7 @@ body{
       <ul> :: <a href="http://localhost/uitm/index.php/site/daftar">Form Registration</a>  </ul>
       <ul> :: <a href="about.html">Update Form</a>        </ul>
       <ul> :: <a href="portfolio.html">Status</a>         </ul>
-      <ul> :: <a href="contact.php">Contact Us!</a>       </ul>
+      <ul> :: <a href="http://localhost/uitm/index.php/site/contact">Contact Us!</a>       </ul>
 
 <!--     </legend>
  -->

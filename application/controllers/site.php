@@ -120,8 +120,8 @@ class Site extends MY_Controller
 
         public function contact()
         {
-                $this->viewpage();
-                $this->load->view('contact');
+                $this->viewpage1();
+                $this->load->view('site/contact');
         }
         
         public function registration1()
