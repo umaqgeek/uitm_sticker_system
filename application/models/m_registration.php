@@ -47,21 +47,52 @@ function update_register_id1($register_id,$data){
      $this->db->update('registration', $data);  
     }
 
-function getstatus(){
-  $this->db->select("ic,nama");
-  $this->db->from('registration');
-  $query = $this->db->get();
-  return $query->result();
+// function getstatus(){
+//   $this->db->select("ic,nama");
+//   $this->db->from('registration');
+//   $query = $this->db->get();
+//   return $query->result();
+// }
+
+// function showstatus($data){
+//         $this->db->select('*');
+//         $this->db->from('registration');
+//         $this->db->where('register_id', $data);
+//         $query = $this->db->get();
+//         $result = $query->result();
+//         return $result;  
+// }
+
+public function show_data_by_id($ic,$nama) {
+$condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
+$this->db->select('*');
+$this->db->from('registration');
+$this->db->where($condition);
+$this->db->limit(1);
+$query = $this->db->get();
+
+if ($query->num_rows() == 1) {
+return $query->result();
+} else {
+return false;
+}
 }
 
-function showstatus($data){
-        $this->db->select('*');
-        $this->db->from('registration');
-        $this->db->where('register_id', $data);
-        $query = $this->db->get();
-        $result = $query->result();
-        return $result;  
+public function updatestatus($ic,$nama) {
+$condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
+$this->db->select('*');
+$this->db->from('registration');
+$this->db->where($condition);
+$this->db->limit(1);
+$query = $this->db->get();
+
+if ($query->num_rows() == 1) {
+return $query->result();
+} else {
+return false;
 }
+}
+
 }
 
 ?>

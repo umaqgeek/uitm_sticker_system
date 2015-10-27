@@ -348,75 +348,69 @@ class Site extends MY_Controller
         }
 
 
-         public function userstatus()
-        {      
-
-            // $nama = $this->input->post('nama');
-            // $ic = $this->input->post('ic');
-            
-
-            // $this->db->where('nama',$nama);
-            // $this->db->where('ic',$ic);
-            // $result=$this->db->get('registration');
-            
-            
-
-            // if ($result->num_rows() >0 )
-            // {
-            //        $register_id = $this->uri->segment(3);
-            //         $data=$this->m_registration->getstatus();
-            //         $data['register'] = $this->m_registration->getstatus();
-            //         $data['single_register'] = $this->m_registration->show_register_id($register_id);
-            //         $this->load->view('admin/admin', $data);
-            //         $this->viewpage('v_menu');
-                   
-
-            // }
-
-            $this->db->where('ic', $this->input->post('ic'),'nama',$this->input->post('nama'));
-            $query = $this->db->get('registration');
-
-            if ($query->num_rows() >0 )
-            {
-                $this->load->model('m_registration');
-                $data=$this->m_registration->getstatus();
-                $register_id = $this->uri->segment(3);
-                $this->m_registration->showstatus($register_id);
-
-
-              $data = array('jenis' => $this->input->post('jenis'),
-                            'plat'=>$this->input->post('plat'),
-                            'kenderaan'=>$this->input->post('kenderaan'),
-                            'model'=>$this->input->post('model'),
-                            'nama'=>$this->input->post('nama'),
-                            'ic'=>$this->input->post('ic'),
-                            'phone'=>$this->input->post('phone'),
-                            'hubungan'=>$this->input->post('hubungan'),
-                            'lesen'=>$this->input->post('lesen'),
-                            'kelas'=>$this->input->post('kelas'),
-                            'cukai'=>$this->input->post('cukai'),
-                            'waris'=>$this->input->post('waris'),
-                            'status'=>$this->input->post('status'),
-            // 'register_id' => $query->row()->id
-                            );
-                $this->load->view('site/view_register', $data);  
-            }
-        
+         public function update()
+        {
+            $this->viewpage1();
+            $this->load->view('update/bupdate');
         }
 
 
+         public function userstatus()
+        {      
 
+            $nama = $this->input->post('nama');
+            $ic = $this->input->post('ic');
 
+            if ($ic != "" && $nama != "") {
+                $result = $this->m_registration->show_data_by_id($ic,$nama);
+                if ($result != false) {
+                $data['tunjuk'] = $result;
+                } else {
+                $data[''] = "No record found !";
+                }
+                
+                $this->load->view('status/vstatus', $data);
+            }
+            
+        }
 
+        public function updatestatus()
+        {
+            $nama = $this->input->post('nama');
+            $ic = $this->input->post('ic');
 
+            if ($ic != "" && $nama != "") {
+                $result = $this->m_registration->updatestatus($ic,$nama);
+                if ($result != false) {
+                $data['update'] = $result;
+                } else {
+                $data[''] = "No record found !";
+                }
+                
+                $this->load->view('update/update', $data);
+            }
+        }
 
-
-
-
-
-
-
-
+        function update_register() {
+       $register_id= $this->input->post('register_id');
+       $data = array(
+           'jenis' => $this->input->post('jenis'),
+                        'plat'=>$this->input->post('plat'),
+                        'kenderaan'=>$this->input->post('kenderaan'),
+                        'model'=>$this->input->post('model'),
+                        'nama'=>$this->input->post('nama'),
+                        'ic'=>$this->input->post('ic'),
+                        'phone'=>$this->input->post('phone'),
+                        'hubungan'=>$this->input->post('hubungan'),
+                        'lesen'=>$this->input->post('lesen'),
+                        'kelas'=>$this->input->post('kelas'),
+                        'cukai'=>$this->input->post('cukai'),
+                        'waris'=>$this->input->post('waris')
+                        
+        );
+       $this->m_registration->update_register_id1($register_id,$data);
+       $this->update();
+    }
 
 
         function logout()
