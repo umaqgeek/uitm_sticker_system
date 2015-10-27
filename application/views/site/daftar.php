@@ -38,6 +38,30 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
+                              <div class="row"><div class="col-md-3"></div>
+                              
+                                    <center><div class="col-md-8"><span class="form-control" ><center><?php if(isset($username))
+                                     echo "Selamat Datang  ".$username;?></span></div> 
+                                </div><br>
+
+                                <div class="row">          
+                                    <div class="col-md-2">Status :</div>  
+                                      <div class="col-md-10">
+                                          <select name="jenis" id="status" class="form-control" >
+                                                <option value="">Sila Pilih</option>
+                                                <option value="PL">Pelajar </option>
+                                                <option value="ST">Staff</option>
+                                                <option value="KT">Kontraktor </option>
+                                          </select>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="row">
+                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                 </div><br>
+
+
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
@@ -93,23 +117,13 @@ body{
                                
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-2">Nama Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama"></div>
-                                                                        
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-md-2">Warna Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="warna"  placeholder="Warna"></div>
-                                    
-                                </div><br>
-                                <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="No Tel"  placeholder="No Telefon"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  placeholder="No Telefon"></div>
                                     
                                 </div><br>
                                 <div class="row">
@@ -127,6 +141,7 @@ body{
                                         <option value="SU" >SUAMI/ISTERI</option>
                                         <option value="SY" >SYARIKAT</option>
                                     </select></div>
+                                    
                                   </div><br>
                                   <div class="row">
                                     <div class="col-md-2">No Lesen:</div>
@@ -159,13 +174,30 @@ body{
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                </div><br>
+
+                                    <div class="row">
+                                    <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
+                               </div><br>
 
 
                                     
-                               </div><br>
+                               
                                 <?php echo validation_errors('<p class="error">');?>
-                                 <?php echo validation_errors('<p class="error">');?>
+
+                             <!--     <?php echo validation_errors('<p class="error">');?>
                                <div class="row" style="margin-top: 3%;">
+
+                                <div class="row" style="margin-top: 3%;">
+                                <div class="col-md-3"></div>
+                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
+                                <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+              
+
+
+                               <!-- <div class="row" style="margin-top: 3%;">
+>>>>>>> 368c4bee01e6cdea7d8d573d86eb56d64a556ae1
                                     <div class="col-md-3"></div>
                                     <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
                                     <br>

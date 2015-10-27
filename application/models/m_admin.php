@@ -33,6 +33,7 @@
 	  }
 
 
+
 	  // public function dataPengguna($username)
 	  // {
 	  // 	$this->db->select('ic_no');
@@ -43,6 +44,18 @@
 
 	  // 	return $query->row();
 	  // }
+
+
+	  public function dataPengguna($username)
+	  {
+	  	$this->db->select('ic_no');
+	  	$this->db->select('nama');
+	  	$this->db->select('phone_no');
+	  	$this->db->select('email');
+	  	$query = $this->db->get('signup');
+
+	  	return $query->row();
+	  }
 
 	
   }

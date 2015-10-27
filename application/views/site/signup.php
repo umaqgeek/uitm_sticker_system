@@ -30,6 +30,7 @@ body{
 <div class="col-md-8 col-md-offset-2">
 
 
+
  <div class="row">          
 <div class="col-md-3">Status :</div>  
   <div class="col-md-8">
@@ -41,6 +42,7 @@ body{
       </select>
     </div>
 </div> 
+
 
 <div class="row">          
 <div class="col-md-3">No Kad Pengenalan :</div>  

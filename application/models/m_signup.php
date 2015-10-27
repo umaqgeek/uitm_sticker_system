@@ -15,18 +15,8 @@
             'email' => $this->input->post('email'),
 
 
-
-		 
-	  
-	  
-	  // function add($data)
-	  //  {
-		 //  $this->db->insert('signup', $data);
-			//   return ; 
-	  // }
-
-         
             );
+
 
            $insert = $this->db->insert('signup', $new_member_insert_data);
            return $insert;

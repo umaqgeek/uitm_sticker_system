@@ -115,7 +115,11 @@ class Site extends MY_Controller
 
                 $this->load->view('login/v_login',$data);
 
+
         {      
+
+              
+
                 // if($this->session->userdata('isLogin') == FALSE)
                 // {
                 //     redirect('login/v_login');
@@ -156,11 +160,18 @@ class Site extends MY_Controller
         { 
         
 
-               $this->load->view('site/registration');
-               $this->viewpage1();  
+
+               // $this->load->view('site/registration');
+               // $this->viewpage1();  
 
                // $this->load->view('site/daftar',$data);
                // $this->viewpage1($data);  
+
+               // $this->load->view('site/registration');
+               // $this->viewpage1();  
+
+               $this->load->view('site/daftar',$data);
+               $this->viewpage1($data);  
 
              
         }
@@ -223,6 +234,7 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
+
                 $this->load->view('site/succesfulpage');
                 $this->viewpage1();
 
@@ -233,6 +245,32 @@ class Site extends MY_Controller
             
         } 
 
+
+
+
+                $data = array(
+                        'jenis' => $this->input->post('jenis'),
+                        'plat'=>$this->input->post('plat'),
+                        'kenderaan'=>$this->input->post('kenderaan'),
+                        'model'=>$this->input->post('model'),
+                        'nama'=>$this->input->post('nama'),
+                        'ic'=>$this->input->post('ic'),
+                        'phone'=>$this->input->post('phone'),
+                        'hubungan'=>$this->input->post('hubungan'),
+                        'lesen'=>$this->input->post('lesen'),
+                        'kelas'=>$this->input->post('kelas'),
+                        'cukai'=>$this->input->post('cukai'),
+                        'waris'=>$this->input->post('waris'),
+                        'status'=>$this->input->post('status'),
+
+            );
+                $this->load->view('site/view_register',$data);
+            }
+
+            
+        } 
+            
+        
 
         public function antaForm()
         {
@@ -252,43 +290,54 @@ class Site extends MY_Controller
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
 
-                    if ($this->form_validation->run() == FALSE) {
-                    $this->load->view('login/v_login');
-                    $this->viewpage();
-                    } else {
-                    $data = array(
-                    'username' => $this->input->post('username'),
-                    'password' => $this->input->post('password')
-                    );
-                    $result = $this->m_signup->login($data);
-                    if($result == TRUE){
-                    $sess_array = array(
-                    'username' => $this->input->post('username')
-                    );
+                    if ($this->form_validation->run() == FALSE) 
+                    {
+                        $this->load->view('login/v_login');
+                        $this->viewpage();
+                    } 
+                    else 
+                    {
+                        $data = array(
+                        'username' => $this->input->post('username'),
+                        'password' => $this->input->post('password')
+                        );
+                        $result = $this->m_signup->login($data);
 
-                    // Add user data in session
-                    $this->session->set_userdata('logged_in', $sess_array);
-                    $result = $this->m_signup->read_user_information($sess_array);
-                    if($result != false){
-                    $data = array(
-                    // 'name' =>$result[0]->name,
-                    'username' =>$result[0]->username,
-                    'password' =>$result[0]->password
-                    );
+                            if($result == TRUE)
+                                {
+                                    $sess_array = array(
+                                    'username' => $this->input->post('username')
+                                    );
 
-                        $this->load->view('site/registration',$data);
-                        $this->viewpage1();
+                            // Add user data in session
+                                    $this->session->set_userdata('logged_in', $sess_array);
+                                    $result = $this->m_signup->read_user_information($sess_array);
+                                    if($result != false)
+                                    {
+                                        $data = array(
+                                        // 'name' =>$result[0]->name,
+                                        'username' =>$result[0]->username,
+                                        'password' =>$result[0]->password
+                                        );
+
+                                        $this->load->view('site/userhome',$data);
+                                        $this->viewpage1();
+                                    }
+                                }
+                            else
+                                {
+                                        $data = array(
+                                        'error_message' => 'Invalid Username or Password'
+                                        );
+                                        $this->load->view('login/v_login', $data);
+                                        $this->viewpage();
+                                }
                     }
-                    }else{
-                    $data = array(
-                    'error_message' => 'Invalid Username or Password'
-                    );
-                    $this->load->view('login/v_login', $data);
-                    $this->viewpage();
-                    }
-                    }
+                }
+
 
           }          
+
 
          public function userhome()
         {      
@@ -312,6 +361,7 @@ class Site extends MY_Controller
             }
         }
 
+
          public function result()
 
         {      
@@ -329,6 +379,78 @@ class Site extends MY_Controller
             $this->viewpage1();
             $this->load->view('site/daftar');
         }
+
+         public function status()
+        {
+            $this->viewpage1();
+            $this->load->view('status/bstatus');
+        }
+
+
+         public function update()
+        {
+            $this->viewpage1();
+            $this->load->view('update/bupdate');
+        }
+
+
+         public function userstatus()
+        {      
+
+            $nama = $this->input->post('nama');
+            $ic = $this->input->post('ic');
+
+            if ($ic != "" && $nama != "") {
+                $result = $this->m_registration->show_data_by_id($ic,$nama);
+                if ($result != false) {
+                $data['tunjuk'] = $result;
+                } else {
+                $data[''] = "No record found !";
+                }
+                
+                $this->load->view('status/vstatus', $data);
+            }
+            
+        }
+
+        public function updatestatus()
+        {
+            $nama = $this->input->post('nama');
+            $ic = $this->input->post('ic');
+
+            if ($ic != "" && $nama != "") {
+                $result = $this->m_registration->updatestatus($ic,$nama);
+                if ($result != false) {
+                $data['update'] = $result;
+                } else {
+                $data[''] = "No record found !";
+                }
+                
+                $this->load->view('update/update', $data);
+            }
+        }
+
+        function update_register() {
+       $register_id= $this->input->post('register_id');
+       $data = array(
+           'jenis' => $this->input->post('jenis'),
+                        'plat'=>$this->input->post('plat'),
+                        'kenderaan'=>$this->input->post('kenderaan'),
+                        'model'=>$this->input->post('model'),
+                        'nama'=>$this->input->post('nama'),
+                        'ic'=>$this->input->post('ic'),
+                        'phone'=>$this->input->post('phone'),
+                        'hubungan'=>$this->input->post('hubungan'),
+                        'lesen'=>$this->input->post('lesen'),
+                        'kelas'=>$this->input->post('kelas'),
+                        'cukai'=>$this->input->post('cukai'),
+                        'waris'=>$this->input->post('waris')
+                        
+        );
+       $this->m_registration->update_register_id1($register_id,$data);
+       $this->userhome();
+    }
+
 
         function logout()
         {
