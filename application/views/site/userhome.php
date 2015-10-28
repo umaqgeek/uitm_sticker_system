@@ -42,7 +42,7 @@ body{
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
 
       <ul> :: <a href="about.html">Update Form</a>        </ul>
-      <ul> :: <a href="portfolio.html">Status</a>         </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Status</a>         </ul>
 
       <!-- <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Update Form</a>        </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/status">Status</a>         </ul> -->

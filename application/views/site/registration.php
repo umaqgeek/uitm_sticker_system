@@ -224,7 +224,7 @@ body{
     <legend>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
       <ul> :: <a href="about.html">Update Form</a>        </ul>
-      <ul> :: <a href="portfolio.html">Status</a>         </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/updatestatus">Status</a>         </ul>
       <ul> :: <a href="contact.php">Contact Us!</a>       </ul>
     </legend>
 

@@ -243,10 +243,6 @@ class Site extends MY_Controller
             }
 
             
-        } 
-
-
-
 
                 $data = array(
                         'jenis' => $this->input->post('jenis'),
@@ -265,7 +261,7 @@ class Site extends MY_Controller
 
             );
                 $this->load->view('site/view_register',$data);
-            }
+            
 
             
         } 
@@ -335,8 +331,6 @@ class Site extends MY_Controller
                     }
                 }
 
-
-          }          
 
 
          public function userhome()
