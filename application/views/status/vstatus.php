@@ -41,71 +41,76 @@ else ?>
                             <div class="row">          
                                     <div class="col-md-2">ID :</div>  
                                       <div class="col-md-10">
-                                          <input name="jenis" id="status" class="form-control" value="<?php echo $value->jenis; ?>" >
+                                          <input name="jenis" id="status" class="form-control"readonly value="<?php echo $value->jenis; ?>" >
                                         </div>
                                     </div><br>
 
                                     <div class="row">
                                     <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  value="<?php echo $value->nama; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="nama"  value="<?php echo $value->nama; ?>"></div>
                                     </div><br>
 
                                     <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  value="<?php echo $value->plat; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="plat"  value="<?php echo $value->plat; ?>"></div>
                                   
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kenderaan:</div>
                                     <div class="col-md-10">
-                                    <input name="kenderaan" id="select1" class="form-control" value="<?php echo $value->kenderaan; ?>" >
+                                    <input name="kenderaan" id="select1" class="form-control"readonly value="<?php echo $value->kenderaan; ?>" >
                                          </div>
                                 </div><br>
 
                                 <div class="row">
                                       <div class="col-md-2">Jenis Kenderaan:</div>
                                       <div class="col-md-10">
-                                      <input name="model" id="select2"class="form-control" value="<?php echo $value->model; ?>">
+                                      <input name="model" id="select2"class="form-control"readonly value="<?php echo $value->model; ?>">
                                          </div>
                                 </div><br>
 
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  value="<?php echo $value->ic; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="ic"  value="<?php echo $value->ic; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  value="<?php echo $value->phone; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone"  value="<?php echo $value->phone; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Pemilik asal:</div>
                                     <div class="col-md-10">
-                                   <input name="hubungan" id="select3" class="form-control" value="<?php echo $value->hubungan; ?>">
+                                   <input name="hubungan" id="select3" class="form-control"readonly value="<?php echo $value->hubungan; ?>">
                                         </div>
                                   </div><br>
 
                                   <div class="row">
                                     <div class="col-md-2">No Lesen:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  value="<?php echo $value->lesen; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="lesen"  value="<?php echo $value->lesen; ?>"></div>
                                     
                                   </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kelas Lesen:</div>
                                     <div class="col-md-10">
-                                    <input name="kelas" id="select4" class="form-control" value="<?php echo $value->kelas; ?>">
+                                    <input name="kelas" id="select4" class="form-control"readonly value="<?php echo $value->kelas; ?>">
                                         </div>
                                </div><br>
 
                                <div class="row">
                                     <div class="col-md-2">No Cukai Jalan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  value="<?php echo $value->cukai; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="cukai"  value="<?php echo $value->cukai; ?>"></div>
                                    
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  value="<?php echo $value->waris; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->waris; ?>"></div>
+                                </div><br>
+
+                                <div class="row">
+                                    <div class="col-md-2">Statust:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->status; ?>"></div>
                                 </div><br>
 
                                 <input type="button" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
