@@ -29,52 +29,40 @@ body{
 <div class="row" style="margin-top: 5%;">
 <div class="col-md-8 col-md-offset-2">
 
- <div class="row">          
-<div class="col-md-3">Status :</div>  
-  <div class="col-md-8">
-      <select name="status" id="status" class="form-control" >
-            <option value="">Sila Pilih</option>
-            <option value="PL">Pelajar </option>
-            <option value="ST">Staff</option>
-            <option value="KT">Kontraktor </option>
-      </select>
-    </div>
-</div> 
-
 <div class="row">          
 <div class="col-md-3">No Kad Pengenalan :</div>  
   <div class="col-md-8">
-  <input type="text" class="form-control" name="ic_no" placeholder="Enter No IC" /></div>
+  <input type="text" class="form-control" name="ic_no"  placeholder="Enter No IC"  value="<?php echo set_value('ic_no'); ?>" size="50"/></div>
 </div> 
 
 <div class="row">
 <div class="col-md-3">Name :</div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="nama" placeholder="Enter Name" /></div>
+        <input type="text" class="form-control" name="nama" placeholder="Enter Name" value="<?php echo set_value('nama'); ?>" size="50"/></div>
 </div>
 
 <div class="row">
 <div class="col-md-3">Username :</div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="username" placeholder="Enter Username" /></div>
+        <input type="text" class="form-control" name="username" placeholder="Enter Username"  value="<?php echo set_value('username'); ?>" size="50"/></div>
 </div>
 
 <div class="row">
 <div class="col-md-3">Password :</div>
         <div class="col-md-8">
-        <input type="password" class="form-control" name="password" placeholder="Enter Password" /></div>
+        <input type="password" class="form-control" name="password" placeholder="Enter Password"  value="<?php echo set_value('password'); ?>" size="50"/></div>
 </div>
 
 <div class="row">
 <div class="col-md-3">No Phone :</div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="phone_no" placeholder="Enter No Phone" /></div>
+        <input type="text" class="form-control" name="phone_no" placeholder="Enter No Phone" value="<?php echo set_value('phone_no'); ?>" size="50" /></div>
 </div>
 
 <div class="row">
 <div class="col-md-3">Email :</div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="email" placeholder="Enter Email" /></div>
+        <input type="text" class="form-control" name="email" placeholder="Enter Email" value="<?php echo set_value('email'); ?>" size="50"/></div>
 </div>
 
 <?php echo validation_errors('<p class="error">');?>

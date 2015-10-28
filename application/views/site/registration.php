@@ -25,8 +25,6 @@ body{
 </head>
 <body>
 
- 
-
       <div id="content">
         <h1>UiTM STICKER SYSTEM</h1>
         <div id="blog_container">
@@ -59,9 +57,9 @@ body{
     });
   </script>
 
+
 </body>
 </html>
-
 
 
 

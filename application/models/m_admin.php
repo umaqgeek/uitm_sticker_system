@@ -1,5 +1,8 @@
 <?php
   class m_admin extends CI_Model {
+  	public function __construct()	{
+  
+}
 	  
 	  function get() 
 	  {
@@ -29,6 +32,7 @@
 		  $this->db->delete('admin');
 	  }
 
+
 	  public function dataPengguna($username)
 	  {
 	  	$this->db->select('ic_no');
@@ -39,6 +43,7 @@
 
 	  	return $query->row();
 	  }
+
 	
   }
 

@@ -25,29 +25,32 @@ body{
 </head>
 <body>
 
-
-
-
-
-
-<div class="container">
-  <div class="two" style="margin-top:5%;">
-    <center><h2>BORANG PERMOHONAN STIKER</h2>
-  </div><br>
-
-  <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
-                        <div class="row" style="margin-top: 5%;">
+<?php if(isset($update)){?>
+                    <?php foreach ($update as $row): ?>
+                        <center><p>Edit Detail & Click Update Button</p>
+                        <center><form method="post" class="three" action="<?php echo base_url() . "index.php/site/update_register"?>">
+                            <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
-                              <div class="row"><div class="col-md-3"></div>
                               
-                                    <center><div class="col-md-8"><span class="form-control" ><center><?php if(isset($username))
-                                     echo "Selamat Datang  ".$username;?></span></div> 
-                                </div><br>
+                             
+                            <input type="hidden" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 
-                                <div class="row">          
+                            <!-- <label>Pemilik :</label><br/> 
+                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"><br/>    
+
+                            <label>Status :</label><br/> 
+                            <input type="text" name="jenis" value="<?php echo $row->jenis; ?>"><br/>
+
+                            <label>Permohonan :</label><br/> 
+                            <input type="text" name="status" value="<?php echo $row->status; ?>"><br/>
+
+                            <label>Kenderaan :</label><br/> 
+                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/> -->
+
+                            <div class="row">          
                                     <div class="col-md-2">Status :</div>  
                                       <div class="col-md-10">
-                                          <select name="jenis" id="status" class="form-control" >
+                                          <select name="jenis" id="status" class="form-control" value="<?php echo $row->jenis; ?>" >
                                                 <option value="">Sila Pilih</option>
                                                 <option value="PL">Pelajar </option>
                                                 <option value="ST">Staff</option>
@@ -58,19 +61,18 @@ body{
 
                                     <div class="row">
                                     <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
-                                 </div><br>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  value="<?php echo $row->nama; ?>"></div>
+                                    </div><br>
 
-
-                                <div class="row">
+                                    <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  value="<?php echo $row->plat; ?>"></div>
                                   
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kenderaan:</div>
                                     <div class="col-md-10">
-                                    <select name="kenderaan" id="select1" class="form-control" >
+                                    <select name="kenderaan" id="select1" class="form-control" value="<?php echo $row->kenderaan; ?>" >
                                          <option value="">Sila Pilih</option>
                                          <option value="KT">KERETA </option>
                                          <option value="MTH">MOTORSIKAL MELEBIHI 125CC </option>
@@ -81,7 +83,7 @@ body{
                                 <div class="row">
                                       <div class="col-md-2">Jenis Kenderaan:</div>
                                       <div class="col-md-10">
-                                      <select name="model" id="select2"class="form-control">
+                                      <select name="model" id="select2"class="form-control" value="<?php echo $row->model; ?>">
                                          <option value="">Sila Pilih</option>
                                          <option value="ALF" >ALFA ROMEO</option>
                                          <option value="APR" >APRIALLIA</option>
@@ -118,18 +120,18 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  value="<?php echo $row->ic; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  placeholder="No Telefon"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  value="<?php echo $row->phone; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Pemilik asal:</div>
                                     <div class="col-md-10">
-                                   <select name="hubungan" id="select3" class="form-control" >
+                                   <select name="hubungan" id="select3" class="form-control" value="<?php echo $row->hubungan; ?>">
                                         <option value="-">Sila Pilih</option>
                                         <option value="DN" >DATUK/NENEK</option>
                                         <option value="IB" >IBU/BAPA</option>
@@ -145,13 +147,13 @@ body{
                                   </div><br>
                                   <div class="row">
                                     <div class="col-md-2">No Lesen:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  placeholder="No Lesen"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  value="<?php echo $row->lesen; ?>"></div>
                                     
                                   </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kelas Lesen:</div>
                                     <div class="col-md-10">
-                                    <select name="kelas" id="select4" class="form-control">
+                                    <select name="kelas" id="select4" class="form-control" value="<?php echo $row->kelas; ?>">
                                         <option value="-">Sila Pilih</option>
                                         <option value="A"  >A - Kenderaan orang cacat</option>
                                         <option value="B"  >B - Motosikal melebihi 500sp</option>
@@ -168,59 +170,26 @@ body{
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No Cukai Jalan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  placeholder="No Cukai Jalan"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  value="<?php echo $row->cukai; ?>"></div>
                                    
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  value="<?php echo $row->waris; ?>"></div>
                                 </div><br>
 
-                                    <div class="row">
-                                    <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
-                               </div><br>
-
-
-                                    
-                               
-                                <?php echo validation_errors('<p class="error">');?>
-                                <div class="row" style="margin-top: 3%;">
-                                <div class="col-md-3"></div>
-                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
-                                <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-              
-
-
-                               <!-- <div class="row" style="margin-top: 3%;">
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                    <br>
-
-                                <div class="row" style="margin-top: 3%;">
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Batal</button></div>
-                                    <br> -->
-
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>   
-                                        </div>
-                                        <div class="modal-body">
-                                          <p>Terima kasih kerana mendaftar.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>  
-
-                            </div>
-
+                            <input type="submit" id="submit" name="dsubmit" value="Update">
+                            
                         </div>
-                    </form>  
-</div>
+                    </div>
+
+                        </form>
+
+                    <?php endforeach; }?>
+                </body>
+                </html>
+
+                    
+
+
+                                

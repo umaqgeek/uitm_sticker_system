@@ -31,20 +31,18 @@
 
 <br><br><br>
 <div class="container">
-  <div class="two">
-    <center><h2>UiTM Sticker System</h2>
-</div><br>
+ 
 <form method="post" class="three" >
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-8 col-md-offset-2">
         
         <div class="row">
-            <div class="col-md-2">Username :</div>
-            <div class="col-md-8"><input type="text" class="form-control" name="username" placeholder="username" /></div>
+            <div class="col-md-2">Name :</div>
+            <div class="col-md-8"><input type="text" class="form-control" name="nama" placeholder="Name" /></div>
         </div>
         <div class="row">
-            <div class="col-md-2">Password :</div>
-            <div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="password" /></div>
+            <div class="col-md-2">IC :</div>
+            <div class="col-md-8"><input type="text" class="form-control" name="ic" placeholder="Ic" /></div>
         </div>
  <?php echo validation_errors('<p class="error">');?>
         <div class="row" style="margin-top: 1%;">
@@ -53,11 +51,8 @@
 
               <!-- <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()"> -->
 
-               <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-
-              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
-
-              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+               <input type="button" class="btn btn-primary" value="Submit" onClick="this.form.action='<?=site_url('site/updatestatus');?>';this.form.submit()">
+               <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
             </div>
         </div>
         
@@ -67,3 +62,4 @@
 </div>
 </body>
 </html>
+
