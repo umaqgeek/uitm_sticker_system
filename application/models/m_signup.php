@@ -23,6 +23,37 @@
             
   }
 
+  function check_if_username_exists($username){
+
+  	$this->db->where('username', $username);
+  	$result = $this->db->get('signup');
+
+  	if($result->num_rows() > 0){
+  		return FALSE;
+  	}
+
+  	else {
+  		return TRUE;
+  	}
+  }
+
+   function check_if_email_exists($email){
+
+  	$this->db->where('email', $email);
+  	$result = $this->db->get('signup');
+
+  	if($result->num_rows() > 0){
+  		return FALSE;
+  	}
+
+  	else {
+  		return TRUE;
+  	}
+  }
+
+
+
+
   public function login($data) {
 
 	$condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";

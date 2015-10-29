@@ -184,10 +184,10 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
-            $this->form_validation->set_rules('username', 'username', 'trim|required');
+            $this->form_validation->set_rules('username', 'username', 'trim|required|callback_check_if_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_check_if_email_exists');
 
             if ($this->form_validation->run() == FALSE)
             {
@@ -203,7 +203,40 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
                 $this->viewpage();
 
-            }            
+            }  
+
+            function check_if_username_exists($requested_username) 
+             {
+                $this->load->model('m_signup');
+                $username_availabe=$this->m_signup->check_if_username_exists($requested_username);
+
+                if($username_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }  
+
+             function check_if_email_exists($requested_email) 
+             {
+                $this->load->model('m_signup');
+                $email_availabe=$this->m_signup->check_if_email_exists($requested_email);
+
+                if($email_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }         
+       
 
           
 

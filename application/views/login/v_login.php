@@ -48,7 +48,7 @@
         </div>
  <?php echo validation_errors('<p class="error">');?>
         <div class="row" style="margin-top: 1%;">
-            <div class="col-md-2 col-md-offset-2"></div>
+            <div class="col-md-2"></div>
             <div class="col-md-6">
 
 
