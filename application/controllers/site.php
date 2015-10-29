@@ -152,19 +152,7 @@ class Site extends MY_Controller
                 $this->load->view('contact');
         }
         
-        public function registration1()
-        { 
-        
-
-               // $this->load->view('site/registration');
-               // $this->viewpage1();  
-
-               $this->load->view('site/daftar',$data);
-               $this->viewpage1($data);  
-
-             
-        }
-
+       
 
         public function signForm()
         {
@@ -304,45 +292,44 @@ class Site extends MY_Controller
                                         $data = array(
                                         'error_message' => 'Invalid Username or Password'
                                         );
-                                        $this->load->view('login/v_login', $data);
+                                        redirect('site', $data);
                                         $this->viewpage();
                                 }
                     }
                 }
 
-                    
 
-         public function userhome()
-        {      
-
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            
-
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $result=$this->db->get('signup');
-            
-            
-
-            if ($result->num_rows() >0 )
+                public function userhome()
+        {
+            if ( ! $this->session->userdata('logged_in'))
             {
-                   $this->viewpage1();
-                   $this->load->view('site/userhome'); 
-                   
-
+            redirect(site_url('site'));
             }
+            
+            $this->viewpage1();
+            $this->load->view('site/userhome',$data);
+    
         }
-
 
         public function daftar()
         {
-            $this->viewpage1();
-            $this->load->view('site/daftar');
+            
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+                    $this->viewpage1();
+                    $this->load->view('site/daftar');
+     
         }
 
          public function status()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
             $this->viewpage1();
             $this->load->view('status/bstatus');
         }
@@ -350,13 +337,22 @@ class Site extends MY_Controller
 
          public function update()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
             $this->viewpage1();
             $this->load->view('update/bupdate');
         }
 
 
          public function userstatus()
-        {      
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
 
             $nama = $this->input->post('nama');
             $ic = $this->input->post('ic');
@@ -368,14 +364,20 @@ class Site extends MY_Controller
                 } else {
                 $data[''] = "No record found !";
                 }
-                
+                $this->viewpage1();
                 $this->load->view('status/vstatus', $data);
+                
             }
             
         }
 
         public function updatestatus()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
+
             $nama = $this->input->post('nama');
             $ic = $this->input->post('ic');
 
@@ -386,12 +388,17 @@ class Site extends MY_Controller
                 } else {
                 $data[''] = "No record found !";
                 }
-                
+                $this->viewpage1();
                 $this->load->view('update/update', $data);
             }
         }
 
         function update_register() {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
+
        $register_id= $this->input->post('register_id');
        $data = array(
            'jenis' => $this->input->post('jenis'),
@@ -422,4 +429,5 @@ class Site extends MY_Controller
 
         
 }
+?>
 
