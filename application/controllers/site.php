@@ -203,12 +203,14 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
                 $this->viewpage();
 
-            }  
+            } 
+
+        } 
 
             function check_if_username_exists($requested_username) 
              {
                 $this->load->model('m_signup');
-                $username_availabe=$this->m_signup->check_if_username_exists($requested_username);
+                $username_available=$this->m_signup->check_if_username_exists($requested_username);
 
                 if($username_available){
 
@@ -224,7 +226,7 @@ class Site extends MY_Controller
              function check_if_email_exists($requested_email) 
              {
                 $this->load->model('m_signup');
-                $email_availabe=$this->m_signup->check_if_email_exists($requested_email);
+                $email_available=$this->m_signup->check_if_email_exists($requested_email);
 
                 if($email_available){
 
@@ -238,17 +240,13 @@ class Site extends MY_Controller
              }         
        
 
-          
-
-          }
-
          
 
         public function regisForm()
         {
             $this->load->library('form_validation');
            
-            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
+            $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]|callback_check_if_plat_exists');
 
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
 
@@ -298,6 +296,23 @@ class Site extends MY_Controller
 
             
         } 
+
+        function check_if_plat_exists($requested_plat) 
+             {
+                $this->load->model('m_registration');
+                $plat_available=$this->m_registration->check_if_plat_exists($requested_plat);
+
+                if($plat_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }         
+       
             
         
 
