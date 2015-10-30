@@ -7,13 +7,13 @@
    form.three {
     background-color:white;
     border-style: solid;
-    width:1000px;
+    width:900px;
     border-radius: 0px;}
 
     div.two {
     background-color:white;
     border-style: solid;
-    width:1000px;
+    width:900px;
     border-radius: 0px;}
 
     body{
@@ -24,11 +24,13 @@
 </head>
 <body>
 
-<br><br><br>
-<div class="container">
+<div style="margin-top:15%;">
+<center><div class="container">
   <div class="two">
     <center><h2>UiTM Sticker System</h2>
+      </div>
 </div><br>
+
 <form method="post" class="three" >
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-8 col-md-offset-2">
@@ -43,15 +45,15 @@
         </div>
  <?php echo validation_errors('<p class="error">');?>
         <div class="row" style="margin-top: 1%;">
-            <div class="col-md-2 col-md-offset-2"></div>
-            <div class="col-md-6">
+            
+            <div class="col-md-10">
 
               <!-- <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()"> -->
 
                <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
 
-              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
-              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
+              <!-- <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()"> -->
             </div>
         </div>
         
