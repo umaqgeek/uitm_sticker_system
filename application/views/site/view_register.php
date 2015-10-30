@@ -13,7 +13,7 @@
 echo "<center>";
 
 echo "<div id='content_result'>";
-echo "<h3 id='result_id'>You have submitted these values</h3><br/><hr>";
+echo "<h3 id='result_id'>You have submitted these informations</h3><br/><hr>";
 echo "<div id='result_show'>";
 echo "<label class='label_output'>Entered ID : </label>".$jenis ;
 echo "<br><label class='label_output'>Entered Plat: </label>".$plat;

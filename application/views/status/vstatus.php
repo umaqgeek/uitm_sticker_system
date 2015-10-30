@@ -46,7 +46,7 @@ else ?>
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-2">Nama Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  value="<?php echo $value->nama; ?>"></div>
                                     </div><br>
 
@@ -107,6 +107,13 @@ else ?>
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  value="<?php echo $value->waris; ?>"></div>
                                 </div><br>
+
+                                 
+                               <div class="row">
+                                    <div class="col-md-2">Status:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="status"  value="<?php echo $value->status; ?>"></div>
+                                </div><br>
+
 
                                 <input type="button" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
 

@@ -38,12 +38,12 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
-                              <div class="row"><div class="col-md-3"></div>
+                             <!--  <div class="row"><div class="col-md-3"></div>
                               
                                     <center><div class="col-md-8"><span class="form-control" ><center><?php if(isset($username))
                                      echo "Selamat Datang  ".$username;?></span></div> 
                                 </div><br>
-
+ -->
                                 <div class="row">          
                                     <div class="col-md-2">Status :</div>  
                                       <div class="col-md-10">
@@ -57,7 +57,7 @@ body{
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-2">Nama Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
                                  </div><br>
 
