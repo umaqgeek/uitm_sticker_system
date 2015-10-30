@@ -160,14 +160,15 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
-            $this->form_validation->set_rules('username', 'username', 'trim|required');
+            $this->form_validation->set_rules('username', 'username', 'trim|required|callback_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|');
+             
+            
 
             if ($this->form_validation->run() == FALSE)
             {
-
                $this->load->view('site/signup');
                 $this->viewpage();
          
@@ -184,6 +185,50 @@ class Site extends MY_Controller
           
 
           }
+
+          // function email_exists($email)
+          //   {
+    
+          //        $this->form_validation->set_rules('email', 'Email', 'trim|rvalid_email', 'required');
+          //        $email = $this->input->post('email');
+          //        $result = $this->m_signup->emailexists($email);
+          //      if ($this->form_validation->run() == FALSE)
+          //       {
+          //       return FALSE;
+          //       }
+            
+          //       else if ($result)
+          //       {
+          //           $this->form_validation->set_message('email_exists', 'Sorry email already exists in the database"');
+          //           return FALSE;
+          //       }
+          //       else
+          //       {
+          //           return TRUE;
+          //       }
+          //   }
+
+            function username_exists($username)
+            {
+                 $this->form_validation->set_rules('username', 'username', 'required');
+                 $username = $this->input->post('username');
+                 $result = $this->m_signup->username_exists($username);
+               if ($this->form_validation->run() == FALSE)
+                {
+                return FALSE;
+                }
+            
+                else if ($result)
+                {
+                    $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
+                    return FALSE;
+                }
+                else
+                {
+                    return TRUE;
+                }
+            }
+
 
          
 
