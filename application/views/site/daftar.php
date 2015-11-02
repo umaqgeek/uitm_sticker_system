@@ -180,9 +180,6 @@ body{
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
 
-
-                                    
-                               
                                 <?php echo validation_errors('<p class="error">');?>
                                 <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-3"></div>
@@ -190,17 +187,6 @@ body{
                                 <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
                                 <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
               
-
-
-                               <!-- <div class="row" style="margin-top: 3%;">
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                    <br>
-
-                                <div class="row" style="margin-top: 3%;">
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Batal</button></div>
-                                    <br> -->
 
                                 <div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
