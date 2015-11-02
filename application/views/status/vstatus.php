@@ -46,8 +46,10 @@ else ?>
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="nama"  value="<?php echo $value->nama; ?>"></div>
+
+                                    <div class="col-md-2">Nama Pemilik:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  value="<?php echo $value->nama; ?>"></div>
+
                                     </div><br>
 
                                     <div class="row">
@@ -112,6 +114,13 @@ else ?>
                                     <div class="col-md-2">Statust:</div>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->status; ?>"></div>
                                 </div><br>
+
+                                 
+                               <div class="row">
+                                    <div class="col-md-2">Status:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="status"  value="<?php echo $value->status; ?>"></div>
+                                </div><br>
+
 
                                 <input type="button" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
 

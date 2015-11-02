@@ -1,5 +1,3 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,24 +27,44 @@ body{
 
  
 
-      <div id="userhome">
+      <div id="adminhome">
         <h2>UiTM STICKER SYSTEM</h2>
         <div id="content">
           <legend>
-          <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System <?php if(isset($username)) echo $username;?></h4></div>
+          <div class="home"><h2>WELCOME ADMIN!</h2><h4>Work With Your Heart</h4></div>
         </legend>
           </div>
         
+  
+
 
 <!--     <legend> -->
-
       <ul> :: <a href="http://localhost/uitm/index.php/site/daftar">Form Registration</a>  </ul>
       <ul> :: <a href="about.html">Update Form</a>        </ul>
-      <ul> :: <a href="http://localhost/uitm/index.php/site/status">Status</a>         </ul>
-      <ul> :: <a href="http://localhost/uitm/index.php/site/contact">Contact Us!</a>       </ul>
+      <ul> :: <a href="portfolio.html">Status</a>         </ul>
+
 
 <!--     </legend>
  -->
   </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+  <script type="text/javascript" src="js/image_fade.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+
 </body>
 </html>
+
+
+
+
+
