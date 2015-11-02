@@ -8,15 +8,6 @@
     </head>
     <body>
 
-        <script type="text/javascript">
-function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-}
-</script>
         <div id="container">
             <div id="wrapper">
                 <h1>Update Data In Database Using CodeIgniter </h1><hr/> 
@@ -56,15 +47,26 @@ function printDiv(divName) {
 
                     <?php endforeach; }?>
 
-                    
-                            <div id="printableArea">
-       Your Content here.....
-</div>
 
-
-<input type="button" onclick="printDiv('printableArea')" value="Print Invoice" />
                 </div> 
             </div> 
         </div>
     </body>
 </html>
+
+    <script type="text/javascript">
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</script>
+
+    <div id="printableArea">
+       Your Content here.....
+</div>
+
+
+<input type="button" onclick="printDiv('printableArea')" value="Print Invoice" />
