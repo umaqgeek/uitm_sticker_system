@@ -6,16 +6,18 @@ class MY_Controller extends CI_Controller
    function __construct()
     {
         parent::__construct();
-		$unlocked = array('login', 'users');
+		$unlocked = array('login', 'users', 'site', 'signup');
 
 				if ( ! $this->simpleloginsecure->is_logged_in() OR ! in_array(strtolower(get_class($this)), $unlocked))
 				{
-					redirect('login');
+					//redirect('login');
 				}/*elseif($this->simpleloginsecure->is_logged_in() AND  in_array(strtolower(get_class($this)), $unlocked)){
 					redirect('admin/');
 				}*/
 
 				//$this->output->cache(5);
+				$user_id = $this->session->userdata('username','admin');
+         		
     }
 
 }

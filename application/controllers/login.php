@@ -1,142 +1,110 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-
-class Login extends CI_Controller
-
+class Login extends CI_Controller 
 {
-	function index()
-	{
-		$data['main_content'] = 'login_form';
-		$this->load->view('includes/template', $data);
-	}
+      var $parent_page = "login";
+      var $parent_page1 = "signup";
 
-	function validate_credentials()
-	{
-		$this->load->model('membership_model');
-		$query = $this->membership_model->validate();
-
-		if($query) // if the user's credentials validate...
-		{
-			$data = array(
-				'u_username' => $this->input->post('u_username'),
-				'is_logged_in' => true
-				);
-
-			$this->session->set_userdata($data);
-			redirect('site/members_area');
-		}		
-
-		else
-		{
-			$this->index();
-		}
-	}
-
-	function sign_up()
-	{
-		$data['main_content'] = 'signup_form';
-		$this->load->view('includes/template', $data);
-	}
-
-	function create_member()
-	{
-		$this->load->library('form_validation');
-		//field name, error message, validation rules
-
-		$this->form_validation->set_rules('u_fullname', 'Fullname', 'trim|required');	
-		$this->form_validation->set_rules('u_email', 'Email Address', 'trim|required|valid_email');	
-		
-		$this->form_validation->set_rules('u_username', 'Username', 'trim|required|min_length[4]');
-		$this->form_validation->set_rules('u_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
-		$this->form_validation->set_rules('u_password2', 'Password Confirmation', 'trim|required|matches[u_password]');
-
-		if($this->form_validation->run() == FALSE)
-		{
-			$this->signup();
-		}
-		else
-		{
-			$this->load->model('membership_model');
-			if($query = $this->membership_model->create_member())
-			{
-				$data['main_content'] = 'signup_successful';
-				$this->load->view('includes/template', $data);
-			}
-
-			else
-			{
-				$this->load->view('signup_form');
-			}
-
-		}
-	}
-}
-*/
-
-class Login extends CI_Controller{
-
-    function index()
+    public function __construct()
     {
-        $data['main_content'] = 'login_form';
-        $this->load->view('includes/template', $data);
+           parent::__construct(); 
     }
+       
+       private function viewpage($page='v_mainpage', $data=array())
+       {
+           echo $this->load->view('v_header', $data, true);
+           echo $this->load->view('v_menu', $data, true);
+           echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+           echo $this->load->view('v_footer', $data, true);
+       }
 
-    function validate_credentials()
-    {
-        $this->load->model('membership_model');
-        $query = $this->membership_model->validate();
+       private function viewpage1($page='signup', $data=array())
+       {
+           echo $this->load->view('v_header', $data, true);
+           echo $this->load->view('v_menu', $data, true);
+           echo $this->load->view($this->parent_page1.'/'.$page, $data, true);
+           echo $this->load->view('v_footer', $data, true);
+       }
 
-        if($query) //if the user's credentials validated...
-        {
-            $data = array(
-                'u_username' => $this->input->post('u_username'),
-                'is_logged_in' => true
-            );
+       public function index()
+       {
+           
+                $this->viewpage();
 
-            $this->session->set_userdata($data);
-            redirect('site/members_area');
-        }
+           
+       }
 
-        else
-        {
-            $this->index();
-        }
-    }
+  public function userhome()
+ {
 
-    function signup()
-    {
-        $data['main_content'] = 'signup_form';
-        $this->load->view('includes/template', $data);
-    }
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
 
-    function create_member()
-    {
-        $this->load->library('form_validation');
-        //field name, error message, validation rules
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
 
-        $this->form_validation->set_rules('u_fullname', 'Fullname', 'trim|required');
-        $this->form_validation->set_rules('u_email', 'Email Address', 'trim|required|valid_email');
-
-        $this->form_validation->set_rules('u_username', 'Username', 'trim|required|min_length[4]');
-        $this->form_validation->set_rules('u_password', 'Password', 'trim|required|min_length[4]|max_length[32]');
-        $this->form_validation->set_rules('u_password2', 'Password Confirmation', 'trim|required|matches[u_password]');
-        
-        if($this->form_validation->run() == FALSE)
-        {
-            $this->signup();
-        }
-        else
-        {
-            $this->load->model('membership_model');
-            if($query = $this->membership_model->create_member())
+            if ($result->num_rows() > 0)
             {
-                $data['main_content'] = 'signup_successful';
-                $this->load->view('includes/template', $data);
+                return $this->load->view('login/userhome');
             }
             else
             {
-                $this->load->view('signup_form');
+                return $this->load->view('login/v_login');
             }
-        }
-    }
-}
+
+
+
+
+
+  // $this->load->helper(array('form', 'url'));
+
+  //   $this->load->library('form_validation');
+  //   $this->form_validation->set_rules('username', 'Username', 'required');
+  //   $this->form_validation->set_rules('password', 'Password', 'required');
+
+  //   if ($this->form_validation->run() == FALSE)
+  //   {
+  //     $this->load->view('login/v_login');
+  //   }
+  //   else
+  //   {
+  //     $this->load->view('login/registration');
+  //   }
+    $this->viewpage();
+
+ }
+
+
+public function signup()
+ {
+  $this->load->view('login/v_signup');
+ }
+
+
+ public function signup1()
+        {
+            try{
+                $crud = new grocery_CRUD();
+
+                $crud->set_theme('sayapunyer');
+                $crud->set_table('registration');
+                $crud->required_fields('plat', 'kenderaan');
+                // $crud->columns('plat', 'kenderaan');
+                // $crud->add_fields('plat','kenderaan');
+                // $crud->edit_fields('kenderaan');
+                // $crud->unset_add();
+                // $crud->unset_delete();
+                // $crud->unset_edit();
+
+                $output = $crud->render();
+
+
+                $this->viewpage('v_crud', $output);
+
+            }catch(Exception $e){
+                show_error($e->getMessage().' --- '.$e->getTraceAsString());
+            }
+        } 
+      }?>
