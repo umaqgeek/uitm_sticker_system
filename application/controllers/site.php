@@ -297,22 +297,7 @@ class Site extends MY_Controller
             
         } 
 
-        function check_if_plat_exists($requested_plat) 
-             {
-                $this->load->model('m_registration');
-                $plat_available=$this->m_registration->check_if_plat_exists($requested_plat);
-
-                if($plat_available){
-
-                    return TRUE;
-                }
-
-                else {
-
-                     return FALSE;
-                }
-             }         
-       
+        
             
         
 

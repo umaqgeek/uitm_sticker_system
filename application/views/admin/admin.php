@@ -1,11 +1,22 @@
 
 <html>
+
     <head>
         <title>Update Data In Database Using CodeIgniter</title>
         <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(). "css/update.css" ?>">
     </head>
     <body>
+
+        <script type="text/javascript">
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</script>
         <div id="container">
             <div id="wrapper">
                 <h1>Update Data In Database Using CodeIgniter </h1><hr/> 
@@ -39,10 +50,19 @@
                             <label>Kenderaan :</label><br/> 
                             <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/>
 
+
                             <input type="submit" id="submit" name="dsubmit" value="Update">
                         </form>
 
                     <?php endforeach; }?>
+
+                    
+                            <div id="printableArea">
+       Your Content here.....
+</div>
+
+
+<input type="button" onclick="printDiv('printableArea')" value="Print Invoice" />
                 </div> 
             </div> 
         </div>

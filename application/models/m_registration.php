@@ -27,19 +27,6 @@ function create_register () {
 
 }
 
-function check_if_plat_exists($plat){
-
-    $this->db->where('plat', $plat);
-    $result = $this->db->get('registration');
-
-    if($result->num_rows() > 0){
-      return FALSE;
-    }
-
-    else {
-      return TRUE;
-    }
-  }
 
 function getPosts(){
   $this->db->select("register_id,nama");
