@@ -2,6 +2,8 @@
 <html>
 
     <head>
+
+        
         <title>Update Data In Database Using CodeIgniter</title>
         <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(). "css/update.css" ?>">
@@ -54,19 +56,6 @@
     </body>
 </html>
 
-    <script type="text/javascript">
-function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-}
-</script>
+   
 
-    <div id="printableArea">
-       Your Content here.....
-</div>
-
-
-<input type="button" onclick="printDiv('printableArea')" value="Print Invoice" />
+   

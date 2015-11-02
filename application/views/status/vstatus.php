@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <script type="text/javascript">
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</script>
+
   <title>Tuffah Informatics</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,6 +123,12 @@ else ?>
                             </div>
                         </div>
                     </form><?php endforeach; }?>
+                     <div id="printableArea">
+       Your Content here.....
+</div>
+
+
+<input type="button" onclick="printDiv('printableArea')" value="Print Invoice" />
 
 
  </body>
