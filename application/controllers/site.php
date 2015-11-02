@@ -40,6 +40,7 @@ class Site extends MY_Controller
        
         // public function registration()
         // {
+
       
         //         $crud = new grocery_CRUD();
 
@@ -414,6 +415,7 @@ class Site extends MY_Controller
                 }
                 $this->viewpage1();
                 $this->load->view('status/vstatus', $data);
+
                 
             }
             
