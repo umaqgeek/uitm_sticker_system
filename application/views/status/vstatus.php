@@ -114,6 +114,7 @@ else ?>
                                 </div><br>
 
                                 <input type="button" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+                                <input type="button" value="Print" onClick="this.form.action='<?=site_url('site/registration');?>';this.form.submit()">
 
                             </div>
                         </div>

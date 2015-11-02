@@ -38,32 +38,32 @@ class Site extends MY_Controller
 
 
        
-        // public function registration()
-        // {
+        public function registration()
+        {
 
       
-        //         $crud = new grocery_CRUD();
+                $crud = new grocery_CRUD();
 
-        //         $crud->set_theme('sayapunyer');
+                $crud->set_theme('sayapunyer');
 
-        //         $crud->display_as('plat','No Plat');
-        //         $crud->display_as('ic','No Kad Pengenalan');
-        //         $crud->display_as('phone','Telefon Number');
-        //         $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
-        //        $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
-        //        $crud->unset_edit();
-        //        $crud->unset_delete();
+                $crud->display_as('plat','No Plat');
+                $crud->display_as('ic','No Kad Pengenalan');
+                $crud->display_as('phone','Telefon Number');
+                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
+               $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
+               $crud->unset_edit();
+               $crud->unset_delete();
                
 
-        //         $output = $crud->render();
+                $output = $crud->render();
 
-        //         $this->viewpage('v_crud', $output);
-        // }
+                $this->viewpage('v_crud', $output);
+        }
 
-        //         function add_field_callback_1()
-        //         {
-        //             return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
-        //         }
+                function add_field_callback_1()
+                {
+                    return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
+                }
 
             
         //   public function signup1()
