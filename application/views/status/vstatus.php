@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <script type="text/javascript">
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
+</script>
+
   <title>Tuffah Informatics</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +47,7 @@ else ?>
                             <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                             <input type="hidden" id="hide" name="register_id" value="<?php echo $value->jenis; ?>"><br/> 
-
+<div id="printableArea">
                             <div class="row">          
                                     <div class="col-md-2">ID :</div>  
                                       <div class="col-md-10">
@@ -114,14 +124,19 @@ else ?>
                                     <div class="col-md-2">Status:</div>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->status; ?>"></div>
                                 </div><br>
-
+</div>
 
                                 <input type="button" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-                                <input type="button" value="Print" onClick="this.form.action='<?=site_url('site/registration');?>';this.form.submit()">
+                                <input type="button" onclick="printDiv('printableArea')" value="Print " />
 
                             </div>
                         </div>
                     </form><?php endforeach; }?>
+                     
+    
+       
+
+
 
 
  </body>

@@ -15,7 +15,7 @@
                 <td><?php echo $reg->register_id; ?></td>
                 <td><?php echo $reg->nama; ?></td>
                 <td> <button class="btn btn-success" type="submit">Accept</button>
-                 <button class="btn btn-success" type="submit">Reject</button></td>
+                 <button class="btn btn-success" type="submit" onClick=javascript:void(0)>Reject</button></td>
             </tr>
             <?php } ?>
 

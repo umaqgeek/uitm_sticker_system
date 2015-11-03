@@ -35,9 +35,10 @@
 
                         <a href="<?=site_url('site/signup'); ?>">Signup</a>
 
+
                         <!-- <a href="http://localhost/uitm_sticker_system/index.php/site/signup">Signup</a> -->
 
-                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

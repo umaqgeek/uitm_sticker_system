@@ -45,12 +45,20 @@
         </div>
  <?php echo validation_errors('<p class="error">');?>
         <div class="row" style="margin-top: 1%;">
+
             
             <div class="col-md-10">
+
+
+
+              <!-- <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()"> -->
+
+              <!--  <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()"> -->
 
               <!-- <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()"> -->
 
                <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
+
 
 
               <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
@@ -66,3 +74,4 @@
 </div>
 </body>
 </html>
+
