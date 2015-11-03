@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <html lang="en">
 <head>
   <title>Tuffah Informatics</title>
@@ -38,26 +38,26 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
-                              <div class="row"><div class="col-md-3"></div>
+                             <!--  <div class="row"><div class="col-md-3"></div>
                               
                                     <center><div class="col-md-8"><span class="form-control" ><center><?php if(isset($username))
                                      echo "Selamat Datang  ".$username;?></span></div> 
                                 </div><br>
-
+ -->
                                 <div class="row">          
                                     <div class="col-md-2">Status :</div>  
                                       <div class="col-md-10">
                                           <select name="jenis" id="status" class="form-control" >
                                                 <option value="">Sila Pilih</option>
-                                                <option value="PL">Pelajar </option>
-                                                <option value="ST">Staff</option>
-                                                <option value="KT">Kontraktor </option>
+                                                <option value="PL">PL - Pelajar </option>
+                                                <option value="ST">ST - Staff</option>
+                                                <option value="KT">KT - Kontraktor </option>
                                           </select>
                                         </div>
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-2">Nama Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
                                  </div><br>
 
@@ -72,10 +72,10 @@ body{
                                     <div class="col-md-10">
                                     <select name="kenderaan" id="select1" class="form-control" >
                                          <option value="">Sila Pilih</option>
-                                         <option value="KT">KERETA </option>
-                                         <option value="MTH">MOTORSIKAL MELEBIHI 125CC </option>
-                                         <option value="MT">MOTOSIKAL </option>
-                                         <option value="VN">VAN </option>
+                                         <option value="KT">KT - KERETA </option>
+                                         <option value="MTH">MTH - MOTORSIKAL MELEBIHI 125CC </option>
+                                         <option value="MT">MT - MOTOSIKAL </option>
+                                         <option value="VN">VN - VAN </option>
                                       </select></div>
                                 </div><br>
                                 <div class="row">
@@ -83,36 +83,36 @@ body{
                                       <div class="col-md-10">
                                       <select name="model" id="select2"class="form-control">
                                          <option value="">Sila Pilih</option>
-                                         <option value="ALF" >ALFA ROMEO</option>
-                                         <option value="APR" >APRIALLIA</option>
-                                         <option value="CET" >CETRON</option>
-                                         <option value="CHA" >CHARADE</option>
-                                         <option value="DAI" >DAIHATSU</option>
-                                         <option value="FIA" >FIAT</option>
-                                         <option value="FRD" >FORD</option>
-                                         <option value="HON" >HONDA</option>
-                                         <option value="HYU" >HYUNDAI</option>
-                                         <option value="JAG" >JAGUH</option>
-                                         <option value="KAN" >KANCIL</option>
-                                         <option value="KEL" >KELISA</option>
-                                         <option value="KIA" >KIA/NAZA</option>
-                                         <option value="MAZ" >MAZDA</option>
-                                         <option value="MER" >MERCEDES BENZ</option>
-                                         <option value="MIN" >MINI</option>
-                                         <option value="MIT" >MITSUBISHI</option>
-                                         <option value="MOD" >MODENAS</option>
-                                         <option value="NIS" >NISSAN</option>
-                                         <option value="PER" >PERODUA</option>
-                                         <option value="PEU" >PEUGEOT</option>
-                                         <option value="PRO" >PROTON</option>
-                                         <option value="SUZ" >SUZUKI</option>
-                                         <option value="TOY" >TOYOTA</option>
-                                         <option value="VIT" >VITARA</option>
-                                         <option value="VOL" >VOLVO</option>
-                                         <option value="YAM" >YAMAHA</option>
-                                         <option value="SYM" >SYM</option>
-                                         <option value="DEM" >DEMAK</option>
-                                         <option value="DLL" >LAIN-LAIN</option>
+                                         <option value="ALF" >ALF - ALFA ROMEO</option>
+                                         <option value="APR" >APR - APRIALLIA</option>
+                                         <option value="CET" >CET - CETRON</option>
+                                         <option value="CHA" >CHA - CHARADE</option>
+                                         <option value="DAI" >DAI - DAIHATSU</option>
+                                         <option value="FIA" >FIA - FIAT</option>
+                                         <option value="FRD" >FRD - FORD</option>
+                                         <option value="HON" >HON - HONDA</option>
+                                         <option value="HYU" >HYU - HYUNDAI</option>
+                                         <option value="JAG" >JAG - JAGUH</option>
+                                         <option value="KAN" >KAN - KANCIL</option>
+                                         <option value="KEL" >KEL - KELISA</option>
+                                         <option value="KIA" >KIA - KIA/NAZA</option>
+                                         <option value="MAZ" >MAZ - MAZDA</option>
+                                         <option value="MER" >MER - MERCEDES BENZ</option>
+                                         <option value="MIN" >MIN - MINI</option>
+                                         <option value="MIT" >MIT - MITSUBISHI</option>
+                                         <option value="MOD" >MOD - MODENAS</option>
+                                         <option value="NIS" >NIS - NISSAN</option>
+                                         <option value="PER" >PER - PERODUA</option>
+                                         <option value="PEU" >PEU - PEUGEOT</option>
+                                         <option value="PRO" >PRO - PROTON</option>
+                                         <option value="SUZ" >SUZ - SUZUKI</option>
+                                         <option value="TOY" >TOY - TOYOTA</option>
+                                         <option value="VIT" >VIT - VITARA</option>
+                                         <option value="VOL" >VOL - VOLVO</option>
+                                         <option value="YAM" >YAM - YAMAHA</option>
+                                         <option value="SYM" >SYM - SYM</option>
+                                         <option value="DEM" >DEM - DEMAK</option>
+                                         <option value="DLL" >DLL - LAIN-LAIN</option>
                                       </select></div>
                                
                                 </div><br>
@@ -131,15 +131,15 @@ body{
                                     <div class="col-md-10">
                                    <select name="hubungan" id="select3" class="form-control" >
                                         <option value="-">Sila Pilih</option>
-                                        <option value="DN" >DATUK/NENEK</option>
-                                        <option value="IB" >IBU/BAPA</option>
-                                        <option value="AD" >KAKAK/ABANG/ADIK-BERADIK</option>
-                                        <option value="DLL" >LAIN-LAIN</option>
-                                        <option value="PJ" >PENJAGA</option>
-                                        <option value="SA" >SAUDARA</option>
-                                        <option value="SD" >SENDIRI</option>
-                                        <option value="SU" >SUAMI/ISTERI</option>
-                                        <option value="SY" >SYARIKAT</option>
+                                        <option value="DN" >DN - DATUK/NENEK</option>
+                                        <option value="IB" >IB - IBU/BAPA</option>
+                                        <option value="AD" >AD - KAKAK/ABANG/ADIK-BERADIK</option>
+                                        <option value="DLL" >DLL - LAIN-LAIN</option>
+                                        <option value="PJ" >PJ - PENJAGA</option>
+                                        <option value="SA" >SA - SAUDARA</option>
+                                        <option value="SD" >SD - SENDIRI</option>
+                                        <option value="SU" >SU - SUAMI/ISTERI</option>
+                                        <option value="SY" >SY - SYARIKAT</option>
                                     </select></div>
                                     
                                   </div><br>
@@ -180,9 +180,6 @@ body{
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
 
-
-                                    
-                               
                                 <?php echo validation_errors('<p class="error">');?>
 
                              <!--     <?php echo validation_errors('<p class="error">');?>
@@ -196,12 +193,15 @@ body{
               
 
 
+
                                <!-- <div class="row" style="margin-top: 3%;">
 >>>>>>> 368c4bee01e6cdea7d8d573d86eb56d64a556ae1
                                     <div class="col-md-3"></div>
                                     <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
                                     <br>
 
+=======
+>>>>>>> ba7f26798946190e740434fb1d97e1af24f3bb3b
                                 <div class="modal fade" id="myModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
                                       <div class="modal-content">
@@ -223,5 +223,12 @@ body{
 
          
                         </div>
+<<<<<<< HEAD
                     </form>        
 </div>
+=======
+                    </form>  
+</div>
+</body>
+</html>
+>>>>>>> ba7f26798946190e740434fb1d97e1af24f3bb3b

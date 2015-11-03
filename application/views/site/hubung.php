@@ -1,5 +1,3 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,30 +19,27 @@ div.two{
   width:1000px;
 }
 body{
-        background-color:#e0ffff;
+        background-color:#FFC0CB;
   }
   </style>
 </head>
 <body>
 
- 
-
-      <div id="userhome">
+      <div id="hubung">
         <h2>UiTM STICKER SYSTEM</h2>
         <div id="content">
           <legend>
-          <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System <?php if(isset($username)) echo $username;?></h4></div>
+          <div class="home"><h2>WELCOME!</h2><h4>Do Call Us Right Now!</h4></div>
         </legend>
           </div>
-        
+          <form>
 
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
-
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Update Form</a>        </ul>
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/status">Status</a>         </ul>
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/contact">Contact Us!</a>       </ul>
-
-
+      <ul> :: Hotline : 03 - 123 456 789  </ul>
+      <ul> :: Pejabat : 06 - 9876543   </ul>
+      <div class="col-md-2">
+      <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
+      </div>
+</form>
   </div>
 </body>
 </html>

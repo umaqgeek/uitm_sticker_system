@@ -6,9 +6,9 @@ body {
 }
 
 #login_form{
-	width: 300px;
+	width: 1000px;
 	/*background: #f0f0f0 url(.../img/login_bg.jpg) repeat=x 0 0; */
-	background: pink;
+	background: #FF00FF;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;

@@ -25,23 +25,29 @@
                 <div id="detail">
                          <!--Fetching All Details of Selected Student From Database And Showing In a Form-->
                     <?php if(isset($single_register)){?>
-                    <?php foreach ($single_register as $row): ?><br>
-                        <p>Edit Detail & Click Update Button</p>
+
+                    <?php foreach ($single_register as $row): ?>
+                        <br><br><p>Edit Detail & Click Update Button</p>
+
                         <form method="post" action="<?php echo base_url() . "index.php/admin/update_register_id1"?>">
                             <label id="hide">Id :</label><br/> 
                             <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 
                             <label>Pemilik :</label><br/> 
-                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"><br/>    
+                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"readonly><br/>    
 
                             <label>Status :</label><br/> 
-                            <input type="text" name="jenis" value="<?php echo $row->jenis; ?>"><br/>
+                            <input type="text" name="jenis"  value="<?php echo $row->jenis; ?>"readonly><br/>
 
-                            <label>Permohonan :</label><br/> 
-                            <input type="text" name="status" value="<?php echo $row->status; ?>"><br/>
+                            <label>Permohonan :</label><br/>
+                            <select name="status" class="form-control"  >
+                                                <option value=""><?php echo $row->status; ?></option>
+                                                <option value="Approve">Approve</option>
+                                                <option value="Decline">Decline </option>
+                                          </select> 
 
                             <label>Kenderaan :</label><br/> 
-                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/>
+                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"readonly><br/>
 
 
                             <input type="submit" id="submit" name="dsubmit" value="Update">
