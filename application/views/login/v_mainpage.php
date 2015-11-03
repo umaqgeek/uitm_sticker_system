@@ -29,7 +29,7 @@
                         <a href="#product">Products</a>
                     </li>
                     <li>
-                        <a href="contact">Contact</a>
+                        <a href="site/contact">Contact</a>
                     </li>
                     <li>
                         <a href="site/signup">Signup</a>

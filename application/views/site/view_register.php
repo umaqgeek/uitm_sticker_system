@@ -94,6 +94,7 @@ body{
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $waris; ?>"></div>
                                 </div><br>
+                                
 
                                 <div class="row">
                                     <div class="col-md-2">Statust:</div>

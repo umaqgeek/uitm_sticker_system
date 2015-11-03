@@ -52,8 +52,11 @@
 
                <input type="button" class="btn btn-primary" value="User" onClick="this.form.action='<?=site_url('site/register');?>';this.form.submit()">
 
-              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
-              <!-- <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()"> -->
+
+              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
+
+              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+
             </div>
         </div>
         
@@ -63,4 +66,3 @@
 </div>
 </body>
 </html>
-
