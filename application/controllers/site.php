@@ -418,6 +418,9 @@ class Site extends MY_Controller
                 $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
                 $crud->unset_edit();
                 $crud->unset_delete();
+                $crud->unset_add();
+                $crud->unset_print();
+                $crud->unset_export();
                
 
                 $output = $crud->render();
