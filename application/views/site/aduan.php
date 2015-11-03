@@ -25,24 +25,19 @@ body{
 </head>
 <body>
 
-
-
-
-
-
 <div class="container">
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG ADUAN</h2>
   </div><br>
-
-  <form method="post" class="three" action="<?=site_url('site/aduan'); ?>"s>
-                        <div class="row" style="margin-top: 5%;">
-                            <div class="col-md-6 col-md-offset-3">
+ 
+  <form method="post" class="three" action="<?=site_url('site/aduanForm'); ?>">
+<div class="row" style="margin-top: 5%;">
+<div class="col-md-8 col-md-offset-2">
                              
                                 <div class="row">          
                                     <div class="col-md-2">Status:</div>  
                                       <div class="col-md-8">
-                                          <select name="jenis" id="status" class="form-control" >
+                                          <select name="status" id="status" class="form-control" >
                                                 <option value="">Sila Pilih</option>
                                                 <option value="PL">Pelajar </option>
                                                 <option value="ST">Staff</option>
@@ -53,9 +48,10 @@ body{
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nama:</div>
-                                    <div class="col-md-8"><input type="text" class="form-control" name="nama"  placeholder="Nama Penuh"></div>
-                                    </div><br>
+                                  <div class="col-md-2">Nama :</div>
+                                  <div class="col-md-8">
+                                  <input type="text" class="form-control" name="nama" placeholder="Nama penuh" value="<?php echo set_value('nama'); ?>" size="50"/></div>
+                                  </div><br>
 
                                   <div class="row">
                                   <div class="col-md-2">Email:</div>
@@ -64,12 +60,16 @@ body{
 
                                     <div class="row">
                                     <div class="col-md-2">Komen:</div>
-                                    <div class="col-md-8"><input type="text" class="form-control" name="message"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('message'); ?>" size="125"/></div>
+                                    <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('message'); ?>" size="125"/></div>
                                     </div><br>
 
-                                  <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                  <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
-              
+                                  <?php echo validation_errors('<p class="error">');?>
+                                  <div class="row" style="margin-top: 2%;">
+                                  <div class="col-md-4"></div>           
+                                  <div class="col-md-8"><br><button type="submit" class="btn btn-primary">Submit</button></div>
+                                  </div>     
+                                  </div>
+                                  </div><br>
                                   </form>
 </center>
 </div></div>

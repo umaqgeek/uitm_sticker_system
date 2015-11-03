@@ -13,12 +13,10 @@ class Site extends MY_Controller
             parent::__construct(); 
             $this->load->database();
             $this->load->model('m_registration');
+            $this->load->model('m_aduan');
     }
 
         
-
-
-
         private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
@@ -78,6 +76,37 @@ class Site extends MY_Controller
                 $this->viewpage2();
                 $this->load->view('site/aduan');
         }
+
+        public function aduanForm()
+        {
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('komen', 'Komen', 'trim|required|max_length[125]');
+            $this->form_validation->set_rules('nama', 'nama', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+
+                $this->load->view('site/aduan');
+                $this->viewpage2();
+         
+            }
+
+            else  if ($query=$this->m_aduan->create_aduan())
+            {
+                $this->load->model('m_aduan');
+
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'nama'=>$this->input->post('nama'),
+                        'email'=>$this->input->post('email'),
+                        'komen'=>$this->input->post('komen'),
+
+            );
+                $this->load->view('site/view_aduan',$data);
+            }
+        } 
 
         public function hubung()
         {
