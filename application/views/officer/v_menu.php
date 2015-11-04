@@ -21,7 +21,7 @@
                         <a href="#about">About</a>
                     </li>-->
                     <li>
-                        <a href="<?=site_url('admin/logout'); ?>">Logout</a>
+                        <a href="<?=site_url('officer/logout'); ?>">Logout</a>
                     </li>
                 </ul>
             </div>

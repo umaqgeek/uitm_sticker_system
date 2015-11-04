@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin extends MY_Controller 
+class Officer extends MY_Controller 
 {
-        var $parent_page = "admin";
+        var $parent_page = "officer";
 
         function __construct()
     {
             parent::__construct();
 
-            $this->load->model('m_admin'); 
+            $this->load->model('m_officer'); 
     }
 
-        public function admin1()
+        public function login_officer()
         {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
@@ -22,7 +22,7 @@ class Admin extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               redirect('admin/show_register_id');
+               redirect('officer/login');
            }
            else
            {
@@ -48,6 +48,15 @@ class Admin extends MY_Controller
         {
                 $this->load->view('login/v_login');
                 $this->viewpage();
+               
+        }
+
+        public function login()
+
+        {
+                $this->load->view('officer/adminhome');
+                $this->viewpage('v_menu');
+                
                
         }
 
@@ -102,7 +111,7 @@ class Admin extends MY_Controller
         $data=$this->m_registration->getPosts();
         $data['register'] = $this->m_registration->getPosts();
         $data['single_register'] = $this->m_registration->show_register_id($register_id);
-        $this->load->view('admin/admin', $data);
+        $this->load->view('officer/admin', $data);
         $this->viewpage('v_menu');
 
        

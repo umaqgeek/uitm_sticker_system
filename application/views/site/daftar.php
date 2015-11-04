@@ -180,6 +180,10 @@ body{
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
                                </div><br>
 
+                               <div class="row">
+                                    <div class="col-md-10"><input type="hidden" class="form-control" name="code"  ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
+                               </div><br>
+
                                 <?php echo validation_errors('<p class="error">');?>
 
                              <!--     <?php echo validation_errors('<p class="error">');?>
