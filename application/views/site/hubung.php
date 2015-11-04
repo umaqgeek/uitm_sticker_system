@@ -39,6 +39,7 @@ body{
       <div class="col-md-2">
       <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
       </div>
+
 </form>
   </div>
 </body>

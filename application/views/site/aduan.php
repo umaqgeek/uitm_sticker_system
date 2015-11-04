@@ -35,7 +35,7 @@ body{
 <div class="col-md-8 col-md-offset-2">
                              
                                 <div class="row">          
-                                    <div class="col-md-2">Status:</div>  
+                                    <div class="col-md-3">Status:</div>  
                                       <div class="col-md-8">
                                           <select name="status" id="status" class="form-control" >
                                                 <option value="">Sila Pilih</option>
@@ -47,27 +47,53 @@ body{
                                         </div>
                                     </div><br>
 
-                                    <div class="row">
-                                  <div class="col-md-2">Nama :</div>
+                                  <div class="row">
+                                  <div class="col-md-3">Nama :</div>
                                   <div class="col-md-8">
                                   <input type="text" class="form-control" name="nama" placeholder="Nama penuh" value="<?php echo set_value('nama'); ?>" size="50"/></div>
                                   </div><br>
 
                                   <div class="row">
-                                  <div class="col-md-2">Email:</div>
+                                  <div class="col-md-3">No. Kad Pengenalan :</div>
+                                  <div class="col-md-8">
+                                  <input type="text" class="form-control" name="ic" placeholder="Warganegara Sahaja" value="<?php echo set_value('ic'); ?>" size="25"/></div>
+                                  </div><br>
+
+                                  <div class="row">
+                                  <div class="col-md-3">Email:</div>
                                   <div class="col-md-8"><input type="text" class="form-control" name="email" placeholder="Email Yang Sah Digunakan" value="<?php echo set_value('email'); ?>" size="25"/></div>
                                   </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Komen:</div>
-                                    <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('message'); ?>" size="125"/></div>
+                                    <div class="col-md-3">Komen:</div>
+                                    <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('komen'); ?>" size="125"/></div>
                                     </div><br>
 
-                                  <?php echo validation_errors('<p class="error">');?>
-                                  <div class="row" style="margin-top: 2%;">
-                                  <div class="col-md-4"></div>           
-                                  <div class="col-md-8"><br><button type="submit" class="btn btn-primary">Submit</button></div>
-                                  </div>     
+                                   <?php echo validation_errors('<p class="error">');?>
+                                <div class="row" style="margin-top: 3%;">
+                                <div class="col-md-10"></div>
+                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
+                                <center><div class="col-md-8"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                <div class="col-md-4"><input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()"></div>
+              
+
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Terima kasih diatas komen yang anda berikan. Kami akan memberi respon menerusi email anda. </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>  
+
                                   </div>
                                   </div><br>
                                   </form>

@@ -6,6 +6,7 @@ function create_aduan () {
 	     $new_public_insert_data = array(
         'status' => $this->input->post('status'),
          'nama'=>$this->input->post('nama'),
+         'ic'=>$this->input->post('ic'),
          'email'=>$this->input->post('email'),
          'komen'=>$this->input->post('komen'),
         );
@@ -17,7 +18,7 @@ function create_aduan () {
 function show_aduan_id($data){
         $this->db->select('*');
         $this->db->from('aduan');
-        $this->db->where('aduan_id', $data);
+        $this->db->where('ic', $data);
         $query = $this->db->get();
         $result = $query->result();
         return $result;  

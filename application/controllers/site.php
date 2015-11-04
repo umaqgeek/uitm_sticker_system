@@ -82,7 +82,8 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('komen', 'Komen', 'trim|required|max_length[125]');
-            $this->form_validation->set_rules('nama', 'nama', 'trim|required');
+            $this->form_validation->set_rules('ic', 'No. Kad Pengenalan', 'trim|required|max_length[25]');
+            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
             $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
             if ($this->form_validation->run() == FALSE)
@@ -100,6 +101,7 @@ class Site extends MY_Controller
                 $data = array(
                         'status' => $this->input->post('status'),
                         'nama'=>$this->input->post('nama'),
+                        'ic'=>$this->input->post('ic'),
                         'email'=>$this->input->post('email'),
                         'komen'=>$this->input->post('komen'),
 
