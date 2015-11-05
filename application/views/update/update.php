@@ -178,7 +178,7 @@ body{
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  value="<?php echo $row->waris; ?>"></div>
                                 </div><br>
 
-                            <input type="submit" id="submit" name="dsubmit" value="Update">
+                            <input type="submit" class="btn btn-primary" id="submit" name="dsubmit" value="Update">
                             
                         </div>
                     </div>

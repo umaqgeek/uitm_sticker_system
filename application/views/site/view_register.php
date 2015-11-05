@@ -97,10 +97,15 @@ body{
                                 
 
                                 <div class="row">
-                                    <div class="col-md-2">Statust:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $status; ?>"></div>
+                                    <div class="col-md-2">Status:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="status"  value="<?php echo $status; ?>"></div>
                                 </div><br>
 
+                                <!-- <div class="row">
+                                    <div class="col-md-2">Code:</div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="code"  value="<?php echo $code; ?>"></div>
+                                </div><br>
+ -->
                                 <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
 
                             </div>

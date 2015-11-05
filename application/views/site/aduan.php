@@ -35,7 +35,7 @@ body{
     <center><h2>BORANG ADUAN</h2>
   </div><br>
 
-  <form method="post" class="three" action="<?=site_url('site/aduan'); ?>"s>
+  <form method="post" class="three" action="<?=site_url('officer/aduan1'); ?>">
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                              
@@ -67,9 +67,14 @@ body{
                                     <div class="col-md-8"><textarea class="form-control" rows="5" name="message"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('message'); ?>" size="125"/></textarea></div>
                                     </div><br>
 
-                                  <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                  <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
-              
-                                  </form>
-</center>
-</div></div>
+                                    <?php echo validation_errors('<p class="error">');?>
+                                    <div class="col-md-6 col-md-offset-3">
+
+                                   <button type="submit" class="btn btn-primary">Hantar</button>
+
+                                   <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
+
+</div>
+ </form>
+</body>
+</html>

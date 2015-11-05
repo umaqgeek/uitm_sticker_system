@@ -43,6 +43,7 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+
        
         // public function registration()
         // {
@@ -69,6 +70,7 @@ class Site extends MY_Controller
         //         {
         //             return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
         //         }
+
 
             
         //   public function signup1()
@@ -128,6 +130,28 @@ class Site extends MY_Controller
 
               
 
+
+                // if($this->session->userdata('isLogin') == FALSE)
+                // {
+                //     redirect('login/v_login');
+                //     $this->viewpage();
+                // }else
+                // {
+                //     $this->load->model('m_signup');
+
+                //     $user = $this->session->userdata('username');
+
+                //     $data['status'] = $this->session->userdata('status');
+                //     $data['pengguna'] = $this->m_signup->dataPengguna($signup);
+
+                // }
+                // $this->load->view('login/v_login');
+
+
+                // $data['pengguna'] = $this->m_signup->create_member($signup1);
+
+
+
                 $this->viewpage();
                
         }
@@ -139,6 +163,12 @@ class Site extends MY_Controller
                 $this->load->view('site/signup');
         }
 
+         public function aduan()
+        {       $this->viewpage2();
+                $this->load->view('site/aduan');
+        }
+
+
         public function contact()
         {
                 $this->viewpage2();
@@ -146,10 +176,31 @@ class Site extends MY_Controller
         }
 
 
-        public function aduan()
+
+        public function aduan1()
         {
+             $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
+            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required');
+            $this->form_validation->set_rules('message', 'Komen', 'trim|required');
+            
+
+            if ($this->form_validation->run() == FALSE)
+            {
+               $this->load->view('site/aduan');
+                $this->viewpage();
+         
+            }
+
+         else  if ($query=$this->m_aduan->create_data())
+            {
+                $this->load->model('m_aduan');
+                $this->load->view('site/contact');
                 $this->viewpage2();
-                $this->load->view('site/aduan');
+
+            }             
         }
 
 
@@ -174,6 +225,7 @@ class Site extends MY_Controller
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
 
+
             $this->form_validation->set_rules('username', 'username', 'trim|required|callback_check_if_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
@@ -193,8 +245,11 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
                 $this->viewpage();
 
+            }            
 
-            } 
+
+         
+
 
         } 
 
@@ -229,7 +284,52 @@ class Site extends MY_Controller
                      return FALSE;
                 }
              }         
-       
+   
+
+          // function email_exists($email)
+          //   {
+    
+          //        $this->form_validation->set_rules('email', 'Email', 'trim|rvalid_email', 'required');
+          //        $email = $this->input->post('email');
+          //        $result = $this->m_signup->emailexists($email);
+          //      if ($this->form_validation->run() == FALSE)
+          //       {
+          //       return FALSE;
+          //       }
+            
+          //       else if ($result)
+          //       {
+          //           $this->form_validation->set_message('email_exists', 'Sorry email already exists in the database"');
+          //           return FALSE;
+          //       }
+          //       else
+          //       {
+          //           return TRUE;
+          //       }
+          //   }
+        
+
+           // function username_exists($username)
+           // {
+           //      $this->form_validation->set_rules('username', 'username', 'required');
+           //      $username = $this->input->post('username');
+           //      $result = $this->m_signup->username_exists($username);
+           //    if ($this->form_validation->run() == FALSE)
+           //     {
+           //     return FALSE;
+           //     }
+           
+           //     else if ($result)
+           //     {
+           //         $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
+           //         return FALSE;
+           //     }
+           //     else
+           //     {
+           //         return TRUE;
+           //     }
+           // }
+
 
         
 
@@ -245,6 +345,7 @@ class Site extends MY_Controller
 
             
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
+
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
@@ -262,6 +363,7 @@ class Site extends MY_Controller
             {
                 $this->load->model('m_registration');
 
+
                 $this->load->view('site/userhome');
                 $this->viewpage1();
 
@@ -277,6 +379,8 @@ class Site extends MY_Controller
         
         
 
+
+    
 
         public function antaForm()
         {
@@ -344,8 +448,11 @@ class Site extends MY_Controller
 
 
 
+
        
-        public function userhome()
+        
+         public function userhome()
+
 
         {      
 
@@ -372,15 +479,6 @@ class Site extends MY_Controller
         }
 
 
-
-         public function result()
-
-        {      
-                $this->data['registration'] = $this->m_registration->getPosts();
-                $this->load->view('site/result', $this->data);
-                $this->viewpage();
-               
-        }
 
         
 
@@ -445,6 +543,7 @@ class Site extends MY_Controller
             
         }
 
+
         // public function registration()
         // { $nama = $this->input->post('nama');
             
@@ -452,6 +551,16 @@ class Site extends MY_Controller
 
         //         $crud->set_theme('sayapunyer');
         //         $crud->where('nama',$nama);
+
+
+        // public function registration()
+        // {
+        //         $nama = $this->input->post('nama');
+        //         $crud = new grocery_CRUD();
+
+        //         $crud->set_theme('sayapunyer');
+        //         $crud->or_where('nama',$nama);
+
         //         $crud->display_as('plat','No Plat');
         //         $crud->display_as('ic','No Kad Pengenalan');
         //         $crud->display_as('phone','Telefon Number');
@@ -459,11 +568,20 @@ class Site extends MY_Controller
         //         $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
         //         $crud->unset_edit();
         //         $crud->unset_delete();
+
+
+        //         $crud->unset_add();
+        //         $crud->unset_print();
+        //         $crud->unset_export();
+
                
 
         //         $output = $crud->render();
 
-        //         $this->viewpage('v_crud', $output); 
+
+      
+
+        //         $this->viewpage('v_crud', $output);
         // }
 
         //         function add_field_callback_1()
@@ -525,6 +643,7 @@ class Site extends MY_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
         }
+
 
 
         

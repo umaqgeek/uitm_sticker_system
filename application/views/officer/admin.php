@@ -18,7 +18,7 @@
                     <!--Fetching Names Of All Students From Database-->
                          <ol><?php if (isset($register)){?>
                         <?php foreach ($register as $row): ?>
-                            <li><a href="<?php echo base_url() . "index.php/admin/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
+                            <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
                         <?php endforeach; }?>
                     </ol>
                 </div>
@@ -29,7 +29,8 @@
                     <?php foreach ($single_register as $row): ?>
                         <br><br><p>Edit Detail & Click Update Button</p>
 
-                        <form method="post" action="<?php echo base_url() . "index.php/admin/update_register_id1"?>">
+           <form method="post" action="<?php echo base_url() . "index.php/officer/update_register_id1"?>">
+
                             <label id="hide">Id :</label><br/> 
                             <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 

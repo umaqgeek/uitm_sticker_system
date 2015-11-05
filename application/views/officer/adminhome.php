@@ -39,8 +39,8 @@ body{
 
 
 <!--     <legend> -->
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
-      <ul> :: <a href="about.html">Update Form</a>        </ul>
+   
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/officer/show_register_id">Update Form</a>        </ul>
       <ul> :: <a href="portfolio.html">Status</a>         </ul>
 
 

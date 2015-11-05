@@ -45,9 +45,6 @@
         </div>
  <?php echo validation_errors('<p class="error">');?>
         <div class="row" style="margin-top: 1%;">
-
-            <!-- <div class="col-md-2"></div>
-            <div class="col-md-6"> -->
             
             <div class="col-md-10">
 
@@ -63,10 +60,11 @@
 
 
 
-              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('admin/admin1');?>';this.form.submit()">
+              <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('officer/login_officer');?>';this.form.submit()">
 
-              <!-- <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
- -->
+
+              <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('site/signup');?>';this.form.submit()">
+
             </div>
         </div>
         
@@ -76,3 +74,4 @@
 </div>
 </body>
 </html>
+
