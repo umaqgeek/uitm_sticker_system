@@ -191,7 +191,6 @@ class Site extends MY_Controller
                      return FALSE;
                 }
              }         
-       {
           
 
            function username_exists($username)
@@ -373,6 +372,28 @@ class Site extends MY_Controller
             }
         }
 
+        //  public function officerhome()
+        // {      
+
+        //     $username = $this->input->post('username');
+        //     $password = $this->input->post('password');
+            
+
+        //     $this->db->where('username',$username);
+        //     $this->db->where('password',$password);
+        //     $result=$this->db->get('admin');
+            
+            
+
+        //     if ($result->num_rows() >0 )
+        //     {
+        //            $this->viewpage1();
+        //            $this->load->view('officer/officerhome'); 
+                   
+
+        //     }
+        // }
+
         public function daftar()
         {
             
@@ -486,10 +507,6 @@ class Site extends MY_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
         }
-
-
-
         
 }
 ?>
-

@@ -22,16 +22,13 @@ class Officer extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               redirect('officer/show_register_id');
+               redirect('officer/officerhome');
            }
            else
            {
             $this->load->view('login/v_login');
             $this->viewpage();
             }
-            
-
-               
         }
 
         // public function result()

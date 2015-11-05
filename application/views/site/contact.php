@@ -34,8 +34,8 @@ body{
         </legend>
           </div>
 
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/aduan">Borang Aduan</a>  </ul>
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/hubung">Hubungi Kami</a>   </ul>
+      <ul> :: <a href="http://localhost/uitm/index.php/site/aduan">Borang Aduan</a>  </ul>
+      <ul> :: <a href="http://localhost/uitm/index.php/site/hubung">Hubungi Kami</a>   </ul>
 
 </body>
 <html>
