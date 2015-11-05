@@ -1,3 +1,5 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,19 +33,18 @@ body{
         <h2>UiTM STICKER SYSTEM</h2>
         <div id="content">
           <legend>
-          <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System</h4></div>
+          <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System <?php if(isset($username)) echo $username;?></h4></div>
         </legend>
           </div>
         
-  
-
 
 <!--     <legend> -->
 
-      <ul> :: <a href="http://localhost/uitm/index.php/site/daftar">Form Registration</a>  </ul>
-      <ul> :: <a href="about.html">Update Form</a>        </ul>
-      <ul> :: <a href="http://localhost/uitm/index.php/site/status">Status</a>         </ul>
-      <ul> :: <a href="http://localhost/uitm/index.php/site/contact">Contact Us!</a>       </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Update Form</a>        </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/status">Status</a>         </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/contact">Contact Us!</a>       </ul>
+
 
 <!--     </legend>
  -->

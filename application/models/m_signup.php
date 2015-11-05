@@ -23,6 +23,37 @@
             
   }
 
+  function check_if_username_exists($username){
+
+  	$this->db->where('username', $username);
+  	$result = $this->db->get('signup');
+
+  	if($result->num_rows() > 0){
+  		return FALSE;
+  	}
+
+  	else {
+  		return TRUE;
+  	}
+  }
+
+   function check_if_email_exists($email){
+
+  	$this->db->where('email', $email);
+  	$result = $this->db->get('signup');
+
+  	if($result->num_rows() > 0){
+  		return FALSE;
+  	}
+
+  	else {
+  		return TRUE;
+  	}
+  }
+
+
+
+
   public function login($data) {
 
 	$condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
@@ -58,19 +89,55 @@
 
 		
 		function show_students(){
-$query = $this->db->get('signup');
-$query_result = $query->result();
-return $query_result;
-}
-// Function To Fetch Selected Student Record
-function show_student_id($data){
-$this->db->select('*');
-$this->db->from('signup');
-$this->db->where('signup_id', $data);
-$query = $this->db->get();
-$result = $query->result();
-return $result;
-}
+		$query = $this->db->get('signup');
+		$query_result = $query->result();
+		return $query_result;
+		}
+		// Function To Fetch Selected Student Record
+		function show_student_id($data){
+		$this->db->select('*');
+		$this->db->from('signup');
+		$this->db->where('signup_id', $data);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+		}
+
+		// function emailexists($email){
+		//    $this -> db -> select('*');
+		//    $this -> db -> from('signup');
+		//    $this -> db -> where('email', $email);
+		//    $this -> db -> limit(1);
+		 
+		//    $query = $this -> db -> get();
+		 
+		//    if($query -> num_rows() == 1)
+		//    {
+		//      return $query->result();
+		//    }
+		//    else
+		//    {
+		//      return false;
+		//    }
+		//  }
+
+		 function username_exists($username){
+		   $this -> db -> select('*');
+		   $this -> db -> from('signup');
+		   $this -> db -> where('username', $username);
+		   $this -> db -> limit(1);
+		 
+		   $query = $this -> db -> get();
+		 
+		   if($query -> num_rows() == 1)
+		   {
+		     return $query->result();
+		   }
+		   else
+		   {
+		     return false;
+		   }
+		 }
 
 
 

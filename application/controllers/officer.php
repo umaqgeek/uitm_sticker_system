@@ -17,7 +17,7 @@ class Officer extends MY_Controller
             $password = $this->input->post('password');
             $this->db->where('username',$username);
             $this->db->where('password',$password);
-            $usr_result = $this->db->get('officer');
+            $usr_result = $this->db->get('admin');
             
             if($usr_result->num_rows()>0 )
             {

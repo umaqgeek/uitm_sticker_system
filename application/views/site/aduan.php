@@ -67,6 +67,7 @@ body{
                                     <div class="row">
                                     <div class="col-md-3">Komen:</div>
                                     <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('komen'); ?>" size="125"/></div>
+
                                     </div><br>
 
                                    <?php echo validation_errors('<p class="error">');?>

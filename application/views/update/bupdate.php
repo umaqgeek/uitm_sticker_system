@@ -12,13 +12,7 @@
    form.three {
     background-color:white;
     border-style: solid;
-    width:1000px;
-    border-radius: 0px;}
-
-    div.two {
-    background-color:white;
-    border-style: solid;
-    width:1000px;
+    width:950px;
     border-radius: 0px;}
 
     body{
@@ -30,8 +24,8 @@
 <body>
 
 <br><br><br>
+<div style="margin-top: 15%;">
 <div class="container">
- 
 <form method="post" class="three" >
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-8 col-md-offset-2">
@@ -59,6 +53,7 @@
     </div>
 </div><br>
 </form>
+</div>
 </div>
 </body>
 </html>

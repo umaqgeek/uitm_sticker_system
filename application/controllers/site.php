@@ -41,8 +41,6 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
-
-
         public function index()
 
 
@@ -50,14 +48,17 @@ class Site extends MY_Controller
         
             $username = $this->session->userdata('username');
 
-            //Pass it in an array to your view like
+            // Pass it in an array to your view like
             $data['username']=$username;   
 
                 $this->load->view('login/v_login',$data);
 
+        {      
+
                 $this->viewpage();
                
         }
+    }
 
          
         public function signup()
@@ -70,6 +71,7 @@ class Site extends MY_Controller
                 $this->viewpage2();
                 $this->load->view('site/contact');
         }
+
 
         public function aduan()
         {
@@ -110,12 +112,13 @@ class Site extends MY_Controller
             }
         } 
 
+
         public function hubung()
         {
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
-        
+       
         public function registration1()
         { 
                $this->load->view('site/daftar',$data);
@@ -126,17 +129,21 @@ class Site extends MY_Controller
         public function signForm()
         {
 
+
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
-            $this->form_validation->set_rules('username', 'username', 'trim|required');
+
+            $this->form_validation->set_rules('username', 'username', 'trim|required|callback_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|');
+             
+            
+
 
             if ($this->form_validation->run() == FALSE)
             {
-
                $this->load->view('site/signup');
                 $this->viewpage();
          
@@ -147,18 +154,80 @@ class Site extends MY_Controller
                 $this->load->model('m_signup');
                 $this->load->view('login/v_login');
                 $this->viewpage();
-            }            
 
-        }
+            }  
+
+
+        } 
+
+            function check_if_username_exists($requested_username) 
+             {
+                $this->load->model('m_signup');
+                $username_available=$this->m_signup->check_if_username_exists($requested_username);
+
+                if($username_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }  
+
+             function check_if_email_exists($requested_email) 
+             {
+                $this->load->model('m_signup');
+                $email_available=$this->m_signup->check_if_email_exists($requested_email);
+
+                if($email_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }         
+       {
+          
+
+           function username_exists($username)
+           {
+                $this->form_validation->set_rules('username', 'username', 'required');
+                $username = $this->input->post('username');
+                $result = $this->m_signup->username_exists($username);
+              if ($this->form_validation->run() == FALSE)
+               {
+               return FALSE;
+               }
+           
+               else if ($result)
+               {
+                   $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
+                   return FALSE;
+               }
+               else
+               {
+                   return TRUE;
+               }
+           }
 
         public function regisForm()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
             $this->load->library('form_validation');
            
+
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
 
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
-
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
             
@@ -189,9 +258,11 @@ class Site extends MY_Controller
                         'cukai'=>$this->input->post('cukai'),
                         'waris'=>$this->input->post('waris'),
                         'status'=>$this->input->post('status'),
+                        'code'=>$this->input->post('code'),
 
             );
                 $this->load->view('site/view_register',$data);
+
             }
         } 
 
@@ -252,13 +323,14 @@ class Site extends MY_Controller
                                         $data = array(
                                         'error_message' => 'Invalid Username or Password'
                                         );
-                                        $this->load->view('login/v_login', $data);
+                                        redirect('site', $data);
                                         $this->viewpage();
                                 }
                     }
                 }
 
-        public function userhome()
+         public function userhome()
+
         {      
 
             $username = $this->input->post('username');
@@ -269,15 +341,14 @@ class Site extends MY_Controller
             $this->db->where('password',$password);
             $result=$this->db->get('signup');
             
-            
-
-            if ($result->num_rows() >0 )
+            if ( ! $this->session->userdata('logged_in'))
             {
-                   $this->viewpage1();
-                   $this->load->view('site/userhome'); 
-                   
-
+            redirect(site_url('site'));
             }
+            
+            $this->viewpage1();
+            $this->load->view('site/userhome');
+    
         }
 
         public function adminhome()
@@ -304,12 +375,23 @@ class Site extends MY_Controller
 
         public function daftar()
         {
-            $this->viewpage1();
-            $this->load->view('site/daftar');
+            
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+                    $this->viewpage1();
+                    $this->load->view('site/daftar');
+     
         }
 
          public function status()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
             $this->viewpage1();
             $this->load->view('status/bstatus');
         }
@@ -317,12 +399,21 @@ class Site extends MY_Controller
 
          public function update()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
             $this->viewpage1();
             $this->load->view('update/bupdate');
         }
 
          public function userstatus()
-        {      
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
 
             $nama = $this->input->post('nama');
             $ic = $this->input->post('ic');
@@ -334,14 +425,20 @@ class Site extends MY_Controller
                 } else {
                 $data[''] = "No record found !";
                 }
-                
+                $this->viewpage1();
                 $this->load->view('status/vstatus', $data);
+
+                
             }
             
         }
-
         public function updatestatus()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
+
             $nama = $this->input->post('nama');
             $ic = $this->input->post('ic');
 
@@ -352,12 +449,17 @@ class Site extends MY_Controller
                 } else {
                 $data[''] = "No record found !";
                 }
-                
+                $this->viewpage1();
                 $this->load->view('update/update', $data);
             }
         }
 
         function update_register() {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
+
        $register_id= $this->input->post('register_id');
        $data = array(
            'jenis' => $this->input->post('jenis'),
@@ -386,6 +488,8 @@ class Site extends MY_Controller
         }
 
 
+
         
 }
+?>
 

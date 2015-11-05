@@ -6,7 +6,8 @@
 	  
 	  function get() 
 	  {
-		 $query = $this->db->get('officer');
+
+		 $query = $this->db->get('admin');
 		 return $query->result();
 
 		} 
@@ -14,8 +15,9 @@
 	  
 	  function add($data)
 	   {
-		  $this->db->insert('officer', $data);
-			  return ; 
+
+		  $this->db->insert('admin', $data);
+		  return ; 
 	  }
 
 	  
@@ -23,15 +25,17 @@
 	  function edit($data)
 	   {
 		  $this->db->where('ic_no', 123456);
-		  $this->db->update('officer', $data);
+
+		  $this->db->update('admin', $data);
+
 	  }
 	  
 	  function delete()
 	   {
 		  $this->db->where('ic_no', $this->url->segment(3));
-		  $this->db->delete('officer');
-	  }
 
+		  $this->db->delete('admin');
+	  }
 
 	  public function dataPengguna($username)
 	  {
