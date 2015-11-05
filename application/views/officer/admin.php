@@ -12,7 +12,7 @@
 
         <div id="container">
             <div id="wrapper">
-                <h1>Update Data In Database Using CodeIgniter </h1><hr/> 
+                <h1>Update Data In Database Registration </h1><hr/> 
                 <div id="menu">
                     <p>Click On Menu</p>
                     <!--Fetching Names Of All Students From Database-->

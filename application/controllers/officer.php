@@ -34,14 +34,6 @@ class Officer extends MY_Controller
                
         }
 
-        // public function result()
-
-        // {      
-        //         $this->data['registration'] = $this->m_registration->getPosts();
-        //         $this->load->view('site/result', $this->data);
-        //         $this->viewpage();
-               
-        // }
 
          public function index()
 

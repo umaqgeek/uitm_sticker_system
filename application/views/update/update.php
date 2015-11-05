@@ -35,17 +35,6 @@ body{
                              
                             <input type="hidden" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 
-                            <!-- <label>Pemilik :</label><br/> 
-                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"><br/>    
-
-                            <label>Status :</label><br/> 
-                            <input type="text" name="jenis" value="<?php echo $row->jenis; ?>"><br/>
-
-                            <label>Permohonan :</label><br/> 
-                            <input type="text" name="status" value="<?php echo $row->status; ?>"><br/>
-
-                            <label>Kenderaan :</label><br/> 
-                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/> -->
 
                             <div class="row">          
                                     <div class="col-md-2">Status :</div>  
