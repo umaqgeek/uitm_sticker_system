@@ -36,6 +36,9 @@ body{
 
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/aduan">Borang Aduan</a>  </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/hubung">Hubungi Kami</a>   </ul>
+      <ul><a href="http://localhost/uitm_sticker_system/index.php/site/userhome"><input type="button" class="btn btn-primary" value="Kembali" ></a></ul>
+    </div>
+
 
 </body>
 <html>

@@ -192,7 +192,9 @@ body{
                                 <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-3"></div>
                                 <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
-                                <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button>
+                                  <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+                                
                                 
               
 

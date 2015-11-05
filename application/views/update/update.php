@@ -168,6 +168,8 @@ body{
                                 </div><br>
 
                             <input type="submit" class="btn btn-primary" id="submit" name="dsubmit" value="Update">
+                            <a href="http://localhost/uitm_sticker_system/index.php/site/userhome"><input type="button" class="btn btn-primary" value="Kembali" ></a>
+                          
                             
                         </div>
                     </div>

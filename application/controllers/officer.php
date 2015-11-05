@@ -11,8 +11,9 @@ class Officer extends MY_Controller
             $this->load->model('m_officer'); 
     }
 
-        public function login_officer()
+        public function officer1()
         {
+
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $this->db->where('username',$username);
@@ -22,16 +23,13 @@ class Officer extends MY_Controller
             if($usr_result->num_rows()>0 )
             {
                 
-               redirect('officer/login');
+               $this->load->view('officer/officerhome');
            }
            else
            {
             $this->load->view('login/v_login');
             $this->viewpage();
             }
-            
-
-               
         }
 
 
@@ -40,15 +38,6 @@ class Officer extends MY_Controller
         {
                 $this->load->view('login/v_login');
                 $this->viewpage();
-               
-        }
-
-        public function login()
-
-        {
-                $this->load->view('officer/adminhome');
-                $this->viewpage('v_menu');
-                
                
         }
 
@@ -103,7 +92,7 @@ class Officer extends MY_Controller
         $data=$this->m_registration->getPosts();
         $data['register'] = $this->m_registration->getPosts();
         $data['single_register'] = $this->m_registration->show_register_id($register_id);
-        $this->load->view('officer/admin', $data);
+        $this->load->view('officer/officer', $data);
         $this->viewpage('v_menu');
 
        
