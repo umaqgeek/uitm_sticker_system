@@ -54,7 +54,7 @@ body{
                                   </div><br>
 
                                   <div class="row">
-                                  <div class="col-md-3">No. Kad Pengenalan :</div>
+                                  <div class="col-md-3">Nombor Kad Pengenalan :</div>
                                   <div class="col-md-8">
                                   <input type="text" class="form-control" name="ic" placeholder="Warganegara Sahaja" value="<?php echo set_value('ic'); ?>" size="25"/></div>
                                   </div><br>

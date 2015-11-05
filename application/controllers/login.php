@@ -54,27 +54,34 @@ class Login extends CI_Controller
                 return $this->load->view('login/v_login');
             }
 
-
-
-
-
-  // $this->load->helper(array('form', 'url'));
-
-  //   $this->load->library('form_validation');
-  //   $this->form_validation->set_rules('username', 'Username', 'required');
-  //   $this->form_validation->set_rules('password', 'Password', 'required');
-
-  //   if ($this->form_validation->run() == FALSE)
-  //   {
-  //     $this->load->view('login/v_login');
-  //   }
-  //   else
-  //   {
-  //     $this->load->view('login/registration');
-  //   }
     $this->viewpage();
 
  }
+
+public function adminhome()
+ {
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('signup');
+
+            if ($result->num_rows() > 0)
+            {
+                return $this->load->view('login/adminhome');
+            }
+            else
+            {
+                return $this->load->view('login/v_login');
+            }
+
+    $this->viewpage();
+
+ }
+
 
 
 public function signup()

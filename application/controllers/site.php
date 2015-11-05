@@ -82,7 +82,7 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('komen', 'Komen', 'trim|required|max_length[125]');
-            $this->form_validation->set_rules('ic', 'No. Kad Pengenalan', 'trim|required|max_length[25]');
+            $this->form_validation->set_rules('ic', 'Nombor Kad Pengenalan', 'trim|required|max_length[25]');
             $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
             $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
@@ -280,6 +280,27 @@ class Site extends MY_Controller
             }
         }
 
+        public function adminhome()
+        {      
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('admin');
+            
+            
+
+            if ($result->num_rows() >0 )
+            {
+                   $this->viewpage1();
+                   $this->load->view('admin/adminhome'); 
+                   
+
+            }
+        }
 
         public function daftar()
         {
