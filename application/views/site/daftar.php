@@ -182,53 +182,24 @@ body{
 
                                 <?php echo validation_errors('<p class="error">');?>
 
-                             <!--     <?php echo validation_errors('<p class="error">');?>
+                                
                                <div class="row" style="margin-top: 3%;">
 
                                 <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-3"></div>
-                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
-                                <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                <input type="button" class="btn btn-primary" value="Batal" data-toggle="modal" data-target="#myModal1" onClick="this.form.action='<?=site_url('site/regisForm');?>';this.form.submit()">
+                               <div class="col-md-4"> <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div> 
                                 
               
 
 
 
-                               <!-- <div class="row" style="margin-top: 3%;">
->>>>>>> 368c4bee01e6cdea7d8d573d86eb56d64a556ae1
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                    <br>
-
-=======
->>>>>>> ba7f26798946190e740434fb1d97e1af24f3bb3b
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>   
-                                        </div>
-                                        <div class="modal-body">
-                                          <p>Terima kasih kerana mendaftar.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
-     
-
          
                         </div>
-<<<<<<< HEAD
-                    </form>        
+        
 </div>
-=======
+
                     </form>  
 </div>
 </body>
 </html>
->>>>>>> ba7f26798946190e740434fb1d97e1af24f3bb3b

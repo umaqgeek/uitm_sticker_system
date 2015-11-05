@@ -128,26 +128,6 @@ class Site extends MY_Controller
 
               
 
-                // if($this->session->userdata('isLogin') == FALSE)
-                // {
-                //     redirect('login/v_login');
-                //     $this->viewpage();
-                // }else
-                // {
-                //     $this->load->model('m_signup');
-
-                //     $user = $this->session->userdata('username');
-
-                //     $data['status'] = $this->session->userdata('status');
-                //     $data['pengguna'] = $this->m_signup->dataPengguna($signup);
-
-                // }
-                // $this->load->view('login/v_login');
-
-
-                // $data['pengguna'] = $this->m_signup->create_member($signup1);
-
-
                 $this->viewpage();
                
         }
@@ -165,16 +145,6 @@ class Site extends MY_Controller
                 $this->load->view('site/contact');
         }
 
-
-
-               // $this->load->view('site/registration');
-               // $this->viewpage1();  
-
-               // $this->load->view('site/daftar',$data);
-               // $this->viewpage1($data);  
-
-               // $this->load->view('site/registration');
-               // $this->viewpage1();  
 
         public function aduan()
         {
@@ -475,31 +445,31 @@ class Site extends MY_Controller
             
         }
 
-        public function registration()
-        { $nama = $this->input->post('nama');
+        // public function registration()
+        // { $nama = $this->input->post('nama');
             
-                $crud = new grocery_CRUD();
+        //         $crud = new grocery_CRUD();
 
-                $crud->set_theme('sayapunyer');
-                $crud->where('nama',$nama);
-                $crud->display_as('plat','No Plat');
-                $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('phone','Telefon Number');
-                $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
-                $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
-                $crud->unset_edit();
-                $crud->unset_delete();
+        //         $crud->set_theme('sayapunyer');
+        //         $crud->where('nama',$nama);
+        //         $crud->display_as('plat','No Plat');
+        //         $crud->display_as('ic','No Kad Pengenalan');
+        //         $crud->display_as('phone','Telefon Number');
+        //         $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
+        //         $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
+        //         $crud->unset_edit();
+        //         $crud->unset_delete();
                
 
-                $output = $crud->render();
+        //         $output = $crud->render();
 
-                $this->viewpage('v_crud', $output); 
-        }
+        //         $this->viewpage('v_crud', $output); 
+        // }
 
-                function add_field_callback_1()
-                {
-                    return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
-                }
+        //         function add_field_callback_1()
+        //         {
+        //             return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
+        //         }
 
         public function updatestatus()
         {

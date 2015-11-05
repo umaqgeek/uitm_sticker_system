@@ -34,7 +34,7 @@ body{
 
 <div class="row">          
 <div class="col-md-3">No Kad Pengenalan :</div>  
-  <div class="col-md-8">
+  <div class="col-md-6">
   <input type="text" class="form-control" name="ic_no"  placeholder="Enter No IC"  value="<?php echo set_value('ic_no'); ?>" size="50"/></div>
 </div> 
 
