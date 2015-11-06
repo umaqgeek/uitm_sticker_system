@@ -40,8 +40,8 @@ body{
 
 <!--     <legend> -->
    
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/officer/show_register_id">Update Form</a>        </ul>
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/officer/status">Status</a>        </ul>
+      <ul> :: <a href="http://localhost/uitm/index.php/officer/show_register_id">Update Form</a>        </ul>
+      <ul> :: <a href="http://localhost/uitm/index.php/officer/status">Status</a>        </ul>
       
 
 
