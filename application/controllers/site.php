@@ -13,12 +13,10 @@ class Site extends MY_Controller
             parent::__construct(); 
             $this->load->database();
             $this->load->model('m_registration');
+            $this->load->model('m_aduan');
     }
 
         
-
-
-
         private function viewpage($page='v_mainpage', $data=array())
         {
             echo $this->load->view('v_header', $data, true);
@@ -44,32 +42,25 @@ class Site extends MY_Controller
         }
 
 
+
        
-        // public function registration()
-        // {
+        public function report()
+        {
       
-        //         $crud = new grocery_CRUD();
+                $crud = new grocery_CRUD();
 
-        //         $crud->set_theme('sayapunyer');
+                $crud->set_theme('sayapunyer');
+                 $crud->set_table('aduan');
 
-        //         $crud->display_as('plat','No Plat');
-        //         $crud->display_as('ic','No Kad Pengenalan');
-        //         $crud->display_as('phone','Telefon Number');
-        //         $crud->required_fields('plat','kenderaan','model','engin','chasis','nama','warna','ic','phone','hubungan','lesen','kelas','cukai','waris');
-        //        $crud->callback_add_field('phone',array($this,'add_field_callback_1'));
-        //        $crud->unset_edit();
-        //        $crud->unset_delete();
+               $crud->unset_edit();
+               $crud->unset_delete();
                
 
-        //         $output = $crud->render();
+                $output = $crud->render();
 
-        //         $this->viewpage('v_crud', $output);
-        // }
+                $this->viewpage('v_crud', $output);
+        }
 
-        //         function add_field_callback_1()
-        //         {
-        //             return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
-        //         }
 
 
             
@@ -112,6 +103,7 @@ class Site extends MY_Controller
         //         }
               
 
+
         public function index()
 
 
@@ -124,33 +116,8 @@ class Site extends MY_Controller
 
                 $this->load->view('login/v_login',$data);
 
-
-
         {      
-
               
-
-
-                // if($this->session->userdata('isLogin') == FALSE)
-                // {
-                //     redirect('login/v_login');
-                //     $this->viewpage();
-                // }else
-                // {
-                //     $this->load->model('m_signup');
-
-                //     $user = $this->session->userdata('username');
-
-                //     $data['status'] = $this->session->userdata('status');
-                //     $data['pengguna'] = $this->m_signup->dataPengguna($signup);
-
-                // }
-                // $this->load->view('login/v_login');
-
-
-                // $data['pengguna'] = $this->m_signup->create_member($signup1);
-
-
 
                 $this->viewpage();
                
@@ -174,6 +141,7 @@ class Site extends MY_Controller
                 $this->viewpage2();
                 $this->load->view('site/contact');
         }
+
 
 
 
@@ -202,6 +170,40 @@ class Site extends MY_Controller
 
             }             
         }
+
+        public function aduanForm()
+        {
+            $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('komen', 'Komen', 'trim|required|max_length[125]');
+            $this->form_validation->set_rules('ic', 'Nombor Kad Pengenalan', 'trim|required|max_length[25]');
+            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+
+            if ($this->form_validation->run() == FALSE)
+            {
+
+                $this->load->view('site/aduan');
+                $this->viewpage2();
+         
+            }
+
+            else  if ($query=$this->m_aduan->create_aduan())
+            {
+                $this->load->model('m_aduan');
+
+                $data = array(
+                        'status' => $this->input->post('status'),
+                        'nama'=>$this->input->post('nama'),
+                        'ic'=>$this->input->post('ic'),
+                        'email'=>$this->input->post('email'),
+                        'komen'=>$this->input->post('komen'),
+
+            );
+                $this->load->view('site/view_aduan',$data);
+            }
+        } 
+
 
 
         public function hubung()
@@ -245,13 +247,15 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
                 $this->viewpage();
 
+
             }            
 
 
          
 
+            }  
 
-        } 
+
 
             function check_if_username_exists($requested_username) 
              {
@@ -284,6 +288,7 @@ class Site extends MY_Controller
                      return FALSE;
                 }
              }         
+
    
 
           // function email_exists($email)
@@ -307,7 +312,7 @@ class Site extends MY_Controller
           //           return TRUE;
           //       }
           //   }
-        
+   
 
            // function username_exists($username)
            // {
@@ -318,7 +323,7 @@ class Site extends MY_Controller
            //     {
            //     return FALSE;
            //     }
-           
+
            //     else if ($result)
            //     {
            //         $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
@@ -331,6 +336,16 @@ class Site extends MY_Controller
            // }
 
 
+  
+               // else if ($result)
+               // {
+               //     $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
+               //     return FALSE;
+               // }
+               // else
+               // {
+               //     return TRUE;
+               // }
         
 
         public function regisForm()
@@ -464,10 +479,6 @@ class Site extends MY_Controller
             $this->db->where('password',$password);
             $result=$this->db->get('signup');
             
-            
-
-//                public function userhome()
-//        {
             if ( ! $this->session->userdata('logged_in'))
             {
             redirect(site_url('site'));
@@ -478,9 +489,50 @@ class Site extends MY_Controller
     
         }
 
+        public function adminhome()
+        {      
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            
+
+            $this->db->where('username',$username);
+            $this->db->where('password',$password);
+            $result=$this->db->get('admin');
+            
+            
+
+            if ($result->num_rows() >0 )
+            {
+                   $this->viewpage1();
+                   $this->load->view('admin/adminhome'); 
+                   
+
+            }
+        }
+
+        //  public function officerhome()
+        // {      
+
+        //     $username = $this->input->post('username');
+        //     $password = $this->input->post('password');
+            
 
 
-        
+        //     $this->db->where('username',$username);
+        //     $this->db->where('password',$password);
+        //     $result=$this->db->get('admin');
+            
+            
+
+        //     if ($result->num_rows() >0 )
+        //     {
+        //            $this->viewpage1();
+        //            $this->load->view('officer/officerhome'); 
+                   
+
+        //     }
+        // }
 
 
         public function daftar()
@@ -544,6 +596,7 @@ class Site extends MY_Controller
         }
 
 
+
         // public function registration()
         // { $nama = $this->input->post('nama');
             
@@ -588,6 +641,7 @@ class Site extends MY_Controller
         //         {
         //             return '+01 <input type="text" maxlength="50" value="" name="phone" style="width:462px">';
         //         }
+
 
         public function updatestatus()
         {
@@ -643,10 +697,6 @@ class Site extends MY_Controller
             $this->simpleloginsecure->logout();
             redirect(site_url('site'));
         }
-
-
-
         
 }
 ?>
-

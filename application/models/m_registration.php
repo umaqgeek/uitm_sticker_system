@@ -67,34 +67,34 @@ function update_register_id1($register_id,$data){
 // }
 
 public function show_data_by_id($ic,$nama) {
-$condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
-$this->db->select('*');
-$this->db->from('registration');
-$this->db->where($condition);
-$this->db->limit(1);
-$query = $this->db->get();
+        $condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
 
-if ($query->num_rows() == 1) {
-return $query->result();
-} else {
-return false;
-}
-}
+        if ($query->num_rows() == 1) {
+            return $query->result();
+            } else {
+                return false;
+            }
+        }
 
 public function updatestatus($ic,$nama) {
-$condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
-$this->db->select('*');
-$this->db->from('registration');
-$this->db->where($condition);
-$this->db->limit(1);
-$query = $this->db->get();
+        $condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
 
-if ($query->num_rows() == 1) {
-return $query->result();
-} else {
-return false;
-}
-}
+        if ($query->num_rows() == 1) {
+            return $query->result();
+            } else {
+                return false;
+            }
+        }
 
 }
 

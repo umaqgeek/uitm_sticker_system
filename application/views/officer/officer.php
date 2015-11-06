@@ -1,15 +1,11 @@
 
 <html>
-
     <head>
-
-        
         <title>Update Data In Database Using CodeIgniter</title>
         <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(). "css/update.css" ?>">
     </head>
     <body>
-
         <div id="container">
             <div id="wrapper">
                 <h1>Update Data In Database Using CodeIgniter </h1><hr/> 
@@ -25,44 +21,32 @@
                 <div id="detail">
                          <!--Fetching All Details of Selected Student From Database And Showing In a Form-->
                     <?php if(isset($single_register)){?>
-
                     <?php foreach ($single_register as $row): ?>
-                        <br><br><p>Edit Detail & Click Update Button</p>
 
-           <form method="post" action="<?php echo base_url() . "index.php/officer/update_register_id1"?>">
+                        <p>Edit Detail & Click Update Button</p>
+                        <form method="post" action="<?php echo base_url() . "index.php/officer/update_register_id1"?>">
 
                             <label id="hide">Id :</label><br/> 
                             <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 
                             <label>Pemilik :</label><br/> 
-                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"readonly><br/>    
+                            <input type="text" name="nama" value="<?php echo $row->nama; ?>"><br/>    
 
                             <label>Status :</label><br/> 
-                            <input type="text" name="jenis"  value="<?php echo $row->jenis; ?>"readonly><br/>
+                            <input type="text" name="jenis" value="<?php echo $row->jenis; ?>"><br/>
 
-                            <label>Permohonan :</label><br/>
-                            <select name="status" class="form-control"  >
-                                                <option value=""><?php echo $row->status; ?></option>
-                                                <option value="Approve">Approve</option>
-                                                <option value="Decline">Decline </option>
-                                          </select> 
+                            <label>Permohonan :</label><br/> 
+                            <input type="text" name="status" value="<?php echo $row->status; ?>"><br/>
 
                             <label>Kenderaan :</label><br/> 
-                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"readonly><br/>
-
+                            <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/>
 
                             <input type="submit" id="submit" name="dsubmit" value="Update">
                         </form>
 
                     <?php endforeach; }?>
-
-
                 </div> 
             </div> 
         </div>
     </body>
 </html>
-
-   
-
-   

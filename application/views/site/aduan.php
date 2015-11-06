@@ -25,24 +25,20 @@ body{
 </head>
 <body>
 
-
-
-
-
-
 <div class="container">
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG ADUAN</h2>
   </div><br>
 
-  <form method="post" class="three" action="<?=site_url('officer/aduan1'); ?>">
-                        <div class="row" style="margin-top: 5%;">
-                            <div class="col-md-6 col-md-offset-3">
+  <form method="post" class="three" action="<?=site_url('site/aduanForm'); ?>">
+<div class="row" style="margin-top: 5%;">
+<div class="col-md-8 col-md-offset-2">
+
                              
                                 <div class="row">          
-                                    <div class="col-md-2">Status:</div>  
+                                    <div class="col-md-3">Status:</div>  
                                       <div class="col-md-8">
-                                          <select name="jenis" id="status" class="form-control" >
+                                          <select name="status" id="status" class="form-control" >
                                                 <option value="">Sila Pilih</option>
                                                 <option value="PL">Pelajar </option>
                                                 <option value="ST">Staff</option>
@@ -52,29 +48,57 @@ body{
                                         </div>
                                     </div><br>
 
-                                    <div class="row">
-                                    <div class="col-md-2">Nama:</div>
-                                    <div class="col-md-8"><input type="text" class="form-control" name="nama"  placeholder="Nama Penuh"></div>
-                                    </div><br>
+                                  <div class="row">
+                                  <div class="col-md-3">Nama :</div>
+                                  <div class="col-md-8">
+                                  <input type="text" class="form-control" name="nama" placeholder="Nama penuh" value="<?php echo set_value('nama'); ?>" size="50"/></div>
+                                  </div><br>
 
                                   <div class="row">
-                                  <div class="col-md-2">Email:</div>
+                                  <div class="col-md-3">Nombor Kad Pengenalan :</div>
+                                  <div class="col-md-8">
+                                  <input type="text" class="form-control" name="ic" placeholder="Warganegara Sahaja" value="<?php echo set_value('ic'); ?>" size="25"/></div>
+                                  </div><br>
+
+                                  <div class="row">
+                                  <div class="col-md-3">Email:</div>
                                   <div class="col-md-8"><input type="text" class="form-control" name="email" placeholder="Email Yang Sah Digunakan" value="<?php echo set_value('email'); ?>" size="25"/></div>
                                   </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Komen:</div>
-                                    <div class="col-md-8"><textarea class="form-control" rows="5" name="message"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('message'); ?>" size="125"/></textarea></div>
+                                    <div class="col-md-3">Komen:</div>
+                                    <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('komen'); ?>" size="125"/></div>
+
                                     </div><br>
 
-                                    <?php echo validation_errors('<p class="error">');?>
-                                    <div class="col-md-6 col-md-offset-3">
 
-                                   <button type="submit" class="btn btn-primary">Hantar</button>
+                                   <?php echo validation_errors('<p class="error">');?>
+                                <div class="row" style="margin-top: 3%;">
+                                <div class="col-md-10"></div>
+                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
+                                <center><div class="col-md-8"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
+                                <div class="col-md-4"><input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()"></div>
+              
 
-                                   <input type="button" class="btn btn-primary" value="Batal" onClick="this.form.action='<?=site_url('site/contact');?>';this.form.submit()">
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Terima kasih diatas komen yang anda berikan. Kami akan memberi respon menerusi email anda. </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>  
 
-</div>
- </form>
-</body>
-</html>
+                                  </div>
+                                  </div><br>
+                                  </form>
+</center>
+</div></div>
