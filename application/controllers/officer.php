@@ -12,24 +12,64 @@ class Officer extends MY_Controller
     }
 
         public function officer1()
-        {
+        { 
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $usr_result = $this->db->get('admin');
+           //  $username = $this->input->post('username');
+           //  $password = $this->input->post('password');
+           //  $this->db->where('username',$username);
+           //  $this->db->where('password',$password);
+           //  $usr_result = $this->db->get('admin');
             
-            if($usr_result->num_rows()>0 )
-            {
+           //  if($usr_result->num_rows()>0 )
+           //  {
                 
-               $this->load->view('officer/officerhome');
-           }
-           else
-           {
-            $this->load->view('login/v_login');
-            $this->viewpage();
-            }
+           //     redirect('officer/home');
+           // }
+           // else
+           // {
+           //  $this->load->view('login/v_login');
+           //  $this->viewpage();
+           //  }
+
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
+
+                    if ($this->form_validation->run() == FALSE) 
+                    {
+                        $this->load->view('login/v_login');
+                        $this->viewpage();
+                    } 
+                    else 
+                    {
+                        $data = array(
+                        'username' => $this->input->post('username'),
+                        'password' => $this->input->post('password')
+                        );
+                        $result = $this->m_officer->login($data);
+
+                            if($result == TRUE)
+                                {
+                                    $sess_array = array(
+                                    'username' => $this->input->post('username')
+                                    );
+
+                            // Add user data in session
+                                    $this->session->set_userdata('logged_in', $sess_array);
+                                    $result = $this->m_officer->read_user_information($sess_array);
+                                    if($result != false)
+                                    {
+                                        $data = array(
+                                        // 'name' =>$result[0]->name,
+                                        'username' =>$result[0]->username,
+                                        'password' =>$result[0]->password
+                                        );
+
+                                        $this->load->view('officer/officerhome',$data);
+                                        $this->viewpage('v_menu');
+                                    }
+                                }
+                            }
         }
 
 
@@ -38,6 +78,17 @@ class Officer extends MY_Controller
         {
                 $this->load->view('login/v_login');
                 $this->viewpage();
+               
+        }
+
+        public function home()
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+                $this->load->view('officer/officerhome');
+                $this->viewpage('v_menu');
                
         }
 
@@ -87,7 +138,10 @@ class Officer extends MY_Controller
 
 
         function show_register_id() {
-        //     $data = array();
+        if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
         $register_id = $this->uri->segment(3);
         $data=$this->m_registration->getPosts();
         $data['register'] = $this->m_registration->getPosts();
@@ -98,7 +152,12 @@ class Officer extends MY_Controller
        
     }
 
-    function update_register_id1() {
+    function update_register_id1() 
+    {
+        if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
        $register_id= $this->input->post('register_id');
        $data = array(
            'nama' => $this->input->post('nama'),
@@ -110,7 +169,41 @@ class Officer extends MY_Controller
        $this->show_register_id();
     }
 
- 
+    public function status()
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
+            $this->viewpage('v_menu');
+            $this->load->view('officer/bstatus');
+        }
+
+     public function userstatus()
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }      
+
+            $nama = $this->input->post('nama');
+            $ic = $this->input->post('ic');
+
+            if ($ic != "" && $nama != "") {
+                $result = $this->m_registration->show_data_by_id($ic,$nama);
+                if ($result != false) {
+                $data['tunjuk'] = $result;
+                } else {
+                $data[''] = "No record found !";
+                }
+                $this->viewpage('v_menu');
+                $this->load->view('officer/vstatus', $data);
+
+                
+            }
+            
+        }   
 
  }
 ?>

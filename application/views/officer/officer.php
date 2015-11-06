@@ -50,6 +50,7 @@
                             <input type="text" name="kenderaan" value="<?php echo $row->kenderaan; ?>"><br/>
 
                             <input type="submit" id="submit" name="dsubmit" value="Update">
+                            <a href="http://localhost/uitm_sticker_system/index.php/officer/home"><input type="button" id="submit" value="Kembali" ></a>
 
                         </form>
 

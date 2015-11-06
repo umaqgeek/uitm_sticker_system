@@ -68,19 +68,19 @@ class Site extends MY_Controller
 
         public function contact()
         {
-            
-            if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
-                $this->viewpage2();
+
+                $this->viewpage('v_menu');
                 $this->load->view('site/contact');
         }
 
 
         public function aduan()
-        {
-                $this->viewpage2();
+        {if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+
+                $this->viewpage('v_menu');
                 $this->load->view('site/aduan');
         }
 
@@ -114,21 +114,26 @@ class Site extends MY_Controller
 
             );
                 $this->load->view('site/view_aduan',$data);
+                $this->viewpage('v_menu');
             }
         } 
 
 
         public function hubung()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
        
-        public function registration1()
-        { 
-               $this->load->view('site/daftar',$data);
-               $this->viewpage1($data);             
-        }
+        // public function registration1()
+        // { 
+        //        $this->load->view('site/daftar',$data);
+        //        $this->viewpage1($data);             
+        // }
 
 
         public function signForm()
