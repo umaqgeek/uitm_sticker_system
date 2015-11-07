@@ -37,15 +37,11 @@ body{
         
   
 
-
+      
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
-
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Update Form</a>        </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/status">Status</a>         </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/contact">Contact Us!</a>       </ul>
-
-
-
 
 
   </div>

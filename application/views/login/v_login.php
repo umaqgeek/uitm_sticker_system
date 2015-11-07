@@ -48,6 +48,7 @@
             
             <div class="col-md-10">
 
+
               <input type="button" class="btn btn-primary" value="Admin" onClick="this.form.action='<?=site_url('site/adminhome');?>';this.form.submit()">
 
               <input type="button" class="btn btn-primary" value="Officer" onClick="this.form.action='<?=site_url('officer/officer1');?>';this.form.submit()">

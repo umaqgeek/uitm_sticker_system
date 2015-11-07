@@ -130,45 +130,58 @@ class Site extends MY_Controller
                 $this->load->view('site/signup');
         }
 
-         public function aduan()
-        {       $this->viewpage2();
-                $this->load->view('site/aduan');
-        }
+        //  public function aduan()
+        // {       $this->viewpage2();
+        //         $this->load->view('site/aduan');
+        // }
 
 
         public function contact()
         {
-                $this->viewpage2();
+
+                $this->viewpage('v_menu');
                 $this->load->view('site/contact');
         }
 
 
 
 
-        public function aduan1()
-        {
-             $this->load->library('form_validation');
+
+        // public function aduan1()
+        // {
+        //      $this->load->library('form_validation');
            
-            $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
-            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required');
-            $this->form_validation->set_rules('message', 'Komen', 'trim|required');
+        //     $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
+        //     $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+        //     $this->form_validation->set_rules('email', 'Email', 'trim|required');
+        //     $this->form_validation->set_rules('message', 'Komen', 'trim|required');
             
 
-            if ($this->form_validation->run() == FALSE)
-            {
-               $this->load->view('site/aduan');
-                $this->viewpage();
+        //     if ($this->form_validation->run() == FALSE)
+        //     {
+        //        $this->load->view('site/aduan');
+        //         $this->viewpage();
          
+        //     }
+
+        //  else  if ($query=$this->m_aduan->create_data())
+        //     {
+        //         $this->load->model('m_aduan');
+        //         $this->load->view('site/contact');
+        //         $this->viewpage2();
+
+        //     }             
+
+        public function aduan()
+        {
+          if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
             }
 
-         else  if ($query=$this->m_aduan->create_data())
-            {
-                $this->load->model('m_aduan');
-                $this->load->view('site/contact');
-                $this->viewpage2();
+                $this->viewpage('v_menu');
+                $this->load->view('site/aduan');
 
-            }             
         }
 
         public function aduanForm()
@@ -201,6 +214,7 @@ class Site extends MY_Controller
 
             );
                 $this->load->view('site/view_aduan',$data);
+                $this->viewpage('v_menu');
             }
         } 
 
@@ -208,15 +222,19 @@ class Site extends MY_Controller
 
         public function hubung()
         {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
        
-        public function registration1()
-        { 
-               $this->load->view('site/daftar',$data);
-               $this->viewpage1($data);             
-        }
+        // public function registration1()
+        // { 
+        //        $this->load->view('site/daftar',$data);
+        //        $this->viewpage1($data);             
+        // }
 
 
         public function signForm()
@@ -257,37 +275,38 @@ class Site extends MY_Controller
 
 
 
-            function check_if_username_exists($requested_username) 
-             {
-                $this->load->model('m_signup');
-                $username_available=$this->m_signup->check_if_username_exists($requested_username);
+            // function check_if_username_exists($requested_username) 
+            //  {
+            //     $this->load->model('m_signup');
+            //     $username_available=$this->m_signup->check_if_username_exists($requested_username);
 
-                if($username_available){
+            //     if($username_available){
 
-                    return TRUE;
-                }
+            //         return TRUE;
+            //     }
 
-                else {
+            //     else {
 
-                     return FALSE;
-                }
-             }  
+            //          return FALSE;
+            //     }
+            //  }  
 
-             function check_if_email_exists($requested_email) 
-             {
-                $this->load->model('m_signup');
-                $email_available=$this->m_signup->check_if_email_exists($requested_email);
+            //  function check_if_email_exists($requested_email) 
+            //  {
+            //     $this->load->model('m_signup');
+            //     $email_available=$this->m_signup->check_if_email_exists($requested_email);
 
-                if($email_available){
+            //     if($email_available){
 
-                    return TRUE;
-                }
+            //         return TRUE;
+            //     }
 
-                else {
+            //     else {
 
-                     return FALSE;
-                }
-             }         
+
+                     // return FALSE;
+             //    }
+             // }         
 
    
 
@@ -347,6 +366,33 @@ class Site extends MY_Controller
                //     return TRUE;
                // }
         
+
+            //          return FALSE;
+            //     }
+            //  }         
+          
+
+           function username_exists($username)
+           {
+                $this->form_validation->set_rules('username', 'username', 'required');
+                $username = $this->input->post('username');
+                $result = $this->m_signup->username_exists($username);
+              if ($this->form_validation->run() == FALSE)
+               {
+               return FALSE;
+               }
+           
+               else if ($result)
+               {
+                   $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
+                   return FALSE;
+               }
+               else
+               {
+                   return TRUE;
+               }
+           }
+
 
         public function regisForm()
         {
@@ -511,6 +557,7 @@ class Site extends MY_Controller
             }
         }
 
+
         //  public function officerhome()
         // {      
 
@@ -533,6 +580,7 @@ class Site extends MY_Controller
 
         //     }
         // }
+
 
 
         public function daftar()

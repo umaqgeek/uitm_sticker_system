@@ -21,54 +21,53 @@
            $insert = $this->db->insert('signup', $new_member_insert_data);
            return $insert;
             
-  }
+	  }
 
-  function check_if_username_exists($username){
+	  // function check_if_username_exists($username){
 
-  	$this->db->where('username', $username);
-  	$result = $this->db->get('signup');
+	  // 	$this->db->where('username', $username);
+	  // 	$result = $this->db->get('signup');
 
-  	if($result->num_rows() > 0){
-  		return FALSE;
-  	}
+	  // 	if($result->num_rows() > 0){
+	  // 		return FALSE;
+	  // 	}
 
-  	else {
-  		return TRUE;
-  	}
-  }
+	  // 	else {
+	  // 		return TRUE;
+	  // 	}
+	  // }
 
-   function check_if_email_exists($email){
+	  //  function check_if_email_exists($email){
 
-  	$this->db->where('email', $email);
-  	$result = $this->db->get('signup');
+	  // 	$this->db->where('email', $email);
+	  // 	$result = $this->db->get('signup');
 
-  	if($result->num_rows() > 0){
-  		return FALSE;
-  	}
+	  // 	if($result->num_rows() > 0){
+	  // 		return FALSE;
+	  // 	}
 
-  	else {
-  		return TRUE;
-  	}
-  }
-
-
+	  // 	else {
+	  // 		return TRUE;
+	  // 	}
+	  // }
 
 
-  public function login($data) {
 
-	$condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
-		$this->db->select('*');
-		$this->db->from('signup');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
+	  public function login($data) {
 
-		if ($query->num_rows() == 1) {
-		return true;
-		} else {
-		return false;
-		}
-		}
+		$condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+			$this->db->select('*');
+			$this->db->from('signup');
+			$this->db->where($condition);
+			$this->db->limit(1);
+			$query = $this->db->get();
+
+			if ($query->num_rows() == 1) {
+			return true;
+			} else {
+			return false;
+			}
+			}
 
 		// Read data from database to show data in admin page
 		public function read_user_information($sess_array) {
@@ -103,23 +102,7 @@
 		return $result;
 		}
 
-		// function emailexists($email){
-		//    $this -> db -> select('*');
-		//    $this -> db -> from('signup');
-		//    $this -> db -> where('email', $email);
-		//    $this -> db -> limit(1);
-		 
-		//    $query = $this -> db -> get();
-		 
-		//    if($query -> num_rows() == 1)
-		//    {
-		//      return $query->result();
-		//    }
-		//    else
-		//    {
-		//      return false;
-		//    }
-		//  }
+		
 
 		 function username_exists($username){
 		   $this -> db -> select('*');
@@ -138,6 +121,24 @@
 		     return false;
 		   }
 		 }
+
+		 // function emailexists($email){
+		//    $this -> db -> select('*');
+		//    $this -> db -> from('signup');
+		//    $this -> db -> where('email', $email);
+		//    $this -> db -> limit(1);
+		 
+		//    $query = $this -> db -> get();
+		 
+		//    if($query -> num_rows() == 1)
+		//    {
+		//      return $query->result();
+		//    }
+		//    else
+		//    {
+		//      return false;
+		//    }
+		//  }
 
 
 
