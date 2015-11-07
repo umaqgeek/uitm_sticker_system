@@ -69,18 +69,14 @@ class Site extends MY_Controller
         public function contact()
         {
 
-                $this->viewpage('v_menu');
+                $this->viewpage2();
                 $this->load->view('site/contact');
         }
 
 
         public function aduan()
-        {if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
-
-                $this->viewpage('v_menu');
+        {
+                $this->viewpage2();
                 $this->load->view('site/aduan');
         }
 
@@ -121,10 +117,6 @@ class Site extends MY_Controller
 
         public function hubung()
         {
-            if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }

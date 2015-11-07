@@ -14,22 +14,6 @@ class Officer extends MY_Controller
         public function officer1()
         { 
 
-           //  $username = $this->input->post('username');
-           //  $password = $this->input->post('password');
-           //  $this->db->where('username',$username);
-           //  $this->db->where('password',$password);
-           //  $usr_result = $this->db->get('admin');
-            
-           //  if($usr_result->num_rows()>0 )
-           //  {
-                
-           //     redirect('officer/home');
-           // }
-           // else
-           // {
-           //  $this->load->view('login/v_login');
-           //  $this->viewpage();
-           //  }
 
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -93,33 +77,33 @@ class Officer extends MY_Controller
         }
 
 
-        //  public function registration()
-        // {
+         public function registration()
+        {
       
-        //         $crud = new grocery_CRUD();
+                $crud = new grocery_CRUD();
 
-        //         $crud->set_theme('sayapunyer');
+                $crud->set_theme('sayapunyer');
 
-        //         $crud->display_as('jenis','Status');
-        //         $crud->display_as('plat','No Plat');
-        //         $crud->display_as('ic','No Kad Pengenalan');
-        //         $crud->display_as('telefon','Telefon Number');
-        //         $crud->required_fields('jenis','plat','kenderaan','model','nama','ic','telefon','hubungan','lesen','kelas','cukai','waris','status');
-        //         $crud->add_action('More', '', 'demo/action_more','ui-icon-plus');
-        //         $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
-        //        // $crud->unset_edit();
-        //        // $crud->unset_delete();
+                $crud->display_as('status','Status');
+                $crud->display_as('nama','Nama');
+                $crud->display_as('ic','No Kad Pengenalan');
+                $crud->display_as('email','Email');
+                $crud->display_as('komen','Komen');
+                $crud->required_fields('status','nama','ic','model','email','komen');
+                $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
+               // $crud->unset_edit();
+               // $crud->unset_delete();
                
 
-        //         $output = $crud->render();
+                $output = $crud->render();
 
-        //         $this->viewpage('v_crud', $output);
-        // }
+                $this->viewpage('v_crud', $output);
+        }
 
-        //  function add_field_callback_1()
-        // {
-        //             return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
-        // }
+         function add_field_callback_1()
+        {
+                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
+        }
 
         private function viewpage($page='v_mainpage', $data=array())
         {
