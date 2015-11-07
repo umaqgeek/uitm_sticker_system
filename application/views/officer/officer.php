@@ -26,9 +26,11 @@
                 <div id="detail">
                          <!--Fetching All Details of Selected Student From Database And Showing In a Form-->
                     <?php if(isset($single_register)){?>
+
                     <?php foreach ($single_register as $row): ?><br><br><br><br>
                         <p>Edit Detail & Click Update Button</p>
                         <form method="post" action="<?php echo base_url() . "index.php/officer/update_register_id1"?>">
+
                             <label id="hide">Id :</label><br/> 
                             <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
 

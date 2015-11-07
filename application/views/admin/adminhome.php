@@ -35,7 +35,8 @@ body{
         </legend>
           </div>
           
-      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/officer/registration">Aduan Pengguna</a>  </ul>
+      <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/report">Aduan Pengguna</a>  </ul>
+
 
   </div>
   

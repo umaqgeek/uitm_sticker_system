@@ -54,6 +54,7 @@ class Officer extends MY_Controller
                                     }
                                 }
                             }
+
         }
 
 
@@ -77,33 +78,64 @@ class Officer extends MY_Controller
         }
 
 
-         public function registration()
+
+         public function aduan1()
         {
-      
-                $crud = new grocery_CRUD();
+             $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
+            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required');
+            $this->form_validation->set_rules('message', 'Komen', 'trim|required');
+            
 
-                $crud->set_theme('sayapunyer');
+            if ($this->form_validation->run() == FALSE)
+            {
+               $this->load->view('site/aduan');
+                $this->viewpage();
+         
+            }
 
-                $crud->display_as('status','Status');
-                $crud->display_as('nama','Nama');
-                $crud->display_as('ic','No Kad Pengenalan');
-                $crud->display_as('email','Email');
-                $crud->display_as('komen','Komen');
-                $crud->required_fields('status','nama','ic','model','email','komen');
-                $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
+         else  if ($query=$this->m_aduan->create_data())
+            {
+                $this->load->model('m_aduan');
+                $this->load->view('site/contact');
+                $this->viewpage2();
+
+            }             
+        }
+
+
+
+
+
+        //  public function registration()
+        // {
+
+                // $crud = new grocery_CRUD();
+
+                // $crud->set_theme('sayapunyer');
+
+                // $crud->display_as('status','Status');
+                // $crud->display_as('nama','Nama');
+                // $crud->display_as('ic','No Kad Pengenalan');
+                // $crud->display_as('email','Email');
+                // $crud->display_as('komen','Komen');
+                // $crud->required_fields('status','nama','ic','model','email','komen');
+                // $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
                // $crud->unset_edit();
                // $crud->unset_delete();
                
 
-                $output = $crud->render();
+        //         $output = $crud->render();
 
-                $this->viewpage('v_crud', $output);
-        }
+        //         $this->viewpage('v_crud', $output);
+        // }
 
-         function add_field_callback_1()
-        {
-                    return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
-        }
+        //  function add_field_callback_1()
+        // {
+        //             return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
+        // }
 
         private function viewpage($page='v_mainpage', $data=array())
         {
