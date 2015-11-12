@@ -19,15 +19,7 @@
 <!--                    <li>
                         <a href="#about">About</a>
                     </li>-->
-                    <li>
-                        <a href="#background">Background</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#product">Products</a>
-                    </li>
+                    
                     <li>
                         <a href="site/contact">Contact</a>
                     </li>

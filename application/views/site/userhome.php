@@ -34,7 +34,7 @@ body{
           <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System</h4></div>
         </legend>
           </div>
-        
+
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/daftar">Form Registration</a>  </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/update">Update Form</a>        </ul>
       <ul> :: <a href="http://localhost/uitm_sticker_system/index.php/site/status">Status</a>         </ul>

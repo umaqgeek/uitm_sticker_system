@@ -1,6 +1,9 @@
 <?php
   class m_aduan extends CI_Model {
 
+	  
+	  
+
 function create_aduan () {
 
 	     $new_public_insert_data = array(
@@ -56,5 +59,6 @@ public function read_user_information($sess_array) {
 // }
 
 }
+
 
 ?>

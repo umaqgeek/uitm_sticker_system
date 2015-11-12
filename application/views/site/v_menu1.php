@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="http://localhost/uitm_sticker_system/index.php/site/userhome">Home</a>
+                <a class="navbar-brand topnav" href="http://localhost/uitm_sticker_system/index.php/site/">Home</a>
             </div>
             
         </div>

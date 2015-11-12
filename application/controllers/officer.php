@@ -14,6 +14,7 @@ class Officer extends MY_Controller
         public function officer1()
         { 
 
+
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
@@ -53,6 +54,7 @@ class Officer extends MY_Controller
                                     }
                                 }
                             }
+
         }
 
 
@@ -75,6 +77,31 @@ class Officer extends MY_Controller
                
         }
 
+         public function aduan1()
+        {
+             $this->load->library('form_validation');
+           
+            $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
+            $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required');
+            $this->form_validation->set_rules('message', 'Komen', 'trim|required');
+            
+
+            if ($this->form_validation->run() == FALSE)
+            {
+               $this->load->view('site/aduan');
+                $this->viewpage();
+         
+            }
+
+         else  if ($query=$this->m_aduan->create_data())
+            {
+                $this->load->model('m_aduan');
+                $this->load->view('site/contact');
+                $this->viewpage2();
+
+            }             
+        }
 
         private function viewpage($page='v_mainpage', $data=array())
         {

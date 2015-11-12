@@ -186,24 +186,22 @@ body{
 
                                 <?php echo validation_errors('<p class="error">');?>
 
-                             <!--     <?php echo validation_errors('<p class="error">');?>
+                                
                                <div class="row" style="margin-top: 3%;">
 
                                 <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-3"></div>
+
+                                <input type="button" class="btn btn-primary" value="Batal" data-toggle="modal" data-target="#myModal1" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+                               <div class="col-md-4"> <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div> 
+
                                 <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
-                                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button>
-                                  <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
+                               <!--  <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button>
+                                  <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()"> -->
                                 
+
                                 
               
-
-
-                               <!-- <!-- <div class="row" style="margin-top: 3%;">
-
-                                    <div class="col-md-3"></div>
-                                    <center><div class="col-md-4"><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div>
-                                    <br> -->
 
 
                                 <div class="modal fade" id="myModal" role="dialog">
@@ -223,10 +221,11 @@ body{
                                   </div>
                                 </div>
 
-     
-
-         
-                        </div>
-                    </form>        
 </div>
+
+                    </form>  
+</div>
+</body>
+</html>
+
 

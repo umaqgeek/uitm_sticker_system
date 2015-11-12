@@ -29,10 +29,11 @@ body{
   <div class="two" style="margin-top:5%;">
     <center><h2>BORANG ADUAN</h2>
   </div><br>
- 
+
   <form method="post" class="three" action="<?=site_url('site/aduanForm'); ?>">
 <div class="row" style="margin-top: 5%;">
 <div class="col-md-8 col-md-offset-2">
+
                              
                                 <div class="row">          
                                     <div class="col-md-3">Status:</div>  
@@ -69,6 +70,7 @@ body{
                                     <div class="col-md-8"><input type="text" class="form-control" name="komen"  placeholder="Tidak melebihi 125 patah perkataan" value="<?php echo set_value('komen'); ?>" size="125"/></div>
 
                                     </div><br>
+
 
                                    <?php echo validation_errors('<p class="error">');?>
                                 <div class="row" style="margin-top: 3%;">

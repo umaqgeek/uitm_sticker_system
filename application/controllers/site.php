@@ -41,6 +41,27 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+
+
+       
+        public function report()
+        {
+      
+                $crud = new grocery_CRUD();
+
+                $crud->set_theme('sayapunyer');
+                 $crud->set_table('aduan');
+
+               $crud->unset_edit();
+               $crud->unset_delete();
+               
+
+                $output = $crud->render();
+
+                $this->viewpage('v_crud', $output);
+        }
+
+
         public function index()
 
 
@@ -54,6 +75,7 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login',$data);
 
         {      
+              
 
                 $this->viewpage();
                
@@ -66,22 +88,29 @@ class Site extends MY_Controller
                 $this->load->view('site/signup');
         }
 
+        //  public function aduan()
+        // {       $this->viewpage2();
+        //         $this->load->view('site/aduan');
+        // }
+
+
         public function contact()
         {
 
-                $this->viewpage('v_menu');
+                $this->viewpage2();
                 $this->load->view('site/contact');
-        }
-
+        }       
 
         public function aduan()
-        {if ( ! $this->session->userdata('logged_in'))
+        {
+
+          if ( ! $this->session->userdata('logged_in'))
             {
             redirect(site_url('site'));
             }
 
-                $this->viewpage('v_menu');
                 $this->load->view('site/aduan');
+
         }
 
         public function aduanForm()
@@ -119,16 +148,20 @@ class Site extends MY_Controller
         } 
 
 
+
         public function hubung()
         {
-            if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
        
+        // public function registration1()
+        // { 
+        //        $this->load->view('site/daftar',$data);
+        //        $this->viewpage1($data);             
+        // }
+
+
         public function signForm()
         {
 
@@ -137,12 +170,11 @@ class Site extends MY_Controller
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
 
-            $this->form_validation->set_rules('username', 'username', 'trim|required|callback_username_exists');
+
+            $this->form_validation->set_rules('username', 'username', 'trim|required|callback_check_if_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|');
-             
-            
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_check_if_email_exists');
 
 
             if ($this->form_validation->run() == FALSE)
@@ -158,31 +190,72 @@ class Site extends MY_Controller
                 $this->load->view('login/v_login');
                 $this->viewpage();
 
+
+            }            
+
+
+         
+
             }  
 
 
-        } 
 
-           function username_exists($username)
-           {
-                $this->form_validation->set_rules('username', 'username', 'required');
-                $username = $this->input->post('username');
-                $result = $this->m_signup->username_exists($username);
-              if ($this->form_validation->run() == FALSE)
-               {
-               return FALSE;
-               }
-           
-               else if ($result)
-               {
-                   $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
-                   return FALSE;
-               }
-               else
-               {
-                   return TRUE;
-               }
-           }
+            function check_if_username_exists($requested_username) 
+             {
+                $this->load->model('m_signup');
+                $username_available=$this->m_signup->check_if_username_exists($requested_username);
+
+                if($username_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+                     return FALSE;
+                }
+             }  
+
+             function check_if_email_exists($requested_email) 
+             {
+                $this->load->model('m_signup');
+                $email_available=$this->m_signup->check_if_email_exists($requested_email);
+
+                if($email_available){
+
+                    return TRUE;
+                }
+
+                else {
+
+
+                     return FALSE;
+                }
+             }         
+
+   
+
+          function email_exists($email)
+            {
+    
+                 $this->form_validation->set_rules('email', 'Email', 'trim|rvalid_email', 'required');
+                 $email = $this->input->post('email');
+                 $result = $this->m_signup->emailexists($email);
+               if ($this->form_validation->run() == FALSE)
+                {
+                return FALSE;
+                }
+            
+                else if ($result)
+                {
+                    $this->form_validation->set_message('email_exists', 'Sorry email already exists in the database"');
+                    return FALSE;
+                }
+                else
+                {
+                    return TRUE;
+                }
+            }
 
         public function regisForm()
         {
@@ -194,6 +267,7 @@ class Site extends MY_Controller
             $this->load->library('form_validation');
            
 
+            
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
 
             $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
@@ -213,27 +287,24 @@ class Site extends MY_Controller
             {
                 $this->load->model('m_registration');
 
-                $data = array(
-                        'jenis' => $this->input->post('jenis'),
-                        'plat'=>$this->input->post('plat'),
-                        'kenderaan'=>$this->input->post('kenderaan'),
-                        'model'=>$this->input->post('model'),
-                        'nama'=>$this->input->post('nama'),
-                        'ic'=>$this->input->post('ic'),
-                        'phone'=>$this->input->post('phone'),
-                        'hubungan'=>$this->input->post('hubungan'),
-                        'lesen'=>$this->input->post('lesen'),
-                        'kelas'=>$this->input->post('kelas'),
-                        'cukai'=>$this->input->post('cukai'),
-                        'waris'=>$this->input->post('waris'),
-                        'status'=>$this->input->post('status'),
-                        'code'=>$this->input->post('code'),
 
-            );
-                $this->load->view('site/view_register',$data);
+                $this->load->view('site/userhome');
+                $this->viewpage1();
+
+                
 
             }
+
+            
+
+            
         } 
+
+        
+        
+
+
+    
 
         public function antaForm()
         {
@@ -298,7 +369,14 @@ class Site extends MY_Controller
                     }
                 }
 
+
+
+
+
+       
+        
          public function userhome()
+
 
         {      
 
@@ -402,6 +480,7 @@ class Site extends MY_Controller
             }
             
         }
+
         public function updatestatus()
         {
             if ( ! $this->session->userdata('logged_in'))
