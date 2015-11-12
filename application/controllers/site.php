@@ -129,13 +129,6 @@ class Site extends MY_Controller
                 $this->load->view('site/hubung');
         }
        
-        // public function registration1()
-        // { 
-        //        $this->load->view('site/daftar',$data);
-        //        $this->viewpage1($data);             
-        // }
-
-
         public function signForm()
         {
 
@@ -169,39 +162,6 @@ class Site extends MY_Controller
 
 
         } 
-
-            // function check_if_username_exists($requested_username) 
-            //  {
-            //     $this->load->model('m_signup');
-            //     $username_available=$this->m_signup->check_if_username_exists($requested_username);
-
-            //     if($username_available){
-
-            //         return TRUE;
-            //     }
-
-            //     else {
-
-            //          return FALSE;
-            //     }
-            //  }  
-
-            //  function check_if_email_exists($requested_email) 
-            //  {
-            //     $this->load->model('m_signup');
-            //     $email_available=$this->m_signup->check_if_email_exists($requested_email);
-
-            //     if($email_available){
-
-            //         return TRUE;
-            //     }
-
-            //     else {
-
-            //          return FALSE;
-            //     }
-            //  }         
-          
 
            function username_exists($username)
            {
