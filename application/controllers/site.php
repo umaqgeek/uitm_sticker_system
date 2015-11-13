@@ -175,10 +175,7 @@ class Site extends MY_Controller
         public function aduan()
         {
 
-          if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
+          
 
                 $this->load->view('site/aduan');
 
@@ -532,26 +529,77 @@ class Site extends MY_Controller
         }
 
         public function adminhome()
-        {      
+        {     
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
+
+                    if ($this->form_validation->run() == FALSE) 
+                    {
+                        $this->load->view('login/v_login');
+                        $this->viewpage();
+                    } 
+                    else 
+                    {
+                        $data = array(
+                        'username' => $this->input->post('username'),
+                        'password' => $this->input->post('password')
+                        );
+                        $result = $this->m_officer->login($data);
+
+                            if($result == TRUE)
+                                {
+                                    $sess_array = array(
+                                    'username' => $this->input->post('username')
+                                    );
+
+                            // Add user data in session
+                                    $this->session->set_userdata('logged_in', $sess_array);
+                                    $result = $this->m_officer->read_user_information($sess_array);
+                                    if($result != false)
+                                    {
+                                        $data = array(
+                                        // 'name' =>$result[0]->name,
+                                        'username' =>$result[0]->username,
+                                        'password' =>$result[0]->password
+                                        );
+
+                                        $this->load->view('admin/adminhome',$data);
+                                        $this->viewpage1();
+                                    }
+                                }
+                            else
+                                {
+                                        $data = array(
+                                        'error_message' => 'Invalid Username or Password'
+                                        );
+                                        redirect('site', $data);
+                                        $this->viewpage();
+                                }
+                    }
+                }
+
+        // {      
+
+        //     $username = $this->input->post('username');
+        //     $password = $this->input->post('password');
             
 
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $result=$this->db->get('admin');
+        //     $this->db->where('username',$username);
+        //     $this->db->where('password',$password);
+        //     $result=$this->db->get('admin');
             
             
 
-            if ($result->num_rows() >0 )
-            {
-                   $this->viewpage1();
-                   $this->load->view('admin/adminhome'); 
+        //     if ($result->num_rows() >0 )
+        //     {
+        //            $this->viewpage1();
+        //            $this->load->view('admin/adminhome'); 
                    
 
-            }
-        }
+        //     }
+        // }
 
 
         //  public function officerhome()
