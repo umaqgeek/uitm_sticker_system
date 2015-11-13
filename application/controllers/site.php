@@ -104,10 +104,7 @@ class Site extends MY_Controller
         public function aduan()
         {
 
-          if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
+          
 
                 $this->load->view('site/aduan');
 
