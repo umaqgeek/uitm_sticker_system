@@ -139,7 +139,7 @@ class Site extends MY_Controller
         public function contact()
         {
 
-                $this->viewpage('v_menu');
+                $this->viewpage2();
                 $this->load->view('site/contact');
         }
 
@@ -174,12 +174,9 @@ class Site extends MY_Controller
 
         public function aduan()
         {
-          if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
+          
 
-                $this->viewpage('v_menu');
+                $this->viewpage2();
                 $this->load->view('site/aduan');
 
         }
@@ -222,10 +219,7 @@ class Site extends MY_Controller
 
         public function hubung()
         {
-            if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
+            
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
@@ -573,7 +567,7 @@ class Site extends MY_Controller
                         'username' => $this->input->post('username'),
                         'password' => $this->input->post('password')
                         );
-                        $result = $this->m_registration->login($data);
+                        $result = $this->m_officer->login($data);
 
                             if($result == TRUE)
                                 {
@@ -583,7 +577,7 @@ class Site extends MY_Controller
 
                             // Add user data in session
                                     $this->session->set_userdata('logged_in', $sess_array);
-                                    $result = $this->m_registration->read_user_information($sess_array);
+                                    $result = $this->m_officer->read_user_information($sess_array);
                                     if($result != false)
                                     {
                                         $data = array(
@@ -592,7 +586,7 @@ class Site extends MY_Controller
                                         'password' =>$result[0]->password
                                         );
 
-                                        $this->load->view('site/adminhome',$data);
+                                        $this->load->view('admin/adminhome',$data);
                                         $this->viewpage1();
                                     }
                                 }
