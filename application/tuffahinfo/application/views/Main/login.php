@@ -1,5 +1,5 @@
 
-<form method="post" action="<?=site_url('Main/checklogin'); ?>">
+<form method="post" action="<?=site_url('Main/login'); ?>">
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-6 col-md-offset-3">
         

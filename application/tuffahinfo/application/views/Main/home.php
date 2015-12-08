@@ -1,4 +1,4 @@
-<a name="about"></a>
+<a name="home"></a>
     <div class="intro-header">
         <div class="container">
 
