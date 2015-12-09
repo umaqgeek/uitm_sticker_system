@@ -16,20 +16,48 @@
     	<div class="panel-heading">
   		<h4>Background</h4>
     	</div>
-    </div>
     <div class="panel-body">
     	<div class="container">
+  			<a href="http://localhost/tuffahinfo/index.php/Main/background" class="btn btn-default btn-lg">            
+  			<img class="img-rounded" alt="Cinque Terre" width="304" height="236" src="<?=base_url(); ?>assets/img/factory.png"> </a>
+  		</div>
+    </div>
+   </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+      	<h4>Services</h4>
+      </div>
+      <div class="panel-body">
+      	<div class="container">
+  			<a href="http://localhost/tuffahinfo/index.php/Main/services" class="btn btn-default btn-lg">            
+  			<img class="img-rounded" alt="Cinque Terre" width="304" height="236" src="<?=base_url(); ?>assets/img/robot.jpg"> </a>
+  		</div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      	<h4>Products</h4>
+      </div>
+      <div class="panel-body">
+      	<div class="container">
   			<a href="https://twitter.com/tuffahinfo" class="btn btn-default btn-lg">            
   			<img class="img-rounded" alt="Cinque Terre" width="304" height="236" src="<?=base_url(); ?>assets/img/bank.png"> </a>
   		</div>
+      </div>
     </div>
-     <div class="panel panel-default">
-      <div class="panel-heading">Panel Header</div>
-      <div class="panel-body">Panel Content</div>
-    </div>
+
     <div class="panel panel-default">
-      <div class="panel-heading">Panel Header</div>
-      <div class="panel-body">Panel Content</div>
+      <div class="panel-heading">
+      	<h4>Contact</h4>
+      </div>
+      <div class="panel-body">
+      	<div class="container">
+  			<a href="https://twitter.com/tuffahinfo" class="btn btn-default btn-lg">            
+  			<img class="img-rounded" alt="Cinque Terre" width="304" height="236" src="<?=base_url(); ?>assets/img/phones.png"> </a>
+  		</div>
+      </div>
     </div>
   </div>
 </div>
