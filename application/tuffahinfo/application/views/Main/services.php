@@ -1,4 +1,4 @@
-<?php $this->load->view('blog/header');?>
+<?php $this->load->view('v_header');?>
 <body>
 
 	<!-- header top starts-->
@@ -11,17 +11,24 @@
 		<!-- column-one -->
 		<div id="content"><div class="col-one">
 			
-			<h2>Add New Category</h2>
-			<?php echo form_open('add-new-category');?>
+			<h2>Add New Entry</h2>
+			<?php echo form_open('add-new-entry');?>
 			
 			<?php if(validation_errors()){echo validation_errors('<p class="error">','</p>');} ?>
             <?php if($this->session->flashdata('message')){echo '<p class="success">'.$this->session->flashdata('message').'</p>';}?>
 			
-			<p><label>Category Name</label>
-			<input type="text" name="category_name" size="30" /></p>
+			<p><label>Title</label>
+			<input type="text" name="entry_name" size="30" /></p>
 			
-			<p><label>Slug</label>
-			<input type="text" name="category_slug" size="30" /></p>
+			<h3>Category</h3>
+			<p><?php if( isset($categories) && $categories): foreach($categories as $category): ?>
+				<label><input class="checkbox" type="checkbox" name="entry_category[]" value="<?php echo $category->category_id;?>"><?php echo $category->category_name;?></label>
+				<?php endforeach; else:?>
+				Please add your category first!
+				<?php endif; ?>
+			</p>
+			<p><label><br>Your Entry: (in html)</label>
+			<textarea rows="16" cols="80%" name="entry_body" style="resize:none;"></textarea></p>
 			
 			<br />	
 			
@@ -33,16 +40,14 @@
 		</div></div>
 		
 		<!-- column-two -->
-		<?php $this->load->view('blog/menu_sidebar');?>	
+		<?php $this->load->view('Main/admin_menu');?>	
 	
-		<!-- column-three -->
-		<?php $this->load->view('blog/sidebar');?>
 		
 	<!-- contents end here -->	
 	</div></div>
 
 	<!-- footer starts here -->	
-	<?php $this->load->view('blog/footer');?>
+	<?php $this->load->view('v_footer');?>
 	<!-- footer ends here -->
 
 </body>

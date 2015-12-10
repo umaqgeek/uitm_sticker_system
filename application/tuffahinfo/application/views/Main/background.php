@@ -1,46 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Admin Panel</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
+
+<html>
+<?php $this->load->view('v_header');?>
 <body>
- <div class="row" style="margin-top: 5%;">
-<div class="container">
-  <div class="panel-group">
-  	<div class="panel panel-default">
-    	<div class="panel-heading">
-  		<h4>Background</h4>
-    	</div>
-    <div class="panel-body">
-    	<div class="container">
-        <h2>Form control: textarea</h2>
-          <p>The form below contains a textarea for comments:</p>
-            <form role="form">
-              <div class="form-group">
-                <label for="comment">Comment:</label>
-                <div class="row">
-                <div class="col-md-8">
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
-                </div>
-              </div>
-              </div>
-            </form>
-            <div id='container'>
-                <?php echo  form_open_multipart('Main/uploadImage')?>
-                <input type="file" class="btn btn-primary" name="userfile" /><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="submit" />
-              <?php echo form_close();?>
-            </div>
-  		</div>
-    </div>
-  </div>
-  </div>
-  </div>
-</div>
+
+  <!-- header top starts-->
+  <?php $this->load->view('blog/menu_top');?>
+  <!-- header top ends here -->
+  
+  <!-- content starts -->
+  <div id="content-outer" class="clear"><div id="content-wrapper">
+  
+    <!-- column-one -->
+    <div id="content"><div class="col-one">
+      
+      <h2>Add New Entry</h2>
+      <?php echo form_open('Main/add_new_entry');?>
+      
+      <?php if(validation_errors()){echo validation_errors('<p class="error">','</p>');} ?>
+            <?php if($this->session->flashdata('message')){echo '<p class="success">'.$this->session->flashdata('message').'</p>';}?>
+      
+      <p><label>Title</label>
+      <input type="text" name="entry_name" size="30" /></p>
+      
+      <h3>Category</h3>
+      <p><?php if( isset($categories) && $categories): foreach($categories as $category): ?>
+        <label><input class="checkbox" type="checkbox" name="entry_category[]" value="<?php echo $category->category_id;?>"><?php echo $category->category_name;?></label>
+        <?php endforeach; else:?>
+        Please add your category first!
+        <?php endif; ?>
+      </p>
+      <p><label><br>Your Entry: (in html)</label>
+      <textarea rows="16" cols="80%" name="entry_body" style="resize:none;"></textarea></p>
+      
+      <br />  
+                
+      <input type="file" class="button" name="userfile" /><br>
+      <input class="button" type="submit" value="Submit"/>
+      <input class="button" type="reset" value="Reset"/>
+       
+      
+      </form>
+      
+    </div></div>
+    
+    <!-- column-two -->
+    <?php $this->load->view('Main/admin_menu');?> 
+  
+    
+  <!-- contents end here -->  
+  </div></div>
+
+  <!-- footer starts here --> 
+  <?php $this->load->view('v_footer');?>
+  <!-- footer ends here -->
+
 </body>
 </html>
