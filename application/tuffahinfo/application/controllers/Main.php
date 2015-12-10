@@ -49,13 +49,19 @@ class Main extends CI_Controller
             if ($result->num_rows() > 0)
             {
                 $this->viewpage1();
-                return $this->load->view('Main/admin');   
+                return $this->load->view('Main/admin');  
             }
             else
             {
                 return $this->viewpage('login');
             }
 
+    }
+
+    public function product()
+    {
+
+            $this->load->view('Main/product');
     }
 
      function logout()
