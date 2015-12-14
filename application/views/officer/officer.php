@@ -19,7 +19,7 @@
                     <!--Fetching Names Of All Students From Database-->
                          <ol><?php if (isset($register)){?>
                         <?php foreach ($register as $row): ?>
-                            <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
+                            <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?>  <?php echo $row->plat; ?></a></li>
                         <?php endforeach; }?>
                     </ol>
                 </div>

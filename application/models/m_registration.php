@@ -30,7 +30,7 @@ function create_register () {
 
 
 function getPosts(){
-  $this->db->select("register_id,nama");
+  $this->db->select("*");
   $this->db->from('registration');
   $query = $this->db->get();
   return $query->result();
@@ -39,7 +39,6 @@ function getPosts(){
 function show_register_id($data){
         $this->db->select('*');
         $this->db->from('registration');
-        $this->db->where('register_id', $data);
         $query = $this->db->get();
         $result = $query->result();
         return $result;  
