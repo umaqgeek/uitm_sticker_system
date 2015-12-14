@@ -66,8 +66,8 @@ function update_register_id1($register_id,$data){
 //         return $result;  
 // }
 
-public function show_data_by_id($ic,$nama) {
-        $condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
+public function show_data_by_id($nama) {
+        $condition = "nama =" . "'" . $nama ."'"  ;
         $this->db->select('*');
         $this->db->from('registration');
         $this->db->where($condition);

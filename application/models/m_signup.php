@@ -72,7 +72,7 @@
 		// Read data from database to show data in admin page
 		public function read_user_information($sess_array) {
 
-		$condition = "username =" . "'" . $sess_array['username'] . "'";
+		$condition = "username =" . "'" . $sess_array['username'] ."'"  ;
 		$this->db->select('*');
 		$this->db->from('signup');
 		$this->db->where($condition);

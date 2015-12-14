@@ -119,7 +119,7 @@ else ?>
                         </div>
                         <center><input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
                                 <input type="button" class="btn btn-primary" onclick="printDiv('printableArea')" value="Print " />
-                    </form><?php endforeach; }?>
+                    </form><?php endforeach; }?><br>
 
                                 
 
@@ -138,3 +138,17 @@ else ?>
  </body>
 </html>
 
+<?php for($i=0;$i<count($tunjuk);$i++) { ?>
+    <tr>
+        <td>
+            <span><?php echo $tunjuk[$i]->jenis; ?></span>
+        </td>
+        <td>
+            <span><?php echo $tunjuk[$i]->nama; ?></span>
+        </td>
+
+        <td>
+            <span><?php echo $tunjuk[$i]->kenderaan; ?></span>
+        </td>
+    </tr>
+ <?php } ?>

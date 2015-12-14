@@ -233,12 +233,9 @@ class Site extends MY_Controller
         public function signForm()
         {
 
-
             $this->load->library('form_validation');
            
             $this->form_validation->set_rules('ic_no', 'No Kad Pengenalan', 'trim|required|min_length[12]');
-
-
             $this->form_validation->set_rules('username', 'username', 'trim|required|callback_check_if_username_exists');
             $this->form_validation->set_rules('password', 'Password', 'trim|required');
             $this->form_validation->set_rules('phone_no', 'No Phone', 'trim|required|min_length[10]');
@@ -252,18 +249,14 @@ class Site extends MY_Controller
          
             }
 
-            else  if ($query=$this->m_signup->create_member())
+            else  
+            
+                if ($query=$this->m_signup->create_member())
             {
-                $this->load->model('m_signup');
                 $this->load->view('login/v_login');
                 $this->viewpage();
-
-
-            }            
-
-
-         
-
+            
+            }
             }  
 
 
@@ -326,66 +319,6 @@ class Site extends MY_Controller
             }
    
 
-           // function username_exists($username)
-           // {
-           //      $this->form_validation->set_rules('username', 'username', 'required');
-           //      $username = $this->input->post('username');
-           //      $result = $this->m_signup->username_exists($username);
-           //    if ($this->form_validation->run() == FALSE)
-           //     {
-           //     return FALSE;
-           //     }
-
-           //     else if ($result)
-           //     {
-           //         $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
-           //         return FALSE;
-           //     }
-           //     else
-           //     {
-           //         return TRUE;
-           //     }
-           // }
-
-
-  
-               // else if ($result)
-               // {
-               //     $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
-               //     return FALSE;
-               // }
-               // else
-               // {
-               //     return TRUE;
-               // }
-        
-
-            //          return FALSE;
-            //     }
-            //  }         
-          
-
-           // function username_exists($username)
-           // {
-           //      $this->form_validation->set_rules('username', 'username', 'required');
-           //      $username = $this->input->post('username');
-           //      $result = $this->m_signup->username_exists($username);
-           //    if ($this->form_validation->run() == FALSE)
-           //     {
-           //     return FALSE;
-           //     }
-           
-           //     else if ($result)
-           //     {
-           //         $this->form_validation->set_message('username_exists', 'Sorry username already exists in the database');
-           //         return FALSE;
-           //     }
-           //     else
-           //     {
-           //         return TRUE;
-           //     }
-           // }
-
 
         public function regisForm()
         {
@@ -416,8 +349,6 @@ class Site extends MY_Controller
             else  if ($query=$this->m_registration->create_register())
             {
                 $this->load->model('m_registration');
-
-
                 $this->load->view('site/userhome');
                 $this->viewpage1();
 
@@ -474,18 +405,22 @@ class Site extends MY_Controller
                                     );
 
                             // Add user data in session
-                                    $this->session->set_userdata('logged_in', $sess_array);
                                     $result = $this->m_signup->read_user_information($sess_array);
                                     if($result != false)
                                     {
                                         $data = array(
                                         // 'name' =>$result[0]->name,
                                         'username' =>$result[0]->username,
-                                        'password' =>$result[0]->password
+                                        'password' =>$result[0]->password,              
+                                        'ic_no' =>$result[0]->ic_no ,
+                                        'nama'=>$result[0]->nama ,
+                                        'phone_no' =>$result[0]->phone_no 
                                         );
+                                         $this->session->set_userdata('logged_in', $data);
 
-                                        $this->load->view('site/userhome',$data);
-                                        $this->viewpage1();
+
+                                        $this->viewpage1('userhome',$data);
+                                         // $this->viewpage1('daftar',$data);
                                     }
                                 }
                             else
@@ -510,21 +445,15 @@ class Site extends MY_Controller
 
         {      
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            
-
-            $this->db->where('username',$username);
-            $this->db->where('password',$password);
-            $result=$this->db->get('signup');
-            
             if ( ! $this->session->userdata('logged_in'))
             {
             redirect(site_url('site'));
             }
-            
-            $this->viewpage1();
-            $this->load->view('site/userhome');
+            else
+            {
+                $this->viewpage1();
+                $this->load->view('site/userhome');
+            }
     
         }
 
@@ -552,6 +481,7 @@ class Site extends MY_Controller
                                 {
                                     $sess_array = array(
                                     'username' => $this->input->post('username')
+                                    
                                     );
 
                             // Add user data in session
@@ -580,53 +510,6 @@ class Site extends MY_Controller
                     }
                 }
 
-        // {      
-
-        //     $username = $this->input->post('username');
-        //     $password = $this->input->post('password');
-            
-
-        //     $this->db->where('username',$username);
-        //     $this->db->where('password',$password);
-        //     $result=$this->db->get('admin');
-            
-            
-
-        //     if ($result->num_rows() >0 )
-        //     {
-        //            $this->viewpage1();
-        //            $this->load->view('admin/adminhome'); 
-                   
-
-        //     }
-        // }
-
-
-        //  public function officerhome()
-        // {      
-
-        //     $username = $this->input->post('username');
-        //     $password = $this->input->post('password');
-            
-
-
-        //     $this->db->where('username',$username);
-        //     $this->db->where('password',$password);
-        //     $result=$this->db->get('admin');
-            
-            
-
-        //     if ($result->num_rows() >0 )
-        //     {
-        //            $this->viewpage1();
-        //            $this->load->view('officer/officerhome'); 
-                   
-
-        //     }
-        // }
-
-
-
         public function daftar()
         {
             
@@ -634,10 +517,15 @@ class Site extends MY_Controller
             {
             redirect(site_url('site'));
             }
-                    $this->viewpage1();
+            else 
+            {
                     $this->load->view('site/daftar');
-     
-        }
+                    $this->viewpage1();
+                    
+            }
+                    
+     }
+        
 
          public function status()
         {
@@ -667,20 +555,44 @@ class Site extends MY_Controller
             if ( ! $this->session->userdata('logged_in'))
             {
             redirect(site_url('site'));
-            }      
-
-            $nama = $this->input->post('nama');
-            $ic = $this->input->post('ic');
-
-            if ($ic != "" && $nama != "") {
-                $result = $this->m_registration->show_data_by_id($ic,$nama);
-                if ($result != false) {
+            }
+            else
+            {
+                if (isset($this->session->userdata['logged_in'])) 
+                {
+                $nama = ($this->session->userdata['logged_in']['nama']);
+                $result =$this->m_registration->show_data_by_id($nama);
+                if ($result != false) 
+                {
                 $data['tunjuk'] = $result;
-                } else {
+                } 
+                else 
+                {
                 $data[''] = "No record found !";
                 }
                 $this->viewpage1();
                 $this->load->view('status/vstatus', $data);
+                }
+
+
+
+
+
+
+
+
+            // $nama = $this->input->post('nama');
+            // $ic = $this->input->post('ic');
+
+            // if ($ic != "" && $nama != "") {
+            //     $result = $this->m_registration->show_data_by_id($ic,$nama);
+            //     if ($result != false) {
+            //     $data['tunjuk'] = $result;
+            //     } else {
+            //     $data[''] = "No record found !";
+            //     }
+            //     $this->viewpage1();
+            //     $this->load->view('status/vstatus', $data);
 
                 
             }
