@@ -46,7 +46,7 @@ body{
     <center><h2>BORANG PERMOHONAN STIKER</h2>
   </div><br>
 
-  <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
+  <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>">
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
                               <div class="row"><div class="col-md-3"></div>

@@ -63,47 +63,6 @@ class Site extends MY_Controller
 
 
 
-            
-        //   public function signup1()
-        // {
-        //         $crud = new grocery_CRUD();
-
-        //         $crud->set_theme('sayapunyer');
-        //         $crud->set_table('signup');
-        //         $crud->display_as('ic_no','No Kad Pengenalan');
-        //         $crud->display_as('phone_no','Telefon Number');
-        //         $crud->required_fields('ic_no','name','username','password','phone_no','email');
-        //         $crud->callback_add_field('phone_no',array($this,'add_field_callback_2'));
-        //         $crud->unset_edit();
-        //         $crud->unset_delete();
-               
-
-
-                // $output = $crud->render();
-
-        //         // $crud->required_fields('plat', 'kenderaan');
-        //         // // $crud->columns('plat', 'kenderaan');
-        //         // // $crud->add_fields('plat','kenderaan');
-        //         // // $crud->edit_fields('kenderaan');
-        //         // // $crud->unset_add();
-        //         // // $crud->unset_delete();
- 
-
-        //         $output = $crud->render();
-
-
-
-        //         $this->viewpage('v_crud', $output);
-
-        //     }
-
-        //         function add_field_callback_2()
-        //         {
-        //             return '+01 <input type="text" maxlength="50" value="" name="phone_no" style="width:462px">';
-        //         }
-              
-
-
         public function index()
 
 
@@ -143,34 +102,7 @@ class Site extends MY_Controller
                 $this->load->view('site/contact');
         }
 
-
-
-
-
-        // public function aduan1()
-        // {
-        //      $this->load->library('form_validation');
-           
-        //     $this->form_validation->set_rules('jenis', 'Jenis', 'trim|required');
-        //     $this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-        //     $this->form_validation->set_rules('email', 'Email', 'trim|required');
-        //     $this->form_validation->set_rules('message', 'Komen', 'trim|required');
-            
-
-        //     if ($this->form_validation->run() == FALSE)
-        //     {
-        //        $this->load->view('site/aduan');
-        //         $this->viewpage();
-         
-        //     }
-
-        //  else  if ($query=$this->m_aduan->create_data())
-        //     {
-        //         $this->load->model('m_aduan');
-        //         $this->load->view('site/contact');
-        //         $this->viewpage2();
-
-        //     }             
+       
 
         public function aduan()
         {

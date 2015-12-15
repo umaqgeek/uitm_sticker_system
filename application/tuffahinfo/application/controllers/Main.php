@@ -73,6 +73,22 @@ class Main extends CI_Controller
         $this->viewpage1('background');
     }
 
+    public function back_input()
+    {
+      $data = array('title' => $this->input->post('title'),
+                  'background' => $this->input->post('background'),
+        );
+
+      $this->login_model->background($data);
+      redirect('Main/back_papar');
+    }
+
+    public function back_papar()
+    {
+      $this->login_model->get_back();
+      $this->load->view('back_papar');
+    }
+
     public function services()
     {
         $this->load->view('Main/services');
