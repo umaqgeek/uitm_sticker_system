@@ -97,6 +97,42 @@ class Main extends CI_Controller
  
     {
  
+ 
+    }
+ 
+    //Create Thumbnail function
+ 
+    function _createThumbnail($filename)
+ 
+    {
+ 
+        $config['image_library']    = "gd2";      
+ 
+        $config['source_image']     = "assets/uploads/" .$filename;      
+ 
+        $config['create_thumb']     = TRUE;      
+ 
+        $config['maintain_ratio']   = TRUE;      
+ 
+        $config['width'] = "80";      
+ 
+        $config['height'] = "80";
+ 
+        $this->load->library('image_lib',$config);
+ 
+        if(!$this->image_lib->resize())
+ 
+        {
+ 
+            echo $this->image_lib->display_errors();
+ 
+        }      
+ 
+    } 
+
+    public function add_new_entry()
+  {
+    
        $config['upload_path']   =   "assets/uploads/";
  
        $config['allowed_types'] =   "gif|jpg|jpeg|png"; 
@@ -140,38 +176,44 @@ class Main extends CI_Controller
            echo '</pre>';*/
  
        }
- 
-    }
- 
-    //Create Thumbnail function
- 
-    function _createThumbnail($filename)
- 
-    {
- 
-        $config['image_library']    = "gd2";      
- 
-        $config['source_image']     = "assets/uploads/" .$filename;      
- 
-        $config['create_thumb']     = TRUE;      
- 
-        $config['maintain_ratio']   = TRUE;      
- 
-        $config['width'] = "80";      
- 
-        $config['height'] = "80";
- 
-        $this->load->library('image_lib',$config);
- 
-        if(!$this->image_lib->resize())
- 
-        {
- 
-            echo $this->image_lib->display_errors();
- 
-        }      
- 
-    }   
+
+    
+    // if( ! $this->ion_auth->logged_in() && ! $this->ion_auth->is_admin() ) // block un-authorized access
+    // {
+    //   show_404();
+    // }
+    // else
+    // {
+      $data['title'] = 'Add new entry - '.$this->config->item('site_title', 'ion_auth');
+      $data['categories'] = $this->blog_model->get_categories();
+      
+      $this->load->helper('form');
+      $this->load->library(array('form_validation'));
+      
+      //set validation rules
+      $this->form_validation->set_rules('entry_name', 'Title', 'required|max_length[200]|xss_clean');
+      $this->form_validation->set_rules('entry_body', 'Body', 'required|xss_clean');
+      $this->form_validation->set_rules('entry_category', 'Category', 'required');
+      
+      if ($this->form_validation->run() == FALSE)
+      {
+        //if not valid
+        $this->load->view('admin/add_new_entry',$data);
+      }
+      else
+      {
+        //if valid
+        $user = $this->ion_auth->user()->row();
+        $title = $this->input->post('entry_name');
+        $body = $this->input->post('entry_body');
+        $categories = $this->input->post('entry_category');
+        
+        //$this->blog_model->add_new_entry($user->id,$title,$body,$categories);
+        $this->session->set_flashdata('message', '1 new post added!');
+        redirect('add-new-entry');
+      }
+    // }
+  }  
     
 }
 ?>

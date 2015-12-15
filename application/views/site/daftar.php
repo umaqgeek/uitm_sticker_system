@@ -1,5 +1,16 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
 <html lang="en">
+<?php
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+$nama = ($this->session->userdata['logged_in']['nama']);
+$ic_no = ($this->session->userdata['logged_in']['ic_no']);
+$phone_no = ($this->session->userdata['logged_in']['phone_no']);
+} else {
+header("location: site");
+}
+?>
 <head>
   <title>Tuffah Informatics</title>
   <meta charset="utf-8">
@@ -38,12 +49,12 @@ body{
   <form method="post" class="three" action="<?=site_url('site/regisForm'); ?>"s>
                         <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
-                             <!--  <div class="row"><div class="col-md-3"></div>
+                              <div class="row"><div class="col-md-3"></div>
                               
                                     <center><div class="col-md-8"><span class="form-control" ><center><?php if(isset($username))
                                      echo "Selamat Datang  ".$username;?></span></div> 
                                 </div><br>
- -->
+
                                 <div class="row">          
                                     <div class="col-md-2">Status :</div>  
                                       <div class="col-md-10">
@@ -58,7 +69,7 @@ body{
 
                                     <div class="row">
                                     <div class="col-md-2">Nama Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="nama"  placeholder="Nama Pemilik"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="nama" value="<?php echo $nama;?>"></div>
                                  </div><br>
 
 
@@ -118,12 +129,12 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No IC Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="ic"  placeholder="No IC"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="ic" value="<?php echo $ic_no; ?>" ></div>
                                     
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  placeholder="No Telefon"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone"  value="<?php  echo $phone_no;?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
@@ -174,15 +185,15 @@ body{
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
-                                </div><br>
+                                </div>
 
                                     <div class="row">
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="status"  value="Pending" ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
-                               </div><br>
+                               </div>
 
                                <div class="row">
                                     <div class="col-md-10"><input type="hidden" class="form-control" name="code"  ><!-- <span  class="form-control" name="status" type="text">Pending</span> --></div>
-                               </div><br>
+                               </div>
 
                                 <?php echo validation_errors('<p class="error">');?>
 
@@ -219,7 +230,7 @@ body{
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                </div><br>
 
 </div>
 
