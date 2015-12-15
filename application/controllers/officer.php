@@ -9,6 +9,7 @@ class Officer extends MY_Controller
             parent::__construct();
 
             $this->load->model('m_officer'); 
+             $this->load->model('m_registration');
     }
 
         public function officer1()
@@ -187,19 +188,11 @@ class Officer extends MY_Controller
 
 
         function show_register_id() {
-        if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
-        $register_id = $this->uri->segment(3);
-        $data=$this->m_registration->getPosts();
-        $data['register'] = $this->m_registration->getPosts();
-        $data['single_register'] = $this->m_registration->show_register_id($register_id);
-        $this->load->view('officer/officer', $data);
-        $this->viewpage('v_menu');
-
-       
+        $this->data['posts'] = $this->m_registration->getPosts(); // calling Post model method getPosts()
+        $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
+       $this->viewpage();
     }
+
 
     function update_register_id1() 
     {
@@ -256,3 +249,6 @@ class Officer extends MY_Controller
 
  }
 ?>
+
+
+   
