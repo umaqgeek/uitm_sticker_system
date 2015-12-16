@@ -458,6 +458,21 @@ class Site extends MY_Controller
             $this->load->view('update/bupdate');
         }
 
+
+        public function kemaskini()
+        {
+            if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+            else
+            {
+                $this->viewpage1();
+                $this->load->view('update/kemaskini');
+            }
+        }
+
+
          public function userstatus()
         {
             if ( ! $this->session->userdata('logged_in'))
