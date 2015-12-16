@@ -29,7 +29,7 @@
          <td><?php echo $post->plat;?></td>
          <td><?php echo $post->kenderaan;?></td>
          <td><?php echo $post->model;?></td>
-         <td><?php echo $post->nama;?></td>
+         <td><?php echo anchor("officer/show_register_id/", $post->nama);?></td>
          <td><?php echo $post->ic;?></td>
          <td><?php echo $post->phone;?></td>
          <td><?php echo $post->hubungan;?></td>
@@ -43,5 +43,5 @@
    </table>
  
  
-  </body>
+    </body>
 </html>
