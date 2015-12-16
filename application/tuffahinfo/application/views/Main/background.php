@@ -1,11 +1,29 @@
+<script src="assets/js/jquery.js"></script>
+<script>
+$(document).ready(function() {
+  function paparkan() {
+    $.post("Main/back_papar.php", {}).done(function(data) {
+      $("#papar").html(data);
+    });
+  }
+  paparkan();
+  
+</script>
 
-<form method = "post" action = "<?=site_url('Main/back_input'); ?>">
+
+
+<form method = "post" action = "<?=site_url('Main/back_input'); ?>" enctype="multipart/form-data">
   <div class = "row" style = "margin-top: 5%;">
     <div class = "col-md-6 col-md-offset-3">
 
       <div class = "row">
         <div class = "col-md-2"><h5> Title :</h5></div>
         <div class = "col-md-6"><input type ="text" class ="form-control" name ="title"></div>
+      </div>
+
+      <div class = "row">
+        <div class = "col-md-2"><h5> Image :</h5></div>
+        <div class = "col-md-6"><input type ="file" class ="form-control" name ="userfile"></div>
       </div>
 
       <div class = "row">
@@ -20,5 +38,6 @@
     </div>
   </div>
 </form>
+
 
 <div id="papar"></div>

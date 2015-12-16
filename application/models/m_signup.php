@@ -102,45 +102,6 @@
 		return $result;
 		}
 
-		
-
-		 // function username_exists($username){
-		 //   $this -> db -> select('*');
-		 //   $this -> db -> from('signup');
-		 //   $this -> db -> where('username', $username);
-		 //   $this -> db -> limit(1);
-		 
-		 //   $query = $this -> db -> get();
-		 
-		 //   if($query -> num_rows() == 1)
-		 //   {
-		 //     return $query->result();
-		 //   }
-		 //   else
-		 //   {
-		 //     return false;
-		 //   }
-		 // }
-
-		 // function emailexists($email){
-		//    $this -> db -> select('*');
-		//    $this -> db -> from('signup');
-		//    $this -> db -> where('email', $email);
-		//    $this -> db -> limit(1);
-		 
-		//    $query = $this -> db -> get();
-		 
-		//    if($query -> num_rows() == 1)
-		//    {
-		//      return $query->result();
-		//    }
-		//    else
-		//    {
-		//      return false;
-		//    }
-		//  }
-
-
 
 
 

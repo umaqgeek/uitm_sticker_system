@@ -4,10 +4,10 @@
   
 }
 
-		function background($data)
+		function background($data_back)
 		{
 			
-			$insert = $this->db->insert('background', $data);
+			$insert = $this->db->insert('background', $data_back);
            return $insert;
 		}
 
@@ -22,7 +22,6 @@
 		{
 			$this->db->select('*');
 			$this->db->from('background');
-			$this->db->limit(1);
 			$query = $this->db->get();
 			return $query->result();
 		} 

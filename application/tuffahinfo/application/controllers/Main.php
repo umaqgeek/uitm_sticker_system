@@ -75,18 +75,37 @@ class Main extends CI_Controller
 
     public function back_input()
     {
-      $data = array('title' => $this->input->post('title'),
+      
+      $this->load->helper('url');
+      $data_back = array('title' => $this->input->post('title'),
                   'background' => $this->input->post('background'),
         );
 
-      $this->login_model->background($data);
-      redirect('Main/back_papar');
+      $config['upload_path']   =   "assets/uploads/";
+       $config['allowed_types'] =   "gif|jpg|jpeg|png";
+       $this->load->library('upload', $config);
+      if($this->upload->do_upload('userfile'))
+      {
+      $data = array('upload_data' => $this->upload->data());
+      }
+
+      $this->login_model->background($data_back);
+      redirect('Main/background');
     }
 
     public function back_papar()
     {
-      $this->login_model->get_back();
-      $this->load->view('back_papar');
+        $back_id = $this->uri->segment(3);
+        $data=$this->login_model->get_back();
+        $data['tunjuk'] = $this->login_model->get_back();
+      $this->viewpage('back_papar',$data);    
+
+    }
+
+    public function back_user()
+    {
+      redirect('Main/back_papar');
+      
     }
 
     public function services()
