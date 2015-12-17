@@ -1,16 +1,3 @@
-<script src="assets/js/jquery.js"></script>
-<script>
-$(document).ready(function() {
-  function paparkan() {
-    $.post("Main/back_papar.php", {}).done(function(data) {
-      $("#papar").html(data);
-    });
-  }
-  paparkan();
-  
-</script>
-
-
 
 <form method = "post" action = "<?=site_url('Main/back_input'); ?>" enctype="multipart/form-data">
   <div class = "row" style = "margin-top: 5%;">

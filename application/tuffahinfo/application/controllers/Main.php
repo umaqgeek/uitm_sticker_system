@@ -40,6 +40,10 @@ class Main extends CI_Controller
 	{
 		$this->viewpage('login');
 	}
+  public function success()
+  {
+    $this->viewpage('success');
+  }
 
     public function login()
     {
@@ -77,20 +81,39 @@ class Main extends CI_Controller
     {
       
       $this->load->helper('url');
-      $data_back = array('title' => $this->input->post('title'),
-                  'background' => $this->input->post('background'),
-        );
+      // $data_back = array('title' => $this->input->post('title'),
+      //             'background' => $this->input->post('background'),
+                  
+        // );
 
       $config['upload_path']   =   "assets/uploads/";
        $config['allowed_types'] =   "gif|jpg|jpeg|png";
+       $config['max_size'] = '1000';
+    $config['max_width']  = '';
+    $config['max_height']  = '';
+    $config['overwrite'] = TRUE;
+    $config['remove_spaces'] = TRUE;
        $this->load->library('upload', $config);
+
       if($this->upload->do_upload('userfile'))
       {
-      $data = array('upload_data' => $this->upload->data());
+        $finfo=$this->upload->data();
+ 
+           // $this->_createThumbnail($finfo['file_name']);
+ 
+           // $data['uploadInfo'] = $finfo;
+ 
+           // $data['thumbnail_name'] = $finfo['raw_name']. '_thumb' .$finfo['file_ext']; 
+ 
+           // $this->load->view('Main/success',$data);
+      $this->login_model->insert_images($this->upload->data()); 
+      $data = array('title' => $this->input->post('title'),
+                  'background' => $this->input->post('background'),
+                  'upload_data' => $this->upload->data());
       }
 
-      $this->login_model->background($data_back);
       redirect('Main/background');
+     
     }
 
     public function back_papar()
@@ -128,14 +151,7 @@ class Main extends CI_Controller
     
  
     
-    //Upload Image function
- 
-    function uploadImage()
- 
-    {
- 
- 
-    }
+  
  
     //Create Thumbnail function
  
@@ -167,90 +183,7 @@ class Main extends CI_Controller
  
     } 
 
-    public function add_new_entry()
-  {
-    
-       $config['upload_path']   =   "assets/uploads/";
- 
-       $config['allowed_types'] =   "gif|jpg|jpeg|png"; 
- 
-       $config['max_size']      =   "5000";
- 
-       $config['max_width']     =   "1907";
- 
-       $config['max_height']    =   "1280";
- 
-       $this->load->library('upload',$config);
- 
-       if(!$this->upload->do_upload())
- 
-       {
- 
-           echo $this->upload->display_errors();
- 
-       }
- 
-       else
- 
-       {
- 
-           $finfo=$this->upload->data();
- 
-           $this->_createThumbnail($finfo['file_name']);
- 
-           $data['uploadInfo'] = $finfo;
- 
-           $data['thumbnail_name'] = $finfo['raw_name']. '_thumb' .$finfo['file_ext']; 
- 
-           $this->load->view('Main/upload_success',$data);
- 
-           // You can view content of the $finfo with the code block below
- 
-           /*echo '<pre>';
- 
-           print_r($finfo);
- 
-           echo '</pre>';*/
- 
-       }
-
-    
-    // if( ! $this->ion_auth->logged_in() && ! $this->ion_auth->is_admin() ) // block un-authorized access
-    // {
-    //   show_404();
-    // }
-    // else
-    // {
-      $data['title'] = 'Add new entry - '.$this->config->item('site_title', 'ion_auth');
-      $data['categories'] = $this->blog_model->get_categories();
-      
-      $this->load->helper('form');
-      $this->load->library(array('form_validation'));
-      
-      //set validation rules
-      $this->form_validation->set_rules('entry_name', 'Title', 'required|max_length[200]|xss_clean');
-      $this->form_validation->set_rules('entry_body', 'Body', 'required|xss_clean');
-      $this->form_validation->set_rules('entry_category', 'Category', 'required');
-      
-      if ($this->form_validation->run() == FALSE)
-      {
-        //if not valid
-        $this->load->view('admin/add_new_entry',$data);
-      }
-      else
-      {
-        //if valid
-        $user = $this->ion_auth->user()->row();
-        $title = $this->input->post('entry_name');
-        $body = $this->input->post('entry_body');
-        $categories = $this->input->post('entry_category');
-        
-        //$this->blog_model->add_new_entry($user->id,$title,$body,$categories);
-        $this->session->set_flashdata('message', '1 new post added!');
-        redirect('add-new-entry');
-      }
-    // }
-  }  
+  
     
 }
 ?>
