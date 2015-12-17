@@ -49,7 +49,7 @@ body{
                                     </div><br>
 
                                     <div class="row">
-                                    <div class="col-md-2">Nana Pemilik:</div>
+                                    <div class="col-md-2">Nama Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control" name="nama"  value="<?php echo $row->nama; ?>"></div>
                                     </div><br>
 

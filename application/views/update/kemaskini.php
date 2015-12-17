@@ -17,7 +17,17 @@
                 <div id="menu">
                     <p>Click On Your Menu</p>
                     <!--Fetching Names Of All Students From Database-->
-                         <ol><?php if (isset($register)){?>
+                         <ol><?php
+                                    if (isset($tunjuk)) { 
+                                    if ($tunjuk == 'No record found !') { 
+                                        echo $tunjuk;
+                                                        } 
+                                        else ?>
+                                        {
+                                        <?php foreach ($tunjuk as $value): ?>
+
+
+                            <?php if (isset($register)){?>
                         <?php foreach ($register as $row): ?>
                             <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?></a></li>
                         <?php endforeach; }?>

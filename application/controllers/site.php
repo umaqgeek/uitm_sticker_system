@@ -14,6 +14,7 @@ class Site extends MY_Controller
             $this->load->database();
             $this->load->model('m_registration');
             $this->load->model('m_aduan');
+            $this->load->model('m_kemaskini');
     }
 
         
@@ -447,16 +448,46 @@ class Site extends MY_Controller
         }
 
 
-         public function update()
-        {
-            if ( ! $this->session->userdata('logged_in'))
-            {
-            redirect(site_url('site'));
-            }
+        //  public function update()
+        // {
+        //     if ( ! $this->session->userdata('logged_in'))
+        //     {
+        //     redirect(site_url('site'));
+        //     }
 
-            $this->viewpage1();
-            $this->load->view('update/bupdate');
+        //     $this->viewpage1();
+        //     $this->load->view('update/bupdate');
+        // }
+
+        function show_plat_no() {
+            $plat = $this->uri->segment(3);
+            // $data['registration'] = $this->m_kemaskini->show_plat();
+            $data['registration'] = $this->m_kemaskini->show_plat_no($plat);
+
+            $this->load->view('update/kemaskini', $data);
         }
+
+        // function kemaskini1()
+        // {
+        //     $plat=$this->input=>post('plat');
+
+        //     $data = array{
+        //         'nama' => $this->input=>post('nama'),
+        //         'kenderaan' => $this->input=>post('kenderaan'),
+        //         'model' => $this->input=>post('model'),
+        //         'ic' => $this->input=>post('ic'),
+        //         'phone' => $this->input=>post('phone'),
+        //         'hubungan' => $this->input=>post('hubungan'),
+        //         'lesen' => $this->input=>post('lesen'),
+        //         'kelas'=> $this->input=>post('kelas'),
+        //         'cukai' => $this->input=>post('cukai'),
+        //         'waris' => $this->input=>post('waris')
+        //     };
+
+        //     $this->m_kemaskini->kemaskini($plat, $data);
+        //     $this->show_plat_no();
+        //     redirect('registration');
+        // }
 
 
         public function kemaskini()
@@ -468,7 +499,26 @@ class Site extends MY_Controller
             else
             {
                 $this->viewpage1();
-                $this->load->view('update/kemaskini');
+
+                $plat=$this->input=>post('plat');
+
+                $data = array{
+                'nama' => $this->input=>post('nama'),
+                'kenderaan' => $this->input=>post('kenderaan'),
+                'model' => $this->input=>post('model'),
+                'ic' => $this->input=>post('ic'),
+                'phone' => $this->input=>post('phone'),
+                'hubungan' => $this->input=>post('hubungan'),
+                'lesen' => $this->input=>post('lesen'),
+                'kelas'=> $this->input=>post('kelas'),
+                'cukai' => $this->input=>post('cukai'),
+                'waris' => $this->input=>post('waris')
+            };
+
+            $this->m_kemaskini->kemaskini($plat, $data);
+            $this->show_plat_no();
+            redirect('registration');
+                // $this->load->view('update/kemaskini');
             }
         }
 
