@@ -142,34 +142,7 @@ class Officer extends MY_Controller
 
 
 
-
-        //  public function registration()
-        // {
-      
-        //         $crud = new grocery_CRUD();
-
-        //         $crud->set_theme('sayapunyer');
-
-        //         $crud->display_as('jenis','Status');
-        //         $crud->display_as('plat','No Plat');
-        //         $crud->display_as('ic','No Kad Pengenalan');
-        //         $crud->display_as('telefon','Telefon Number');
-        //         $crud->required_fields('jenis','plat','kenderaan','model','nama','ic','telefon','hubungan','lesen','kelas','cukai','waris','status');
-        //         $crud->add_action('More', '', 'demo/action_more','ui-icon-plus');
-        //         $crud->callback_add_field('telefon',array($this,'add_field_callback_1'));
-        //        // $crud->unset_edit();
-        //        // $crud->unset_delete();
-               
-
-        //         $output = $crud->render();
-
-        //         $this->viewpage('v_crud', $output);
-        // }
-
-        //  function add_field_callback_1()
-        // {
-        //             return '+01 <input type="text" maxlength="50" value="" name="telefon" style="width:462px">';
-        // }
+       
 
         private function viewpage($page='v_mainpage', $data=array())
         {
@@ -188,11 +161,19 @@ class Officer extends MY_Controller
 
 
         function show_register_id() {
+                    if ( ! $this->session->userdata('logged_in'))
+            {
+            redirect(site_url('site'));
+            }
+        $register_id = $this->uri->segment(3);
+
         $this->data['posts'] = $this->m_registration->getPosts(); // calling Post model method getPosts()
+        $this->data['single_register'] = $this->m_registration->show_register_id();
         $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
-       $this->viewpage();
+        $this->viewpage('v_menu');
     }
 
+   
 
     function update_register_id1() 
     {

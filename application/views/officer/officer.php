@@ -11,18 +11,7 @@
 }
     </style>
     <body >
-        <div id="container">
-            <div id="wrapper">
-                <h1>Update Data In Database Registration </h1><hr/> 
-                <div id="menu">
-                    <p>Click On Menu</p>
-                    <!--Fetching Names Of All Students From Database-->
-                         <ol><?php if (isset($register)){?>
-                        <?php foreach ($register as $row): ?>
-                            <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->nama; ?>  <?php echo $row->plat; ?></a></li>
-                        <?php endforeach; }?>
-                    </ol>
-                </div>
+    
                 <div id="detail">
                          <!--Fetching All Details of Selected Student From Database And Showing In a Form-->
                     <?php if(isset($single_register)){?>

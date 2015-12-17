@@ -36,7 +36,7 @@ function getPosts(){
   return $query->result();
 }
 
-function show_register_id($data){
+function show_register_id(){
         $this->db->select('*');
         $this->db->from('registration');
         $query = $this->db->get();
