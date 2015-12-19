@@ -62,7 +62,6 @@ class Site extends MY_Controller
                 $this->viewpage('v_crud', $output);
         }
 
-
         public function index()
 
 
@@ -95,7 +94,7 @@ class Site extends MY_Controller
 
                 $this->viewpage2();
                 $this->load->view('site/contact');
-        }       
+        }
 
         public function aduan()
         {

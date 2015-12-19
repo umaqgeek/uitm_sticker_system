@@ -1,4 +1,5 @@
 <?php
+
  class m_signup extends CI_Model {
       
       function create_member() 
@@ -100,8 +101,6 @@
         $result = $query->result();
         return $result;
         }
-
-
 
 }
 

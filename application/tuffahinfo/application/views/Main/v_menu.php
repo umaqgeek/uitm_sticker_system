@@ -20,7 +20,7 @@
                         <a href="#about">About</a>
                     </li>-->
                     <li>
-                        <a href="#background">Background</a>
+                        <a href="http://localhost/tuffahinfo/index.php/Main/back_user">Background</a>
                     </li>
                     <li>
                         <a href="#services">Services</a>

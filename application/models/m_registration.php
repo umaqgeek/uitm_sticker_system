@@ -46,6 +46,7 @@ function show_register_id($data){
    }
 
 function update_register_id1($register_id,$data){
+
     $this->db->where('register_id', $register_id);
     $this->db->update('registration', $data);  
    }
@@ -66,20 +67,20 @@ public function show_data_by_id($nama) {
            }
        }
 
-public function show_data_by_plat($plat) {
-       $condition = "plat =" . "'" . $plat . "'";
-       $this->db->select('*');
-       $this->db->from('registration');
-       $this->db->where($condition);
-       $this->db->limit(1);
-       $query = $this->db->get();
+// public function show_data_by_plat($plat) {
+//        $condition = "plat =" . "'" . $plat . "'";
+//        $this->db->select('*');
+//        $this->db->from('registration');
+//        $this->db->where($condition);
+//        $this->db->limit(1);
+//        $query = $this->db->get();
 
-       if ($query->num_rows() == 1) {
-           return $query->result();
-           } else {
-               return false;
-           }
-       }
+//        if ($query->num_rows() == 1) {
+//            return $query->result();
+//            } else {
+//                return false;
+//            }
+//        }
 
 public function updatestatus($ic,$nama) {
        $condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";
