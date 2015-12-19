@@ -1,4 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tuffah Informatics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
 
+   form.three {
+    background-color:white;
+    border-style: solid;
+    width:950px;
+    border-radius: 0px;}
+
+    body{
+        background-color:#e0ffff;
+    }
+
+</style>
+</head>
+<body>
+  <h1>Registration Status</h1>
+  <?php foreach {$single_register as $register}; ?>
+  <form method = "post" action="http://localhost/uitm_sticker_system/index.php/status/show_status_plat1">Go Back</a>
+</body>
+</html>
 <html>
     <head>
         <title>Update Data In Database Using CodeIgniter</title>
@@ -13,23 +41,13 @@
     <body >
         <div id="container">
             <div id="wrapper">
-                <h1>Update Form of Registration </h1><hr/> 
+                <h1>Update Data In Database Registration </h1><hr/> 
                 <div id="menu">
-                    <p>Click On Your Menu</p>
+                    <p>Click On Menu</p>
                     <!--Fetching Names Of All Students From Database-->
-                         <ol><?php
-                                    if (isset($tunjuk)) { 
-                                    if ($tunjuk == 'No record found !') { 
-                                        echo $tunjuk;
-                                                        } 
-                                        else ?>
-                                        {
-                                        <?php foreach ($tunjuk as $value): ?>
-
-
-                            <?php if (isset($register)){?>
+                         <ol><?php if (isset($register)){?>
                         <?php foreach ($register as $row): ?>
-                            <li><a href="<?php echo base_url() . "index.php/officer/show_register_id/" . $row->register_id; ?>"><?php echo $row->plat; ?></a></li>
+                            <li><a href="<?php echo base_url() . "index.php/status/show_status_plat/" . $row->plat; ?>"><?php echo $row->plat; ?></a></li>
                         <?php endforeach; }?>
                     </ol>
                 </div>
@@ -39,10 +57,10 @@
 
                     <?php foreach ($single_register as $row): ?><br><br><br><br>
                         <p>Edit Detail & Click Update Button</p>
-                        <form method="post" action="<?php echo base_url() . "index.php/officer/update_register_id1"?>">
+                        <form method="post" action="<?php echo base_url() . "index.php/status/show_status_plat1"?>">
 
-                            <label id="hide">Id :</label><br/> 
-                            <input type="text" id="hide" name="register_id" value="<?php echo $row->register_id; ?>"><br/>      
+                            <label >plat :</label><br/> 
+                            <input type="text" id="hide" name="plat" value="<?php echo $row->plat; ?>"><br/>      
 
                             <label>Pemilik :</label><br/> 
                             <input type="text" name="nama" value="<?php echo $row->nama; ?>"><br/>    
