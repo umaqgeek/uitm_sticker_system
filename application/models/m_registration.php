@@ -11,7 +11,7 @@ function create_register () {
         'model'=>$this->input->post('model'),
         'nama'=>$this->input->post('nama'),
         'ic'=>$this->input->post('ic'),
-        'phone'=>$this->input->post('phone'),
+        'phone_no'=>$this->input->post('phone_no'),
         'hubungan'=>$this->input->post('hubungan'),
         'lesen'=>$this->input->post('lesen'),
         'kelas'=>$this->input->post('kelas'),

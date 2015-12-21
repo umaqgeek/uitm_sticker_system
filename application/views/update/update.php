@@ -114,7 +114,7 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="phone"  value="<?php echo $row->phone; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="phone_no"  value="<?php echo $row->phone_no; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
