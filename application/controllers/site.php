@@ -492,8 +492,8 @@ class Site extends MY_Controller
             {
                 if (isset($this->session->userdata['logged_in'])) 
                 {
-                $nama = ($this->session->userdata['logged_in']['nama']);
-                $result =$this->m_registration->show_data_by_id($nama);
+                    $nama = ($this->session->userdata['logged_in']['nama']);
+                    $result =$this->m_registration->show_data_by_id($nama);
                 if ($result != false) 
                 {
                 $data['tunjuk'] = $result;
@@ -504,29 +504,9 @@ class Site extends MY_Controller
                 }
                 $this->viewpage1();
                 $this->load->view('status/vstatus', $data);
-                }
+            
+            }
 
-
-
-
-
-
-
-
-            // $nama = $this->input->post('nama');
-            // $ic = $this->input->post('ic');
-
-            // if ($ic != "" && $nama != "") {
-            //     $result = $this->m_registration->show_data_by_id($ic,$nama);
-            //     if ($result != false) {
-            //     $data['tunjuk'] = $result;
-            //     } else {
-            //     $data[''] = "No record found !";
-            //     }
-            //     $this->viewpage1();
-            //     $this->load->view('status/vstatus', $data);
-
-                
             }
             
         }

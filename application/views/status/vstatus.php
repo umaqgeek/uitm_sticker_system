@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+                        <!DOCTYPE html>
 <html lang="en">
 <head>
  <script type="text/javascript">
@@ -41,7 +43,7 @@ if (isset($tunjuk)) {
 } 
 else ?>
 {
-	<?php foreach ($tunjuk as $value): ?> {
+  <?php foreach ($tunjuk as $value): ?> {
 
 <center><form method="post" class="three" ><div id="printableArea">
                             <div class="row" style="margin-top: 5%;">
@@ -121,34 +123,5 @@ else ?>
                                 <input type="button" class="btn btn-primary" onclick="printDiv('printableArea')" value="Print " />
                     </form><?php endforeach; }?><br>
 
-                                
-
-                                
-
- 
-
-
-                     
-    
-       
-
-
-
-
  </body>
 </html>
-
-<?php for($i=0;$i<count($tunjuk);$i++) { ?>
-    <tr>
-        <td>
-            <span><?php echo $tunjuk[$i]->jenis; ?></span>
-        </td>
-        <td>
-            <span><?php echo $tunjuk[$i]->nama; ?></span>
-        </td>
-
-        <td>
-            <span><?php echo $tunjuk[$i]->kenderaan; ?></span>
-        </td>
-    </tr>
- <?php } ?>
