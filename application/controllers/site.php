@@ -502,8 +502,8 @@ class Site extends MY_Controller
             {
                 if (isset($this->session->userdata['logged_in'])) 
                 {
-                $id = ($this->session->userdata['logged_in']['id']);
-                $result =$this->m_registration->show_data_by_id($id);
+                $nama = ($this->session->userdata['logged_in']['nama']);
+                $result =$this->m_registration->show_data_by_id($nama);
                 if ($result != false) 
                 {
                 $data['tunjuk'] = $result;
