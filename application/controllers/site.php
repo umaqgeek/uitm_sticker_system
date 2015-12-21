@@ -42,6 +42,14 @@ class Site extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+        private function viewpage3($page='a_menu', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/a_menu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
 
 
        
@@ -59,7 +67,7 @@ class Site extends MY_Controller
 
                 $output = $crud->render();
 
-                $this->viewpage('v_crud', $output);
+                $this->viewpage3('v_crud', $output);  
         }
 
         public function index()
@@ -366,7 +374,7 @@ class Site extends MY_Controller
                     if ($this->form_validation->run() == FALSE) 
                     {
                         $this->load->view('login/v_login');
-                        $this->viewpage();
+                        $this->viewpage2();
                     } 
                     else 
                     {
@@ -392,10 +400,10 @@ class Site extends MY_Controller
                                         // 'name' =>$result[0]->name,
                                         'username' =>$result[0]->username,
                                         'password' =>$result[0]->password
-                                        );
+                                        ); 
 
                                         $this->load->view('admin/adminhome',$data);
-                                        $this->viewpage1();
+                                        $this->viewpage2();
                                     }
                                 }
                             else
@@ -404,11 +412,26 @@ class Site extends MY_Controller
                                         'error_message' => 'Invalid Username or Password'
                                         );
                                         redirect('site', $data);
-                                        $this->viewpage();
+                                        $this->viewpage3();
                                 }
                     }
                 }
 
+                public function rumahAdmin()
+                {
+                   if ( ! $this->session->userdata('logged_in'))
+                    {
+                        redirect(site_url('site'));
+                    }
+                    else 
+                    {
+                        $this->load->view('admin/adminhome');
+                        $this->viewpage3();
+                    
+                    }
+                }
+                                
+                            
         public function daftar()
         {
             

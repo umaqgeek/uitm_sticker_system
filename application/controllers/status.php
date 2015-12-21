@@ -36,7 +36,7 @@ class status extends CI_Controller{
             'kenderaan' => $this->input->post('kenderaan'),
         	'model' => $this->input->post('model'),
         	'ic' => $this->input->post('ic'),
-        	'phone' => $this->input->post('phone'),
+        	'phone_no' => $this->input->post('phone_no'),
         	'hubungan' => $this->input->post('hubungan'),
         	'lesen' => $this->input->post('lesen'),
        		'kelas'=> $this->input->post('kelas'),

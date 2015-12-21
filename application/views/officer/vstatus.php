@@ -79,7 +79,7 @@ else ?>
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone"  value="<?php echo $value->phone; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone_no"  value="<?php echo $value->phone_no; ?>"></div>
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Pemilik asal:</div>

@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="<?=site_url('officer/officer1'); ?>">Home Page</a>
+                <a class="navbar-brand topnav" href="http://localhost/uitm_sticker_system/index.php/site/rumahAdmin">Home</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,7 +21,7 @@
                         <a href="#about">About</a>
                     </li>-->
                     <li>
-                        <a href="<?=site_url('officer/logout'); ?>">Logout</a>
+                        <a href="<?=site_url('site/logout'); ?>">Logout</a>
                     </li>
                 </ul>
             </div>

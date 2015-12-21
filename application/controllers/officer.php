@@ -22,7 +22,7 @@ class Officer extends MY_Controller
                     if ($this->form_validation->run() == FALSE) 
                     {
                         $this->load->view('login/v_login');
-                        $this->viewpage();
+                        $this->viewpage1();
                     } 
                     else 
                     {
@@ -50,7 +50,7 @@ class Officer extends MY_Controller
                                         );
 
                                         $this->load->view('officer/officerhome',$data);
-                                        $this->viewpage('v_menu');
+                                        $this->viewpage1('vmenu');
                                     }
                                 }
                             }
@@ -111,6 +111,22 @@ class Officer extends MY_Controller
             echo $this->load->view('v_footer', $data, true);
         }
 
+        private function viewpage1($page='v_mainpage', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/vmenu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
+        private function viewpage2($page='v_mainpage', $data=array())
+        {
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view($this->parent_page.'/menu', $data, true);
+            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
+            echo $this->load->view('v_footer', $data, true);
+        }
+
 
         function logout()
         {
@@ -129,7 +145,7 @@ class Officer extends MY_Controller
         $data['register'] = $this->m_registration->getPosts();
         $data['single_register'] = $this->m_registration->show_register_id($register_id);
         $this->load->view('officer/officer', $data);
-        $this->viewpage('v_menu');
+        $this->viewpage2('menu');
 
        
     }
@@ -158,7 +174,7 @@ class Officer extends MY_Controller
             redirect(site_url('site'));
             }
 
-            $this->viewpage('v_menu');
+            $this->viewpage1('vmenu');
             $this->load->view('officer/bstatus');
         }
 
@@ -179,7 +195,7 @@ class Officer extends MY_Controller
                 } else {
                 $data[''] = "No record found !";
                 }
-                $this->viewpage('v_menu');
+                $this->viewpage1('vmenu');
                 $this->load->view('officer/vstatus', $data);
 
                 
