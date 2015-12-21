@@ -159,6 +159,63 @@ class Officer extends MY_Controller
             redirect('site');
         }
 
+     public function add_users(){
+
+    $this->load->view('officer/posts_view');
+}
+
+    public function create_users(){
+
+         $this->load->model('m_registration');
+        if($this->input->post('insert') != ''){
+        /*Perform insert operation here*/
+
+        $jenis = $this->input->post('jenis');
+        $plat = $this->input->post('plat');
+        $kenderaan = $this->input->post('kenderaan');
+        $model = $this->input->post('model');
+        $nama = $this->input->post('nama');
+        $ic = $this->input->post('ic');
+        $phone = $this->input->post('phone');
+        $hubungan = $this->input->post('hubungan');
+        $lesen = $this->input->post('lesen');
+        $kelas = $this->input->post('kelas');
+        $cukai = $this->input->post('cukai');
+        $waris = $this->input->post('waris');
+        $status = $this->input->post('status');
+        $code = $this->input->post('code');
+
+
+        $data = array(
+            'jenis' => $jenis,
+            'plat' => $plat,
+            'kenderaan' => $kenderaan,
+            'model' => $model,
+            'nama' => $nama,
+            'ic' => $ic,
+            'phone' => $phone,
+            'hubungan' => $hubungan,
+            'lesen' => $lesen,
+            'kelas' => $kelas,
+            'cukai' => $cukai,
+            'waris' => $waris,
+            'status' => $status,
+            'code' => $code,
+        );
+
+        $this->m_registration->insert_users($data);
+}
+        else if($this->input->post('update') != ''){
+         /*perform update operation here*/
+}
+        else if($this->input->post('delete') != ''){
+        /*perform delete operation here*/
+}
+         $this->load->view('officer/posts_view');
+         // redirect('officer', 'refresh');
+
+    }
+
 
         function show_register_id() {
                     if ( ! $this->session->userdata('logged_in'))
