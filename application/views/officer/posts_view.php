@@ -1,4 +1,5 @@
-<div style="margin-top:5%;">
+<div style="margin-top:8%;">
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +14,8 @@
     </style>
 
   <body>
-   
+   <form method="post" >
+
  
     <h4>Display Records From Database Using Codeigniter</h4>
     <table border="1" style="width:100%">
@@ -31,7 +33,6 @@
       <td><strong>Cukai</strong></td>
       <td><strong>Waris</strong></td>
       <td><strong>Status</strong></td>
-       <td><strong>Result</strong></td>
     </tr> 
      <?php foreach($posts as $post){?>
      <tr>
@@ -39,7 +40,7 @@
          <td><?php echo $post->plat;?></td>
          <td><?php echo $post->kenderaan;?></td>
          <td><?php echo $post->model;?></td>
-         <td><?php echo anchor("officer/show_register_id/", $post->nama);?></td>
+        <td><?php echo $post->nama;?></td>
          <td><?php echo $post->ic;?></td>
          <td><?php echo $post->phone;?></td>
          <td><?php echo $post->hubungan;?></td>
@@ -48,10 +49,23 @@
          <td><?php echo $post->cukai;?></td>
          <td><?php echo $post->waris;?></td>
          <td><?php echo $post->status;?></td>
-          <td><input type="submit" name="update" value="Update" /></td>
-      </tr>     
+      </tr>  
+
      <?php }?>  
    </table>
- 
+   <div class="row" style="margin-top: 1%;">
+            
+            <div class="col-md-2">
+
+
+              <input type="button" class="btn btn-primary" value="Update" onClick="this.form.action='<?=site_url('officer/update');?>';this.form.submit()">
+
+              <input type="button" class="btn btn-primary" value="Back" onClick="this.form.action='<?=site_url('officer/home');?>';this.form.submit()">
+
+            
+
+            </div>
+        </div>
+  
     </body>
 </html>

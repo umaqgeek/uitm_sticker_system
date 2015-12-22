@@ -159,6 +159,16 @@ class Officer extends MY_Controller
             redirect('site');
         }
 
+        function update(){
+         $this->data['posts'] = $this->m_registration->getPosts();
+         $posts['status'] = 'Accept';
+
+$this->db->update('registration', $posts); 
+ $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
+ $this->viewpage('v_menu');
+
+        }
+
      public function add_users(){
 
     $this->load->view('officer/posts_view');
@@ -225,7 +235,7 @@ class Officer extends MY_Controller
         $register_id = $this->uri->segment(3);
 
         $this->data['posts'] = $this->m_registration->getPosts(); // calling Post model method getPosts()
-        $this->data['single_register'] = $this->m_registration->show_register_id();
+       
         $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
         $this->viewpage('v_menu');
     }

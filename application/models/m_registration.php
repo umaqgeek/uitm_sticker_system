@@ -28,31 +28,11 @@ function create_register () {
 
 }
 
-function get_All_Users(){
-
-        $query = $this->db->get('registration');
-        if($query->num_rows() > 0){
-            foreach($query->result() as $row) {
-                $data[]=$row;
-            }
-        }
-        return $data;
-    }
-
-
-    function insert_users($data){
-        $query = $this->db->insert('registration', $data);
-        return;
-
-
-    }
-
-    function update_users($data){
-        // update code...
-    }
-
-
-
+public function select1() {   
+    $this->db->select('status');
+     $this->db->from('registration'); 
+    return $this->db->get()->row();
+}
 
 function getPosts(){
   $this->db->select("*");
