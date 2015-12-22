@@ -107,8 +107,7 @@ class Site extends MY_Controller
         public function aduan()
         {
 
-          
-
+                $this->viewpage2();
                 $this->load->view('site/aduan');
 
         }
@@ -151,6 +150,7 @@ class Site extends MY_Controller
 
         public function hubung()
         {
+
                 $this->viewpage2();
                 $this->load->view('site/hubung');
         }
@@ -381,14 +381,15 @@ class Site extends MY_Controller
             {
             redirect(site_url('site'));
             }
-            else
-            {
+
+            
                 $this->viewpage1();
                 $this->load->view('site/userhome');
-            }
-    
+            
+  
         }
 
+      
         public function adminhome()
         {     
 

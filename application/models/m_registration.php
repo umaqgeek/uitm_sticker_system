@@ -28,18 +28,22 @@ function create_register () {
 
 }
 
+public function select1() {   
+    $this->db->select('status');
+     $this->db->from('registration'); 
+    return $this->db->get()->row();
+}
 
 function getPosts(){
-  $this->db->select("register_id,nama");
+  $this->db->select("*");
   $this->db->from('registration');
   $query = $this->db->get();
   return $query->result();
 }
 
-function show_register_id($data){
+function show_register_id(){
         $this->db->select('*');
         $this->db->from('registration');
-        $this->db->where('register_id', $data);
         $query = $this->db->get();
         $result = $query->result();
         return $result;  
