@@ -56,9 +56,25 @@ public function show_data_by_id($nama) {
         $this->db->select('*');
         $this->db->from('registration');
         $this->db->where($condition);
-        $this->db->limit(2);
+        
         $query = $this->db->get();
-        if ($query->num_rows() == 2) {
+        if ($query->num_rows() >=1) {
+            return $query->result();
+            } else {
+                return false;
+            }
+
+        return $query->result();
+        }
+
+        public function show_data_by_id1($ic) {
+        $condition = "ic =" . "'" . $ic . "'";
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where($condition);
+        
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
             return $query->result();
             } else {
                 return false;

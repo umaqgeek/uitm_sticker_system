@@ -53,6 +53,15 @@ class Officer extends MY_Controller
                                         $this->viewpage('v_menu');
                                     }
                                 }
+                                 else
+                                {
+                                        $data = array(
+                                        'error_message' => 'Invalid Username or Password'
+                                        );
+                                        redirect('site', $data);
+                                        $this->viewpage();
+                                }
+
                             }
 
         }
@@ -202,12 +211,11 @@ class Officer extends MY_Controller
             {
             redirect(site_url('site'));
             }      
-
-            $nama = $this->input->post('nama');
+            else
             $ic = $this->input->post('ic');
 
-            if ($ic != "" && $nama != "") {
-                $result = $this->m_registration->show_data_by_id($ic,$nama);
+            if ($ic != "" ) {
+                $result = $this->m_registration->show_data_by_id1($ic);
                 if ($result != false) {
                 $data['tunjuk'] = $result;
                 } else {

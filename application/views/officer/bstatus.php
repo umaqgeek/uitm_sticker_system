@@ -30,10 +30,7 @@
 <div class="row" style="margin-top: 5%;">
     <div class="col-md-8 col-md-offset-2">
         
-        <div class="row">
-            <div class="col-md-2">Name :</div>
-            <div class="col-md-8"><input type="text" class="form-control" name="nama" placeholder="Name" /></div>
-        </div>
+        
         <div class="row">
             <div class="col-md-2">IC :</div>
             <div class="col-md-8"><input type="text" class="form-control" name="ic" placeholder="Ic" /></div>
