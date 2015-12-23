@@ -66,7 +66,20 @@ public function show_data_by_id($nama) {
                return false;
            }
        }
+public function show_data_by_id1($nama,$ic) {
+       $condition = "nama =" . "'" . $nama ."' AND "."ic =" . "'" . $ic ."'"  ;
+       $this->db->select('*');
+       $this->db->from('registration');
+       $this->db->where($condition);
+       $this->db->limit(1);
+       $query = $this->db->get();
 
+       if ($query->num_rows() == 1) {
+           return $query->result();
+           } else {
+               return false;
+           }
+       }
 // public function show_data_by_plat($plat) {
 //        $condition = "plat =" . "'" . $plat . "'";
 //        $this->db->select('*');

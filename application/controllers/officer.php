@@ -189,7 +189,7 @@ class Officer extends MY_Controller
             $ic = $this->input->post('ic');
 
             if ($ic != "" && $nama != "") {
-                $result = $this->m_registration->show_data_by_id($ic,$nama);
+                $result = $this->m_registration->show_data_by_id1($ic,$nama);
                 if ($result != false) {
                 $data['tunjuk'] = $result;
                 } else {
