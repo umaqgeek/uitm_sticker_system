@@ -98,6 +98,7 @@ class Main extends CI_Controller
 
       if($this->upload->do_upload('userfile'))
       {
+        
         $finfo=$this->upload->data();
  
            // $this->_createThumbnail($finfo['file_name']);

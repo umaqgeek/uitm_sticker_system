@@ -60,7 +60,11 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
+<<<<<<< HEAD
 $autoload['libraries'] = array('database', 'session', 'xmlrpc', 'SimpleLoginSecure', 'grocery_CRUD');
+=======
+$autoload['libraries'] = array();
+>>>>>>> ce4ee0797237a6557b4099f6f3a89e66a44a3574
 
 
 /*
@@ -137,4 +141,8 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
+<<<<<<< HEAD
 $autoload['model'] = array('login');
+=======
+$autoload['model'] = array();
+>>>>>>> ce4ee0797237a6557b4099f6f3a89e66a44a3574

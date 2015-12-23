@@ -28,22 +28,28 @@ function create_register () {
 
 }
 
-
-function getPosts(){
- $this->db->select("register_id,nama");
- $this->db->from('registration');
- $query = $this->db->get();
- return $query->result();
+public function select1() {   
+    $this->db->select('status');
+     $this->db->from('registration'); 
+    return $this->db->get()->row();
 }
 
-function show_register_id($data){
-       $this->db->select('*');
-       $this->db->from('registration');
-       $this->db->where('register_id', $data);
-       $query = $this->db->get();
-       $result = $query->result();
-       return $result;  
-   }
+function getPosts(){
+
+  $this->db->select("*");
+  $this->db->from('registration');
+  $query = $this->db->get();
+  return $query->result();
+}
+
+function show_register_id(){
+        $this->db->select('*');
+        $this->db->from('registration');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;  
+    }
+
 
 function update_register_id1($register_id,$data){
 
@@ -53,47 +59,38 @@ function update_register_id1($register_id,$data){
 
 
 public function show_data_by_id($nama) {
-       $condition = "nama =" . "'" . $nama ."'"  ;
-       $this->db->select('*');
-       $this->db->from('registration');
-       $this->db->where($condition);
-       $this->db->limit(1);
-       $query = $this->db->get();
 
-       if ($query->num_rows() == 1) {
-           return $query->result();
-           } else {
-               return false;
-           }
-       }
-public function show_data_by_id1($nama,$ic) {
-       $condition = "nama =" . "'" . $nama ."' AND "."ic =" . "'" . $ic ."'"  ;
-       $this->db->select('*');
-       $this->db->from('registration');
-       $this->db->where($condition);
-       $this->db->limit(1);
-       $query = $this->db->get();
+        $condition = "nama =" . "'" . $nama ."'"  ;
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where($condition);
+        
+        $query = $this->db->get();
+        if ($query->num_rows() >=1) {
+            return $query->result();
+            } else {
+                return false;
+            }
 
-       if ($query->num_rows() == 1) {
-           return $query->result();
-           } else {
-               return false;
-           }
-       }
-// public function show_data_by_plat($plat) {
-//        $condition = "plat =" . "'" . $plat . "'";
-//        $this->db->select('*');
-//        $this->db->from('registration');
-//        $this->db->where($condition);
-//        $this->db->limit(1);
-//        $query = $this->db->get();
+        return $query->result();
+        }
 
-//        if ($query->num_rows() == 1) {
-//            return $query->result();
-//            } else {
-//                return false;
-//            }
-//        }
+        public function show_data_by_id1($ic) {
+        $condition = "ic =" . "'" . $ic . "'";
+        $this->db->select('*');
+        $this->db->from('registration');
+        $this->db->where($condition);
+        
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+            } else {
+                return false;
+            }
+
+        return $query->result();
+        }
+
 
 public function updatestatus($ic,$nama) {
        $condition = "ic =" . "'" . $ic . "' AND " . "nama =" . "'" . $nama . "'";

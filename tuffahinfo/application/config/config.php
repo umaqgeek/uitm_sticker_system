@@ -17,7 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = "http://localhost/tuffahinfo";
+=======
+$config['base_url'] = '';
+>>>>>>> ce4ee0797237a6557b4099f6f3a89e66a44a3574
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +33,11 @@ $config['base_url'] = "http://localhost/tuffahinfo";
 | variable so that it is blank.
 |
 */
+<<<<<<< HEAD
 $config['index_page'] = 'index.php';
+=======
+$config['index_page'] = '';
+>>>>>>> ce4ee0797237a6557b4099f6f3a89e66a44a3574
 
 /*
 |--------------------------------------------------------------------------

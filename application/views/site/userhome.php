@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+} else {
+header("location: site");
+}
+?>
 <head>
   <title>Tuffah Informatics</title>
   <meta charset="utf-8">
@@ -31,7 +38,7 @@ body{
         <h2>UiTM STICKER SYSTEM</h2>
         <div id="content">
           <legend>
-          <div class="home"><h2>WELCOME!</h2><h4>Thank You For Using Our System</h4></div>
+          <div class="home"><h2>WELCOME <?php echo $username; ?>!</h2><h4>Thank You For Using Our System </h4></div>
         </legend>
           </div>
 

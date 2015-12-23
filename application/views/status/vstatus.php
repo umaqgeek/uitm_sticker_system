@@ -29,7 +29,7 @@ div.two{
   width:1000px;
 }
 body{
-        background-color:#FFC0CB;
+        background-color:lightgrey;
   }
   </style>
 </head>
@@ -41,10 +41,10 @@ if (isset($tunjuk)) {
 } 
 else ?>
 {
-	<?php foreach ($tunjuk as $value): ?> {
+  <?php foreach ($tunjuk as $value): ?><span class="help-block">
 
-<center><form method="post" class="three" ><div id="printableArea">
-                            <div class="row" style="margin-top: 5%;">
+<center><div id="printableArea"><form method="post" class="help-block " >
+                            <div class="row" ng-repeat="row" style="margin-top: 5%;">
                             <div class="col-md-10 col-md-offset-1">
                             <input type="hidden" id="hide" name="register_id" value="<?php echo $value->jenis; ?>"><br/> 
                             <div class="row">          
@@ -78,6 +78,7 @@ else ?>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="ic"  value="<?php echo $value->ic; ?>"></div>
                                 </div><br>
                                 <div class="row">
+
                                     <div class="col-md-2">No Tel Pemilik:</div>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="phone_no"  value="<?php echo $value->phone_no; ?>"></div>
                                 </div><br>
@@ -106,6 +107,7 @@ else ?>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->waris; ?>"></div>
                                 </div><br>
                                 <div class="row">
+
                                     <div class="col-md-2">Status:</div>
                                     <div class="col-md-10"><input type="text" class="form-control"readonly name="waris"  value="<?php echo $value->status; ?>"></div>
                                 </div><br>
@@ -118,37 +120,8 @@ else ?>
                             </div>
                         </div>
                         <center><input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-                                <input type="button" class="btn btn-primary" onclick="printDiv('printableArea')" value="Print " />
-                    </form><?php endforeach; }?><br>
-
                                 
+                    </form><input type="button" class="btn btn-primary" onClick="window.print()" value="Print " /><?php endforeach; }?>
 
-                                
-
- 
-
-
-                     
-    
-       
-
-
-
-
- </body>
+</body>
 </html>
-
-<?php for($i=0;$i<count($tunjuk);$i++) { ?>
-    <tr>
-        <td>
-            <span><?php echo $tunjuk[$i]->jenis; ?></span>
-        </td>
-        <td>
-            <span><?php echo $tunjuk[$i]->nama; ?></span>
-        </td>
-
-        <td>
-            <span><?php echo $tunjuk[$i]->kenderaan; ?></span>
-        </td>
-    </tr>
- <?php } ?>

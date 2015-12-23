@@ -9,6 +9,7 @@ class Officer extends MY_Controller
             parent::__construct();
 
             $this->load->model('m_officer'); 
+             $this->load->model('m_registration');
     }
 
         public function officer1()
@@ -53,6 +54,15 @@ class Officer extends MY_Controller
                                         $this->viewpage1('vmenu');
                                     }
                                 }
+                                 else
+                                {
+                                        $data = array(
+                                        'error_message' => 'Invalid Username or Password'
+                                        );
+                                        redirect('site', $data);
+                                        $this->viewpage();
+                                }
+
                             }
 
         }
@@ -134,21 +144,88 @@ class Officer extends MY_Controller
             redirect('site');
         }
 
+        function update(){
+         $this->data['posts'] = $this->m_registration->getPosts();
+         $posts['status'] = 'Accept';
+
+$this->db->update('registration', $posts); 
+ $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
+ $this->viewpage('v_menu');
+
+        }
+
+     public function add_users(){
+
+    $this->load->view('officer/posts_view');
+}
+
+    public function create_users(){
+
+         $this->load->model('m_registration');
+        if($this->input->post('insert') != ''){
+        /*Perform insert operation here*/
+
+        $jenis = $this->input->post('jenis');
+        $plat = $this->input->post('plat');
+        $kenderaan = $this->input->post('kenderaan');
+        $model = $this->input->post('model');
+        $nama = $this->input->post('nama');
+        $ic = $this->input->post('ic');
+        $phone = $this->input->post('phone');
+        $hubungan = $this->input->post('hubungan');
+        $lesen = $this->input->post('lesen');
+        $kelas = $this->input->post('kelas');
+        $cukai = $this->input->post('cukai');
+        $waris = $this->input->post('waris');
+        $status = $this->input->post('status');
+        $code = $this->input->post('code');
+
+
+        $data = array(
+            'jenis' => $jenis,
+            'plat' => $plat,
+            'kenderaan' => $kenderaan,
+            'model' => $model,
+            'nama' => $nama,
+            'ic' => $ic,
+            'phone_no' => $phone_no,
+            'hubungan' => $hubungan,
+            'lesen' => $lesen,
+            'kelas' => $kelas,
+            'cukai' => $cukai,
+            'waris' => $waris,
+            'status' => $status,
+            'code' => $code,
+        );
+
+        $this->m_registration->insert_users($data);
+}
+        else if($this->input->post('update') != ''){
+         /*perform update operation here*/
+}
+        else if($this->input->post('delete') != ''){
+        /*perform delete operation here*/
+}
+         $this->load->view('officer/posts_view');
+         // redirect('officer', 'refresh');
+
+    }
+
 
         function show_register_id() {
-        if ( ! $this->session->userdata('logged_in'))
+                    if ( ! $this->session->userdata('logged_in'))
             {
             redirect(site_url('site'));
             }
         $register_id = $this->uri->segment(3);
-        $data=$this->m_registration->getPosts();
-        $data['register'] = $this->m_registration->getPosts();
-        $data['single_register'] = $this->m_registration->show_register_id($register_id);
-        $this->load->view('officer/officer', $data);
-        $this->viewpage2('menu');
 
+        $this->data['posts'] = $this->m_registration->getPosts(); // calling Post model method getPosts()
        
+        $this->load->view('officer/posts_view', $this->data); // load the view file , we are passing $data array to view file
+        $this->viewpage('v_menu');
     }
+
+   
 
     function update_register_id1() 
     {
@@ -184,12 +261,12 @@ class Officer extends MY_Controller
             {
             redirect(site_url('site'));
             }      
-
-            $nama = $this->input->post('nama');
+            else
             $ic = $this->input->post('ic');
 
-            if ($ic != "" && $nama != "") {
-                $result = $this->m_registration->show_data_by_id1($ic,$nama);
+            if ($ic != "" ) {
+                $result = $this->m_registration->show_data_by_id1($ic);
+
                 if ($result != false) {
                 $data['tunjuk'] = $result;
                 } else {
@@ -205,3 +282,6 @@ class Officer extends MY_Controller
 
  }
 ?>
+
+
+   

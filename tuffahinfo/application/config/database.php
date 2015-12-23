@@ -65,9 +65,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+<<<<<<< HEAD
 	'username' => 'root',
 	'password' => '',
 	'database' => 'tuffahinfo_db',
+=======
+	'username' => '',
+	'password' => '',
+	'database' => '',
+>>>>>>> ce4ee0797237a6557b4099f6f3a89e66a44a3574
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

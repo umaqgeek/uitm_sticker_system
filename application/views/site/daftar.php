@@ -75,7 +75,7 @@ body{
 
                                 <div class="row">
                                     <div class="col-md-2">No Plat Kenderaan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="plat"  placeholder="No Plat"value="<?php echo set_value('plat'); ?>" size="50"></div>
                                   
                                 </div><br>
                                 <div class="row">
@@ -92,7 +92,7 @@ body{
                                 <div class="row">
                                       <div class="col-md-2">Jenis Kenderaan:</div>
                                       <div class="col-md-10">
-                                      <select name="model" id="select2"class="form-control">
+                                      <select name="model" id="select2"class="form-control" >
                                          <option value="">Sila Pilih</option>
                                          <option value="ALF" >ALF - ALFA ROMEO</option>
                                          <option value="APR" >APR - APRIALLIA</option>
@@ -140,7 +140,7 @@ body{
                                 <div class="row">
                                     <div class="col-md-2">Pemilik asal:</div>
                                     <div class="col-md-10">
-                                   <select name="hubungan" id="select3" class="form-control" >
+                                   <select name="hubungan" id="select3" class="form-control">
                                         <option value="-">Sila Pilih</option>
                                         <option value="DN" >DN - DATUK/NENEK</option>
                                         <option value="IB" >IB - IBU/BAPA</option>
@@ -156,13 +156,13 @@ body{
                                   </div><br>
                                   <div class="row">
                                     <div class="col-md-2">No Lesen:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  placeholder="No Lesen"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="lesen"  placeholder="No Lesen" value="<?php echo set_value('lesen'); ?>" size="50"></div>
                                     
                                   </div><br>
                                 <div class="row">
                                     <div class="col-md-2">Kelas Lesen:</div>
                                     <div class="col-md-10">
-                                    <select name="kelas" id="select4" class="form-control">
+                                    <select name="kelas" id="select4" class="form-control" >
                                         <option value="-">Sila Pilih</option>
                                         <option value="A"  >A - Kenderaan orang cacat</option>
                                         <option value="B"  >B - Motosikal melebihi 500sp</option>
@@ -179,12 +179,12 @@ body{
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No Cukai Jalan:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  placeholder="No Cukai Jalan"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="cukai"  placeholder="No Cukai Jalan" value="<?php echo set_value('cukai'); ?>" size="50"></div>
                                    
                                </div><br>
                                <div class="row">
                                     <div class="col-md-2">No waris Terdekat:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control" name="waris"  placeholder="No Waris" value="<?php echo set_value('waris'); ?>" size="50"></div>
                                 </div>
 
                                     <div class="row">
@@ -203,12 +203,9 @@ body{
                                 <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-3"></div>
 
-                                <input type="button" class="btn btn-primary" value="Batal" data-toggle="modal" data-target="#myModal1" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
-                               <div class="col-md-4"> <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button></div> 
 
-                                <!-- <input type="button" class="btn btn-primary" value="Hantar" data-toggle="modal" data-target="#myModal1"> -->
-                               <!--  <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button>
-                                  <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()"> -->
+                                <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Hantar</button>
+                                  <input type="button" class="btn btn-primary" value="Kembali" onClick="this.form.action='<?=site_url('site/userhome');?>';this.form.submit()">
                                 
 
                                 
