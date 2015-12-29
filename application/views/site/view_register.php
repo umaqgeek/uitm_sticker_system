@@ -19,7 +19,7 @@ body{
   </style>
 </head>
 <body>
-<?php if(isset($jenis) && isset($plat)&& isset($kenderaan)&& isset($model)&& isset($nama)&& isset($ic)&& isset($phone)&& isset($hubungan)&& isset($lesen)&& isset($kelas)&& isset($cukai)&& isset($waris)&& isset($status))?>
+<?php if(isset($jenis) && isset($plat)&& isset($kenderaan)&& isset($model)&& isset($nama)&& isset($ic)&& isset($phone_no)&& isset($hubungan)&& isset($lesen)&& isset($kelas)&& isset($cukai)&& isset($waris)&& isset($status))?>
 <center><form method="post" class="three" >
                             <div class="row" style="margin-top: 5%;">
                             <div class="col-md-6 col-md-offset-3">
@@ -63,7 +63,7 @@ body{
                                 </div><br>
                                 <div class="row">
                                     <div class="col-md-2">No Tel Pemilik:</div>
-                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone"  value="<?php echo $phone; ?>"></div>
+                                    <div class="col-md-10"><input type="text" class="form-control"readonly name="phone_no"  value="<?php echo $phone_no; ?>"></div>
                                     
                                 </div><br>
                                 <div class="row">
