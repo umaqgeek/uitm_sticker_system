@@ -265,7 +265,7 @@ class Site extends MY_Controller
             
             $this->form_validation->set_rules('plat', 'No Plat Kenderaan', 'trim|required|min_length[7]');
 
-            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required|min_length[12]');
+            $this->form_validation->set_rules('ic', 'No IC Pemilik', 'trim|required');
             $this->form_validation->set_rules('cukai', 'No Cukai Jalan', 'trim|required');
             $this->form_validation->set_rules('waris', 'No Waris Terdekat', 'trim|required|min_length[10]');
             
